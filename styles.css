@@ -1,0 +1,49 @@
+:root{--blue:#36c;--border:#a2a9b1;--light:#eaecf0;--head:#f8f9fa;--text:#202122}*{box-sizing:border-box}body{margin:0;color:var(--text);font:14px/1.55 Arial,sans-serif;background:#fff}header{height:64px;border-bottom:1px solid var(--light);display:flex;align-items:center;justify-content:space-between;padding:0 28px;position:sticky;top:0;background:#fff;z-index:5}.brand{display:flex;gap:10px;align-items:center;font-family:Georgia,serif;font-size:19px}.brand small{display:block;font:11px Arial;color:#54595d;letter-spacing:.08em;text-transform:uppercase}.ball{font-size:28px}header input{width:min(420px,42vw);padding:9px 12px;border:1px solid var(--border)}.layout{display:grid;grid-template-columns:190px minmax(0,980px);gap:28px;max-width:1240px;margin:0 auto;padding:24px}aside{font-size:13px}aside nav{display:flex;flex-direction:column;gap:5px}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}aside hr{border:0;border-top:1px solid var(--light);margin:18px 0 10px}main{min-width:0}h1,h2{font-family:Georgia,'Times New Roman',serif;font-weight:400;border-bottom:1px solid var(--border);margin:0 0 12px}h1{font-size:30px;line-height:1.25}h2{font-size:21px;margin-top:28px}.lede{font-size:15px}.infobox{float:right;width:290px;margin:0 0 18px 24px;border:1px solid var(--border);border-collapse:collapse;background:#f8f9fa;font-size:13px}.infobox th{background:#dce6f4;text-align:center;font-size:16px;padding:8px}.infobox td{padding:5px 8px;border-top:1px solid var(--light);vertical-align:top}.infobox td:first-child{font-weight:bold;width:40%}.status{display:inline-block;background:#fff3cd;border:1px solid #e3c96d;padding:1px 6px;border-radius:2px;font-size:12px}.wikitable{width:100%;border-collapse:collapse;margin:10px 0 18px;font-size:13px}.wikitable th,.wikitable td{border:1px solid var(--border);padding:5px 7px;text-align:left}.wikitable th{background:var(--light);font-weight:bold}.wikitable tr:nth-child(even) td{background:#f8f9fa}.num{text-align:right!important}.toc{display:inline-block;border:1px solid var(--border);background:var(--head);padding:10px 18px;margin:12px 0}.toc b{display:block;text-align:center}.toc ol{margin:5px 0;padding-left:20px}.cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}.card{border:1px solid var(--border);padding:16px;background:#fff}.card h3{font-family:Georgia,serif;margin:0 0 6px;font-size:20px}.muted{color:#72777d}.honours{columns:2;column-gap:30px}.honours h3{break-after:avoid;margin-bottom:3px}.honours ul{margin-top:4px}.season-tabs{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 14px}.season-tabs button{border:1px solid var(--border);background:var(--head);padding:6px 9px;color:var(--blue);cursor:pointer}.season-tabs button.active{background:#dce6f4;color:#202122;font-weight:bold}.competition{margin:18px 0}.competition h3{font-family:Georgia,serif;border-bottom:1px solid var(--light);padding-bottom:4px}.score{white-space:nowrap}.champ{font-weight:bold}.note{border-left:4px solid #36c;background:#f8f9fa;padding:8px 12px;margin:12px 0}.clear{clear:both}.search-hit{background:#fff3cd}@media(max-width:760px){.layout{display:block;padding:16px}aside{display:none}.infobox{float:none;width:100%;margin:12px 0}.cards{grid-template-columns:1fr}.honours{columns:1}header{padding:0 14px}.brand small{display:none}}
+
+.fixture-list{border:1px solid #a2a9b1;border-bottom:0;margin:.4rem 0 1.2rem;background:#fff}.fixture-row{display:grid;grid-template-columns:44px 1fr;gap:10px;padding:7px 10px;border-bottom:1px solid #c8ccd1;line-height:1.35}.fixture-row:nth-child(even){background:#f8f9fa}.fixture-no{color:#72777d;text-align:right;padding-right:8px;border-right:1px solid #eaecf0}.competition h2{margin-bottom:.35rem}@media(max-width:650px){.fixture-row{grid-template-columns:30px 1fr;padding:7px 6px}}
+/* Spreadsheet-style fixture tables */
+.fixture-table{width:min(760px,100%);border-collapse:collapse;margin:.45rem 0 1.35rem;font-size:14px;background:#fff}.fixture-table td{border:1px solid #c8ccd1;padding:4px 7px;line-height:1.25}.fixture-table .flag{width:34px;text-align:center;font-size:17px;padding:2px 4px}.fixture-table .team{width:34%;}.fixture-table .home{text-align:right}.fixture-table .away{text-align:left}.fixture-table .scorecell{width:88px;text-align:center;font-weight:700;font-size:16px;white-space:nowrap;background:#f8f9fa}.fixture-table .marker{width:22px;padding:0}.fixture-table .marker.win{background:#93c47d}.fixture-table .marker.draw{background:#ffd966}.fixture-table .marker.loss{background:#e00000}.fixture-table .marker.neutral{background:#d9d9d9}.fixture-table .round td{background:#f8f9fa;color:#54595d;font-size:12px;font-weight:600}.fixture-table tr:hover td:not(.marker){background:#f3f6fa}.fixture-note{font-size:12px;color:#72777d;margin-top:-.8rem;margin-bottom:1rem}@media(max-width:650px){.fixture-table{font-size:12px}.fixture-table td{padding:4px}.fixture-table .flag{width:25px;font-size:14px}.fixture-table .scorecell{width:68px;font-size:14px}.fixture-table .marker{width:14px}}
+
+/* Player career summary: two equal columns on desktop */
+.career-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start;clear:both}
+.career-grid h2,.career-grid h3{margin-top:0}
+.career-grid table{width:100%;margin-bottom:0}
+@media (max-width:760px){.career-grid{grid-template-columns:1fr;gap:16px}.career-grid h3{font-size:1.5em;border-bottom:1px solid #a2a9b1;padding-bottom:.2em}}
+
+.fixture-table .round-separator th{border:0;border-top:14px solid #fff;border-bottom:1px solid #a2a9b1;padding:7px 8px 4px;text-align:left;background:#fff;font-family:Georgia,'Times New Roman',serif;font-size:15px;font-weight:600;color:#202122}.fixture-table .round-separator:first-child th{border-top-width:0;padding-top:3px}
+
+/* Compact season layout and jump navigation */
+.fixture-table{width:min(680px,100%)}
+.league-record{max-width:680px}
+.season-jump{width:min(680px,100%);border:1px solid #a2a9b1;background:#f8f9fa;margin:14px 0 16px;padding:9px 12px}
+.season-jump b{font-family:Georgia,'Times New Roman',serif;font-size:15px;margin-right:12px}
+.season-jump div{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:5px}
+.season-jump a{white-space:nowrap}
+.competition{scroll-margin-top:78px}
+@media(min-width:1050px){.competition{max-width:720px}.fixture-table{width:680px}}
+@media(max-width:760px){.season-jump,.fixture-table,.league-record{width:100%;max-width:100%}}
+
+
+/* ProggyForever webfont experiment. Loaded from the font's official GitHub repository. */
+@font-face{font-family:"ProggyForever";src:url("https://raw.githubusercontent.com/ocornut/proggyforever/master/ProggyForever-Regular.ttf") format("truetype");font-style:normal;font-weight:400;font-display:swap}
+:root{--ui-mono:"ProggyForever","ProggyCleanTT","ProggyClean TTF","Lucida Console","DejaVu Sans Mono",monospace}
+body{font-family:var(--ui-mono);font-size:15px;line-height:1.45}
+header input,.wikitable,.fixture-table,.infobox,.season-tabs button,.season-jump,.note,aside{font-family:var(--ui-mono)}
+/* Preserve the encyclopedia/article feel for titles. */
+h1,h2,h3,.brand,.card h3,.competition h3,.fixture-table .round-separator th,.season-jump b{font-family:Georgia,'Times New Roman',serif}
+/* Flags are deliberately larger than surrounding text without making rows bulky. */
+.fixture-table .flag{font-size:21px;line-height:1;padding-top:2px;padding-bottom:2px}
+.infobox th:first-child{line-height:1.35}
+@media(max-width:650px){.fixture-table .flag{font-size:18px}}
+
+/* Larger ProggyForever typography pass */
+body{font-size:17px;line-height:1.5}
+aside{font-size:15px}
+.brand{font-size:20px}.brand small{font-size:12px}
+.lede{font-size:17px}
+.infobox{font-size:15px}.infobox th{font-size:18px}.status{font-size:14px}
+.wikitable{font-size:15px}
+.season-tabs button{font-size:15px}
+.season-jump{font-size:16px}.season-jump b{font-size:16px}
+.fixture-table{font-size:16px}.fixture-table .scorecell{font-size:17px}.fixture-table .round td{font-size:14px}.fixture-note{font-size:14px}
+@media(max-width:650px){body{font-size:16px}.wikitable,.fixture-table{font-size:14px}.fixture-table .scorecell{font-size:16px}.fixture-table .round td{font-size:13px}.season-jump{font-size:15px}}
