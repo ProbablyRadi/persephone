@@ -1537,3 +1537,26 @@ body.theme-terminal.theme-dracula *::before,
 body.theme-terminal.theme-dracula *::after{
   font-family:"ProggyForever","ProggyCleanTT","ProggyClean TTF","Lucida Console","DejaVu Sans Mono",monospace !important;
 }
+
+
+/* Consistent table-row hover across the whole site */
+body:not(.theme-terminal):not(.theme-glass) table tbody tr:not(.focus-team):not(.focus-player):not(.round-separator):hover td{
+  background:#f3f6fa;
+}
+body.theme-glass table tbody tr:not(.focus-team):not(.focus-player):not(.round-separator):hover td{
+  background:rgba(255,255,255,.10);
+}
+body.theme-terminal.theme-dracula table tbody tr:not(.focus-team):not(.focus-player):not(.round-separator):hover td{
+  background:#44475a;
+}
+
+/* Preserve special result-cell emphasis while hovering fixture rows */
+body:not(.theme-terminal):not(.theme-glass) .fixture-table tbody tr:hover td.team.winner{
+  background:#e3f2dd;
+}
+body.theme-glass .fixture-table tbody tr:hover td.team.winner{
+  background:rgba(92,190,112,.28);
+}
+body.theme-terminal.theme-dracula .fixture-table tbody tr:hover td.team.winner{
+  background:#385341;
+}
