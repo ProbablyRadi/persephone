@@ -57,7 +57,37 @@ function seasonStatStrip(p,s,d,meta){
   return `<div class="season-kpis">${cards.map(([k,v])=>`<div><span>${k}</span><b>${v===''||v==null?'—':v}</b></div>`).join('')}</div>`;
 }
 
-function player(id){let p=DATA[id]; app.className='profile-page'; nav.innerHTML=careerNavigator(id); app.innerHTML=`${infobox(p)}<h1>${p.displayName||p.name}</h1><p class="lede">${p.intro}</p><div class="toc"><b>Contents</b><ol><li><a href="#career">Club career</a></li><li><a href="#stats">Career statistics</a></li><li><a href="#honours">Honours</a></li><li><a href="#seasons">Season archive</a></li><li><a href="#career-timeline" onclick="event.preventDefault();location.hash='${id}/timeline'">Timeline</a></li><li><a href="#team-analysis" onclick="event.preventDefault();location.hash='${id}/analysis'">Head to Head</a></li></ol></div><div class="clear"></div><div class="career-grid"><section><h2 id="career">Club career</h2>${table(['Years','Team','Apps','Goals'],p.career)}</section><section><h2>International career</h2>${table(['Years','Team','Apps','Goals'],[p.intl])}</section></div><h2 id="stats">Career statistics</h2>${table(['Season','Club','Role','League','Pos.','Avg','Apps','Goals','Assists','CLS'],p.stats)}<h2 id="honours">Honours</h2>${honours(p)}<h2 id="seasons">Season-by-season archive</h2><p>Select a season to browse its recorded competitions and results.</p><div class="season-tabs">${Object.keys(p.seasons).map(s=>`<button onclick="location.hash='${id}/${s}'">${s}${p.seasons[s].inProgress?' •':''}</button>`).join('')}</div><div class="analysis-callout" id="team-analysis"><b>${(p.displayName||p.name).split(' ')[0]} vs Teams</b><span>Combined head-to-head record against every opponent, across every club and international team represented.</span><a href="#${id}/analysis">View head-to-head records →</a></div>`}
+function player(id){
+  let p=DATA[id];
+  app.className='profile-page';
+  nav.innerHTML=careerNavigator(id);
+  app.innerHTML=`${infobox(p)}
+    <h1>${p.displayName||p.name}</h1>
+    <p class="lede">${p.intro}</p>
+    <div class="toc">
+      <b>Contents</b>
+      <ol>
+        <li><a href="#career">Club career</a></li>
+        <li><a href="#stats">Career statistics</a></li>
+        <li><a href="#honours">Honours</a></li>
+      </ol>
+    </div>
+    <div class="clear"></div>
+    <div class="career-grid">
+      <section>
+        <h2 id="career">Club career</h2>
+        ${table(['Years','Team','Apps','Goals'],p.career)}
+      </section>
+      <section>
+        <h2>International career</h2>
+        ${table(['Years','Team','Apps','Goals'],[p.intl])}
+      </section>
+    </div>
+    <h2 id="stats">Career statistics</h2>
+    ${table(['Season','Club','Role','League','Pos.','Avg','Apps','Goals','Assists','CLS'],p.stats)}
+    <h2 id="honours">Honours</h2>
+    ${honours(p)}`;
+}
 const FLAGS={
 'PEC Zwolle':'🇳🇱','PSV':'🇳🇱','Ajax':'🇳🇱','Feyenoord':'🇳🇱','AZ':'🇳🇱','FC Utrecht':'🇳🇱','FC Twente':'🇳🇱','Telstar':'🇳🇱','N.E.C. Nijmegen':'🇳🇱','Go Ahead Eagles':'🇳🇱','FC Volendam':'🇳🇱','NAC Breda':'🇳🇱','Heracles Almelo':'🇳🇱','Sparta Rotterdam':'🇳🇱','FC Groningen':'🇳🇱','sc Heerenveen':'🇳🇱','Fortuna Sittard':'🇳🇱','Excelsior':'🇳🇱',
 'Brighton & Hove':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Brighton & Hove Albion':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Bristol City':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Manchester City':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Manchester United':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Man Utd':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Liverpool':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Arsenal':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Chelsea':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Tottenham Hotspurs':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Tottenham':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Newcastle United':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','West Ham':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Fulham':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Everton':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Aston Villa':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Crystal Palace':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Nottingham Forest':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','AFC Bournemouth':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Wolves':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Sunderland':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Southampton':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Brentford':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Ipswich':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Norwich':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Sheffield United':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Leicester City':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Reading':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Blackburn Rovers':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Blackpool':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Bolton':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Coventry City':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Walsall':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Swansea City':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Leyton Orient':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Wigan Athletic':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Charlton Athletic':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Middlesbrough':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Crewe Alexandra':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Hull':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Burnley':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Watford':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Wycombe':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Lincoln City':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Oxford United':'🏴󠁧󠁢󠁥󠁮󠁧󠁿',
@@ -351,12 +381,10 @@ Object.assign(PLAYER_FLAGS,{
 });
 
 function updateTopPlayerShortcuts(){
-  const hash=(location.hash||'#main').toLowerCase();
+  const hash=(location.hash||'#home').toLowerCase();
   const isMain=hash===''||hash==='#main'||hash==='#home';
-  const names=new Set(['Rens Adisea','Jordan Vale','Espen Sæheim','Vasi Dimitriou']);
-  document.querySelectorAll('aside a').forEach(a=>{
-    const label=(a.textContent||'').trim();
-    if(names.has(label)) a.style.display=isMain?'':'none';
+  document.querySelectorAll('aside > nav:first-of-type a[data-page]').forEach(a=>{
+    a.style.display=isMain?'':'none';
   });
 }
 window.addEventListener('hashchange',()=>setTimeout(updateTopPlayerShortcuts,0));

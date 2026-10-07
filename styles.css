@@ -1495,3 +1495,45 @@ body:not(.theme-terminal) .player-nation{
   font-size:18px!important;
   line-height:1;
 }
+
+
+/* Dracula: keep highlighted player/team rows readable */
+body.theme-terminal.theme-dracula .focus-player td,
+body.theme-terminal.theme-dracula .focus-team td,
+body.theme-terminal.theme-dracula tr.focus-player td,
+body.theme-terminal.theme-dracula tr.focus-team td{
+  color:#111 !important;
+}
+body.theme-terminal.theme-dracula .focus-player td a,
+body.theme-terminal.theme-dracula .focus-team td a,
+body.theme-terminal.theme-dracula tr.focus-player td a,
+body.theme-terminal.theme-dracula tr.focus-team td a{
+  color:#111 !important;
+}
+
+
+/* Wiki: fixtures-only competitions use exactly the left track of paired layouts */
+@media(min-width:981px){
+  body:not(.theme-terminal):not(.theme-glass) .season-view .season-page > .season-competition:not(.competition-fixture-panel){
+    width:calc((100% - 28px) * 0.54) !important;
+    max-width:calc((100% - 28px) * 0.54) !important;
+    box-sizing:border-box;
+    margin-left:0 !important;
+    margin-right:auto !important;
+  }
+
+  body:not(.theme-terminal):not(.theme-glass) .season-view .season-page > .season-competition:not(.competition-fixture-panel) .competition-fixtures,
+  body:not(.theme-terminal):not(.theme-glass) .season-view .season-page > .season-competition:not(.competition-fixture-panel) .fixture-table{
+    width:100% !important;
+    max-width:none !important;
+  }
+}
+
+
+/* Dracula font lock: ProggyForever everywhere */
+body.theme-terminal.theme-dracula,
+body.theme-terminal.theme-dracula *,
+body.theme-terminal.theme-dracula *::before,
+body.theme-terminal.theme-dracula *::after{
+  font-family:"ProggyForever","ProggyCleanTT","ProggyClean TTF","Lucida Console","DejaVu Sans Mono",monospace !important;
+}
