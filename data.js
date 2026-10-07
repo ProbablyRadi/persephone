@@ -38,7 +38,7 @@ current:'🇪🇸 FC Barcelona Femení',
 number:'9',
 international:'—',
 intro:'Vasiliki Dimitriou is a highly talented Greek striker born in Thessaloniki, Greece. Nicknamed both “The Queen” and “The Demon”, she is known for combining exceptional technical ability with a powerful and highly physical style of play. Dimitriou can overpower defenders while still producing moments of skill and composure in attacking areas, giving her a rare balance of strength and talent. Her Barcelona career began with an immediate scoring impact, while her first recorded season has also included emphatic Liga F victories and an early UEFA Women’s Champions League appearance against FC Bayern München. Her aggressive presence and natural finishing ability have quickly made her one of the most distinctive young forwards in her career.',
-career:[['2025–2030','🇪🇸 FC Barcelona Femení',3,3],['2030–2035','🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester City Women','—','—'],['2035–2040','🇪🇸 FC Barcelona Femení','—','—']],
+career:[['2025–2031','🇪🇸 FC Barcelona Femení',3,3],['2031–2034','🇫🇷 OL Lyonnes','—','—'],['2034–2037','🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester City Women','—','—'],['2037–2040','🇺🇸 Gotham FC','—','—']],
 intl:['—','—','—','—'],
 stats:[['2025–26','🇪🇸 FC Barcelona Femení','ST','Liga F','In progress','—',3,3,'—','—']],
 honours:{},
@@ -48,8 +48,8 @@ seasons:{
     summary:'First FC Barcelona Femení season — currently in progress.',
     competitions:{
       'Pre-season friendlies':['FC Barcelona 3 - 0 West Ham','London City 0 - 3 FC Barcelona','FC Barcelona 0 - 2 Paris FC'],
-      'Liga F':['FC Barcelona 2 - 1 Alhama CF','Athletic Club 1 - 6 FC Barcelona','FC Barcelona 4 - 0 Logroño United','Sevilla FC 2 - 2 FC Barcelona','FC Barcelona 4 - 0 RCD Espanyol','SD Eibar 2 - 2 FC Barcelona'],
-      "UEFA Women's Champions League":["FC Barcelona 1 - 1 FC Bayern München"]
+      'Liga F':['FC Barcelona 2 - 1 Alhama CF','Athletic Club 1 - 6 FC Barcelona','FC Barcelona 4 - 0 Logroño United','Sevilla FC 2 - 2 FC Barcelona','FC Barcelona 4 - 0 RCD Espanyol','SD Eibar 2 - 2 FC Barcelona','Atlético de Madrid 0 - 2 FC Barcelona','FC Barcelona 3 - 1 Granada CF','Real Sociedad 0 - 3 FC Barcelona','FC Barcelona 3 - 1 RC Deportivo','FC Barcelona 2 - 2 Real Madrid','Levante UD 1 - 3 FC Barcelona','FC Barcelona 2 - 0 C. Adeje Tenereife','Badalona Women 1 - 4 FC Barcelona','FC Barcelona 4 - 0 Madrid CFF','Alhama CF 2 - 3 FC Barcelona','FC Barcelona 2 - 1 Atlético de Madrid','FC Barcelona 1 - 2 Sevilla FC','Logroño United 0 - 4 FC Barcelona'],
+      "UEFA Women's Champions League":['FC Barcelona 1 - 1 FC Bayern München','Roma 2 - 1 FC Barcelona','FC Barcelona 1 - 2 Glasgow City FC','Chelsea 1 - 2 FC Barcelona','FC Barcelona 1 - 3 SL Benfica','Paris FC 1 - 3 FC Barcelona','FC Barcelona 4 - 0 OL Lyonnes']
     },
     table:'In progress'
   }
@@ -59,7 +59,7 @@ seasons:{
 FULL_FIXTURES.vasi={
   '2025–26':{
     'Pre-season friendlies':['FC Barcelona 3 - 0 West Ham','London City 0 - 3 FC Barcelona','FC Barcelona 0 - 2 Paris FC'],
-    'Liga F':['FC Barcelona 2 - 1 Alhama CF','Athletic Club 1 - 6 FC Barcelona','FC Barcelona 4 - 0 Logroño United','Sevilla FC 2 - 2 FC Barcelona','FC Barcelona 4 - 0 RCD Espanyol','SD Eibar 2 - 2 FC Barcelona'],
-    "UEFA Women's Champions League":["FC Barcelona 1 - 1 FC Bayern München"]
+    'Liga F':['FC Barcelona 2 - 1 Alhama CF','Athletic Club 1 - 6 FC Barcelona','FC Barcelona 4 - 0 Logroño United','Sevilla FC 2 - 2 FC Barcelona','FC Barcelona 4 - 0 RCD Espanyol','SD Eibar 2 - 2 FC Barcelona','Atlético de Madrid 0 - 2 FC Barcelona','FC Barcelona 3 - 1 Granada CF','Real Sociedad 0 - 3 FC Barcelona','FC Barcelona 3 - 1 RC Deportivo','FC Barcelona 2 - 2 Real Madrid','Levante UD 1 - 3 FC Barcelona','FC Barcelona 2 - 0 C. Adeje Tenereife','Badalona Women 1 - 4 FC Barcelona','FC Barcelona 4 - 0 Madrid CFF','Alhama CF 2 - 3 FC Barcelona','FC Barcelona 2 - 1 Atlético de Madrid','FC Barcelona 1 - 2 Sevilla FC','Logroño United 0 - 4 FC Barcelona'],
+    "UEFA Women's Champions League":['FC Barcelona 1 - 1 FC Bayern München','Roma 2 - 1 FC Barcelona','FC Barcelona 1 - 2 Glasgow City FC','Chelsea 1 - 2 FC Barcelona','FC Barcelona 1 - 3 SL Benfica','Paris FC 1 - 3 FC Barcelona','FC Barcelona 4 - 0 OL Lyonnes']
   }
 };

@@ -374,7 +374,7 @@ addEventListener('hashchange',route);route();
 
 Object.assign(FLAGS,{
   'FC Barcelona Femení':'🇪🇸','FC Barcelona Femini':'🇪🇸','FC Barcelona':'🇪🇸','Alhama CF':'🇪🇸','Atlético de Madrid':'🇪🇸','Badalona Women':'🇪🇸','C. Adeje Tenereife':'🇪🇸','Logroño United':'🇪🇸','Granada CF':'🇪🇸','Levante UD':'🇪🇸','Madrid CFF':'🇪🇸','RC Deportivo':'🇪🇸','RCD Espanyol':'🇪🇸','Real Madrid':'🇪🇸','Real Sociedad':'🇪🇸','SD Eibar':'🇪🇸','Sevilla FC':'🇪🇸',
-  'Orlando Pride':'🇺🇸','London City':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Paris FC':'🇫🇷','Portland Thorns':'🇺🇸','West Ham':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Aston Villa':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Liverpool':'🏴󠁧󠁢󠁥󠁮󠁧󠁿'
+  'Orlando Pride':'🇺🇸','London City':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Paris FC':'🇫🇷','Portland Thorns':'🇺🇸','West Ham':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Aston Villa':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Liverpool':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','OL Lyonnes':'🇫🇷','FC Rosengård':'🇸🇪','Glasgow City FC':'🏴󠁧󠁢󠁳󠁣󠁴󠁿','FC Zürich':'🇨🇭'
 });
 Object.assign(PLAYER_FLAGS,{
   'Txell Font':'🇪🇸','Cata Coll':'🇪🇸','Gemma Font':'🇪🇸','Adriana Ranera':'🇪🇸','Marta Torrejón':'🇪🇸','Mapi León':'🇪🇸','Laia Aleixandri':'🇪🇸','Maria Llorella':'🇪🇸','Ona Batlle':'🇪🇸','Patri Guijarro':'🇪🇸','Emilia Szymczak':'🇵🇱','Alexia Putellas':'🇪🇸','Aitana Bonmatí':'🇪🇸','Kika Nazareth':'🇵🇹','Vicky López':'🇪🇸','Sydney Schertenleib':'🇨🇭','Claudia Pina':'🇪🇸','Salma Paralluelo':'🇪🇸','Caroline Graham Hansen':'🇳🇴','Vasiliki Dimitriou':'🇬🇷','Ewa Pajor':'🇵🇱'
