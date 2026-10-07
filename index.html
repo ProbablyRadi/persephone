@@ -1,4 +1,61 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FC26 Career Wiki</title><link rel="stylesheet" href="styles.css"></head><body>
-<header><div class="brand"><span class="ball">⚽</span><div><b>FC26 Career Wiki</b><small>Career mode archive</small></div></div><div class="header-tools"><label class="character-select-wrap" for="characterSelect"><span>Character</span><select id="characterSelect" class="character-select" title="Choose character"><option value="">Choose character</option><option value="rens">Rens Adisea</option><option value="jordan">Jordan Vale</option><option value="espen">Espen Sæheim</option><option value="vasi">Vasiliki Dimitriou</option></select></label><label class="theme-select-wrap" for="themeSelect"><span>Theme</span><select id="themeSelect" class="theme-select" title="Choose appearance theme"><option value="light">Light</option><option value="terminal">Terminal</option><option value="glass">Glass</option></select></label></div></header>
-<div class="layout"><aside><nav><a href="#home" data-page="home">Main page</a><a href="#rens" data-page="rens">Rens Adisea</a><a href="#jordan" data-page="jordan">Jordan Vale</a><a href="#espen" data-page="espen">Espen Sæheim</a><a href="#vasi" data-page="vasi">Vasi Dimitriou</a></nav><hr><small>Navigation</small><nav id="seasonNav"></nav></aside><main id="app"></main></div>
-<script src="data.js"></script><script src="season_tables.js"></script><script src="competition_tables.js"></script><script src="app.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>FC26 Career Wiki</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span class="ball">⚽</span>
+      <div>
+        <b>FC26 Career Wiki</b>
+        <small>Career mode archive</small>
+      </div>
+    </div>
+    <div class="header-tools">
+      <label class="character-select-wrap" for="characterSelect">
+        <span>Character</span>
+        <select id="characterSelect" class="character-select" title="Choose character">
+          <option value="">Choose character</option>
+          <option value="rens">Rens Adisea</option>
+          <option value="jordan">Jordan Vale</option>
+          <option value="espen">Espen Sæheim</option>
+          <option value="vasi">Vasiliki Dimitriou</option>
+        </select>
+      </label>
+      <label class="theme-select-wrap" for="themeSelect">
+        <span>Theme</span>
+        <select id="themeSelect" class="theme-select" title="Choose appearance theme">
+          <option value="light">Wiki</option>
+          <option value="dracula">Dracula</option>
+          <option value="glass">Glass</option>
+        </select>
+      </label>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside>
+      <nav>
+        <a href="#home" data-page="home">Main page</a>
+        <a href="#rens" data-page="rens">Rens Adisea</a>
+        <a href="#jordan" data-page="jordan">Jordan Vale</a>
+        <a href="#espen" data-page="espen">Espen Sæheim</a>
+        <a href="#vasi" data-page="vasi">Vasiliki Dimitriou</a>
+      </nav>
+      <hr>
+      <small>Navigation</small>
+      <nav id="seasonNav"></nav>
+    </aside>
+    <main id="app"></main>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="season_tables.js"></script>
+  <script src="competition_tables.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

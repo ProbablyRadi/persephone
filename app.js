@@ -1,12 +1,13 @@
 const app=document.querySelector('#app'), nav=document.querySelector('#seasonNav');
 const characterSelect=document.querySelector('#characterSelect');
 const themeSelect=document.querySelector('#themeSelect');
-const THEMES=['light','terminal','glass'];
+const THEMES=['light','dracula','glass'];
 function setTheme(mode){
   if(!THEMES.includes(mode)) mode='light';
-  document.body.classList.toggle('theme-terminal',mode==='terminal');
+  document.body.classList.toggle('theme-terminal',mode==='dracula');
+  document.body.classList.toggle('theme-dracula',mode==='dracula');
   document.body.classList.toggle('theme-glass',mode==='glass');
-  document.body.classList.toggle('font-proggy',mode==='terminal');
+  document.body.classList.toggle('font-proggy',mode==='dracula');
   if(themeSelect){
     themeSelect.value=mode;
   }
@@ -27,7 +28,7 @@ if(characterSelect)characterSelect.addEventListener('change',()=>{
 
 const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 function table(headers,rows){return `<table class="wikitable"><thead><tr>${headers.map(x=>`<th>${x}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map((x,i)=>`<td class="${i>1?'num':''}">${x}</td>`).join('')}</tr>`).join('')}</tbody></table>`}
-function infobox(p){return `<table class="infobox"><tr><th colspan="2">${p.flag} ${p.name}</th></tr>${p.nickname?`<tr><td>Nickname</td><td>${p.nickname}</td></tr>`:''}<tr><td>Born</td><td>${p.dob}<br>${p.birth}</td></tr><tr><td>Height</td><td>${p.height}</td></tr><tr><td>Position</td><td>${p.position}</td></tr><tr><td>Current team</td><td>${p.current}</td></tr><tr><td>Number</td><td>${p.number}</td></tr><tr><td>National team</td><td>${p.international}</td></tr></table>`}
+function infobox(p){return `<table class="infobox"><tr><th colspan="2">${p.flag} ${p.name}</th></tr>${p.nickname?`<tr><td>Nickname</td><td>${p.nickname}</td></tr>`:''}<tr><td>Born</td><td>${p.dob}<br>${p.birth}</td></tr><tr><td>Height</td><td>${p.height}</td></tr><tr><td>Boot brand</td><td>${p.bootBrand||'Unknown'}</td></tr><tr><td>Position</td><td>${p.position}</td></tr><tr><td>Current team</td><td>${p.current}</td></tr><tr><td>Number</td><td>${p.number}</td></tr><tr><td>National team</td><td>${p.international}</td></tr></table>`}
 function honours(p){return `<div class="honours">${Object.entries(p.honours).map(([k,v])=>`<section><h3>${k}</h3><ul>${v.map(x=>`<li>${x}</li>`).join('')}</ul></section>`).join('')}</div>`}
 
 function cleanClubLabel(v){return String(v||'').replace(/^\s*(?:[\u{1F1E6}-\u{1F1FF}]{2}|🏴[^ ]*)\s*/u,'').trim()}
@@ -46,7 +47,7 @@ function careerGroups(p){
 function careerNavigator(id,activeSeason='',activePage=''){
   const p=DATA[id];
   const groups=careerGroups(p);
-  return `<div class="career-nav"><div class="career-nav-player"><span>${p.flag}</span><div><b>${esc(p.displayName||p.name)}</b><small>Career navigator</small></div></div><a class="career-nav-main ${!activeSeason&&activePage!=='analysis'?'active':''}" href="#${id}">Overview</a><a class="career-nav-main ${activePage==='analysis'?'active':''}" href="#${id}/analysis">Head to Head</a>${groups.map(g=>`<div class="career-nav-club"><div class="career-nav-clubname">${g.label}</div>${g.seasons.map(season=>`<a class="${activeSeason===season?'active':''}" href="#${id}/${season}"><span>${season}</span>${p.seasons[season].inProgress?'<em>Live</em>':''}</a>`).join('')}</div>`).join('')}</div>`;
+  return `<div class="career-nav"><div class="career-nav-player"><span>${p.flag}</span><div><b>${esc(p.displayName||p.name)}</b><small>Career navigator</small></div></div><a class="career-nav-main ${!activeSeason&&!activePage?'active':''}" href="#${id}">Overview</a><a class="career-nav-main ${activePage==='timeline'?'active':''}" href="#${id}/timeline">Timeline</a><a class="career-nav-main ${activePage==='analysis'?'active':''}" href="#${id}/analysis">Head to Head</a>${groups.map(g=>`<div class="career-nav-club"><div class="career-nav-clubname">${g.label}</div>${g.seasons.map(season=>`<a class="${activeSeason===season?'active':''}" href="#${id}/${season}"><span>${season}</span>${p.seasons[season].inProgress?'<em>Live</em>':''}</a>`).join('')}</div>`).join('')}</div>`;
 }
 function statForSeason(p,s){return (p.stats||[]).find(r=>r[0]===s)||null}
 function seasonStatStrip(p,s,d,meta){
@@ -56,7 +57,7 @@ function seasonStatStrip(p,s,d,meta){
   return `<div class="season-kpis">${cards.map(([k,v])=>`<div><span>${k}</span><b>${v===''||v==null?'—':v}</b></div>`).join('')}</div>`;
 }
 
-function player(id){let p=DATA[id]; app.className='profile-page'; nav.innerHTML=careerNavigator(id); app.innerHTML=`${infobox(p)}<h1>${p.displayName||p.name}</h1><p class="lede">${p.intro}</p><div class="toc"><b>Contents</b><ol><li><a href="#career">Club career</a></li><li><a href="#stats">Career statistics</a></li><li><a href="#honours">Honours</a></li><li><a href="#seasons">Season archive</a></li><li><a href="#team-analysis" onclick="event.preventDefault();location.hash='${id}/analysis'">Head to Head</a></li></ol></div><div class="clear"></div><div class="career-grid"><section><h2 id="career">Club career</h2>${table(['Years','Team','Apps','Goals'],p.career)}</section><section><h2>International career</h2>${table(['Years','Team','Apps','Goals'],[p.intl])}</section></div><h2 id="stats">Career statistics</h2>${table(['Season','Club','Role','League','Pos.','Avg','Apps','Goals','Assists','CLS'],p.stats)}<h2 id="honours">Honours</h2>${honours(p)}<h2 id="seasons">Season-by-season archive</h2><p>Select a season to browse its recorded competitions and results.</p><div class="season-tabs">${Object.keys(p.seasons).map(s=>`<button onclick="location.hash='${id}/${s}'">${s}${p.seasons[s].inProgress?' •':''}</button>`).join('')}</div><div class="analysis-callout" id="team-analysis"><b>${(p.displayName||p.name).split(' ')[0]} vs Teams</b><span>Combined head-to-head record against every opponent, across every club and international team represented.</span><a href="#${id}/analysis">View head-to-head records →</a></div>`}
+function player(id){let p=DATA[id]; app.className='profile-page'; nav.innerHTML=careerNavigator(id); app.innerHTML=`${infobox(p)}<h1>${p.displayName||p.name}</h1><p class="lede">${p.intro}</p><div class="toc"><b>Contents</b><ol><li><a href="#career">Club career</a></li><li><a href="#stats">Career statistics</a></li><li><a href="#honours">Honours</a></li><li><a href="#seasons">Season archive</a></li><li><a href="#career-timeline" onclick="event.preventDefault();location.hash='${id}/timeline'">Timeline</a></li><li><a href="#team-analysis" onclick="event.preventDefault();location.hash='${id}/analysis'">Head to Head</a></li></ol></div><div class="clear"></div><div class="career-grid"><section><h2 id="career">Club career</h2>${table(['Years','Team','Apps','Goals'],p.career)}</section><section><h2>International career</h2>${table(['Years','Team','Apps','Goals'],[p.intl])}</section></div><h2 id="stats">Career statistics</h2>${table(['Season','Club','Role','League','Pos.','Avg','Apps','Goals','Assists','CLS'],p.stats)}<h2 id="honours">Honours</h2>${honours(p)}<h2 id="seasons">Season-by-season archive</h2><p>Select a season to browse its recorded competitions and results.</p><div class="season-tabs">${Object.keys(p.seasons).map(s=>`<button onclick="location.hash='${id}/${s}'">${s}${p.seasons[s].inProgress?' •':''}</button>`).join('')}</div><div class="analysis-callout" id="team-analysis"><b>${(p.displayName||p.name).split(' ')[0]} vs Teams</b><span>Combined head-to-head record against every opponent, across every club and international team represented.</span><a href="#${id}/analysis">View head-to-head records →</a></div>`}
 const FLAGS={
 'PEC Zwolle':'🇳🇱','PSV':'🇳🇱','Ajax':'🇳🇱','Feyenoord':'🇳🇱','AZ':'🇳🇱','FC Utrecht':'🇳🇱','FC Twente':'🇳🇱','Telstar':'🇳🇱','N.E.C. Nijmegen':'🇳🇱','Go Ahead Eagles':'🇳🇱','FC Volendam':'🇳🇱','NAC Breda':'🇳🇱','Heracles Almelo':'🇳🇱','Sparta Rotterdam':'🇳🇱','FC Groningen':'🇳🇱','sc Heerenveen':'🇳🇱','Fortuna Sittard':'🇳🇱','Excelsior':'🇳🇱',
 'Brighton & Hove':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Brighton & Hove Albion':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Bristol City':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Manchester City':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Manchester United':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Man Utd':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Liverpool':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Arsenal':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Chelsea':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Tottenham Hotspurs':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Tottenham':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Newcastle United':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','West Ham':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Fulham':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Everton':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Aston Villa':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Crystal Palace':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Nottingham Forest':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','AFC Bournemouth':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Wolves':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Sunderland':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Southampton':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Brentford':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Ipswich':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Norwich':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Sheffield United':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Leicester City':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Reading':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Blackburn Rovers':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Blackpool':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Bolton':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Coventry City':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Walsall':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Swansea City':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Leyton Orient':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Wigan Athletic':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Charlton Athletic':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Middlesbrough':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Crewe Alexandra':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Hull':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Burnley':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Watford':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Wycombe':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Lincoln City':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Oxford United':'🏴󠁧󠁢󠁥󠁮󠁧󠁿',
@@ -78,7 +79,7 @@ function playerFlag(name){return PLAYER_FLAGS[name]||'🏳️'}
 
 function sectionId(name){return 'section-'+name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
 function parseFixture(raw){let label='',x=raw.trim();if(x.includes(' — ')){let a=x.split(' — ');label=a.shift();x=a.join(' — ')}let m=x.match(/^(.+?)\s+(?:\((\d+)\)\s*)?(\d+)\s*-\s*(\d+)(?:\s*\((\d+)\))?\s+(.+)$/);if(!m)return {raw,label};return {label,home:m[1].trim(),hp:m[2]?+m[2]:null,hg:+m[3],ag:+m[4],ap:m[5]?+m[5]:null,away:m[6].trim()}}
-function focalFor(id,s,comp){if(/World Cup|Euros|Qualif|Friendl/i.test(comp))return id==='rens'?'Netherlands':id==='espen'?'Norway':'England';let row=DATA[id].stats.find(r=>r[0]===s);if(!row)return '';let club=String(row[1]).replace(/^\S+\s/,'');if(club==='Brighton')return 'Brighton & Hove';if(club==='Bayern')return 'FC Bayern München';if(club==='Dortmund')return 'Borussia Dortmund';return club}
+function focalFor(id,s,comp){if(/World Cup|Euros|Qualif|International Friendlies/i.test(comp))return id==='rens'?'Netherlands':id==='espen'?'Norway':id==='jordan'?'England':id==='vasi'?'Greece':'';let row=DATA[id].stats.find(r=>r[0]===s);if(!row)return '';let club=String(row[1]).replace(/^\S+\s/,'');if(club==='Brighton')return 'Brighton & Hove';if(club==='Bayern')return 'FC Bayern München';if(club==='Dortmund')return 'Borussia Dortmund';if(club==='FC Barcelona Femení'||club==='FC Barcelona Femini')return 'FC Barcelona';return club}
 function sameTeam(a,b){const n=x=>x.toLowerCase().replace(/fc |afc |& hove albion|borussia |münchen/g,'').replace(/\s+/g,' ').trim();return n(a)===n(b)||n(a).includes(n(b))||n(b).includes(n(a))}
 function outcome(f,focal){if(!f.home||(!sameTeam(f.home,focal)&&!sameTeam(f.away,focal)))return 'neutral';let homeWin=f.hg>f.ag,awayWin=f.ag>f.hg;if(f.hg===f.ag&&f.hp!=null&&f.ap!=null){homeWin=f.hp>f.ap;awayWin=f.ap>f.hp}if(!homeWin&&!awayWin)return 'draw';let focalHome=sameTeam(f.home,focal);return (focalHome&&homeWin)||(!focalHome&&awayWin)?'win':'loss'}
 const UEFA_ROUND_BREAKS={
@@ -138,7 +139,7 @@ const TEAM_ALIASES={
   "Cote D'Ivorie":"Cote d'Ivorie","Cote D'Ivoire":"Cote d'Ivorie"
 };
 function canonicalTeam(t){let x=cleanTeamName(t);return TEAM_ALIASES[x]||x}
-function isInternationalCompetition(comp){return /World Cup|Euros|Qualif|Friendl/i.test(comp)}
+function isInternationalCompetition(comp){return /World Cup|Euros|Qualif|International Friendlies/i.test(comp)}
 function careerOpponentRows(id){
   const seasons=FULL_FIXTURES[id]||{}, rec=new Map(), seenTournament=new Set();
   Object.entries(seasons).forEach(([season,competitions])=>Object.entries(competitions||{}).forEach(([comp,items])=>{
@@ -167,6 +168,80 @@ function careerAnalysis(id){
   let body=rows.map((r,i)=>`<tr><td class="rank">${i+1}</td><td class="flag">${teamFlag(r.opponent)}</td><td class="opponent">${esc(r.opponent)}</td><td class="represented">${esc(r.representedLabel)}</td><td>${r.type}</td><td class="num">${r.played}</td><td class="num">${r.wins}</td><td class="num">${r.draws}</td><td class="num">${r.losses}</td><td class="num">${r.gf}</td><td class="num">${r.ga}</td><td class="num">${r.gd>0?'+':''}${r.gd}</td><td class="num">${r.winPct.toFixed(1)}%</td></tr>`).join('');
   const rate=totals.played?100*totals.wins/totals.played:0;
   app.innerHTML=`<p><a href="#${id}">← ${p.name}</a></p><h1>${p.flag} ${p.name.split(' ')[0]} vs Teams</h1><p class="lede">Combined head-to-head record against every opponent across ${p.name}'s recorded career, regardless of which club or national team ${p.name.split(' ')[0]} was representing. Ranked by most wins by default.</p><div class="analysis-summary"><div><b>${rows.length}</b><span>Opponents</span></div><div><b>${totals.played}</b><span>Matches</span></div><div><b>${totals.wins}</b><span>Wins</span></div><div><b>${totals.draws}</b><span>Draws</span></div><div><b>${totals.losses}</b><span>Losses</span></div><div><b>${rate.toFixed(1)}%</b><span>Win rate</span></div></div><div class="note analysis-note">Penalty shoot-outs are treated as wins or losses for the result record; goals for/against use the match score before the shoot-out. Repeated World Cup/Euros fixtures carried over between adjacent season pages are counted once.</div><div class="table-scroll"><table class="wikitable analysis-table"><thead><tr><th>#</th><th></th><th>Opponent</th><th>Represented</th><th>Type</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Win %</th></tr></thead><tbody>${body}</tbody></table></div>`;
+}
+
+
+function timelinePlayerKey(name){
+  return String(name||'')
+    .replace(/\s*\(C\)\s*/gi,' ')
+    .replace(/\s*⭐\s*/g,' ')
+    .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/\s+/g,' ').trim().toLowerCase();
+}
+function timelineSquadNames(meta){
+  return (meta&&meta.squad?meta.squad:[]).map(r=>String(r[2]||'').replace(/\s*\(C\)\s*/gi,' ').replace(/\s*⭐\s*/g,' ').replace(/\s+/g,' ').trim()).filter(Boolean);
+}
+function timelineSquadChanges(id,season,prevSeason){
+  const cur=(typeof SEASON_TABLES!=='undefined'&&SEASON_TABLES[id]&&SEASON_TABLES[id][season])||null;
+  const prev=prevSeason&&SEASON_TABLES[id]&&SEASON_TABLES[id][prevSeason]?SEASON_TABLES[id][prevSeason]:null;
+  if(!cur||!cur.squad||!cur.squad.length)return {joined:[],left:[],note:'No squad list supplied for this season.'};
+  if(!prev||!prev.squad||!prev.squad.length)return {joined:[],left:[],note:'Baseline squad — no previous supplied player list to compare.'};
+  if(canonicalTeam(cur.club||'')!==canonicalTeam(prev.club||''))return {joined:[],left:[],note:'Club changed — squad comparison resets for the new club.'};
+  const curNames=timelineSquadNames(cur), prevNames=timelineSquadNames(prev);
+  const curMap=new Map(curNames.map(n=>[timelinePlayerKey(n),n])), prevMap=new Map(prevNames.map(n=>[timelinePlayerKey(n),n]));
+  return {
+    joined:[...curMap].filter(([k])=>!prevMap.has(k)).map(([,n])=>n),
+    left:[...prevMap].filter(([k])=>!curMap.has(k)).map(([,n])=>n),
+    note:''
+  };
+}
+function timelineCupFinals(id,season){
+  const manualFinals={
+    jordan:{
+      '2025–26':[
+        {comp:'Carabao Cup',winner:'Arsenal',runner:'Liverpool'},
+        {comp:'FA Cup',winner:'Nottingham Forest',runner:'Tottenham Hotspurs'}
+      ],
+      '2026–27':[
+        {comp:'FA Cup',winner:'Brighton & Hove',runner:'Manchester City'}
+      ]
+    }
+  };
+  const out=(manualFinals[id]&&manualFinals[id][season])?[...manualFinals[id][season]]:[];
+  const comps=(FULL_FIXTURES[id]&&FULL_FIXTURES[id][season])||{};
+  Object.entries(comps).forEach(([comp,items])=>{
+    if(comp==='Pre-season friendlies'||out.some(x=>x.comp===comp))return;
+    const finalRaw=(items||[]).find(x=>/^F\s+—\s+/i.test(String(x).trim()));
+    if(!finalRaw)return;
+    const f=parseFixture(finalRaw); if(!f.home)return;
+    let winner='',runner='',score=`${f.hg} - ${f.ag}`;
+    if(f.hg>f.ag){winner=f.home;runner=f.away}
+    else if(f.ag>f.hg){winner=f.away;runner=f.home}
+    else if(f.hp!=null&&f.ap!=null){winner=f.hp>f.ap?f.home:f.away;runner=f.hp>f.ap?f.away:f.home}
+    if(winner)out.push({comp,winner,runner,score});
+  });
+  const cupOrder={'Carabao Cup':1,'FA Cup':2};
+  out.sort((a,b)=>(cupOrder[a.comp]||99)-(cupOrder[b.comp]||99));
+  return out;
+}
+function timelineTopFive(id,season){
+  const meta=(typeof SEASON_TABLES!=='undefined'&&SEASON_TABLES[id]&&SEASON_TABLES[id][season])||null;
+  return meta&&meta.standings&&meta.standings.length?meta.standings.slice(0,5):[];
+}
+function careerTimeline(id){
+  app.className='timeline-page';
+  const p=DATA[id], seasons=Object.keys(p.seasons||{});
+  nav.innerHTML=careerNavigator(id,'','timeline');
+  const cards=seasons.map((season,i)=>{
+    const meta=(typeof SEASON_TABLES!=='undefined'&&SEASON_TABLES[id]&&SEASON_TABLES[id][season])||null;
+    const stat=statForSeason(p,season), club=meta&&meta.club?meta.club:(stat?cleanClubLabel(stat[1]):'');
+    const top=timelineTopFive(id,season), cups=timelineCupFinals(id,season), moves=timelineSquadChanges(id,season,seasons[i-1]);
+    const topHtml=top.length?`<ol class="timeline-topfive">${top.map(r=>`<li class="${canonicalTeam(cleanTeamName(r[1]))===canonicalTeam(meta&&meta.club?meta.club:'')?'focus':''}"><span>${teamFlag(cleanTeamName(r[1]))} ${esc(r[1])}</span><b>${r[9]!==''&&r[9]!=null?esc(r[9])+' pts':''}</b></li>`).join('')}</ol>`:'<p class="muted">No league table supplied.</p>';
+    const cupHtml=cups.length?cups.map(c=>`<div class="timeline-cup"><b>${esc(c.comp)}</b><span>Winner: ${teamFlag(c.winner)} ${esc(c.winner)}</span><span>Runner-up: ${teamFlag(c.runner)} ${esc(c.runner)}</span></div>`).join(''):'<p class="muted">No recorded cup final for this season.</p>';
+    const moveHtml=moves.note?`<p class="muted">${esc(moves.note)}</p>`:`<div class="timeline-moves"><div><b>Joined</b>${moves.joined.length?`<ul>${moves.joined.map(n=>`<li>+ ${esc(n)}</li>`).join('')}</ul>`:'<span class="muted">None recorded</span>'}</div><div><b>Left</b>${moves.left.length?`<ul>${moves.left.map(n=>`<li>− ${esc(n)}</li>`).join('')}</ul>`:'<span class="muted">None recorded</span>'}</div></div>`;
+    return `<article class="timeline-season-card"><a class="timeline-dot" href="#${id}/${season}" aria-label="Open ${season} season"></a><div class="timeline-season-head"><span>${season}</span>${p.seasons[season].inProgress?'<em>Live</em>':''}</div><h2>${club?`${teamFlag(club)} ${esc(club)}`:'Career season'}</h2><section><h3>League top 5</h3>${topHtml}</section><section><h3>Cup finals</h3>${cupHtml}</section><section><h3>Squad movement</h3>${moveHtml}</section></article>`;
+  }).join('');
+  app.innerHTML=`<div class="timeline-wrap"><p><a href="#${id}">← ${esc(p.displayName||p.name)}</a></p><h1>${p.flag} ${esc(p.displayName||p.name)} — Career timeline</h1><p class="lede">Season-by-season view of league leaders, recorded cup finals and squad changes. Squad movement is calculated from consecutive supplied player lists and resets when the player changes club.</p><div class="timeline-scroll"><div class="career-timeline">${cards}</div></div></div>`;
 }
 
 function season(id,s){
@@ -250,8 +325,18 @@ function enhanceTables(root=document){root.querySelectorAll('table').forEach(enh
 const tableObserver=new MutationObserver(()=>enhanceTables(app));
 tableObserver.observe(app,{childList:true,subtree:true});
 
-function home(){app.className='home-page';nav.innerHTML='';app.innerHTML=`<h1>FC26 Career Wiki</h1><p class="lede">An encyclopedia-style archive of FC26 player careers, club seasons, international tournaments and honours.</p><div class="note">The archive currently covers four players. In-progress seasons are labelled and incomplete data is never treated as final.</div><h2>Players</h2><div class="cards">${['rens','jordan','espen','vasi'].map(id=>{const p=DATA[id];return `<div class="card"><h3><a href="#${id}">${p.flag} ${p.displayName||p.name}</a></h3><p>${p.position}</p><p class="muted">${p.current}</p><a href="#${id}">View career article →</a></div>`}).join('')}</div><h2>About this archive</h2><p>Use the player articles for career summaries and honours, then open individual seasons for competition-by-competition records. Country flags identify clubs and national teams throughout the archive.</p>`}
-function route(){let h=decodeURIComponent(location.hash.slice(1)||'home'), [id,s]=h.split('/'); if(characterSelect)characterSelect.value=DATA[id]?id:''; if(id==='home')home(); else if(DATA[id]&&s==='analysis')careerAnalysis(id); else if(DATA[id]&&s&&DATA[id].seasons[s])season(id,s); else if(DATA[id])player(id); else home(); window.scrollTo(0,0)}
+function home(){
+  app.className='home-page';
+  nav.innerHTML='';
+  const homePlayers=[
+    ['rens','https://www.clipartmax.com/png/middle/84-847485_maks-timurov-logo-borussia-dortmund-512-512-dls-17.png'],
+    ['jordan','https://www.footballkitarchive.com/static/logos/t6BVBkbe5p9kPcA/bristol-city-2019-logo.png'],
+    ['espen','https://www.pngfind.com/pngs/m/345-3454478_hull-city-fc-logo-png-transparent-new-hull.png'],
+    ['vasi','https://www.clipartmax.com/png/middle/98-980857_fc-barcelona-logo-fathead-fc-barcelona-logo-wall-decal.png']
+  ];
+  app.innerHTML=`<h1>FC26 Career Wiki</h1><div class="home-tiles">${homePlayers.map(([id,crest])=>{const p=DATA[id];return `<a class="home-player-tile" href="#${id}" style="--club-crest:url('${crest}')"><span>${p.flag} ${p.displayName||p.name}</span></a>`}).join('')}</div>`;
+}
+function route(){let h=decodeURIComponent(location.hash.slice(1)||'home'), [id,s]=h.split('/'); if(characterSelect)characterSelect.value=DATA[id]?id:''; if(id==='home')home(); else if(DATA[id]&&s==='analysis')careerAnalysis(id); else if(DATA[id]&&s==='timeline')careerTimeline(id); else if(DATA[id]&&s&&DATA[id].seasons[s])season(id,s); else if(DATA[id])player(id); else home(); window.scrollTo(0,0)}
 addEventListener('hashchange',route);route();
 
 

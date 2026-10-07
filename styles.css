@@ -1,4 +1,4 @@
-:root{--blue:#36c;--border:#a2a9b1;--light:#eaecf0;--head:#f8f9fa;--text:#202122}*{box-sizing:border-box}body{margin:0;color:var(--text);font:14px/1.55 Arial,sans-serif;background:#fff}header{height:64px;border-bottom:1px solid var(--light);display:flex;align-items:center;justify-content:space-between;padding:0 28px;position:sticky;top:0;background:#fff;z-index:5}.brand{display:flex;gap:10px;align-items:center;font-family:Georgia,serif;font-size:19px}.brand small{display:block;font:11px Arial;color:#54595d;letter-spacing:.08em;text-transform:uppercase}.ball{font-size:28px}header input{width:min(420px,42vw);padding:9px 12px;border:1px solid var(--border)}.layout{display:grid;grid-template-columns:190px minmax(0,980px);gap:28px;max-width:1240px;margin:0 auto;padding:24px}aside{font-size:13px}aside nav{display:flex;flex-direction:column;gap:5px}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}aside hr{border:0;border-top:1px solid var(--light);margin:18px 0 10px}main{min-width:0}h1,h2{font-family:Georgia,'Times New Roman',serif;font-weight:400;border-bottom:1px solid var(--border);margin:0 0 12px}h1{font-size:30px;line-height:1.25}h2{font-size:21px;margin-top:28px}.lede{font-size:15px}.infobox{float:right;width:290px;margin:0 0 18px 24px;border:1px solid var(--border);border-collapse:collapse;background:#f8f9fa;font-size:13px}.infobox th{background:#dce6f4;text-align:center;font-size:16px;padding:8px}.infobox td{padding:5px 8px;border-top:1px solid var(--light);vertical-align:top}.infobox td:first-child{font-weight:bold;width:40%}.status{display:inline-block;background:#fff3cd;border:1px solid #e3c96d;padding:1px 6px;border-radius:2px;font-size:12px}.wikitable{width:100%;border-collapse:collapse;margin:10px 0 18px;font-size:13px}.wikitable th,.wikitable td{border:1px solid var(--border);padding:5px 7px;text-align:left}.wikitable th{background:var(--light);font-weight:bold}.wikitable tr:nth-child(even) td{background:#f8f9fa}.num{text-align:right!important}.toc{display:inline-block;border:1px solid var(--border);background:var(--head);padding:10px 18px;margin:12px 0}.toc b{display:block;text-align:center}.toc ol{margin:5px 0;padding-left:20px}.cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}.card{border:1px solid var(--border);padding:16px;background:#fff}.card h3{font-family:Georgia,serif;margin:0 0 6px;font-size:20px}.muted{color:#72777d}.honours{columns:2;column-gap:30px}.honours h3{break-after:avoid;margin-bottom:3px}.honours ul{margin-top:4px}.season-tabs{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 14px}.season-tabs button{border:1px solid var(--border);background:var(--head);padding:6px 9px;color:var(--blue);cursor:pointer}.season-tabs button.active{background:#dce6f4;color:#202122;font-weight:bold}.competition{margin:18px 0}.competition h3{font-family:Georgia,serif;border-bottom:1px solid var(--light);padding-bottom:4px}.score{white-space:nowrap}.champ{font-weight:bold}.note{border-left:4px solid #36c;background:#f8f9fa;padding:8px 12px;margin:12px 0}.clear{clear:both}.search-hit{background:#fff3cd}@media(max-width:760px){.layout{display:block;padding:16px}aside{display:none}.infobox{float:none;width:100%;margin:12px 0}.cards{grid-template-columns:1fr}.honours{columns:1}header{padding:0 14px}.brand small{display:none}}
+:root{--blue:#36c;--border:#a2a9b1;--light:#eaecf0;--head:#f8f9fa;--text:#202122}*{box-sizing:border-box}body{margin:0;color:var(--text);font:14px/1.55 Arial,sans-serif;background:#fff}header{height:64px;border-bottom:1px solid var(--light);display:flex;align-items:center;justify-content:space-between;padding:0 28px;position:sticky;top:0;background:#fff;z-index:5}.brand{display:flex;gap:10px;align-items:center;font-family:Georgia,serif;font-size:19px}.brand small{display:block;font:11px Arial;color:#54595d;letter-spacing:.08em;text-transform:uppercase}.ball{font-size:28px}header input{width:min(420px,42vw);padding:9px 12px;border:1px solid var(--border)}.layout{display:grid;grid-template-columns:190px minmax(0,980px);gap:28px;max-width:1240px;margin:0 auto;padding:24px}aside{font-size:13px}aside nav{display:flex;flex-direction:column;gap:5px}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}aside hr{border:0;border-top:1px solid var(--light);margin:18px 0 10px}main{min-width:0}h1,h2{font-family:Georgia,'Times New Roman',serif;font-weight:400;border-bottom:1px solid var(--border);margin:0 0 12px}h1{font-size:30px;line-height:1.25}h2{font-size:21px;margin-top:28px}.lede{font-size:15px}.infobox{float:right;width:290px;margin:0 0 18px 24px;border:1px solid var(--border);border-collapse:collapse;background:#f8f9fa;font-size:13px}.infobox th{background:#dce6f4;text-align:center;font-size:16px;padding:8px}.infobox td{padding:5px 8px;border-top:1px solid var(--light);vertical-align:top}.infobox td:first-child{font-weight:bold;width:40%}.status{display:inline-block;background:#fff3cd;border:1px solid #e3c96d;padding:1px 6px;border-radius:2px;font-size:12px}.wikitable{width:100%;border-collapse:collapse;margin:10px 0 18px;font-size:13px}.wikitable th,.wikitable td{border:1px solid var(--border);padding:5px 7px;text-align:left}.wikitable th{background:var(--light);font-weight:bold}.wikitable tr:nth-child(even) td{background:#f8f9fa}.num{text-align:right!important}.toc{display:inline-block;border:1px solid var(--border);background:var(--head);padding:10px 18px;margin:12px 0}.toc b{display:block;text-align:center}.toc ol{margin:5px 0;padding-left:20px}.cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}.card{border:1px solid var(--border);padding:16px;background:#fff}.card h3{font-family:Georgia,serif;margin:0 0 6px;font-size:20px}.muted{color:#72777d}.honours{columns:2;column-gap:30px}.honours h3{break-after:avoid;margin-bottom:3px}.honours ul{margin-top:4px}.season-tabs{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 14px}.season-tabs button{border:1px solid var(--border);background:var(--head);padding:6px 9px;color:var(--blue);cursor:pointer}.season-tabs button.active{background:#dce6f4;color:#202122;font-weight:bold}.competition{margin:18px 0}.competition h3{font-family:Georgia,serif;border-bottom:1px solid var(--light);padding-bottom:4px}.score{white-space:nowrap}.champ{font-weight:bold}.note{border-left:4px solid #36c;background:#f8f9fa;padding:8px 12px;margin:12px 0}.clear{clear:both}@media(max-width:760px){.layout{display:block;padding:16px}aside{display:none}.infobox{float:none;width:100%;margin:12px 0}.cards{grid-template-columns:1fr}.honours{columns:1}header{padding:0 14px}.brand small{display:none}}
 
 .fixture-list{border:1px solid #a2a9b1;border-bottom:0;margin:.4rem 0 1.2rem;background:#fff}.fixture-row{display:grid;grid-template-columns:44px 1fr;gap:10px;padding:7px 10px;border-bottom:1px solid #c8ccd1;line-height:1.35}.fixture-row:nth-child(even){background:#f8f9fa}.fixture-no{color:#72777d;text-align:right;padding-right:8px;border-right:1px solid #eaecf0}.competition h2{margin-bottom:.35rem}@media(max-width:650px){.fixture-row{grid-template-columns:30px 1fr;padding:7px 6px}}
 /* Spreadsheet-style fixture tables */
@@ -90,16 +90,15 @@ h1,h2,h3,.brand,.card h3,.competition h3,.fixture-table .round-separator th,.sea
 .layout>aside{position:sticky;top:86px;align-self:start;max-height:calc(100vh - 104px);overflow-y:auto;padding-bottom:14px}
 .header-tools{display:flex;align-items:center;gap:10px;margin-left:auto}
 .header-tools input{width:min(420px,38vw)}
-.font-toggle{border:1px solid var(--border);background:var(--head);color:var(--text);padding:8px 11px;white-space:nowrap;cursor:pointer;font:600 14px/1.2 "Segoe UI",Arial,Helvetica,sans-serif;border-radius:2px}
-.font-toggle:hover{background:#eaecf0}.font-toggle:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+
 
 /* Default remains the cleaner readable face. Proggy mode is opt-in. */
-body.font-proggy,body.font-proggy header input,body.font-proggy .wikitable,body.font-proggy .fixture-table,body.font-proggy .infobox,body.font-proggy .season-tabs button,body.font-proggy .season-jump,body.font-proggy .note,body.font-proggy aside,body.font-proggy .font-toggle{font-family:var(--ui-mono)}
+body.font-proggy,body.font-proggy header input,body.font-proggy .wikitable,body.font-proggy .fixture-table,body.font-proggy .infobox,body.font-proggy .season-tabs button,body.font-proggy .season-jump,body.font-proggy .note,body.font-proggy aside,body.font-proggy 
 body.font-proggy h1,body.font-proggy h2,body.font-proggy h3,body.font-proggy .brand,body.font-proggy .card h3,body.font-proggy .competition h3,body.font-proggy .fixture-table .round-separator th,body.font-proggy .season-jump b{font-family:Georgia,"Times New Roman",serif}
 
-@media(max-width:900px){.header-tools{gap:6px}.header-tools input{width:min(300px,34vw)}.font-toggle{padding:7px 8px;font-size:13px}}
-@media(max-width:760px){.layout>aside{position:static;max-height:none;overflow:visible}.header-tools input{width:min(46vw,240px)}.font-toggle{font-size:12px}.font-toggle{padding:7px 6px}}
-@media(max-width:560px){header{height:auto;min-height:64px;gap:8px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}.header-tools{width:100%}.header-tools input{flex:1;width:auto}.font-toggle{flex:0 0 auto}}
+@media(max-width:900px){.header-tools{gap:6px}.header-tools input{width:min(300px,34vw)}}
+@media(max-width:760px){.layout>aside{position:static;max-height:none;overflow:visible}.header-tools input{width:min(46vw,240px)}}
+@media(max-width:560px){header{height:auto;min-height:64px;gap:8px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}.header-tools{width:100%}.header-tools input{flex:1;width:auto}}
 
 
 /* Career-wide opponent analysis */
@@ -169,8 +168,6 @@ body.theme-terminal .season-results-head p,
 body.theme-terminal .analysis-summary span,
 body.theme-terminal .analysis-table .rank{color:#78b95d}
 body.theme-terminal header input,
-body.theme-terminal .font-toggle,
-body.theme-terminal .theme-toggle,
 body.theme-terminal .season-tabs button,
 body.theme-terminal .season-tabs-nav a{
   background:#0d1c10;
@@ -180,10 +177,7 @@ body.theme-terminal .season-tabs-nav a{
 }
 body.theme-terminal header input::placeholder{color:#5f9552}
 body.theme-terminal header input:focus,
-body.theme-terminal .font-toggle:focus-visible,
-body.theme-terminal .theme-toggle:focus-visible{outline-color:#9dff57}
-body.theme-terminal .font-toggle:hover,
-body.theme-terminal .theme-toggle:hover,
+body.theme-terminal 
 body.theme-terminal .season-tabs button:hover,
 body.theme-terminal .season-tabs-nav a:hover{background:#17331b}
 body.theme-terminal .wikitable,
@@ -223,9 +217,6 @@ body.theme-terminal .note{background:#0d1c10;border-left-color:#9dff57}
 body.theme-terminal .status,
 body.theme-terminal .season-live,
 body.theme-terminal .career-nav-club em{background:#263814;border-color:#78b95d;color:#d4ffae}
-body.theme-terminal .focus-player td,
-body.theme-terminal .focus-team td,
-body.theme-terminal .search-hit{background:#203718!important;color:#d4ffae}
 body.theme-terminal .fixture-table .marker.win{background:#2e7d32}
 body.theme-terminal .fixture-table .marker.draw{background:#a68a17}
 body.theme-terminal .fixture-table .marker.loss{background:#8f1f1f}
@@ -322,7 +313,6 @@ body.theme-glass .analysis-summary span,
 body.theme-glass .analysis-table .rank{color:rgba(244,249,255,.72)}
 body.theme-glass a{color:#d9edff}
 body.theme-glass a:hover{color:#fff}
-body.theme-glass .theme-toggle,
 body.theme-glass .season-tabs button,
 body.theme-glass .season-tabs-nav a{
   background:rgba(10,20,30,.48);
@@ -331,7 +321,6 @@ body.theme-glass .season-tabs-nav a{
   backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px);
 }
-body.theme-glass .theme-toggle:hover,
 body.theme-glass .season-tabs button:hover,
 body.theme-glass .season-tabs-nav a:hover{background:rgba(28,47,63,.62)}
 body.theme-glass .layout>aside,
@@ -422,16 +411,11 @@ body.theme-terminal .season-results-head p,
 body.theme-terminal .analysis-summary span,
 body.theme-terminal .analysis-table .rank{color:#789574}
 body.theme-terminal header input,
-body.theme-terminal .font-toggle,
-body.theme-terminal .theme-toggle,
 body.theme-terminal .season-tabs button,
 body.theme-terminal .season-tabs-nav a{background:#111d15;color:#b8d7ab;border-color:#35513a}
 body.theme-terminal header input::placeholder{color:#647c62}
 body.theme-terminal header input:focus,
-body.theme-terminal .font-toggle:focus-visible,
-body.theme-terminal .theme-toggle:focus-visible{outline-color:#8fbd7c}
-body.theme-terminal .font-toggle:hover,
-body.theme-terminal .theme-toggle:hover,
+body.theme-terminal 
 body.theme-terminal .season-tabs button:hover,
 body.theme-terminal .season-tabs-nav a:hover{background:#192a1e}
 body.theme-terminal .wikitable,
@@ -469,9 +453,6 @@ body.theme-terminal .note{background:#111d15;border-left-color:#8fbd7c;color:#c6
 body.theme-terminal .status,
 body.theme-terminal .season-live,
 body.theme-terminal .career-nav-club em{background:#223122;border-color:#688562;color:#c4e0b7}
-body.theme-terminal .focus-player td,
-body.theme-terminal .focus-team td,
-body.theme-terminal .search-hit{background:#243124!important;color:#c4e0b7}
 body.theme-terminal .player-nation,
 body.theme-terminal .flag{filter:saturate(.85) brightness(.95)}
 body.theme-terminal ::selection{background:#8fbd7c;color:#0b120d}
@@ -767,7 +748,7 @@ body.theme-terminal .comp-standings th,
 body.theme-terminal .comp-standings td,
 body.theme-terminal .group-table th,
 body.theme-terminal .group-table td{
-  font-size:18px !important;
+  font-size:22px !important;
 }
 body.theme-terminal .competition-pair .panel-kicker{font-size:15px}
 body.theme-terminal .competition-pair .group-table-block h3{font-size:23px}
@@ -1009,21 +990,508 @@ body.theme-glass .character-select{
 }
 
 
-/* Home page player cards: fixed 2x2 order/layout */
-.home-page .cards{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:24px;
-  align-items:stretch;
-}
-.home-page .cards .card{width:auto;min-width:0;margin:0;}
-@media(max-width:700px){
-  .home-page .cards{grid-template-columns:1fr;gap:16px;}
-}
-
-
 /* Pin Character selector to the true horizontal center of the header */
 header{position:sticky}
 .header-tools{position:relative}
 .character-select-wrap{position:fixed;left:50%;top:32px;transform:translate(-50%,-50%);margin:0;z-index:7}
 @media(max-width:760px){.character-select-wrap{position:static;transform:none;margin:6px 0 0 0;width:100%;justify-content:center}}
+
+
+/* Dracula — Terminal layout/Proggy font with the classic Dracula palette. */
+body.theme-terminal.theme-dracula{
+  --blue:#bd93f9;
+  --border:#44475a;
+  --light:#44475a;
+  --head:#343746;
+  --text:#f8f8f2;
+  background:#282a36;
+  color:#f8f8f2;
+  text-shadow:none;
+}
+body.theme-terminal.theme-dracula header{
+  background:#21222c;
+  border-bottom-color:#44475a;
+  box-shadow:0 1px 0 rgba(189,147,249,.18);
+}
+body.theme-terminal.theme-dracula .brand,
+body.theme-terminal.theme-dracula h1,
+body.theme-terminal.theme-dracula h2,
+body.theme-terminal.theme-dracula h3,
+body.theme-terminal.theme-dracula .card h3,
+body.theme-terminal.theme-dracula .competition h3,
+body.theme-terminal.theme-dracula .fixture-table .round-separator th,
+body.theme-terminal.theme-dracula .season-jump b,
+body.theme-terminal.theme-dracula .career-nav-player b{
+  color:#bd93f9;
+}
+body.theme-terminal.theme-dracula a{color:#8be9fd}
+body.theme-terminal.theme-dracula a:hover{color:#ff79c6}
+body.theme-terminal.theme-dracula .muted,
+body.theme-terminal.theme-dracula .brand small,
+body.theme-terminal.theme-dracula .fixture-note,
+body.theme-terminal.theme-dracula .career-nav-player small,
+body.theme-terminal.theme-dracula .career-nav-clubname,
+body.theme-terminal.theme-dracula .season-breadcrumb,
+body.theme-terminal.theme-dracula .season-eyebrow,
+body.theme-terminal.theme-dracula .season-subtitle,
+body.theme-terminal.theme-dracula .season-kpis span,
+body.theme-terminal.theme-dracula .season-record span,
+body.theme-terminal.theme-dracula .panel-kicker,
+body.theme-terminal.theme-dracula .season-results-head p,
+body.theme-terminal.theme-dracula .analysis-summary span,
+body.theme-terminal.theme-dracula .analysis-table .rank{
+  color:#6272a4;
+}
+body.theme-terminal.theme-dracula header input,
+body.theme-terminal.theme-dracula .theme-select,
+body.theme-terminal.theme-dracula .character-select,
+body.theme-terminal.theme-dracula .season-tabs button,
+body.theme-terminal.theme-dracula .season-tabs-nav a{
+  background:#343746;
+  color:#f8f8f2;
+  border-color:#6272a4;
+}
+body.theme-terminal.theme-dracula .theme-select-wrap,
+body.theme-terminal.theme-dracula .character-select-wrap{color:#f8f8f2}
+body.theme-terminal.theme-dracula header input::placeholder{color:#6272a4}
+body.theme-terminal.theme-dracula header input:focus,
+body.theme-terminal.theme-dracula .theme-select:focus-visible,
+body.theme-terminal.theme-dracula .character-select:focus-visible{outline-color:#bd93f9}
+body.theme-terminal.theme-dracula .season-tabs button:hover,
+body.theme-terminal.theme-dracula .season-tabs-nav a:hover{background:#44475a}
+body.theme-terminal.theme-dracula .wikitable,
+body.theme-terminal.theme-dracula .fixture-table,
+body.theme-terminal.theme-dracula .infobox,
+body.theme-terminal.theme-dracula .card,
+body.theme-terminal.theme-dracula .season-card,
+body.theme-terminal.theme-dracula .season-competition,
+body.theme-terminal.theme-dracula .analysis-callout,
+body.theme-terminal.theme-dracula .analysis-summary div,
+body.theme-terminal.theme-dracula .toc,
+body.theme-terminal.theme-dracula .season-jump,
+body.theme-terminal.theme-dracula .competition-side-table{
+  background:#282a36;
+  color:#f8f8f2;
+  border-color:#44475a;
+}
+body.theme-terminal.theme-dracula .wikitable th,
+body.theme-terminal.theme-dracula .fixture-table .scorecell,
+body.theme-terminal.theme-dracula .fixture-table .round td,
+body.theme-terminal.theme-dracula .infobox th,
+body.theme-terminal.theme-dracula .season-kpis div{
+  background:#343746;
+  color:#f8f8f2;
+  border-color:#44475a;
+}
+body.theme-terminal.theme-dracula .wikitable td,
+body.theme-terminal.theme-dracula .fixture-table td,
+body.theme-terminal.theme-dracula .infobox td{border-color:#44475a}
+body.theme-terminal.theme-dracula .wikitable tr:nth-child(even) td,
+body.theme-terminal.theme-dracula .fixture-row:nth-child(even){background:#2d2f3d}
+body.theme-terminal.theme-dracula .fixture-table tr:hover td:not(.marker),
+body.theme-terminal.theme-dracula .analysis-table tbody tr:hover td,
+body.theme-terminal.theme-dracula .interactive-table thead .sortable-head:hover{background:#44475a}
+body.theme-terminal.theme-dracula .fixture-table .round-separator th{
+  background:#21222c;
+  color:#ff79c6;
+  border-top-color:#21222c;
+  border-bottom-color:#6272a4;
+}
+body.theme-terminal.theme-dracula .season-hero{
+  background:linear-gradient(180deg,#343746 0,#21222c 100%);
+  border-color:#44475a;
+}
+body.theme-terminal.theme-dracula .season-record{border-top-color:#44475a}
+body.theme-terminal.theme-dracula .competition-heading,
+body.theme-terminal.theme-dracula .season-results-head{border-bottom-color:#6272a4}
+body.theme-terminal.theme-dracula .career-nav-player{border-bottom-color:#44475a}
+body.theme-terminal.theme-dracula .career-nav-main.active,
+body.theme-terminal.theme-dracula .career-nav-club a.active{
+  background:#44475a;
+  color:#f8f8f2;
+}
+body.theme-terminal.theme-dracula .career-nav-club a.active{border-left-color:#bd93f9}
+body.theme-terminal.theme-dracula .note{
+  background:#343746;
+  border-left-color:#ff79c6;
+  color:#f8f8f2;
+}
+body.theme-terminal.theme-dracula .status,
+body.theme-terminal.theme-dracula .season-live,
+body.theme-terminal.theme-dracula .career-nav-club em{
+  background:#44475a;
+  border-color:#50fa7b;
+  color:#50fa7b;
+}
+body.theme-terminal.theme-dracula .fixture-table .marker.win{background:#50fa7b;color:#282a36}
+body.theme-terminal.theme-dracula .fixture-table .marker.draw{background:#f1fa8c;color:#282a36}
+body.theme-terminal.theme-dracula .fixture-table .marker.loss{background:#ff5555;color:#f8f8f2}
+body.theme-terminal.theme-dracula .fixture-table .marker.neutral{background:#6272a4;color:#f8f8f2}
+body.theme-terminal.theme-dracula .fixture-table td.team.winner{background:#30483b;color:#50fa7b}
+body.theme-terminal.theme-dracula .fixture-table tr:hover td.team.winner{background:#385341}
+body.theme-terminal.theme-dracula .fixture-table tr.round-end td{box-shadow:inset 0 -1px 0 #6272a4}
+body.theme-terminal.theme-dracula .sort-indicator{color:#bd93f9}
+body.theme-terminal.theme-dracula .group-table-block h3{
+  border-bottom-color:#44475a;
+  color:#ff79c6;
+}
+body.theme-terminal.theme-dracula .competition-side-table{background:#282a36}
+body.theme-terminal.theme-dracula .player-nation,
+body.theme-terminal.theme-dracula .flag{filter:none}
+body.theme-terminal.theme-dracula ::selection{background:#ff79c6;color:#282a36}
+
+
+/* Home page character grid */
+.home-page{
+  min-height:calc(100vh - 150px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+.home-page > h1{
+  width:100%;
+  max-width:1320px;
+  margin:0 0 30px;
+  text-align:center;
+}
+.home-page .home-tiles{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:28px;
+  width:min(1320px,100%);
+  margin:0 auto;
+}
+.home-player-tile{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  min-height:290px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:28px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:var(--head);
+  color:var(--text);
+  text-decoration:none;
+  box-shadow:0 7px 24px rgba(0,0,0,.08);
+  transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease;
+}
+.home-player-tile::before{
+  content:"";
+  position:absolute;
+  z-index:-2;
+  inset:-16px;
+  background:var(--club-crest) center/54% auto no-repeat;
+  opacity:.24;
+  filter:blur(4px) saturate(.85);
+  transform:scale(1.08);
+}
+.home-player-tile::after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:0;
+  background:rgba(255,255,255,.46);
+  backdrop-filter:blur(2px);
+}
+.home-player-tile span{
+  font-size:clamp(1.6rem,2.6vw,2.35rem);
+  font-weight:700;
+  text-align:center;
+  color:#111;
+  text-shadow:0 1px 8px rgba(255,255,255,.92);
+}
+.home-player-tile:hover{
+  transform:translateY(-2px);
+  border-color:var(--blue);
+  box-shadow:0 11px 30px rgba(0,0,0,.14);
+}
+body.theme-terminal.theme-dracula .home-player-tile::after{
+  background:rgba(40,42,54,.57);
+}
+body.theme-terminal.theme-dracula .home-player-tile span{
+  color:#f8f8f2;
+  text-shadow:0 1px 10px #21222c;
+}
+body.theme-glass .home-player-tile{
+  background:rgba(255,255,255,.18);
+  backdrop-filter:blur(10px);
+}
+body.theme-glass .home-player-tile::after{
+  background:rgba(255,255,255,.32);
+}
+@media(max-width:900px){
+  .home-page{min-height:auto;justify-content:flex-start}
+  .home-page .home-tiles{width:100%}
+  .home-player-tile{min-height:220px}
+}
+@media(max-width:760px){
+  .home-page .home-tiles{grid-template-columns:1fr;gap:16px}
+  .home-player-tile{min-height:180px}
+}
+
+/* Career timeline */
+.timeline-page{
+  max-width:none;
+}
+.timeline-wrap > h1{
+  margin-bottom:8px;
+}
+.timeline-scroll{
+  overflow-x:auto;
+  padding:18px 4px 28px;
+  scrollbar-width:thin;
+}
+.career-timeline{
+  --timeline-card:340px;
+  position:relative;
+  display:flex;
+  align-items:flex-start;
+  gap:28px;
+  width:max-content;
+  min-width:100%;
+  padding:48px 12px 0;
+}
+.career-timeline::before{
+  content:"";
+  position:absolute;
+  left:28px;
+  right:28px;
+  top:20px;
+  height:4px;
+  border-radius:999px;
+  background:var(--border);
+}
+.timeline-season-card{
+  position:relative;
+  width:var(--timeline-card);
+  min-width:var(--timeline-card);
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:var(--head);
+  padding:18px;
+}
+.timeline-dot{
+  position:absolute;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  top:-39px;
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--blue);
+  border:4px solid var(--head);
+  box-shadow:0 0 0 2px var(--blue);
+}
+.timeline-dot:hover{
+  transform:translateX(-50%) scale(1.12);
+}
+.timeline-season-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:6px;
+  font-weight:700;
+}
+.timeline-season-head span{
+  font-size:1.15rem;
+}
+.timeline-season-head em{
+  font-style:normal;
+  font-size:.72rem;
+  padding:2px 7px;
+  border:1px solid currentColor;
+  border-radius:999px;
+}
+.timeline-season-card h2{
+  margin:0 0 16px;
+  font-size:1.18rem;
+}
+.timeline-season-card section{
+  margin-top:16px;
+  padding-top:14px;
+  border-top:1px solid var(--border);
+}
+.timeline-season-card section h3{
+  margin:0 0 9px;
+  font-size:.95rem;
+}
+.timeline-topfive{
+  margin:0;
+  padding:0;
+  list-style:none;
+  counter-reset:tlpos;
+}
+.timeline-topfive li{
+  counter-increment:tlpos;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:4px 6px;
+  border-radius:4px;
+  font-size:.9rem;
+}
+.timeline-topfive li::before{
+  content:counter(tlpos) ".";
+  width:20px;
+  flex:0 0 20px;
+}
+.timeline-topfive li span{
+  flex:1;
+  min-width:0;
+}
+.timeline-topfive li b{
+  font-size:.82rem;
+  white-space:nowrap;
+}
+.timeline-topfive li.focus{
+  background:rgba(255,220,80,.18);
+}
+.timeline-cup{
+  display:grid;
+  gap:4px;
+  margin-bottom:10px;
+}
+.timeline-cup b{
+  color:var(--blue);
+}
+.timeline-cup span{
+  font-size:.88rem;
+}
+.timeline-moves{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+.timeline-moves b{
+  display:block;
+  margin-bottom:5px;
+}
+.timeline-moves ul{
+  margin:0;
+  padding:0;
+  list-style:none;
+  font-size:.84rem;
+}
+.timeline-moves li{
+  margin:3px 0;
+  line-height:1.25;
+}
+.timeline-moves .muted{
+  display:block;
+  font-size:.84rem;
+}
+body.theme-terminal.theme-dracula .timeline-season-card{
+  background:#282a36;
+  border-color:#44475a;
+}
+body.theme-terminal.theme-dracula .career-timeline::before{
+  background:#6272a4;
+}
+body.theme-terminal.theme-dracula .timeline-dot{
+  background:#bd93f9;
+  border-color:#282a36;
+  box-shadow:0 0 0 2px #bd93f9;
+}
+body.theme-terminal.theme-dracula .timeline-season-card section{
+  border-top-color:#44475a;
+}
+body.theme-terminal.theme-dracula .timeline-topfive li.focus{
+  background:#4b4263;
+}
+body.theme-glass .timeline-season-card{
+  background:rgba(255,255,255,.24);
+  backdrop-filter:blur(12px);
+}
+@media(max-width:760px){
+  .career-timeline{--timeline-card:290px;gap:18px}
+  .timeline-moves{grid-template-columns:1fr}
+}
+
+/* Typography
+   Dracula uses ProggyForever at 20px; Wiki and Glass use 16px. */
+body.theme-terminal.theme-dracula{
+  font-size:20px!important;
+  line-height:1.5;
+}
+body.theme-terminal.theme-dracula *,
+body.theme-terminal.theme-dracula *::before,
+body.theme-terminal.theme-dracula *::after{
+  font-size:20px!important;
+  line-height:1.5;
+}
+body.theme-terminal.theme-dracula h1,
+body.theme-terminal.theme-dracula .season-hero h1{
+  font-size:40px!important;
+  line-height:1.18;
+}
+body.theme-terminal.theme-dracula h2,
+body.theme-terminal.theme-dracula .timeline-season-card h2{
+  font-size:30px!important;
+  line-height:1.22;
+}
+body.theme-terminal.theme-dracula h3,
+body.theme-terminal.theme-dracula .timeline-season-card section h3,
+body.theme-terminal.theme-dracula .group-table-block h3{
+  font-size:24px!important;
+  line-height:1.3;
+}
+body.theme-terminal.theme-dracula .brand{font-size:20px!important;line-height:1.2}
+body.theme-terminal.theme-dracula .brand small{font-size:16px!important;line-height:1.2}
+body.theme-terminal.theme-dracula small,
+body.theme-terminal.theme-dracula .status,
+body.theme-terminal.theme-dracula .season-live,
+body.theme-terminal.theme-dracula .career-nav-club em{
+  font-size:13px!important;
+  line-height:1.35;
+}
+body.theme-terminal.theme-dracula .flag,
+body.theme-terminal.theme-dracula .player-nation{
+  font-size:18px!important;
+  line-height:1;
+}
+
+body:not(.theme-terminal){
+  font-size:16px!important;
+  line-height:1.5;
+}
+body:not(.theme-terminal) *,
+body:not(.theme-terminal) *::before,
+body:not(.theme-terminal) *::after{
+  font-size:16px!important;
+  line-height:1.5;
+}
+body:not(.theme-terminal) h1,
+body:not(.theme-terminal) .season-hero h1{
+  font-size:32px!important;
+  line-height:1.18;
+}
+body:not(.theme-terminal) h2,
+body:not(.theme-terminal) .timeline-season-card h2{
+  font-size:24px!important;
+  line-height:1.22;
+}
+body:not(.theme-terminal) h3,
+body:not(.theme-terminal) .timeline-season-card section h3,
+body:not(.theme-terminal) .group-table-block h3{
+  font-size:19px!important;
+  line-height:1.3;
+}
+body:not(.theme-terminal) .brand{font-size:20px!important;line-height:1.2}
+body:not(.theme-terminal) .brand small,
+body:not(.theme-terminal) small,
+body:not(.theme-terminal) .status,
+body:not(.theme-terminal) .season-live,
+body:not(.theme-terminal) .career-nav-club em{
+  font-size:13px!important;
+  line-height:1.35;
+}
+body:not(.theme-terminal) .flag,
+body:not(.theme-terminal) .player-nation{
+  font-size:18px!important;
+  line-height:1;
+}

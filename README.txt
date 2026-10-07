@@ -1,14 +1,28 @@
-FC26 Career Wiki — full fixture edition
+FC26 Career Wiki
 
-Open index.html in a browser. Every scored fixture/result from the supplied season files is shown on the relevant season page. Blank future fixtures are omitted. Jordan Vale 2028–29 Europa League placeholder team-list names are intentionally ignored.
+Open index.html in a browser.
 
-FONT NOTE
----------
-The default UI uses the readable Segoe UI / Arial / Helvetica stack. A top-right font toggle switches to ProggyForever, loaded via @font-face from the official ocornut/proggyforever GitHub repository. The selected mode is remembered in localStorage. If ProggyForever cannot load, its configured local monospace fallbacks are used.
+THEMES
+------
+Wiki
+  Encyclopedia-style interface using the standard sans-serif stack.
 
-This build restores domestic league standings and season squad/player-list tables from the supplied season dumps, and uses a wider/larger desktop layout.
+Dracula
+  Dracula colour palette using ProggyForever and a 20px content baseline.
+  ProggyForever is loaded remotely; local monospace fallbacks are used if unavailable.
 
+Glass
+  Stadium-background glass interface using the standard sans-serif stack.
 
-NAVIGATION NOTE
----------------
-On desktop, the left navigation remains sticky while the main page scrolls.
+Theme preference is stored in localStorage.
+
+NAVIGATION
+----------
+The character selector is centred in the top header on desktop.
+Character pages include Overview, Timeline, Head to Head, and season pages.
+The left career navigator remains sticky on desktop.
+
+DATA
+----
+Season pages use supplied career data only. Blank or future statistics remain blank.
+Jordan Vale's 2028–29 Europa League placeholder standings remain intentionally excluded.
