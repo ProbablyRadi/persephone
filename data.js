@@ -32,16 +32,16 @@ flag:'🇬🇷',
 dob:'31 October',
 birth:'Thessaloniki, Greece',
 height:'1.77 m',
-bootBrand:'Unknown',
+bootBrand:'Nike',
 position:'Striker',
 current:'🇪🇸 FC Barcelona Femení',
 number:'9',
 international:'🇬🇷 Greece (2025–)',
 intro:'Vasiliki Dimitriou is a highly talented Greek striker born in Thessaloniki, Greece. Nicknamed both “The Queen” and “The Demon”, she is known for combining exceptional technical ability with a powerful and highly physical style of play. Dimitriou can overpower defenders while still producing moments of skill and composure in attacking areas, giving her a rare balance of strength and talent. Her Barcelona career began with an immediate scoring impact, while her first recorded season has also included emphatic Liga F victories and an early UEFA Women’s Champions League appearance against FC Bayern München. Her aggressive presence and natural finishing ability have quickly made her one of the most distinctive young forwards in her career.',
-career:[['2025–2031','🇪🇸 FC Barcelona Femení',33,38],['2031–2034','🇫🇷 OL Lyonnes','—','—'],['2034–2037','🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester City Women','—','—'],['2037–2040','🇺🇸 Gotham FC','','']],
+career:[['2025–2035','🇪🇸 FC Barcelona Femení',45,57]],
 intl:['2025–','🇬🇷 Greece',4,2],
-stats:[['2025–26','🇪🇸 FC Barcelona Femení','ST','Liga F','1st','7.1',33,38,5,10]],
-honours:{'🇪🇸 FC Barcelona Femení':['Liga F Championship: 2025–26 🏆',"UEFA Women's Champions League: 2025–26 🏆"]},
+stats:[['2025–26','🇪🇸 FC Barcelona Femení','ST','Liga F','1st','7.1',33,38,5,10],['2026–27','🇪🇸 FC Barcelona Femení','ST','Liga F','1st','—',12,19,2,7]],
+honours:{'🇪🇸 FC Barcelona Femení':['Liga F Championship: 2025–26 🏆',"UEFA Women's Champions League: 2025–26 🏆",'Golden Boot: 2026']},
 seasons:{
   '2025–26':{
     inProgress:false,
@@ -50,6 +50,16 @@ seasons:{
       'Pre-season friendlies':['FC Barcelona 3 - 0 West Ham','London City 0 - 3 FC Barcelona','FC Barcelona 0 - 2 Paris FC'],
       'Liga F':['FC Barcelona 2 - 1 Alhama CF','Athletic Club 1 - 6 FC Barcelona','FC Barcelona 4 - 0 Logroño United','Sevilla FC 2 - 2 FC Barcelona','FC Barcelona 4 - 0 RCD Espanyol','SD Eibar 2 - 2 FC Barcelona','Inj — Atlético de Madrid 0 - 2 FC Barcelona','FC Barcelona 3 - 1 Granada CF','Real Sociedad 0 - 3 FC Barcelona','FC Barcelona 3 - 1 RC Deportivo','FC Barcelona 2 - 2 Real Madrid','Levante UD 1 - 3 FC Barcelona','FC Barcelona 2 - 0 C. Adeje Tenereife','Badalona Women 1 - 4 FC Barcelona','FC Barcelona 4 - 0 Madrid CFF','Alhama CF 2 - 3 FC Barcelona','FC Barcelona 2 - 1 Atlético de Madrid','FC Barcelona 1 - 2 Sevilla FC','Logroño United 0 - 4 FC Barcelona','FC Barcelona 4 - 2 SD Eibar','Granada CF 1 - 2 FC Barcelona','RC Deportivo 0 - 2 FC Barcelona','FC Barcelona 3 - 1 Athletic Club','Real Madrid 1 - 2 FC Barcelona','FC Barcelona 4 - 1 Badalona Women','RCD Espanyol 2 - 1 FC Barcelona','FC Barcelona 5 - 0 Levante UD','C. Adeje Tenereife 1 - 2 FC Barcelona','FC Barcelona 1 - 3 Real Sociedad','Madrid CFF 2 - 2 FC Barcelona'],
       "UEFA Women's Champions League":['FC Barcelona 1 - 1 FC Bayern München','Inj — Roma 2 - 1 FC Barcelona','FC Barcelona 1 - 2 Glasgow City FC','Chelsea 1 - 2 FC Barcelona','FC Barcelona 1 - 3 SL Benfica','Paris FC 1 - 3 FC Barcelona','Paris FC 5 - 2 PSG','Manchester United 1 - 5 Arsenal','FC Barcelona 5 - 0 OL Lyonnes','Juventus 1 - 4 Roma','Arsenal 6 - 3 SL Benfica','FC Barcelona 8 - 3 Real Madrid','Roma 3 - 2 Chelsea','Paris FC 4 - 3 FC Bayern München','FC Barcelona 5 - 0 Arsenal','Paris FC 4 - 1 Roma','F — FC Barcelona 4 - 0 Paris FC']
+    },
+    table:'1st — 73 pts'
+  },
+  '2026–27':{
+    inProgress:true,
+    summary:'Second FC Barcelona Femení season — currently in progress. Barcelona are 1st in Liga F after seven matches with 18 points. Vasiliki Dimitriou has 12 appearances, 19 goals, 2 assists and 7 clean sheets in the supplied season sheet.',
+    competitions:{
+      'Pre-season friendlies':['FC Barcelona 3 - 0 Leverkusen','Gotham FC 1 - 3 FC Barcelona','FC Barcelona 2 - 0 West Ham'],
+      'Liga F':['Granada CF 1 - 3 FC Barcelona','FC Barcelona 4 - 1 Levante UD','Badalona Women 1 - 3 FC Barcelona','FC Barcelona 3 - 0 SD Eibar','C. Adeje Tenereife 0 - 6 FC Barcelona','FC Barcelona 1 - 3 RCD Espanyol','Athletic Club 0 - 4 FC Barcelona'],
+      "UEFA Women's Champions League":['FC Barcelona 2 - 0 Frankfurt','FC Barcelona 3 - 0 Juventus']
     },
     table:'In progress'
   }
@@ -61,5 +71,10 @@ FULL_FIXTURES.vasi={
     'Pre-season friendlies':['FC Barcelona 3 - 0 West Ham','London City 0 - 3 FC Barcelona','FC Barcelona 0 - 2 Paris FC'],
     'Liga F':['FC Barcelona 2 - 1 Alhama CF','Athletic Club 1 - 6 FC Barcelona','FC Barcelona 4 - 0 Logroño United','Sevilla FC 2 - 2 FC Barcelona','FC Barcelona 4 - 0 RCD Espanyol','SD Eibar 2 - 2 FC Barcelona','Inj — Atlético de Madrid 0 - 2 FC Barcelona','FC Barcelona 3 - 1 Granada CF','Real Sociedad 0 - 3 FC Barcelona','FC Barcelona 3 - 1 RC Deportivo','FC Barcelona 2 - 2 Real Madrid','Levante UD 1 - 3 FC Barcelona','FC Barcelona 2 - 0 C. Adeje Tenereife','Badalona Women 1 - 4 FC Barcelona','FC Barcelona 4 - 0 Madrid CFF','Alhama CF 2 - 3 FC Barcelona','FC Barcelona 2 - 1 Atlético de Madrid','FC Barcelona 1 - 2 Sevilla FC','Logroño United 0 - 4 FC Barcelona','FC Barcelona 4 - 2 SD Eibar','Granada CF 1 - 2 FC Barcelona','RC Deportivo 0 - 2 FC Barcelona','FC Barcelona 3 - 1 Athletic Club','Real Madrid 1 - 2 FC Barcelona','FC Barcelona 4 - 1 Badalona Women','RCD Espanyol 2 - 1 FC Barcelona','FC Barcelona 5 - 0 Levante UD','C. Adeje Tenereife 1 - 2 FC Barcelona','FC Barcelona 1 - 3 Real Sociedad','Madrid CFF 2 - 2 FC Barcelona'],
     "UEFA Women's Champions League":['FC Barcelona 1 - 1 FC Bayern München','Inj — Roma 2 - 1 FC Barcelona','FC Barcelona 1 - 2 Glasgow City FC','Chelsea 1 - 2 FC Barcelona','FC Barcelona 1 - 3 SL Benfica','Paris FC 1 - 3 FC Barcelona','Paris FC 5 - 2 PSG','Manchester United 1 - 5 Arsenal','FC Barcelona 5 - 0 OL Lyonnes','Juventus 1 - 4 Roma','Arsenal 6 - 3 SL Benfica','FC Barcelona 8 - 3 Real Madrid','Roma 3 - 2 Chelsea','Paris FC 4 - 3 FC Bayern München','FC Barcelona 5 - 0 Arsenal','Paris FC 4 - 1 Roma','F — FC Barcelona 4 - 0 Paris FC']
+  },
+  '2026–27':{
+    'Pre-season friendlies':['FC Barcelona 3 - 0 Leverkusen','Gotham FC 1 - 3 FC Barcelona','FC Barcelona 2 - 0 West Ham'],
+    'Liga F':['Granada CF 1 - 3 FC Barcelona','FC Barcelona 4 - 1 Levante UD','Badalona Women 1 - 3 FC Barcelona','FC Barcelona 3 - 0 SD Eibar','C. Adeje Tenereife 0 - 6 FC Barcelona','FC Barcelona 1 - 3 RCD Espanyol','Athletic Club 0 - 4 FC Barcelona'],
+    "UEFA Women's Champions League":['FC Barcelona 2 - 0 Frankfurt','FC Barcelona 3 - 0 Juventus']
   }
 };
