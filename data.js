@@ -1,80 +1,583 @@
-const DATA={
-rens:{name:'Rens Wilhelm Adisea',displayName:'Rens Adisea',displayName:'Rens Adisea',flag:'🇳🇱',dob:'01 January',birth:'Zandvoort, Netherlands',height:'1.80 m',bootBrand:'Skechers',position:'Central attacking midfielder',current:'🇩🇪 Borussia Dortmund',number:'46',international:'🇳🇱 Netherlands (2031–)',intro:'Rens Adisea is a Dutch attacking midfielder born in Zandvoort, Netherlands. Known for an exceptional no-frills style of play, he combines elite dribbling and playmaking with the instincts of a shadow striker. Quick-witted and decisive in possession, Adisea is capable of reading situations rapidly and is equally comfortable creating chances for teammates or finishing moves himself. His career has already featured prolific spells with PEC Zwolle, Brighton & Hove Albion and FC Bayern München, including a Premier League title with Brighton and major domestic and European honours. His directness, close control and ability to arrive in dangerous areas have made him a highly versatile attacking presence.',career:[['2025–2028','🇳🇱 PEC Zwolle',125,92],['2028–2033','🏴󠁧󠁢󠁥󠁮󠁧󠁿 Brighton & Hove Albion',239,142],['2033–2035','🇩🇪 FC Bayern München',117,97],['2035–','🇩🇪 Borussia Dortmund','In progress','In progress']],intl:['2031–','🇳🇱 Netherlands',41,31],stats:[['2025–26','🇳🇱 PEC Zwolle','CAM','Eredivisie','2nd','8.0',28,26,10,10],['2026–27','🇳🇱 PEC Zwolle','CAM','Eredivisie','3rd','7.0',43,35,13,18],['2027–28','🇳🇱 PEC Zwolle','CAM','Eredivisie','6th','6.3',54,31,11,23],['2028–29','🏴󠁧󠁢󠁥󠁮󠁧󠁿 Brighton','CAM','Premier League','8th','7.2',20,15,3,4],['2029–30','🏴󠁧󠁢󠁥󠁮󠁧󠁿 Brighton','CAM','Premier League','5th','7.0',50,26,21,25],['2030–31','🏴󠁧󠁢󠁥󠁮󠁧󠁿 Brighton','CDM','Premier League','1st','7.9',48,30,33,29],['2031–32','🏴󠁧󠁢󠁥󠁮󠁧󠁿 Brighton','CAM','Premier League','5th','6.3',60,28,18,18],['2032–33','🏴󠁧󠁢󠁥󠁮󠁧󠁿 Brighton','CAM','Premier League','4th','6.2',61,43,29,15],['2033–34','🇩🇪 Bayern','RAM','Bundesliga','1st','7.4',59,56,19,22],['2034–35','🇩🇪 Bayern','RAM','Bundesliga','1st','6.1',58,41,16,17],['2035–36','🇩🇪 Dortmund','RAM','Bundesliga','In progress','—','—','—','—','—']],honours:{'🇳🇱 PEC Zwolle':['KNVB Oranje Beker: 2027–28 🏆','Eredivisie runner-up: 2025–26 🥈','Player of the Season: 2025–26, 2026–27 🏆'],'🏴󠁧󠁢󠁥󠁮󠁧󠁿 Brighton & Hove Albion':['Premier League: 2030–31 🏆','UEFA Conference League: 2030–31 🏆','UEFA Europa League: 2032–33 🏆','FA Cup: 2031–32 🏆','Carabao Cup: 2029–30 🏆; runner-up 2030–31 🥈','FA Community Shield: 2031–32, 2032–33 🏆','Player of the Season: 2031–32 🏆'],'🇩🇪 FC Bayern München':['Bundesliga: 2033–34, 2034–35 🏆','UEFA Champions League: 2033–34, 2034–35 🏆','DFB-Pokal: 2033–34, 2034–35 🏆','F. Beckenbauer Supercup: 2033, 2034 🏆','UEFA Super Cup: 2033–34 🏆','Player of the Season: 2033–34 🏆'],'🇩🇪 Borussia Dortmund':['F. Beckenbauer Supercup: 2035 🏆'],'🇳🇱 Netherlands':['FIFA World Cup: 2034 🏆','UEFA Euro semi-finals: 2032']},seasons:{
-'2025–26':{summary:'PEC Zwolle finished 2nd in the Eredivisie with 68 points. Rens recorded 28 appearances, 26 goals and 10 assists.',competitions:{'Eredivisie':['PEC Zwolle 3–0 FC Twente','Telstar 0–3 PEC Zwolle','Ajax 4–3 PEC Zwolle','PEC Zwolle 2–4 PSV','Feyenoord 2–2 PEC Zwolle','PSV 1–3 PEC Zwolle','PEC Zwolle 1–0 Feyenoord'],'Pre-season friendlies':['PEC Zwolle 0–0 Blackpool','PEC Zwolle 1–0 Reading','PEC Zwolle 4–1 Motherwell'],'KNVB Oranje Beker':['PEC Zwolle 0–2 Telstar (Rens injured)']},table:'2nd — 34 P, 21 W, 5 D, 8 L, 72 GF, 33 GA, +39, 68 pts'},
-'2026–27':{summary:'PEC Zwolle finished 3rd. Rens scored 35 goals in 43 appearances and the club reached the KNVB semi-final.',competitions:{'KNVB Oranje Beker':['Fortuna 0–1 PEC Zwolle','PEC Zwolle 3–0 PSV','Feyenoord 3–1 PEC Zwolle'],'UEFA Champions League':['League phase: 18th, 11 pts','PEC Zwolle 0–2 Juventus','Juventus 2–0 PEC Zwolle (0–4 agg)']},table:'3rd — 68 pts'},
-'2027–28':{summary:'Rens ended his first PEC spell by winning the KNVB Oranje Beker.',competitions:{'KNVB Oranje Beker':['PEC Zwolle 2–1 FC Utrecht','Heracles 1–2 PEC Zwolle','PEC Zwolle 3–0 Groningen','PEC Zwolle 2–0 PSV — Final 🏆'],'UEFA Champions League':['Qualified via Fenerbahçe and Olympiacos','League phase: 14th, 12 pts','Eliminated by Inter Milan, 3–7 agg']},table:'6th — 55 pts'},
-'2028–29':{summary:'First Brighton season: 8th in the Premier League; 15 goals in 20 appearances.',competitions:{'FA Cup':['Blackburn 1–2 Brighton','Brighton 3–4 Reading']},table:'8th — 62 pts'},
-'2029–30':{summary:'Brighton finished 5th and won the Carabao Cup.',competitions:{'Carabao Cup':['Brighton 4–1 Newcastle','Fulham 1–4 Brighton','Arsenal 1–6 Brighton','Brighton 1–0 Southampton','Southampton 0–2 Brighton','Brighton 3–0 Manchester United — Final 🏆'],'FA Cup':['Semi-final: Brighton 0–1 Chelsea']},table:'5th — 67 pts'},
-'2030–31':{summary:'Premier League and UEFA Conference League double; Carabao Cup runner-up.',competitions:{'Premier League':['Brighton champions 🏆 — 91 pts, +63 GD'],'UEFA Conference League':['League phase: 1st, 18 pts','R16: 7–2 Brann agg','QF: 6–0 Club Brugge agg','SF: 5–1 Nordsjælland agg','Brighton 3–0 Real Sociedad — Final 🏆'],'Carabao Cup':['Brighton 1–2 Ipswich — Final 🥈']},table:'1st 🏆 — 91 pts'},
-'2031–32':{summary:'Brighton won the FA Cup and Community Shield.',competitions:{'FA Cup':['Norwich 0–3 Brighton','Wycombe 1–4 Brighton','Brighton 4–0 Everton','Brighton 2–0 Sunderland','Ipswich 1–4 Brighton','Arsenal 0–1 Brighton — Final 🏆'],'FA Community Shield':['Liverpool 1–5 Brighton 🏆'],'UEFA Champions League':['League phase: 10th, 14 pts','Playoff: 5–0 Rangers agg','R16: Atlético 4–2 Brighton agg']},table:'5th — 65 pts'},
-'2032–33':{summary:'Brighton finished 4th and won the UEFA Europa League.',competitions:{'UEFA Europa League':['League phase: 2nd, 21 pts','R16: Brighton 7–1 Real Sociedad','QF: Brighton beat Anderlecht on penalties','SF: Brighton 7–1 Benfica','Brighton 4–0 Wolfsburg — Final 🏆'],'FA Community Shield':['Brighton 2–1 Arsenal 🏆'],'Euros':['Netherlands reached semi-finals']},table:'4th — 69 pts'},
-'2033–34':{summary:'First Bayern season: Bundesliga, DFB-Pokal and Champions League treble plus two super cups.',competitions:{'Bundesliga':['Bayern champions 🏆 — 82 pts'],'DFB-Pokal':['Bayern 4–1 Leverkusen — Final 🏆'],'UEFA Champions League':['R16: Bayern 5–1 Manchester City agg','QF: Juventus 2–5 Bayern agg','SF: Bayern 8–5 Leipzig agg','Bayern 4–1 Dortmund — Final 🏆'],'UEFA Super Cup':['Bayern 3–1 Brighton 🏆'],'F. Beckenbauer Supercup':['Bayern 4–1 Hoffenheim 🏆']},table:'1st 🏆 — 82 pts'},
-'2034–35':{summary:'Bayern retained the Bundesliga, DFB-Pokal and Champions League; Netherlands won the World Cup.',competitions:{'Bundesliga':['Bayern champions 🏆 — 81 pts'],'DFB-Pokal':['Hoffenheim 1–5 Bayern — Final 🏆'],'UEFA Champions League':['PSG 1–1 Bayern — Bayern won 5–4 pens 🏆'],'World Cup':['Netherlands 4–1 Ireland','Egypt 0–5 Netherlands','Iceland 1–3 Netherlands','England 0–4 Netherlands','Belgium 0–4 Netherlands — Final 🏆']},table:'1st 🏆 — 81 pts'},
-'2035–36':{inProgress:true,summary:'First Borussia Dortmund season — currently in progress.',competitions:{'Pre-season friendlies':['Dortmund 5–0 Inter Milan','AS Roma 0–1 Dortmund','Dortmund 2–3 Arsenal'],'F. Beckenbauer Supercup':['Bayern 1–4 Dortmund 🏆'],'UEFA Champions League':['League phase currently recorded with Dortmund in 6th after eight matches']},table:'1st — 73 pts'}
-}},
-espen:{name:'Espen Magnus Sæheim',displayName:'Espen Sæheim',displayName:'Espen Sæheim',flag:'🇳🇴',dob:'04 June',birth:'Oslo, Norway',height:'1.82 m',bootBrand:'Umbro',position:'Left wing-back',current:'🏴󠁧󠁢󠁥󠁮󠁧󠁿 Hull City',number:'2',international:'🇳🇴 Norway (2025–)',intro:'Espen Sæheim is a young Norwegian left wing-back born in Oslo, Norway. Fierce, extremely fast and physically gifted, he is regarded as a player with the potential to develop into a powerful attacking winger. Sæheim is particularly renowned in training for his stamina, relentless running and ability to maintain intensity over long periods. After being signed by PSV, he was loaned to Hull City for his first senior season in order to gain regular first-team experience. His opening spell at Hull has already shown his attacking threat from wide areas, with goals and assists arriving despite his defensive starting position.',career:[['2025–2027','🏴󠁧󠁢󠁥󠁮󠁧󠁿 Hull City (Loan)',6,4],['2027–2033','🇳🇱 PSV','—','—'],['2033–2037','🇲🇨 AS Monaco','—','—'],['2037–2040','🇩🇪 1. FC Köln','—','—']],intl:['2025–','🇳🇴 Norway','—','—'],stats:[['2025–26','🏴󠁧󠁢󠁥󠁮󠁧󠁿 Hull City','LWB','EFL Championship','In progress','—',9,6,4,4]],honours:{},seasons:{'2025–26':{inProgress:true,summary:'First Hull City season — currently in progress. Espen has 9 appearances, 6 goals and 4 assists in the supplied season sheet.',competitions:{'Pre-season friendlies':['Hull City 1 - 0 RC Deportivo','Hellas Verona 0 - 1 Hull City','Hull City 6 - 0 1. FC Köln'],'EFL Championship':['Coventry City 2 - 2 Hull City','Hull City 0 - 1 Oxford United','Bristol City 0 - 2 Hull City'],'Carabao Cup':['Hull City 4 - 1 Accrington','Hull City 3 - 0 Swansea City']},table:'In progress'}}},
-jordan:{name:'Jordan A.B. Vale',displayName:'Jordan Vale',displayName:'Jordan Vale',flag:'🏴󠁧󠁢󠁥󠁮󠁧󠁿',dob:'08 August',birth:'Weston-super-Mare, England',height:'1.82 m',bootBrand:'Nike',position:'Goalkeeper',current:'🏴󠁧󠁢󠁥󠁮󠁧󠁿 Bristol City',number:'37 (international: 12, 20, 17, 1)',international:'🏴󠁧󠁢󠁥󠁮󠁧󠁿 England (2025–)',intro:'Jordan Vale is an English goalkeeper born in Weston-super-Mare, England. A young rookie who caught attention quickly at Bristol City, he helped the club win promotion to the Premier League in his first season and remained loyal as they fought to establish themselves in the top flight. Vale was ever-present across long stretches of the club’s rise, recording high appearance and clean-sheet totals at a young age. He later played a major part in helping Bristol City avoid relegation and in their remarkable FA Cup triumph, a shock run that further strengthened his reputation as one of the club’s most important young players.',career:[['2025–2030','🏴󠁧󠁢󠁥󠁮󠁧󠁿 Bristol City',149,1],['2030–2036','🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester United','—','—'],['2036–2040','🇩🇪 Borussia Dortmund','—','—']],intl:['2025–','🏴󠁧󠁢󠁥󠁮󠁧󠁿 England',30,0],stats:[['2025–26','🏴󠁧󠁢󠁥󠁮󠁧󠁿 Bristol City','GK','EFL Championship','1st','6.1',53,1,5,25],['2026–27','🏴󠁧󠁢󠁥󠁮󠁧󠁿 Bristol City','GK','Premier League','17th','6.4',48,0,2,14],['2027–28','🏴󠁧󠁢󠁥󠁮󠁧󠁿 Bristol City','GK','Premier League','14th','6.1',48,0,0,19],['2028–29','🏴󠁧󠁢󠁥󠁮󠁧󠁿 Bristol City','GK','Premier League','In progress','—','—','—','—','—']],honours:{'🏴󠁧󠁢󠁥󠁮󠁧󠁿 Bristol City':['EFL Championship: 2025–26 🏆','FA Cup: 2027–28 🏆'],'🏴󠁧󠁢󠁥󠁮󠁧󠁿 England':['FIFA World Cup runner-up: 2026 🥈','UEFA Euro Golden Glove: 2028 🧤']},seasons:{
-'2025–26':{summary:'Bristol City won the Championship with 94 points. Jordan made 53 appearances, scored once and kept 25 clean sheets.',competitions:{'Pre-season friendlies':['Bristol City 1–0 Le Havre','Deportivo 0–0 Bristol City','Bristol City 0–0 FC Utrecht'],'EFL Championship':['Champions 🏆 — 94 pts, 27 W, 13 D, 6 L, 67 GF, 34 GA'],'Carabao Cup':['Sheffield United 1–2 Bristol City','Cardiff City 0–2 Bristol City','Bristol City 0–0 Brighton — lost 3–4 pens'],'FA Cup':['Bristol City 1–0 Blackpool','Nottingham Forest 0–0 Bristol City — lost 6–5 pens'],'World Cup':['England 2–0 Ghana','Panama 0–2 England','England 2–0 Croatia','England 2–0 Colombia','Mexico 1–2 England']},table:'1st 🏆 — 94 pts'},
-'2026–27':{summary:'Bristol City survived their first Premier League season in 17th. England finished World Cup runners-up.',competitions:{'Premier League':['17th — 37 pts, 8 W, 13 D, 17 L, 35 GF, 46 GA'],'Carabao Cup':['Reached semi-final','Arsenal 1–0 Bristol City','Bristol City 1–1 Arsenal'],'World Cup':['Japan 0–1 England — QF','England 4–0 New Zealand — SF','Netherlands 2–1 England — Final 🥈'],'Euros Qualifiers':['England unbeaten across the seven recorded qualifiers']},table:'17th — 37 pts'},
-'2027–28':{summary:'Bristol City finished 14th and won the FA Cup. Jordan kept 19 clean sheets.',competitions:{'Premier League':['14th — 46 pts, 13 W, 7 D, 18 L, 40 GF, 52 GA'],'FA Cup':['Bristol City 4–0 Wigan','Charlton 0–2 Bristol City','Bristol City 3–2 Middlesbrough','Bristol City 4–0 Southampton','Bristol City 2–1 Manchester United — SF','Manchester City 1–1 Bristol City — Bristol won 4–3 pens 🏆'],'Euros':['England 4–0 Scotland','Bosnia-Herzegovina 0–3 England','England 1–1 Ukraine']},table:'14th — 46 pts'},
-'2028–29':{inProgress:true,summary:'Current Bristol City season. Europa League standings team names are deliberately excluded because they are placeholders.',competitions:{'Premier League':['Manchester City 3–2 Bristol City','Bristol City 2–0 Aston Villa','Newcastle 1–2 Bristol City','Chelsea 4–0 Bristol City','Bristol City 3–0 Bournemouth','Crystal Palace 0–3 Bristol City','Bristol City 1–1 West Ham','Ipswich 1–0 Bristol City','Bristol City 1–0 Wolves','Manchester United 0–0 Bristol City'],'Carabao Cup':['Coventry 0–3 Bristol City','Bristol City 4–1 Liverpool','Arsenal 0–0 Bristol City — Arsenal won 3–0 pens'],'FA Community Shield':['Bristol City 2–2 Manchester City — City won 3–2 pens'],'UEFA Europa League':['Bristol City 4–1 FC Nordsjælland','Bristol City 2–0 Brøndby IF','Sparta Praha 1–1 Bristol City','Stade Rennais 1–2 Bristol City','Remaining fixtures not yet recorded'],'Euro 2028':['England beat Bosnia-Herzegovina on penalties — R16','England 4–0 Belgium — QF','Sweden 4–2 England — SF','Jordan Vale: Golden Glove 🧤']},table:'In progress'}
-}}
+const DATA = {};
+DATA.rens = {
+    name: 'Rens Wilhelm Adisea', displayName: 'Rens Adisea', displayName: 'Rens Adisea', flag: '🇳🇱', dob: '01 January', birth: 'Zandvoort, Netherlands', height: '1.80 m', bootBrand: 'Skechers', position: 'Central attacking midfielder', current: '🇩🇪 Borussia Dortmund', number: '46', international: '🇳🇱 Netherlands (2031–)', intro: 'Rens Adisea is a Dutch attacking midfielder born in Zandvoort, Netherlands. Known for an exceptional no-frills style of play, he combines elite dribbling and playmaking with the instincts of a shadow striker. Quick-witted and decisive in possession, Adisea is capable of reading situations rapidly and is equally comfortable creating chances for teammates or finishing moves himself. His career has already featured prolific spells with PEC Zwolle, Brighton & Hove Albion and FC Bayern München, including a Premier League title with Brighton and major domestic and European honours. His directness, close control and ability to arrive in dangerous areas have made him a highly versatile attacking presence.', career: [
+        [
+            '2025–2028', '🇳🇱 PEC Zwolle', 125, 92
+        ], [
+            '2028–2033', '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Brighton & Hove Albion', 239, 142
+        ], [
+            '2033–2035', '🇩🇪 FC Bayern München', 117, 97
+        ], [
+            '2035–', '🇩🇪 Borussia Dortmund', 'In progress', 'In progress'
+        ]
+    ], intl: [
+        '2031–', '🇳🇱 Netherlands', 41, 31
+    ], stats: [
+        [
+            '2025–26', '🇳🇱 PEC Zwolle', 'CAM', 'Eredivisie', '2nd', '8.0', 28, 26, 10, 10
+        ], [
+            '2026–27', '🇳🇱 PEC Zwolle', 'CAM', 'Eredivisie', '3rd', '7.0', 43, 35, 13, 18
+        ], [
+            '2027–28', '🇳🇱 PEC Zwolle', 'CAM', 'Eredivisie', '6th', '6.3', 54, 31, 11, 23
+        ], [
+            '2028–29', '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Brighton', 'CAM', 'Premier League', '8th', '7.2', 20, 15, 3, 4
+        ], [
+            '2029–30', '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Brighton', 'CAM', 'Premier League', '5th', '7.0', 50, 26, 21, 25
+        ], [
+            '2030–31', '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Brighton', 'CDM', 'Premier League', '1st', '7.9', 48, 30, 33, 29
+        ], [
+            '2031–32', '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Brighton', 'CAM', 'Premier League', '5th', '6.3', 60, 28, 18, 18
+        ], [
+            '2032–33', '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Brighton', 'CAM', 'Premier League', '4th', '6.2', 61, 43, 29, 15
+        ], [
+            '2033–34', '🇩🇪 Bayern', 'RAM', 'Bundesliga', '1st', '7.4', 59, 56, 19, 22
+        ], [
+            '2034–35', '🇩🇪 Bayern', 'RAM', 'Bundesliga', '1st', '6.1', 58, 41, 16, 17
+        ], [
+            '2035–36', '🇩🇪 Dortmund', 'RAM', 'Bundesliga', 'In progress', '—', '—', '—', '—', '—'
+        ]
+    ], honours: {
+        '🇳🇱 PEC Zwolle': [
+            'KNVB Oranje Beker: 2027–28 🏆', 'Eredivisie runner-up: 2025–26 🥈', 'Player of the Season: 2025–26, 2026–27 🏆'
+        ], '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Brighton & Hove Albion': [
+            'Premier League: 2030–31 🏆', 'UEFA Conference League: 2030–31 🏆', 'UEFA Europa League: 2032–33 🏆', 'FA Cup: 2031–32 🏆', 'Carabao Cup: 2029–30 🏆; runner-up 2030–31 🥈', 'FA Community Shield: 2031–32, 2032–33 🏆', 'Player of the Season: 2031–32 🏆'
+        ], '🇩🇪 FC Bayern München': [
+            'Bundesliga: 2033–34, 2034–35 🏆', 'UEFA Champions League: 2033–34, 2034–35 🏆', 'DFB-Pokal: 2033–34, 2034–35 🏆', 'F. Beckenbauer Supercup: 2033, 2034 🏆', 'UEFA Super Cup: 2033–34 🏆', 'Player of the Season: 2033–34 🏆'
+        ], '🇩🇪 Borussia Dortmund': [
+            'F. Beckenbauer Supercup: 2035 🏆'
+        ], '🇳🇱 Netherlands': [
+            'FIFA World Cup: 2034 🏆', 'UEFA Euro semi-finals: 2032'
+        ]
+    }, seasons: {
+        '2025–26': {
+            summary: 'PEC Zwolle finished 2nd in the Eredivisie with 68 points. Rens recorded 28 appearances, 26 goals and 10 assists.', competitions: {
+                'Eredivisie': [
+                    'PEC Zwolle 3–0 FC Twente', 'Telstar 0–3 PEC Zwolle', 'Ajax 4–3 PEC Zwolle', 'PEC Zwolle 2–4 PSV', 'Feyenoord 2–2 PEC Zwolle', 'PSV 1–3 PEC Zwolle', 'PEC Zwolle 1–0 Feyenoord'
+                ], 'Pre-season friendlies': [
+                    'PEC Zwolle 0–0 Blackpool', 'PEC Zwolle 1–0 Reading', 'PEC Zwolle 4–1 Motherwell'
+                ], 'KNVB Oranje Beker': [
+                    'PEC Zwolle 0–2 Telstar (Rens injured)'
+                ]
+            }, table: '2nd — 34 P, 21 W, 5 D, 8 L, 72 GF, 33 GA, +39, 68 pts'
+        },
+        '2026–27': {
+            summary: 'PEC Zwolle finished 3rd. Rens scored 35 goals in 43 appearances and the club reached the KNVB semi-final.', competitions: {
+                'KNVB Oranje Beker': [
+                    'Fortuna 0–1 PEC Zwolle', 'PEC Zwolle 3–0 PSV', 'Feyenoord 3–1 PEC Zwolle'
+                ], 'UEFA Champions League': [
+                    'League phase: 18th, 11 pts', 'PEC Zwolle 0–2 Juventus', 'Juventus 2–0 PEC Zwolle (0–4 agg)'
+                ]
+            }, table: '3rd — 68 pts'
+        },
+        '2027–28': {
+            summary: 'Rens ended his first PEC spell by winning the KNVB Oranje Beker.', competitions: {
+                'KNVB Oranje Beker': [
+                    'PEC Zwolle 2–1 FC Utrecht', 'Heracles 1–2 PEC Zwolle', 'PEC Zwolle 3–0 Groningen', 'PEC Zwolle 2–0 PSV — Final 🏆'
+                ], 'UEFA Champions League': [
+                    'Qualified via Fenerbahçe and Olympiacos', 'League phase: 14th, 12 pts', 'Eliminated by Inter Milan, 3–7 agg'
+                ]
+            }, table: '6th — 55 pts'
+        },
+        '2028–29': {
+            summary: 'First Brighton season: 8th in the Premier League; 15 goals in 20 appearances.', competitions: {
+                'FA Cup': [
+                    'Blackburn 1–2 Brighton', 'Brighton 3–4 Reading'
+                ]
+            }, table: '8th — 62 pts'
+        },
+        '2029–30': {
+            summary: 'Brighton finished 5th and won the Carabao Cup.', competitions: {
+                'Carabao Cup': [
+                    'Brighton 4–1 Newcastle', 'Fulham 1–4 Brighton', 'Arsenal 1–6 Brighton', 'Brighton 1–0 Southampton', 'Southampton 0–2 Brighton', 'Brighton 3–0 Manchester United — Final 🏆'
+                ], 'FA Cup': [
+                    'Semi-final: Brighton 0–1 Chelsea'
+                ]
+            }, table: '5th — 67 pts'
+        },
+        '2030–31': {
+            summary: 'Premier League and UEFA Conference League double; Carabao Cup runner-up.', competitions: {
+                'Premier League': [
+                    'Brighton champions 🏆 — 91 pts, +63 GD'
+                ], 'UEFA Conference League': [
+                    'League phase: 1st, 18 pts', 'R16: 7–2 Brann agg', 'QF: 6–0 Club Brugge agg', 'SF: 5–1 Nordsjælland agg', 'Brighton 3–0 Real Sociedad — Final 🏆'
+                ], 'Carabao Cup': [
+                    'Brighton 1–2 Ipswich — Final 🥈'
+                ]
+            }, table: '1st 🏆 — 91 pts'
+        },
+        '2031–32': {
+            summary: 'Brighton won the FA Cup and Community Shield.', competitions: {
+                'FA Cup': [
+                    'Norwich 0–3 Brighton', 'Wycombe 1–4 Brighton', 'Brighton 4–0 Everton', 'Brighton 2–0 Sunderland', 'Ipswich 1–4 Brighton', 'Arsenal 0–1 Brighton — Final 🏆'
+                ], 'FA Community Shield': [
+                    'Liverpool 1–5 Brighton 🏆'
+                ], 'UEFA Champions League': [
+                    'League phase: 10th, 14 pts', 'Playoff: 5–0 Rangers agg', 'R16: Atlético 4–2 Brighton agg'
+                ]
+            }, table: '5th — 65 pts'
+        },
+        '2032–33': {
+            summary: 'Brighton finished 4th and won the UEFA Europa League.', competitions: {
+                'UEFA Europa League': [
+                    'League phase: 2nd, 21 pts', 'R16: Brighton 7–1 Real Sociedad', 'QF: Brighton beat Anderlecht on penalties', 'SF: Brighton 7–1 Benfica', 'Brighton 4–0 Wolfsburg — Final 🏆'
+                ], 'FA Community Shield': [
+                    'Brighton 2–1 Arsenal 🏆'
+                ], 'Euros': [
+                    'Netherlands reached semi-finals'
+                ]
+            }, table: '4th — 69 pts'
+        },
+        '2033–34': {
+            summary: 'First Bayern season: Bundesliga, DFB-Pokal and Champions League treble plus two super cups.', competitions: {
+                'Bundesliga': [
+                    'Bayern champions 🏆 — 82 pts'
+                ], 'DFB-Pokal': [
+                    'Bayern 4–1 Leverkusen — Final 🏆'
+                ], 'UEFA Champions League': [
+                    'R16: Bayern 5–1 Manchester City agg', 'QF: Juventus 2–5 Bayern agg', 'SF: Bayern 8–5 Leipzig agg', 'Bayern 4–1 Dortmund — Final 🏆'
+                ], 'UEFA Super Cup': [
+                    'Bayern 3–1 Brighton 🏆'
+                ], 'F. Beckenbauer Supercup': [
+                    'Bayern 4–1 Hoffenheim 🏆'
+                ]
+            }, table: '1st 🏆 — 82 pts'
+        },
+        '2034–35': {
+            summary: 'Bayern retained the Bundesliga, DFB-Pokal and Champions League; Netherlands won the World Cup.', competitions: {
+                'Bundesliga': [
+                    'Bayern champions 🏆 — 81 pts'
+                ], 'DFB-Pokal': [
+                    'Hoffenheim 1–5 Bayern — Final 🏆'
+                ], 'UEFA Champions League': [
+                    'PSG 1–1 Bayern — Bayern won 5–4 pens 🏆'
+                ], 'World Cup': [
+                    'Netherlands 4–1 Ireland', 'Egypt 0–5 Netherlands', 'Iceland 1–3 Netherlands', 'England 0–4 Netherlands', 'Belgium 0–4 Netherlands — Final 🏆'
+                ]
+            }, table: '1st 🏆 — 81 pts'
+        },
+        '2035–36': {
+            inProgress: true, summary: 'First Borussia Dortmund season — currently in progress.', competitions: {
+                'Pre-season friendlies': [
+                    'Dortmund 5–0 Inter Milan', 'AS Roma 0–1 Dortmund', 'Dortmund 2–3 Arsenal'
+                ], 'F. Beckenbauer Supercup': [
+                    'Bayern 1–4 Dortmund 🏆'
+                ], 'UEFA Champions League': [
+                    'League phase currently recorded with Dortmund in 6th after eight matches'
+                ]
+            }, table: '1st — 73 pts'
+        }
+    }
 };
-
-const FULL_FIXTURES={"rens":{"2025–26":{"Pre-season friendlies":["PEC Zwolle 0 - 0 Blackpool","PEC Zwolle 1 - 0 Reading","PEC Zwolle 4 - 1 Motherwell"],"Eredivisie":["PEC Zwolle 3 - 0 FC Twente","Telstar 0 - 3 PEC Zwolle","AZ 1 - 2 PEC Zwolle","PEC Zwolle 1 - 0 FC Utrecht","Ajax 4 - 3 PEC Zwolle","PEC Zwolle 2 - 0 Go Ahead Eagles","FC Volendam 1 - 5 PEC Zwolle","PEC Zwolle 2 - 4 PSV","NAC Breda 0 - 1 PEC Zwolle","PEC Zwolle 2 - 1 N.E.C. Nijmegen","Injured — Heracles Almelo 2 - 0 PEC Zwolle","PEC Zwolle 2 - 3 Sparta Rotterdam","FC Groningen 0 - 1 PEC Zwolle","PEC Zwolle 2 - 1 sc Heerenveen","Feyenoord 2 - 2 PEC Zwolle","PEC Zwolle 0 - 1 Fortuna Sittard","Excelsior 0 - 1 PEC Zwolle","FC Twente 2 - 1 PEC Zwolle","PEC Zwolle 0 - 0 AZ","N.E.C. Nijmegen 2 - 3 PEC Zwolle","PEC Zwolle 4 - 0 Telstar","PEC Zwolle 1 - 0 FC Volendam","sc Heerenveen 2 - 0 PEC Zwolle","FC Utrecht 1 - 1 PEC Zwolle","PEC Zwolle 2 - 2 Ajax","Sparta Rotterdam 0 - 4 PEC Zwolle","PEC Zwolle 5 - 1 FC Groningen","PEC Zwolle 0 - 1 NAC Breda","Go Ahead Eagles 1 - 1 PEC Zwolle","PEC Zwolle 4 - 0 Excelsior","PSV 1 - 3 PEC Zwolle","PEC Zwolle 4 - 0 Heracles Almelo","Fortuna Sittard 0 - 6 PEC Zwolle","PEC Zwolle 1 - 0 Feyenoord"],"Oranje Beker (KNVB)":["Inj — PEC Zwolle 0 - 2 Telstar","F — PSV 2 - 1 Feyenoord"]},"2026–27":{"Pre-season friendlies":["PEC Zwolle 3 - 0 Blackpool","Cultural Leonesa 0 - 3 PEC Zwolle","PEC Zwolle 4 - 0 SD Huesca"],"Eredivisie":["FC Volendam 0 - 2 PEC Zwolle","PEC Zwolle 3 - 1 AZ","HT — Excelsior 1 - 5 PEC Zwolle","Go Ahead Eagles 0 - 2 PEC Zwolle","PEC Zwolle 3 - 0 FC Utrecht","FC Twente 0 - 3 PEC Zwolle","PEC Zwolle 3 - 0 PSV","N.E.C. Nijmegen 2 - 2 PEC Zwolle","PEC Zwolle 0 - 2 Sparta Rotterdam","Feyenoord 1 - 2 PEC Zwolle","PEC Zwolle 2 - 2 Telstar","Ajax 1 - 2 PEC Zwolle","PEC Zwolle 0 - 0 FC Groningen","Heracles Almelo 0 - 1 PEC Zwolle","PEC Zwolle 0 - 1 NAC Breda","sc Heerenveen 1 - 0 PEC Zwolle","PEC Zwolle 0 - 2 Fortuna Sittard","AZ 0 - 1 PEC Zwolle","PEC Zwolle 2 - 0 FC Volendam","PEC Zwolle 1 - 0 Heracles Almelo","FC Groningen 1 - 1 PEC Zwolle","PEC Zwolle 2 - 1 Feyenoord","Sparta Rotterdam 1 - 5 PEC Zwolle","Injured — Fortuna Sittard 0 - 0 PEC Zwolle","PEC Zwolle 1 - 0 sc Heerenveen","NAC Breda 3 - 2 PEC Zwolle","PEC Zwolle 3 - 4 Ajax","Telstar 0 - 1 PEC Zwolle","PEC Zwolle 3 - 4 FC Twente","FC Utrecht 0 - 2 PEC Zwolle","PEC Zwolle 3 - 1 Go Ahead Eagles","PEC Zwolle 5 - 1 Excelsior","PEC Zwolle 3 - 1 N.E.C. Nijmegen","PSV 1 - 0 PEC Zwolle"],"Oranje Beker (KNVB)":["Fortuna Sittard 0 - 1 PEC Zwolle","QF — PEC Zwolle 3 - 0 PSV","SF — Feyenoord 3 - 1 PEC Zwolle","F — Feyenoord 3 - 1 FC Utrecht"],"UEFA Champions League":["PEC Zwolle 1 - 0 Celtic","AC Milan 0 - 0 PEC Zwolle","Real Madrid 2 - 2 PEC Zwolle","Rangers 1 - 3 PEC Zwolle","FC Bayern München 4 - 1 PEC Zwolle","PEC Zwolle 0 - 2 Slavia Praha","PEC Zwolle 3 - 0 Olympiacos FC","PEC Zwolle 1 - 2 Inter Milan","R16 — PEC Zwolle 0 - 2 Juventus","Inj — Juventus 2 - 0 PEC Zwolle","Juventus 4 - 0 PEC Zwolle","Atlético de Madrid 2 - 3 Frankfurt","Real Madrid 6  - 2 SK Rapid","Newcastle United 4 - 6 PSV","AC Milan 4 - 3 Slavia Praha","RB Leipzig 2 - 1 Galatasaray","SL Benfica 4 - 3 OM","Inter Milan (5) 3 - 3 (4) LOSC Lille","FC Bayern München 1 - 3 Real Madrid","Manchester City 5 - 3 PSV","Paris SG 4 - 3 AC Milan","FC Barcelona 4 - 3 RB Leipzig","Borussia Dortmund 0 - 3 Juventus","Liverpool 5 - 4 Frankfurt","Sporting CP 4 - 2 SL Benfica","SSC Napoli 4 - 1 Inter Milan","Paris SG 4 - 3 FC Barcelona","SSC Napoli 1 - 3 Sporting CP","Juventus 2 - 3 Liverpool","Real Madrid 1 - 3 Manchester City","Sporting CP 2 - 6 Paris SG","Liverpool 1 - 4 Manchester City","Manchester City 1 - 3 Paris SG"]},"2027–28":{"Pre-season friendlies":["PEC Zwolle 3 - 0 Bolton","Palermo 0 - 1 PEC Zwolle","PEC Zwolle 0 - 0 Estrela Amadora"],"Eredivisie":["PEC Zwolle 0 - 2 PSV","sc Heerenveen 0 - 0 PEC Zwolle","PEC Zwolle 1 - 5 N.E.C. Nijmegen","Fortuna Sittard 0 - 2 PEC Zwolle","PEC Zwolle 4 - 1 Telstar","Feyenoord 3 - 3 PEC Zwolle","PEC Zwolle 1 - 3 Ajax","PEC Zwolle 2 - 0 FC Utrecht","FC Twente 0 - 2 PEC Zwolle","PEC Zwolle 2 - 0 AZ","NAC Breda 2 - 2 PEC Zwolle","PEC Zwolle 1 - 4 Go Ahead Eagles","FC Volendam 1 - 1 PEC Zwolle","PEC Zwolle 3 - 1 Excelsior","Sparta Rotterdam 0 - 3 PEC Zwolle","PEC Zwolle 2 - 4 FC Groningen","Heracles Almelo 0 - 4 PEC Zwolle","Ajax 0 - 4 PEC Zwolle","AZ 3 - 3 PEC Zwolle","PEC Zwolle 2 - 3 FC Twente","FC Groningen 1 - 1 PEC Zwolle","PEC Zwolle 1 - 0 Sparta Rotterdam","PEC Zwolle 2 - 3 Feyenoord","Telstar 0 - 2 PEC Zwolle","PEC Zwolle 2 - 2 Fortuna Sittard","N.E.C. Nijmegen 0 - 0 PEC Zwolle","Go Ahead Eagles 4 - 1 PEC Zwolle","PEC Zwolle 3 - 0 NAC Breda","PEC Zwolle 2 - 2 sc Heerenveen","PSV 2 - 1 PEC Zwolle","Excelsior 0 - 1 PEC Zwolle","PEC Zwolle 1 - 1 FC Volendam","PEC Zwolle 3 - 0 Heracles Almelo","FC Utrecht 1 - 4 PEC Zwolle"],"Oranje Beker (KNVB)":["PEC Zwolle 2 - 1 FC Utrecht","QF — Heracles Almelo 1 - 2 PEC Zwolle","SF — PEC Zwolle 3 - 0 FC Groningen","F — PEC Zwolle 2 - 0 PSV"],"Champions League Qualifiers (agg)":["Fenerbahçe 3 - 4 PEC Zwolle","Olympiacos FC 5 - 0 R. Union St.-G","Rosenborg BK 4 - 5 Dynamo Kyiv","Malmo FF 2 - 3 Raków","Aberdeen 1 - 3 BSC Young Boys","Sparta Praha 2 - 5 Rangers","SL Benfica 7 - 3 Brøndby IF","CFR 1907 Cluj 0 - 2 Ferencvárosi TC","Bohemians 2 - 4 FK Bodø/Glimt","HJK Helsinki 2 - 3 APOEL FC"],"Champions League Playoffs (agg)":["Ferencvárosi TC (2) 3 - 3 (4) FK Bodø/Glimt","APOEL FC 4 - 3 Lech Poznań","Raków 2 - 6 Dinamo Zagreb","BSC Young Boys 2 - 3 RB Leipzig","Dynamo Kyiv 0 - 2 Qarabağ FK","Rangers 0 - 3 SL Benfica","PEC Zwolle 4 - 1 Olympiacos FC"],"UEFA Champions League":["Athletic Club 0 - 2 PEC Zwolle","Leverkusen 4  - 1 PEC Zwolle","FK Bodø/Glimt 4 - 1 PEC Zwolle","Borussia Dortmund 0 - 4 PEC Zwolle","PEC Zwolle 3 - 1 APOEL FC","PEC Zwolle 1 - 2 Qarabağ FK","PEC Zwolle 2 - 3 Galatasaray","PEC Zwolle 3 - 0 Inter Milan","Inter Milan 4 - 1 PEC Zwolle","PEC Zwolle 2 - 3 Inter Milan","Borussia Dortmund 3 - 2 Athletic Club","FC Bayern München 1 - 4 Man Utd","SSC Napoli 5 - 1 Dinamo Zagreb","PEC Zwolle 3 - 7 Inter Milan","Galatasaray 3 - 4 RB Leipzig","Feyenoord 1 - 4 OGC Nice","Liverpool 3 - 2 AS Monaco","Paris SG 6 - 1 Slavia Praha","Arsenal 4 - 2 RB Leipzig","FC Barcelona 3 - 4 Real Madrid","Atlético de Madrid 3 - 5 Liverpool","Newcastle United 2 - 3 Paris SG","Ajax 3 - 2 Man Utd","Juventus 4 - 3 Borussia Dortmund","Real Madrid 3 - 4 SSC Napoli","Celtic 2 - 3 OGC Nice","Arsenal 3 - 2 Inter Milan","Liverpool 4 - 3 Paris SG","Ajax 2 - 3 Juventus","SSC Napoli 4 - 2 OGC Nice","Arsenal 3 - 4 Liverpool","Juventus 2 - 3 SSC Napoli","Liverpool 2 - 1 SSC Napoli"]},"2028–29":{"Premier League":["Wolves 0 - 2 Brighton & Hove","Brighton & Hove 3 - 1 Manchester City","Liverpool 0 - 1 Brighton & Hove","Brighton & Hove 1 - 0 Sheffield United","Man Utd 1 - 1 Brighton & Hove","Brighton & Hove 3 - 1 West Ham","Fulham 2 - 0 Brighton & Hove","Brighton & Hove 2 - 2 Arsenal","Everton 0 - 5 Brighton & Hove","Brighton & Hove 2 - 2 Coventry City","Chelsea 2 - 1 Brighton & Hove","Aston Villa 4 - 1 Brighton & Hove","Brighton & Hove 2 - 2 Tottenham Hotspurs","Nottingham Forest 1 - 0 Brighton & Hove","Brighton & Hove 2 - 2 Newcastle United","Sunderland 1 - 2 Brighton & Hove","Brighton & Hove 2 - 1 AFC Bournemouth","Crystal Palace 2 - 3 Brighton & Hove"],"FA Cup":["Blackburn Rovers 1 - 2 Brighton & Hove","Brighton & Hove 3 - 4 Reading"]},"2029–30":{"Pre-season friendlies":["Brighton & Hove 2 - 0 Bergamo Calcio","Real Madrid 0 - 2 Brighton & Hove","Brighton & Hove 3 - 1 Borussia Dortmund"],"Premier League":["Everton 0 - 5 Brighton & Hove","Brighton & Hove 2 - 0 Brentford","Newcastle United 0 - 0 Brighton & Hove","Brighton & Hove 2 - 2 Liverpool","Fulham 0 - 0 Brighton & Hove","West Ham 1 - 2 Brighton & Hove","Brighton & Hove 2 - 1 Arsenal","Sunderland 0 - 2 Brighton & Hove","Brighton & Hove 3 - 1 Norwich","Chelsea 2 - 0 Brighton & Hove","Brighton & Hove 1 - 1 Burnley","AFC Bournemouth 2 - 2 Brighton & Hove","Brighton & Hove 3 - 0 Manchester City","Aston Villa 1 - 0 Brighton & Hove","Brighton & Hove 5 - 0 Nottingham Forest","Crystal Palace 2 - 1 Brighton & Hove","Brighton & Hove 0 - 0 Southampton","Tottenham Hotspurs 1 - 1 Brighton & Hove","Brighton & Hove 0 - 2 Manchester United","Brighton & Hove 2 - 0 Sunderland","Arsenal 1 - 3 Brighton & Hove","Brighton & Hove 2 - 2 AFC Bournemouth","Burnley 1 - 1 Brighton & Hove","Brighton & Hove 2 - 0 Crystal Palace","Nottingham Forest 1 - 0 Brighton & Hove","Brighton & Hove 0 - 0 West Ham","Brighton & Hove 4 - 1 Fulham","Newcastle United 0 - 0 Brighton & Hove","Brighton & Hove 3 - 0 Tottenham Hotspurs","Southampton 0 - 3 Brighton & Hove","Norwich 0 - 2 Brighton & Hove","Brentford 0 - 4 Brighton & Hove","Brighton & Hove 2 - 0 Chelsea","Brighton & Hove 2 - 2 Aston Villa","Manchester City 2 - 1 Brighton & Hove","Brighton & Hove 1 - 1 Everton","Liverpool 0 - 1 Brighton & Hove","Brighton & Hove 1 - 2 Newcastle United"],"Carabao Cup":["Brighton & Hove 4 - 1 Newcastle United","Fulham 1 - 4 Brighton & Hove","QF — Arsenal 1 - 6 Brighton & Hove","SF — Brighton & Hove 1 - 0 Southampton","SF — Southampton 0 - 2 Brighton & Hove","F — Brighton & Hove 3 - 0 Manchester United"],"FA Cup":["Brighton & Hove 4 - 2 Lincoln City","Oxford United 0 - 1 Brighton & Hove","Sunderland 0 - 3 Brighton & Hove","Brighton & Hove 4 - 0 Manchester City","SF — Brighton & Hove 0 - 1 Chelsea","F — Chelsea 2 - 0 AFC Bournemouth"]},"2030–31":{"Pre-season friendlies":["Brighton & Hove 1 -  0 FC Barcelona","Bergamo Calcio 1 - 2 Brighton & Hove","Brighton & Hove 1 - 2 Atlético de Madrid"],"Premier League":["Newcastle United 1 - 3 Brighton & Hove","Brighton & Hove 3 - 0 Wolves","Chelsea 2 - 4 Brighton & Hove","Brighton & Hove 3 - 1 Coventry City","West Ham 1 - 3 Brighton & Hove","Brighton & Hove 1 - 0 Liverpool","Crystal Palace 1 - 3 Brighton & Hove","Brighton & Hove 1 - 3 Fulham","Manchester United 0 - 1 Brighton & Hove","Brighton & Hove 3 - 0 Southampton","Brentford 0 - 3 Brighton & Hove","Brighton & Hove 0 - 0 Sheffield United","Nottingham Forest 0 - 4 Brighton & Hove","AFC Bournemouth 1 - 3 Brighton & Hove","Injured — Brighton & Hove 1 - 1 Arsenal","Manchester City 0 - 1 Brighton & Hove","Brighton & Hove 3 - 2 Tottenham Hotspurs","Everton 1 - 1 Brighton & Hove","Brighton & Hove 2 - 3 Aston Villa","Brighton & Hove 1 - 1 Newcastle United","Coventry City 0 - 1 Brighton & Hove","Brighton & Hove 2 - 3 Chelsea","Brighton & Hove 3 - 0 Everton","Tottenham Hotspurs 0 - 3 Brighton & Hove","Brighton & Hove 1 - 0 AFC Bournemouth","Brighton & Hove 5 - 0 Nottingham Forest","Fulham 1 - 6 Brighton & Hove","Brighton & Hove 4 - 0 Crystal Palace","Liverpool 0 - 2 Brighton & Hove","Brighton & Hove 4 - 1 West Ham","Arsenal 0 - 2 Brighton & Hove","Southampton 0 - 4 Brighton & Hove","Brighton & Hove 0 - 3 Manchester City","Brighton & Hove 2 - 0 Manchester United","Sheffield United 0 - 2 Brighton & Hove","Brighton & Hove 3 - 0 Brentford","Aston Villa 1 - 0 Brighton & Hove","Wolves 0 - 2 Brighton & Hove"],"Carabao Cup":["Brighton & Hove 1 - 0 Burton Albion","Brighton & Hove 3 - 0 Aston Villa","QF — Coventry City (4) 0 - 0 (5) Brighton & Hove","SF — Arsenal 2 - 3 Brighton & Hove","SF — Brighton & Hove 1 - 1 Arsenal","F — Brighton & Hove 1 - 2 Ipswich"],"FA Cup":["Brighton & Hove 0 - 1 Burnley","F — Liverpool 3 - 1 Manchester City"],"UEFA Conference League":["Brighton & Hove 5 - 0 Molde FK","Shelbourne 0 - 5 Brighton & Hove","APOEL FC 0 - 2 Brighton & Hove","Brighton & Hove 5 - 0 Widzew Łódź","Inj — Brighton & Hove 3 - 1 Shakhtar Donetsk","LASK 0 - 2 Brighton & Hove","VfB Stuttgart 4 - 1 FC Rapid 1923","Real Sociedad 4 - 2 Lausanne-Sport","Cracovia 2 - 3 Rio Ave FC","Shakhtar Donetsk 1 - 2 Randers FC","SK Brann 3 - 2 Göztepe","Viking FK 3 - 0 Gaziantep","APOEL FC 2 - 3 Bohemians","FC Dinamo 1948 2 - 4 Wolfsberger AC","Brighton & Hove 7 - 2 SK Brann","Club Brugge 3 - 2 Viking FK","FC Nordsjælland 5 - 3 Bohemians","FC Basel 1893 3 - 2 Wolfsberger AC","Como 1907 1 - 4 VfB Stuttgart","Panathinaikos 2 - 7 Real Sociedad","FC Utrecht 3 - 4 Rio Ave FC","Stade Rennais FC 3 - 4 Randers FC","Brighton & Hove 6 - 0 Club Brugge","FC Basel 1893 1 - 3 FC Nordsjælland","VfB Stuttgart 1 - 3 Real Sociedad","Randers FC 0 - 3 Rio Ave FC","FC Nordsjælland 1 - 5 Brighton & Hove","Rio Ave FC 3 - 7 Real Sociedad","Brighton & Hove 3 - 0 Real Sociedad"]},"2031–32":{"Pre-season friendlies":["Brighton & Hove 3 - 1 SSC Napoli","United Tigers SC 0 - 4 Brighton & Hove","Brighton & Hove 0 - 1 FC Bayern München"],"Premier League":["Newcastle United 2 - 0 Brighton & Hove","Brighton & Hove 0 - 0 Sunderland","Wolves 0 - 6 Brighton & Hove","Brighton & Hove 2 - 0 Burnley","Inj — Manchester United 0 - 3 Brighton & Hove","Brighton & Hove 2 - 0 Everton","Brentford 1 - 2 Brighton & Hove","Brighton & Hove 1 - 2 Aston Villa","Chelsea 0 - 2 Brighton & Hove","Brighton & Hove 0 - 2 Tottenham Hotspurs","West Ham 2 - 2 Brighton & Hove","Brighton & Hove 2 - 2 Liverpool","Crystal Palace 3 - 1 Brighton & Hove","Brighton & Hove 1 - 2 Arsenal","Millwall 2 - 1 Brighton & Hove","Fulham 1 - 2 Brighton & Hove","Manchester City 0 - 1 Brighton & Hove","AFC Bournemouth 1 - 2 Brighton & Hove","Brighton & Hove 5 - 0 Nottingham Forest","Tottenham Hotspurs 0 - 2 Brighton & Hove","Brighton & Hove 1 - 3 Chelsea","Everton 0 - 4 Brighton & Hove","Brighton & Hove 3 - 0 Manchester United","Brighton & Hove 1 - 1 AFC Bournemouth","Brighton & Hove 1 - 2 Manchester City","Sunderland 1 - 1 Brighton & Hove","Brighton & Hove 0 - 1 Newcastle United","Fulham 0 - 3 Brighton & Hove","Brighton & Hove 2 - 1 Millwall","Aston Villa 2 - 2 Brighton & Hove","Brighton & Hove 1 - 1 Brentford","Nottingham Forest 1 - 2 Brighton & Hove","Burnley 1 - 2 Brighton & Hove","Arsenal 1 - 1 Brighton & Hove","Brighton & Hove 0 - 2 Crystal Palace","Brighton & Hove 6 - 1 Wolves","Liverpool 0 - 2 Brighton & Hove","Brighton & Hove 3 - 2 West Ham"],"Carabao Cup":["Manchester United 2 - 1 Brighton & Hove","F — Liverpool 4 - 1 Aston Villa"],"FA Community Shield":["Liverpool 1 - 5 Brighton & Hove"],"FA Cup":["Norwich 0 - 3 Brighton & Hove","Wycombe 1 - 4 Brighton & Hove","Brighton & Hove 4 - 0 Everton","Brighton & Hove 2 - 0 Sunderland","SF — Ipswich 1 - 4 Brighton & Hove","F — Arsenal 0 - 1 Brighton & Hove"],"UEFA Champions League":["Slavia Praha 2 - 4 Brighton & Hove","AS Monaco 2 - 2 Brighton & Hove","Juventus 0 - 3 Brighton & Hove","Brighton & Hove 2 - 1 Dynamo Kyiv","RB Salzburg 2 - 2 Brighton & Hove","Brighton & Hove 1 - 4 AC Milan","Brighton & Hove 0 - 2 RB Leipzig","Brighton & Hove 5 - 0 Celtic","Club Brugge 2 - 4 Frankfurt","Brighton & Hove 5 - 0 Rangers","Arsenal 3 - 2 FC Porto","AS Monaco 0 - 2 Sporting CP","LOSC Lille 2 - 3 Fenerbahçe","Athletic Club 7 - 2 SL Benfica","Real Madrid 5 - 1 FC Midtjylland","Feyenoord 2 - 1 Leverkusen","FC Barcelona 2 - 1 Arsenal","Paris SG 5 - 1 Sporting CP","AC Milan 4 - 2 Frankfurt","AS Roma 3 - 2 Athletic Club","RB Leipzig 3 - 1 Fenerbahçe","Atlético de Madrid 4 - 2 Brighton & Hove","Manchester City 5 - 1 Real Madrid","Liverpool 3 - 1 Feyenoord","AC Milan 2 - 1 AS Roma","Liverpool 0 - 2 Manchester City","RB Leipzig (6) 2 - 2 (5) Atlético de Madrid","Paris SG 2 - 3 FC Barcelona","AC Milan 3 - 4 Manchester City","FC Barcelona 5 - 3 RB Leipzig","FC Barcelona (5) 2 - 2 (6) Manchester City"],"Euros":["Netherlands 1 - 2 Hungary","Scotland 0 - 4 Netherlands","Netherlands 3 - 1 Austria","South Korea 0 - 4 Netherlands","Austria 0 - 6 Netherlands","Hungary 1 - 4 Netherlands","Netherlands 4 - 1 Morocco"]},"2032–33":{"Pre-season friendlies":["Brighton & Hove 1 - 2 Villareal CF","RB Leipzig 0 - 2 Brighton & Hove","Brighton & Hove 2 - 1 AS Roma"],"Premier League":["Coventry City 1 - 4 Brighton & Hove","Brighton & Hove 2 - 2 Chelsea","Sunderland 0 - 2 Brighton & Hove","Brighton & Hove 3 - 2 Crystal Palace","Liverpool 1 - 2 Brighton & Hove","Brighton & Hove 0 - 3 Manchester City","Newcastle United 0 - 2 Brighton & Hove","Brighton & Hove 4 - 0 Leeds","Southampton 1 - 4 Brighton & Hove","Brighton & Hove 1 - 2 Arsenal","Fulham 1 - 2 Brighton & Hove","Brighton & Hove 1 - 2 AFC Bournemouth","Everton 1 - 1 Brighton & Hove","Brighton & Hove 3 - 2 Tottenham Hotspurs","Nottingham Forest 1 - 3 Brighton & Hove","Brighton & Hove 2 - 1 Manchester United","Wolves 1 - 1 Brighton & Hove","Brighton & Hove 1 - 2 Aston Villa","West Ham 2 - 2 Brighton & Hove","Arsenal 0 - 2 Brighton & Hove","Brighton & Hove 2 - 1 Southampton","Crystal Palace 3 - 2 Brighton & Hove","Brighton & Hove 2 - 2 Sunderland","Leeds 2 - 2 Brighton & Hove","Brighton & Hove 2 - 1 Newcastle United","AFC Bournemouth 2 - 3 Brighton & Hove","Brighton & Hove 1 - 2 Fulham","Tottenham Hotspurs 0 - 1 Brighton & Hove","Brighton & Hove 2 - 3 Everton","Brighton & Hove 2 - 0 West Ham","Brighton & Hove 2 - 2 Nottingham Forest","Aston Villa 1 - 2 Brighton & Hove","Manchester United 2 - 0 Brighton & Hove","Brighton & Hove 1 - 1 Wolves","Chelsea 1 - 2 Brighton & Hove","Brighton & Hove 2 - 3 Coventry City","Manchester City 0 - 3 Brighton & Hove","Brighton & Hove 1 - 1 Liverpool"],"Carabao Cup":["Hull City 0 - 3 Brighton & Hove","Brighton & Hove (3) 0 - 0 (4) Aston Villa","F — West Ham 0 - 1 Fulham"],"FA Community Shield":["Brighton & Hove 2 - 1 Arsenal"],"FA Cup":["Brighton & Hove 4 - 0 Watford","F — Crystal Palace 1 - 2 Tottenham Hotspurs"],"UEFA Europa League":["FC Famalicão 1 - 3 Brighton & Hove","Brighton & Hove 1 - 0 Shakhtar Donetsk","Beşiktaş 2 - 3 Brighton & Hove","Brighton & Hove 3 - 1 KV Mechelen","Rangers 1 - 2 Brighton & Hove","Brighton & Hove 0 - 1 Frankfurt","Brighton & Hove 3 - 0 Malmö FF","Viktoria Plzeň 2 - 4 Brighton & Hove","Strasbourg 4 - 0 FC Basel 1893","RSC Anderlecht 5 - 1 Trabzonspor","KRC Genk 3 - 2 Legia Warszawa","PAOK FC 1 - 3 SL Benfica","Real Sociedad 2 - 1 Como","VfL Wolfsburg (4) 2 - 2 (1) KV Mechelen","Rangers 2 - 1 FC Nordsjælland","Beşiktaş (3) 3 - 3 (2) Galatasaray","Stade Rennais FC 3 - 1 Strasbourg","SC Braga 1 - 4 VfL Wolfsburg","Ajax 1 - 4 Rangers","Athletic Club 4 - 2 Beşiktaş","Brighton & Hove 7 - 1 Real Sociedad","Frankfurt (4) 1 - 1 (5) RSC Anderlecht","Liverpool 3 - 4 KRC Genk","Latium 2 - 3 SL Benfica","Stade Rennais FC 1 - 2 VfL Wolfsburg","Athletic Club 3 - 2 Rangers","Brighton & Hove (3) 2 - 2 (2) RSC Anderlecht","KRC Genk 6 - 7 SL Benfica","Athletic Club 1 - 4 VfL Wolfsburg","Brighton & Hove 7 - 1 SL Benfica","Brighton & Hove 4 - 0 VfL Wolfsburg"],"Euros - Round of 16":["Hungary 2 - 3 Germany","Denmark 1 - 2 Austria","Ukraine 1 - 2 Poland","Netherlands 3 - 0 France","Spain 1 - 3 England","Czechia 2 - 0 Finland","Türkiye 1 - 2 Italy","Norway (4) 2 - 2 (1) Belgium","Germany 0 - 1 Austria","Poland 1 - 2 Netherlands","England 1 - 3 Czechia","Italy 4 - 1 Norway","Austria 1 - 0 Netherlands","Czechia 0 - 1 Italy","Austria 1 - 5 Italy","Netherlands 2 - 1 Ghana","Netherlands 1 - 1 Australia","Argentina 0 - 2 Netherlands","Italy 1 - 1 Netherlands","Netherlands 1 - 1 Italy","Netherlands 1 - 2 France","France 1 - 0 Netherlands","Haiti 1 - 3 Netherlands"]},"2033–34":{"Pre-season friendlies":["FC Bayern München 6 - 0 Südtirol","Carrarese Calcio 1 - 3 FC Bayern München","FC Bayern München 3 - 0 Real Sporting"],"Bundesliga":["1. FC Nürnberg 0 - 3 FC Bayern München","1. FC Köln 0 - 1 FC Bayern München","FC Bayern München 1 - 0 VfL Wolfsburg","Holstein Kiel 0 - 4 FC Bayern München","FC Bayern München 3 - 1 Leverkusen","Borussia Dortmund 0 - 5 FC Bayern München","FC Bayern München 1 - 2 Frankfurt","VfB Stuttgart 0 - 2 FC Bayern München","FC Bayern München 3 - 0 1. FSV Mainz 05","SC Freiburg 1 - 1 FC Bayern München","FC Bayern München 1 - 1 RB Leipzig","Hetha BSC 2 - 3 FC Bayern München","FC Bayern München 1 - 1 SV Werder Bremen","Union Berlin 0 - 4 FC Bayern München","FC Bayern München 3 - 1 FC Augsburg","Karlsruher SC 1 - 2 FC Bayern München","FC Bayern München 0 - 1 TSG Hoffenheim","FC Bayern München 5 - 0 Hetha BSC","RB Leipzig 0 - 2 FC Bayern München","FC Bayern München 2 - 2 Holstein Kiel","VfL Wolfburg 0 - 2 FC Bayern München","FC Bayern München 3 - 1 Borussia Dortmund","Leverkusen 1 - 3 FC Bayern München","FC Bayern München 1 - 0 Karlsruher SC","FC Augsburg 1 - 3 FC Bayern München","FC Bayern München 2 - 2 SC Freiburg","1. FSV Mainz 05 2 - 4 FC Bayern München","FC Bayern München 4 - 0 VfB Stuttgart","Frankfurt 2 - 2 FC Bayern München","FC Bayern München 2 - 2 1. FC Köln","FC Bayern München 2 - 0 1. FC Nürnberg","FC Bayern München 3 - 1 Union Berlin","SV Werder Bremen 1 - 3 FC Bayern München","TSG Hoffenheim 1 - 4 FC Bayern München"],"UEFA Super Cup":["FC Bayern München 3 - 1 Brighton & Hove"],"F. Beckenbauer Supercup":["FC Bayern München 4 - 1 TSG Hoffenheim","SV Werder Bremen 0 - 3 FC Bayern München","R16 — FC Bayern München 2 - 0 SC Freiburg","SF — 1. FC Köln 0 - 4 FC Bayern München","F — FC Bayern München 4 - 1 Leverkusen"],"UEFA Champions League":["AC Milan 1 - 0 FC Bayern München","FC Bayern München 2 - 0 Jagiellonia","FC Bayern München 2 - 0 Arsenal","FC Bayern München 4 - 1 Dynamo Kyiv","FC Bayern München 1 - 1 AS Monaco","FC Porto 0 - 1 FC Bayern München","Celtic 1 - 3 FC Bayern München","Viktoria Plzeň 1 - 3 FC Bayern München","Rangers 1 - 4 Manchester City","AC Milan 2 - 3 Juventus","Celtic 5 - 2 Galatasaray","LOSC Lille 1 - 2 Borussia Dortmund","Real Madrid 4 - 2 PSV","Arsenal 2 - 1 FC Porto","Paris SG 4 - 3 TSG Hoffenheim","KRC Genk 2 - 3 Como","FC Barcelona 1 - 2 Paris SG","Brighton & Hove 2 - 4 Borussia Dortmund","FC Bayern München 5 - 1 Manchester City","AS Monaco 2 - 5 Juventus","Real Sociedad 3 - 2 Real Madrid","Atlético de Madrid 5 - 4 Arsenal","RB Leipzig 4 - 1 Celtic","Feyenoord 2 - 1 Como","Juventus 2 - 5 FC Bayern München","Feyenoord 4 - 6 RB Leipzig","Atlético de Madrid 2 - 3 Real Sociedad","Borussia Dortmund (5) 5 - 5 (4) Paris SG","FC Bayern München 8 - 5 RB Leipzig","Real Sociedad 1 - 3 Borussia Dortmund","FC Bayern München 4 - 1 Borussia Dortmund"],"World Cup":["Netherlands 5 - 0 Iraq","Mexico 1 - 4 Netherlands","Netherlands 3 - 3 Brazil","Ghana 1 - 2 Algeria","Spain 0 - 3 Qatar","Paraguay 0 - 2 Belgium","Canada 3 - 1 France","Norway 1 - 2 England","Senegal (4) 2 - 2 (1) Ecuador","Italy 1 - 2 Congo DR","Korea Republic 1 - 0 Japan","South Africa 2 - 1 Uzbekistan","Germany 0 - 2 Cote D'Ivorie","Iraq 0 - 3 Portugal","Poland 1 - 2 Egypt","Croatia 0 - 2 Denmark","Sweden 1 - 2 Argentina","Colombia 3 - 5 Iceland","Netherlands 4 - 1 Ireland","Algeria 1 - 2 Belgium","Qatar 1 - 2 Senegal","Korea Republic 1 - 0 Cote D'Ivorie","Portugal 2 - 1 Denmark","Congo DR 2 - 4 South Africa","Canada 1 - 2 England","Iceland 2 - 1 Argentina","Egypt 0 - 5 Netherlands","Cote D'Ivorie 3 - 1 Netherlands","Netherlands 1 - 1 Cote D'Ivorie","South Africa 0 - 1 Netherlands","South Korea 1 - 3 Netherlands","Austria 1 - 2 Netherlands","South Korea 0 - 4 Netherlands","Netherlands 2 - 1 Northern Ireland","Ghana 1 - 3 Netherlands"]},"2034–35":{"Pre-season friendlies":["FC Bayern München 5 - 0 Newcastle Jets","Chelsea 2 - 2 FC Bayern München","FC Bayern München 4 - 0 Real Madrid"],"Bundesliga":["Mönchengladbach 0 - 2 FC Bayern München","FC Bayern München 2 - 1 VfB Stuttgart","VfL Wolfsburg 1 - 3 FC Bayern München","FC Bayern München 2 - 2 Holstein Kiel","1. FSV Mainz 05 1 - 4 FC Bayern München","FC Bayern München 2 - 0 SV Werder Bremen","Frankfurt 2 - 3 FC Bayern München","FC Bayern München 1 - 0 FC Augsburg","SC Freiburg 1 - 1 FC Bayern München","FC Bayern München 3 - 1 Union Berlin","TSG Hoffenheim 1 - 2 FC Bayern München","Hertha BSC 1 - 2 FC Bayern München","FC Bayern München 2 - 1 Hamburger SV","Leverkusen 1 - 2 FC Bayern München","FC Bayern München 2 - 1 RB Leipzig","1. FC Köln 1 - 1 FC Bayern München","FC Bayern München 0 - 1 Borussia Dortmund","Holstein Kiel 0 - 3 FC Bayern München","FC Bayern München 5 - 1 VfL Wolfsburg","FC Bayern München 2 - 2 1. FC Köln","RB Leipzig 1 - 0 FC Bayern München","FC Bayern München 2 - 2 Leverkusen","Hamburger SV 0 - 5 FC Bayern München","SV Werder Bremen 0 - 3 FC Bayern München","FC Bayern München 4 - 1 1. FSV Mainz 05","VfB Stuttgart 1 - 2 FC Bayern München","FC Bayern München 2 - 0 Mönchengladbach","FC Augsburg 1 - 4 FC Bayern München","FC Bayern München 2 - 2 Frankfurt","FC Bayern München 3 - 0 Hertha BSC","FC Bayern München 5 - 0 TSG Hoffenheim","Borussia Dortmund 3 - 1 FC Bayern München","Union Berlin 1 - 4 FC Bayern München","FC Bayern München 3 - 2 SC Freiburg"],"UEFA Super Cup":["FC Bayern München 1 - 2 Leverkusen"],"F. Beckenbauer Supercup":["FC Bayern München 3 - 1 Leverkusen","FC Hansa Rostock 0 - 3 FC Bayern München","R16 — Hertha BSC 0 - 3 FC Bayern München","QF — FC Schalke 04 1 - 2 FC Bayern München","SF — Borussia Dortmund 2 - 5 FC Bayern München","F — TSG Hoffenheim 1 - 5 FC Bayern München"],"UEFA Champions League":["FC Bayern München 5 - 0 Feyenoord","Atlético de Madrid 1 - 2 FC Bayern München","FC Bayern München 4 - 1 Ferencvárosi TC","Brighton & Hove 2 - 1 FC Bayern München","FC Bayern München 3 - 1 Chelsea","FC Bayern München 1 - 1 Paris SG","Ajax 1 - 1 FC Bayern München","Slavia Praha 0 - 4 FC Bayern München","Lech Poznań 3 - 4 RB Leipzig","Real Madrid 4 - 2 RC Lens","RSC Anderlecht 2 - 4 Atlético de Madrid","SSC Napoli 2 - 0 Strasbourg","Sporting CP 4 - 2 Ferencvárosi TC","Sevilla FC 3 - 1 Celtic","FC Barcelona (4) 3 - 3 (2) Chelsea","Club Brugge 1 - 3 Manchester City","Borussia Dortmund 4 - 2 FC Barcelona","Inter Milan 2 - 3 SSC Napoli","Brighton & Hove 0 - 2 RB Leipzig","Liverpool (4) 2 - 2 (5) Sevilla FC","Paris SG 5 - 4 Sporting CP","Leverkusen 2 - 0 Real Madrid","AC Milan 3 - 2 Atlético de Madrid","FC Bayern München 3 - 2 Manchester City","RB Leipzig 3 - 5 Sevilla FC","FC Bayern München 3 - 2 AC Milan","Leverkusen (3) 3 - 3 (4) Paris SG","Borussia Dortmund 5 - 2 SSC Napoli","Sevilla FC 0 - 3 FC Bayern München","Paris SG (4) 1 - 1 (5) FC Bayern München"],"World Cup":["Netherlands 5 - 0 Iraq","Mexico 1 - 4 Netherlands","Netherlands 3 - 3 Brazil","Ghana 1 - 2 Algeria","Spain 0 - 3 Qatar","Paraguay 0 - 2 Belgium","Canada 3 - 1 France","Norway 1 - 2 England","Senegal (4) 2 - 2 (1) Ecuador","Italy 1 - 2 Congo DR","Korea Republic 1 - 0 Japan","South Africa 2 - 1 Uzbekistan","Germany 0 - 2 Cote D'Ivorie","Iraq 0 - 3 Portugal","Poland 1 - 2 Egypt","Croatia 0 - 2 Denmark","Sweden 1 - 2 Argentina","Colombia 3 - 5 Iceland","Netherlands 4 - 1 Ireland","Algeria 1 - 2 Belgium","Qatar 1 - 2 Senegal","Korea Republic 1 - 0 Cote D'Ivorie","Portugal 2 - 1 Denmark","Congo DR 2 - 4 South Africa","Canada 1 - 2 England","Iceland 2 - 1 Argentina","Egypt 0 - 5 Netherlands","Senegal 1 - 2 Belgium","Portugal 2 - 3 Korea Republic","Iceland 1 - 3 Netherlands","England 2 - 1 South Africa","Belgium 2 - 1 Korea Republic","England 0 - 4 Netherlands","Korea Republic 0 - 1 England","Belgium 0 - 4 Netherlands"],"Euros Qualifiers":["Wales 2 - 4 Netherlands","Netherlands 2 - 0 Ukraine","Czechia 1 - 2 Netherlands","Netherlands 3 - 0 Denmark","Netherlands 3 - 0 Wales","Denmark 1 - 2 Netherlands","Netherlands 1 - 1 Czechia"]},"2035–36":{"Pre-season friendlies":["Borussia Dortmund 5 - 0 Inter Milan","AS Roma 0 - 1 Borussia Dortmund","Borussia Dortmund 2 - 3 Arsenal"],"Bundesliga":["Leverkusen 0 - 2 Borussia Dortmund","VfB Stuttgart 3 - 2 Borussia Dortmund"],"F. Beckenbauer Supercup":["FC Bayern München 1 - 4 Borussia Dortmund"]}},"jordan":{"2025–26":{"Pre-season friendlies":["Bristol City 1 - 0 Havre AC","RC Deportivo 0 - 0 Bristol City","Bristol City 0 - 0 FC Utrecht"],"EFL Championship":["Sheffield United 1 - 0 Bristol City","Bristol City 1 - 0 Charlton Athletic","Derby County 0 - 0 Bristol City","Bristol City 0 - 0 Hull City","Sheffield Wed 0 - 0 Bristol City","Bristol City 0 - 1 Oxford United","Preston 0 - 0 Bristol City","Bristol City 1 - 1 Ipswich","Bristol City 3 - 1 QPR","Norwich 1 - 0 Bristol City","Bristol City 3 - 1 Southampton","Bristol City 2 - 2 Birmingham City","Stoke City 0 - 1 Bristol City","Bristol City 3 - 1 Blackburn Rovers","Watford 0 - 2 Bristol City","Bristol City 3 - 0 Swansea City","Wrexham 3 - 2 Bristol City","Portsmouth 1 - 3 Bristol City","Bristol City 0 - 0 Millwall","Bristol City 2 - 3 Leicester City","Coventry City 0 - 1 Bristol City","Bristol City 3 - 2 Middlesborough","West Bromwich 0 - 2 Bristol City","Millwall 0 - 0 Bristol City","Bristol City 1 - 0 Portsmouth","Bristol City 2 - 1 Preston","Oxford United 1 - 2 Bristol City","Ipswich 2 - 1 Bristol City","Bristol City 1 - 0 Sheffield Wed","Bristol City 1 - 1 Derby County","Hull City 0 - 0 Bristol City","Bristol City 2 - 0 Wrexham","Swansea City 0 - 1 Bristol City","Blackburn Rovers 1 - 2 Bristol City","Bristol City 2 - 1 Watford","Bristol City 2 - 0 Coventry City","Middlesborough 0 - 1 Bristol City","Bristol City 2 - 1 West Bromwich","Int — Leicester City 1 - 1 Bristol City","Charlton Athletic 1 - 3 Bristol City","Bristol City 2 - 2 Sheffield United","QPR 0 - 2 Bristol City","Bristol City 2 - 1 Norwich","Southampton 2 - 2 Bristol City","Birmingham City 1 - 2 Bristol City","Bristol City 1 - 0 Stoke City"],"Carabao Cup":["Sheffield United 1 - 2 Bristol City","Cardiff City 0 - 2 Bristol City","Bristol City (3) 0 - 0 (4) Brighton & Hove","Arsenal 4 - 1 Liverpool"],"FA Cup":["Bristol City 1 - 0 Blackpool","Nottingham Forest (6) 0 - 0 (5) Bristol City","Tottenham Hotspurs 1 - 2 Nottingham Forest"],"World Cup":["England 2 - 0 Ghana","Panama 0 - 2 England","England 2 - 0 Croatia","Czechia 1 - 3 Canada","Curaçao 1 - 2 Brazil","Sweden 2 - 3 Scotland","Morocco 0 - 1 Japan","Senegal 1 - 2 Netherlands","Germany 2 - 3 Norway","Mexico 4 - 0 Saudi Arabia","Turkiye (4) 2 - 2 (2) Bosnia-Herzegov","IR Iran 2 - 1 Korea Republic","England 2 - 0 Colombia","Spain 2 - 1 Algeria","Congo DR 1 - 0 Panama","Switzerland 2 - 3 New Zealand","Austria 3 - 2 Uruguay","Portugal 1 - 0 Cote d'Ivorie","United States 1 - 0 Egypt","Brazil 0 - 2 Netherlands","Canada 2 - 1 Scotland","Congo DR 1 - 2 Spain","Turkiye 2 - 0 IR Iran","Mexico 1 - 2 England","Japan 1 - 0 Norway","New Zealand 2 - 1 Portugal","Austria 1 - 3 United States","Sweden 0 - 3 England","England 0 - 0 Ecuador"]},"2026–27":{"Pre-season friendlies":["Bristol City 0 - 1 RC Deportivo","FC Augsburg 0 - 0 Bristol City","Bristol City 1 - 1 1. FC Köln"],"Premier League":["AFC Bournemouth 1  - 0 Bristol City","Bristol City 1 - 0 Tottenham Hotspurs","Chelsea 0 - 0 Bristol City","Bristol City 0 - 1 Brentford","Nottingham Forest 1 - 2 Bristol City","Bristol City 1 - 2 Liverpool","Wolves 1 - 1 Bristol City","Bristol City 1 - 1 Newcastle United","Arsenal 2 - 0 Bristol City","Bristol City 2 - 2 Ipswich","Everton 0 - 0 Bristol City","Bristol City 1 - 4 West Ham","Crystal Palace 2 - 1 Bristol City","Bristol City 0 - 2 Manchester United","Aston Villa 2 - 1 Bristol City","Bristol City 1 - 0 Brighton & Hove","Sunderland 1 - 1 Bristol City","Manchester City 0 - 0 Bristol City","Bristol City 1 - 2 Southampton","Brighton & Hove 0 - 0 Bristol City","Bristol City 1 - 2 Aston Villa","Southampton 1 - 1 Bristol City","Liverpool 2 - 1 Bristol City","Bristol City 1 - 1 Nottingham Forest","Ipswich 2 - 1 Bristol City","Bristol City 2 - 4 Arsenal","Brentford 1 - 1 Bristol City","Bristol City 0 - 0 Chelsea","West Ham 2 - 0 Bristol City","Bristol City 1 - 2 Everton","Tottenham Hotspurs 2 - 0 Bristol City","Bristol City 2 - 0 AFC Bournemouth","Bristol City 0 - 0 Manchester City","Bristol City 3 - 0 Sunderland","Manchester United 1 - 3 Bristol City","Bristol City 1 - 2 Crystal Palace","Newcastle United 0 - 2 Bristol City","Bristol City 1 - 0 Wolves"],"Carabao Cup":["Bristol City 1 - 0 Crewe Alexandra","Bristol City (4) 0 - 0 (1) Walsall","Bristol City (5) 0 - 0 (3) Coventry City","QF — Bristol City (4) 0 - 0 (1) Swansea City","SF — Arsenal 1 - 0 Bristol City","SF — Bristol City 1 - 1 Arsenal","F — Arsenal 1 - 0 Chelsea"],"FA Cup":["Sheffield United 2 - 0 Bristol City","Brighton & Hove 2 - 1 Manchester City"],"World Cup":["England 2 - 0 Ghana","Panama 0 - 2 England","England 2 - 0 Croatia","Czechia 1 - 3 Canada","Curaçao 1 - 2 Brazil","Sweden 2 - 3 Scotland","Morocco 0 - 1 Japan","Senegal 1 - 2 Netherlands","Germany 2 - 3 Norway","Mexico 4 - 0 Saudi Arabia","Turkiye (4) 2 - 2 (2) Bosnia-Herzegov","IR Iran 2 - 1 Korea Republic","England 2 - 0 Colombia","Spain 2 - 1 Algeria","Congo DR 1 - 0 Panama","Switzerland 2 - 3 New Zealand","Austria 3 - 2 Uruguay","Portugal 1 - 0 Cote d'Ivorie","United States 1 - 0 Egypt","Brazil 0 - 2 Netherlands","Canada 2 - 1 Scotland","Congo DR 1 - 2 Spain","Turkiye 2 - 0 IR Iran","Mexico 1 - 2 England","Japan 1 - 0 Norway","New Zealand 2 - 1 Portugal","Austria 1 - 3 United States","Netherlands 2 - 1 Canada","Spain 2 - 0 Turkiye","Japan 0 - 1 England","United States 1 - 3 New Zealand","Netherlands 2 - 1 Spain","England 4 - 0 New Zealand","Spain 2 - 1 New Zealand","Netherlands 2 - 1 England"],"Euros Qualifiers":["Iceland 1 - 2 England","England 3 - 1 Wales","Denmark 1 - 2 England","England 3 - 3 Turkiye","Wales 1 - 3 England","England 2 - 1 Iceland","Turkiye 0 - 1 England"]},"2027–28":{"Pre-season friendlies":["Bristol City 1 - 0 Torino","Getafe CF 0 - 0 Bristol City","Bristol City 2 - 0 TSG Hoffenheim"],"Premier League":["Crystal Palace 3 - 0 Bristol City","Bristol City 1 - 0 Everton","Brentford 1 - 0 Bristol City","West Ham 4 - 1 Bristol City","AFC Bournemouth 2 - 1 Bristol City","Bristol City 1 - 2 Tottenham Hotspurs","Manchester United 3 - 0 Bristol City","Bristol City 0 - 0 Leicester City","Aston Villa 2 - 1 Bristol City","Bristol City 2 - 0 Sunderland","Fulham 0 - 1 Bristol City","Bristol City 1 - 0 Newcastle United","Brighton & Hove 0 - 1 Bristol City","Bristol City 1 - 1 Arsenal","Norwich 2 - 1 Bristol City","Bristol City 1 - 2 Liverpool","Chelsea 3 - 1 Bristol City","Bristol City 1 - 2 Manchester City","Nottingham Forest 3 - 2 Bristol City","Leicester City 0 - 1 Bristol City","Bristol City 0 - 1 Manchester United","Bristol City 1 - 0 Nottingham Forest","Tottenham Hotspurs 3 - 1 Bristol City","Bristol City 1 - 0 AFC Bournemouth","Sunderland 0 - 0 Bristol City","Bristol City 3 - 0 Aston Villa","Newcastle United 1 - 2 Bristol City","Bristol City 3 - 1 Fulham","Bristol City 1 - 1 Everton","Bristol City 1 - 2 Crystal Palace","Bristol City 0 - 4 Chelsea","West Ham 2 - 1 Bristol City","Manchester City 2 - 1 Bristol City","Arsenal 2 - 2 Bristol City","Bristol City 0 - 0 Brighton & Hove","Bristol City 1 - 0 Brentford","Liverpool 2 - 3 Bristol City","Bristol City 1 - 1 Norwich"],"Carabao Cup":["Bristol City 1 - 2 Leyton Orient","F — Nottingham Forest (4) 1 - 1 (5) AFC Bournemouth"],"FA Cup":["Bristol City 4 - 0 Wigan Athletic","Charlton Athletic 0 - 2 Bristol City","Bristol City 3 - 2 Middlesbrough","Bristol City 4 - 0 Southampton","SF — Bristol City 2 - 1 Manchester United","F — Manchester City (3) 1 - 1 (4) Bristol City"],"Euros Qualifiers":["England 3 - 2 Denmark"],"Euros":["England 4 - 0 Scotland","Bosnia-Herzegov 0 - 3 England","England 1 - 1 Ukraine"],"International Friendlies":["England 1 - 0 Congo DR","England 4 - 1 Northern Ireland","England 4 - 2 Poland","Senegal 1 - 1 England","England 1 - 2 Jordan","England 2 - 1 Colombia"]},"2028–29":{"Pre-season friendlies":["Bristol City 1 - 1 RCD Espanyol","Monza 1 - 4 Bristol City","Bristol City 2 - 0 Venezia"],"Premier League":["Manchester City 3 - 2 Bristol City","Bristol City 2 - 0 Aston Villa","Newcastle United 1 - 2 Bristol City","Chelsea 4 - 0 Bristol City","Bristol City 3 - 0 AFC Bournemouth","Crystal Palace 0 - 3 Bristol City","Bristol City 1 - 1 West Ham","Ipswich 1 - 0 Bristol City","Bristol City 1 - 0 Wolves","Manchester United 0 - 0 Bristol City"],"Carabao Cup":["Coventry City 0 - 3 Bristol City","Bristol City 4 - 1 Liverpool","Arsenal (3) 0 - 0 (0) Bristol City"],"FA Community Shield":["Bristol City (2) 2 - 2 (3) Manchester City"],"UEFA Europa League":["Bristol City 4 - 1 FC Nordsjælland","Bristol City 2 - 0 Brøndby IF","Sparta Praha 1 - 1 Bristol City","Stade Rennais FC 1 - 2 Bristol City"],"Euros":["England 4 - 0 Scotland","Bosnia-Herzegov 0 - 3 England","England 1 - 1 Ukraine","Sweden (3) 2 - 2 (2) Hungary","Germany 4 - 0 Northern Ireland","England (9) 3 - 3 (8) Bosnia-Herzegov","Belgium 2 - 1 Czechia","Netherlands (3) 1 - 1 (1) Ireland","France (2) 1 - 1 (4) Croatia","Spain 3 - 1 Portugal","Italy 1 - 2 Ukraine","Sweden (4) 3 - 3 (2) Germany","England 4 - 0 Belgium","Netherlands 1 - 0 Croatia","Spain 3 - 2 Ukraine","Sweden 4 - 2 England","Netherlands 1 - 2 Spain","Sweden (3) 2 - 2 (1) Spain"],"International Friendlies":["Japan 1 - 1 England","Northern Ireland 1 - 2 England","Jordan 2 - 4 England","England 4 - 2 Finland"]}},"espen":{"2025–26":{"Pre-season friendlies":["Hull City 1 - 0 RC Deportivo","Hellas Verona 0 - 1 Hull City","Hull City 6 - 0 1. FC Köln"],"EFL Championship":["Coventry City 2 - 2 Hull City","Hull City 0 - 1 Oxford United","Bristol City 0 - 2 Hull City"],"Carabao Cup":["Hull City 4 - 1 Accrington","Hull City 3 - 0 Swansea City"]}}};
-
-
-DATA.vasi={
-name:'Vasiliki Dimitriou (Βασιλική Δημητρίου)',
-displayName:'Vasiliki Dimitriou',
-nickname:'Vasi',
-flag:'🇬🇷',
-dob:'31 October',
-birth:'Thessaloniki, Greece',
-height:'1.77 m',
-bootBrand:'Nike',
-position:'Striker',
-current:'🇪🇸 FC Barcelona Femení',
-number:'9',
-international:'🇬🇷 Greece (2025–)',
-intro:'Vasiliki Dimitriou is a highly talented Greek striker born in Thessaloniki, Greece. Nicknamed both “The Queen” and “The Demon”, she is known for combining exceptional technical ability with a powerful and highly physical style of play. Dimitriou can overpower defenders while still producing moments of skill and composure in attacking areas, giving her a rare balance of strength and talent. Her Barcelona career began with an immediate scoring impact, while her first recorded season has also included emphatic Liga F victories and an early UEFA Women’s Champions League appearance against FC Bayern München. Her aggressive presence and natural finishing ability have quickly made her one of the most distinctive young forwards in her career.',
-career:[['2025–2035','🇪🇸 FC Barcelona Femení',45,57]],
-intl:['2025–','🇬🇷 Greece',4,2],
-stats:[['2025–26','🇪🇸 FC Barcelona Femení','ST','Liga F','1st','7.1',33,38,5,10],['2026–27','🇪🇸 FC Barcelona Femení','ST','Liga F','1st','—',12,19,2,7]],
-honours:{'🇪🇸 FC Barcelona Femení':['Liga F Championship: 2025–26 🏆',"UEFA Women's Champions League: 2025–26 🏆",'Golden Boot: 2026']},
-seasons:{
-  '2025–26':{
-    inProgress:false,
-    summary:'FC Barcelona Femení won Liga F and the UEFA Women’s Champions League. Vasiliki Dimitriou finished the season with 33 appearances, 38 goals, 5 assists and 10 clean sheets.',
-    competitions:{
-      'Pre-season friendlies':['FC Barcelona 3 - 0 West Ham','London City 0 - 3 FC Barcelona','FC Barcelona 0 - 2 Paris FC'],
-      'Liga F':['FC Barcelona 2 - 1 Alhama CF','Athletic Club 1 - 6 FC Barcelona','FC Barcelona 4 - 0 Logroño United','Sevilla FC 2 - 2 FC Barcelona','FC Barcelona 4 - 0 RCD Espanyol','SD Eibar 2 - 2 FC Barcelona','Inj — Atlético de Madrid 0 - 2 FC Barcelona','FC Barcelona 3 - 1 Granada CF','Real Sociedad 0 - 3 FC Barcelona','FC Barcelona 3 - 1 RC Deportivo','FC Barcelona 2 - 2 Real Madrid','Levante UD 1 - 3 FC Barcelona','FC Barcelona 2 - 0 C. Adeje Tenereife','Badalona Women 1 - 4 FC Barcelona','FC Barcelona 4 - 0 Madrid CFF','Alhama CF 2 - 3 FC Barcelona','FC Barcelona 2 - 1 Atlético de Madrid','FC Barcelona 1 - 2 Sevilla FC','Logroño United 0 - 4 FC Barcelona','FC Barcelona 4 - 2 SD Eibar','Granada CF 1 - 2 FC Barcelona','RC Deportivo 0 - 2 FC Barcelona','FC Barcelona 3 - 1 Athletic Club','Real Madrid 1 - 2 FC Barcelona','FC Barcelona 4 - 1 Badalona Women','RCD Espanyol 2 - 1 FC Barcelona','FC Barcelona 5 - 0 Levante UD','C. Adeje Tenereife 1 - 2 FC Barcelona','FC Barcelona 1 - 3 Real Sociedad','Madrid CFF 2 - 2 FC Barcelona'],
-      "UEFA Women's Champions League":['FC Barcelona 1 - 1 FC Bayern München','Inj — Roma 2 - 1 FC Barcelona','FC Barcelona 1 - 2 Glasgow City FC','Chelsea 1 - 2 FC Barcelona','FC Barcelona 1 - 3 SL Benfica','Paris FC 1 - 3 FC Barcelona','Paris FC 5 - 2 PSG','Manchester United 1 - 5 Arsenal','FC Barcelona 5 - 0 OL Lyonnes','Juventus 1 - 4 Roma','Arsenal 6 - 3 SL Benfica','FC Barcelona 8 - 3 Real Madrid','Roma 3 - 2 Chelsea','Paris FC 4 - 3 FC Bayern München','FC Barcelona 5 - 0 Arsenal','Paris FC 4 - 1 Roma','F — FC Barcelona 4 - 0 Paris FC']
-    },
-    table:'1st — 73 pts'
-  },
-  '2026–27':{
-    inProgress:true,
-    summary:'Second FC Barcelona Femení season — currently in progress. Barcelona are 1st in Liga F after seven matches with 18 points. Vasiliki Dimitriou has 12 appearances, 19 goals, 2 assists and 7 clean sheets in the supplied season sheet.',
-    competitions:{
-      'Pre-season friendlies':['FC Barcelona 3 - 0 Leverkusen','Gotham FC 1 - 3 FC Barcelona','FC Barcelona 2 - 0 West Ham'],
-      'Liga F':['Granada CF 1 - 3 FC Barcelona','FC Barcelona 4 - 1 Levante UD','Badalona Women 1 - 3 FC Barcelona','FC Barcelona 3 - 0 SD Eibar','C. Adeje Tenereife 0 - 6 FC Barcelona','FC Barcelona 1 - 3 RCD Espanyol','Athletic Club 0 - 4 FC Barcelona'],
-      "UEFA Women's Champions League":['FC Barcelona 2 - 0 Frankfurt','FC Barcelona 3 - 0 Juventus']
-    },
-    table:'In progress'
-  }
-}
+DATA.espen = {
+    name: 'Espen Magnus Sæheim', displayName: 'Espen Sæheim', displayName: 'Espen Sæheim', flag: '🇳🇴', dob: '04 June', birth: 'Oslo, Norway', height: '1.82 m', bootBrand: 'Umbro', position: 'Left wing-back', current: '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Hull City', number: '2', international: '🇳🇴 Norway (2025–)', intro: 'Espen Sæheim is a young Norwegian left wing-back born in Oslo, Norway. Fierce, extremely fast and physically gifted, he is regarded as a player with the potential to develop into a powerful attacking winger. Sæheim is particularly renowned in training for his stamina, relentless running and ability to maintain intensity over long periods. After being signed by PSV, he was loaned to Hull City for his first senior season in order to gain regular first-team experience. His opening spell at Hull has already shown his attacking threat from wide areas, with goals and assists arriving despite his defensive starting position.', career: [
+        [
+            '2025–2027', '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Hull City (Loan)', 6, 4
+        ], [
+            '2027–2033', '🇳🇱 PSV', '—', '—'
+        ], [
+            '2033–2037', '🇲🇨 AS Monaco', '—', '—'
+        ], [
+            '2037–2040', '🇩🇪 1. FC Köln', '—', '—'
+        ]
+    ], intl: [
+        '2025–', '🇳🇴 Norway', '—', '—'
+    ], stats: [
+        [
+            '2025–26', '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Hull City', 'LWB', 'EFL Championship', 'In progress', '—', 9, 6, 4, 4
+        ]
+    ], honours: {}, seasons: {
+        '2025–26': {
+            inProgress: true, summary: 'First Hull City season — currently in progress. Espen has 9 appearances, 6 goals and 4 assists in the supplied season sheet.', competitions: {
+                'Pre-season friendlies': [
+                    'Hull City 1 - 0 RC Deportivo', 'Hellas Verona 0 - 1 Hull City', 'Hull City 6 - 0 1. FC Köln'
+                ], 'EFL Championship': [
+                    'Coventry City 2 - 2 Hull City', 'Hull City 0 - 1 Oxford United', 'Bristol City 0 - 2 Hull City'
+                ], 'Carabao Cup': [
+                    'Hull City 4 - 1 Accrington', 'Hull City 3 - 0 Swansea City'
+                ]
+            }, table: 'In progress'
+        }
+    }
 };
-
-FULL_FIXTURES.vasi={
-  '2025–26':{
-    'Pre-season friendlies':['FC Barcelona 3 - 0 West Ham','London City 0 - 3 FC Barcelona','FC Barcelona 0 - 2 Paris FC'],
-    'Liga F':['FC Barcelona 2 - 1 Alhama CF','Athletic Club 1 - 6 FC Barcelona','FC Barcelona 4 - 0 Logroño United','Sevilla FC 2 - 2 FC Barcelona','FC Barcelona 4 - 0 RCD Espanyol','SD Eibar 2 - 2 FC Barcelona','Inj — Atlético de Madrid 0 - 2 FC Barcelona','FC Barcelona 3 - 1 Granada CF','Real Sociedad 0 - 3 FC Barcelona','FC Barcelona 3 - 1 RC Deportivo','FC Barcelona 2 - 2 Real Madrid','Levante UD 1 - 3 FC Barcelona','FC Barcelona 2 - 0 C. Adeje Tenereife','Badalona Women 1 - 4 FC Barcelona','FC Barcelona 4 - 0 Madrid CFF','Alhama CF 2 - 3 FC Barcelona','FC Barcelona 2 - 1 Atlético de Madrid','FC Barcelona 1 - 2 Sevilla FC','Logroño United 0 - 4 FC Barcelona','FC Barcelona 4 - 2 SD Eibar','Granada CF 1 - 2 FC Barcelona','RC Deportivo 0 - 2 FC Barcelona','FC Barcelona 3 - 1 Athletic Club','Real Madrid 1 - 2 FC Barcelona','FC Barcelona 4 - 1 Badalona Women','RCD Espanyol 2 - 1 FC Barcelona','FC Barcelona 5 - 0 Levante UD','C. Adeje Tenereife 1 - 2 FC Barcelona','FC Barcelona 1 - 3 Real Sociedad','Madrid CFF 2 - 2 FC Barcelona'],
-    "UEFA Women's Champions League":['FC Barcelona 1 - 1 FC Bayern München','Inj — Roma 2 - 1 FC Barcelona','FC Barcelona 1 - 2 Glasgow City FC','Chelsea 1 - 2 FC Barcelona','FC Barcelona 1 - 3 SL Benfica','Paris FC 1 - 3 FC Barcelona','Paris FC 5 - 2 PSG','Manchester United 1 - 5 Arsenal','FC Barcelona 5 - 0 OL Lyonnes','Juventus 1 - 4 Roma','Arsenal 6 - 3 SL Benfica','FC Barcelona 8 - 3 Real Madrid','Roma 3 - 2 Chelsea','Paris FC 4 - 3 FC Bayern München','FC Barcelona 5 - 0 Arsenal','Paris FC 4 - 1 Roma','F — FC Barcelona 4 - 0 Paris FC']
-  },
-  '2026–27':{
-    'Pre-season friendlies':['FC Barcelona 3 - 0 Leverkusen','Gotham FC 1 - 3 FC Barcelona','FC Barcelona 2 - 0 West Ham'],
-    'Liga F':['Granada CF 1 - 3 FC Barcelona','FC Barcelona 4 - 1 Levante UD','Badalona Women 1 - 3 FC Barcelona','FC Barcelona 3 - 0 SD Eibar','C. Adeje Tenereife 0 - 6 FC Barcelona','FC Barcelona 1 - 3 RCD Espanyol','Athletic Club 0 - 4 FC Barcelona'],
-    "UEFA Women's Champions League":['FC Barcelona 2 - 0 Frankfurt','FC Barcelona 3 - 0 Juventus']
-  }
+DATA.jordan = {
+    name: 'Jordan A.B. Vale', displayName: 'Jordan Vale', displayName: 'Jordan Vale', flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿', dob: '08 August', birth: 'Weston-super-Mare, England', height: '1.82 m', bootBrand: 'Nike', position: 'Goalkeeper', current: '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Bristol City', number: '37 (international: 12, 20, 17, 1)', international: '🏴󠁧󠁢󠁥󠁮󠁧󠁿 England (2025–)', intro: 'Jordan Vale is an English goalkeeper born in Weston-super-Mare, England. A young rookie who caught attention quickly at Bristol City, he helped the club win promotion to the Premier League in his first season and remained loyal as they fought to establish themselves in the top flight. Vale was ever-present across long stretches of the club’s rise, recording high appearance and clean-sheet totals at a young age. He later played a major part in helping Bristol City avoid relegation and in their remarkable FA Cup triumph, a shock run that further strengthened his reputation as one of the club’s most important young players.', career: [
+        [
+            '2025–2030', '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Bristol City', 149, 1
+        ], [
+            '2030–2036', '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester United', '—', '—'
+        ], [
+            '2036–2040', '🇩🇪 Borussia Dortmund', '—', '—'
+        ]
+    ], intl: [
+        '2025–', '🏴󠁧󠁢󠁥󠁮󠁧󠁿 England', 30, 0
+    ], stats: [
+        [
+            '2025–26', '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Bristol City', 'GK', 'EFL Championship', '1st', '6.1', 53, 1, 5, 25
+        ], [
+            '2026–27', '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Bristol City', 'GK', 'Premier League', '17th', '6.4', 48, 0, 2, 14
+        ], [
+            '2027–28', '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Bristol City', 'GK', 'Premier League', '14th', '6.1', 48, 0, 0, 19
+        ], [
+            '2028–29', '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Bristol City', 'GK', 'Premier League', 'In progress', '—', '—', '—', '—', '—'
+        ]
+    ], honours: {
+        '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Bristol City': [
+            'EFL Championship: 2025–26 🏆', 'FA Cup: 2027–28 🏆'
+        ], '🏴󠁧󠁢󠁥󠁮󠁧󠁿 England': [
+            'FIFA World Cup runner-up: 2026 🥈', 'UEFA Euro Golden Glove: 2028 🧤'
+        ]
+    }, seasons: {
+        '2025–26': {
+            summary: 'Bristol City won the Championship with 94 points. Jordan made 53 appearances, scored once and kept 25 clean sheets.', competitions: {
+                'Pre-season friendlies': [
+                    'Bristol City 1–0 Le Havre', 'Deportivo 0–0 Bristol City', 'Bristol City 0–0 FC Utrecht'
+                ], 'EFL Championship': [
+                    'Champions 🏆 — 94 pts, 27 W, 13 D, 6 L, 67 GF, 34 GA'
+                ], 'Carabao Cup': [
+                    'Sheffield United 1–2 Bristol City', 'Cardiff City 0–2 Bristol City', 'Bristol City 0–0 Brighton — lost 3–4 pens'
+                ], 'FA Cup': [
+                    'Bristol City 1–0 Blackpool', 'Nottingham Forest 0–0 Bristol City — lost 6–5 pens'
+                ], 'World Cup': [
+                    'England 2–0 Ghana', 'Panama 0–2 England', 'England 2–0 Croatia', 'England 2–0 Colombia', 'Mexico 1–2 England'
+                ]
+            }, table: '1st 🏆 — 94 pts'
+        },
+        '2026–27': {
+            summary: 'Bristol City survived their first Premier League season in 17th. England finished World Cup runners-up.', competitions: {
+                'Premier League': [
+                    '17th — 37 pts, 8 W, 13 D, 17 L, 35 GF, 46 GA'
+                ], 'Carabao Cup': [
+                    'Reached semi-final', 'Arsenal 1–0 Bristol City', 'Bristol City 1–1 Arsenal'
+                ], 'World Cup': [
+                    'Japan 0–1 England — QF', 'England 4–0 New Zealand — SF', 'Netherlands 2–1 England — Final 🥈'
+                ], 'Euros Qualifiers': [
+                    'England unbeaten across the seven recorded qualifiers'
+                ]
+            }, table: '17th — 37 pts'
+        },
+        '2027–28': {
+            summary: 'Bristol City finished 14th and won the FA Cup. Jordan kept 19 clean sheets.', competitions: {
+                'Premier League': [
+                    '14th — 46 pts, 13 W, 7 D, 18 L, 40 GF, 52 GA'
+                ], 'FA Cup': [
+                    'Bristol City 4–0 Wigan', 'Charlton 0–2 Bristol City', 'Bristol City 3–2 Middlesbrough', 'Bristol City 4–0 Southampton', 'Bristol City 2–1 Manchester United — SF', 'Manchester City 1–1 Bristol City — Bristol won 4–3 pens 🏆'
+                ], 'Euros': [
+                    'England 4–0 Scotland', 'Bosnia-Herzegovina 0–3 England', 'England 1–1 Ukraine'
+                ]
+            }, table: '14th — 46 pts'
+        },
+        '2028–29': {
+            inProgress: true, summary: 'Current Bristol City season. Europa League standings team names are deliberately excluded because they are placeholders.', competitions: {
+                'Premier League': [
+                    'Manchester City 3–2 Bristol City', 'Bristol City 2–0 Aston Villa', 'Newcastle 1–2 Bristol City', 'Chelsea 4–0 Bristol City', 'Bristol City 3–0 Bournemouth', 'Crystal Palace 0–3 Bristol City', 'Bristol City 1–1 West Ham', 'Ipswich 1–0 Bristol City', 'Bristol City 1–0 Wolves', 'Manchester United 0–0 Bristol City'
+                ], 'Carabao Cup': [
+                    'Coventry 0–3 Bristol City', 'Bristol City 4–1 Liverpool', 'Arsenal 0–0 Bristol City — Arsenal won 3–0 pens'
+                ], 'FA Community Shield': [
+                    'Bristol City 2–2 Manchester City — City won 3–2 pens'
+                ], 'UEFA Europa League': [
+                    'Bristol City 4–1 FC Nordsjælland', 'Bristol City 2–0 Brøndby IF', 'Sparta Praha 1–1 Bristol City', 'Stade Rennais 1–2 Bristol City', 'Remaining fixtures not yet recorded'
+                ], 'Euro 2028': [
+                    'England beat Bosnia-Herzegovina on penalties — R16', 'England 4–0 Belgium — QF', 'Sweden 4–2 England — SF', 'Jordan Vale: Golden Glove 🧤'
+                ]
+            }, table: 'In progress'
+        }
+    }
+};
+const FULL_FIXTURES = {
+    "rens": {
+        "2025–26": {
+            "Pre-season friendlies": [
+                "PEC Zwolle 0 - 0 Blackpool", "PEC Zwolle 1 - 0 Reading", "PEC Zwolle 4 - 1 Motherwell"
+            ], "Eredivisie": [
+                "PEC Zwolle 3 - 0 FC Twente", "Telstar 0 - 3 PEC Zwolle", "AZ 1 - 2 PEC Zwolle", "PEC Zwolle 1 - 0 FC Utrecht", "Ajax 4 - 3 PEC Zwolle", "PEC Zwolle 2 - 0 Go Ahead Eagles", "FC Volendam 1 - 5 PEC Zwolle", "PEC Zwolle 2 - 4 PSV", "NAC Breda 0 - 1 PEC Zwolle", "PEC Zwolle 2 - 1 N.E.C. Nijmegen", "Injured — Heracles Almelo 2 - 0 PEC Zwolle", "PEC Zwolle 2 - 3 Sparta Rotterdam", "FC Groningen 0 - 1 PEC Zwolle", "PEC Zwolle 2 - 1 sc Heerenveen", "Feyenoord 2 - 2 PEC Zwolle", "PEC Zwolle 0 - 1 Fortuna Sittard", "Excelsior 0 - 1 PEC Zwolle", "FC Twente 2 - 1 PEC Zwolle", "PEC Zwolle 0 - 0 AZ", "N.E.C. Nijmegen 2 - 3 PEC Zwolle", "PEC Zwolle 4 - 0 Telstar", "PEC Zwolle 1 - 0 FC Volendam", "sc Heerenveen 2 - 0 PEC Zwolle", "FC Utrecht 1 - 1 PEC Zwolle", "PEC Zwolle 2 - 2 Ajax", "Sparta Rotterdam 0 - 4 PEC Zwolle", "PEC Zwolle 5 - 1 FC Groningen", "PEC Zwolle 0 - 1 NAC Breda", "Go Ahead Eagles 1 - 1 PEC Zwolle", "PEC Zwolle 4 - 0 Excelsior", "PSV 1 - 3 PEC Zwolle", "PEC Zwolle 4 - 0 Heracles Almelo", "Fortuna Sittard 0 - 6 PEC Zwolle", "PEC Zwolle 1 - 0 Feyenoord"
+            ], "Oranje Beker (KNVB)": [
+                "Inj — PEC Zwolle 0 - 2 Telstar", "F — PSV 2 - 1 Feyenoord"
+            ]
+        }, "2026–27": {
+            "Pre-season friendlies": [
+                "PEC Zwolle 3 - 0 Blackpool", "Cultural Leonesa 0 - 3 PEC Zwolle", "PEC Zwolle 4 - 0 SD Huesca"
+            ], "Eredivisie": [
+                "FC Volendam 0 - 2 PEC Zwolle", "PEC Zwolle 3 - 1 AZ", "HT — Excelsior 1 - 5 PEC Zwolle", "Go Ahead Eagles 0 - 2 PEC Zwolle", "PEC Zwolle 3 - 0 FC Utrecht", "FC Twente 0 - 3 PEC Zwolle", "PEC Zwolle 3 - 0 PSV", "N.E.C. Nijmegen 2 - 2 PEC Zwolle", "PEC Zwolle 0 - 2 Sparta Rotterdam", "Feyenoord 1 - 2 PEC Zwolle", "PEC Zwolle 2 - 2 Telstar", "Ajax 1 - 2 PEC Zwolle", "PEC Zwolle 0 - 0 FC Groningen", "Heracles Almelo 0 - 1 PEC Zwolle", "PEC Zwolle 0 - 1 NAC Breda", "sc Heerenveen 1 - 0 PEC Zwolle", "PEC Zwolle 0 - 2 Fortuna Sittard", "AZ 0 - 1 PEC Zwolle", "PEC Zwolle 2 - 0 FC Volendam", "PEC Zwolle 1 - 0 Heracles Almelo", "FC Groningen 1 - 1 PEC Zwolle", "PEC Zwolle 2 - 1 Feyenoord", "Sparta Rotterdam 1 - 5 PEC Zwolle", "Injured — Fortuna Sittard 0 - 0 PEC Zwolle", "PEC Zwolle 1 - 0 sc Heerenveen", "NAC Breda 3 - 2 PEC Zwolle", "PEC Zwolle 3 - 4 Ajax", "Telstar 0 - 1 PEC Zwolle", "PEC Zwolle 3 - 4 FC Twente", "FC Utrecht 0 - 2 PEC Zwolle", "PEC Zwolle 3 - 1 Go Ahead Eagles", "PEC Zwolle 5 - 1 Excelsior", "PEC Zwolle 3 - 1 N.E.C. Nijmegen", "PSV 1 - 0 PEC Zwolle"
+            ], "Oranje Beker (KNVB)": [
+                "Fortuna Sittard 0 - 1 PEC Zwolle", "QF — PEC Zwolle 3 - 0 PSV", "SF — Feyenoord 3 - 1 PEC Zwolle", "F — Feyenoord 3 - 1 FC Utrecht"
+            ], "UEFA Champions League": [
+                "PEC Zwolle 1 - 0 Celtic", "AC Milan 0 - 0 PEC Zwolle", "Real Madrid 2 - 2 PEC Zwolle", "Rangers 1 - 3 PEC Zwolle", "FC Bayern München 4 - 1 PEC Zwolle", "PEC Zwolle 0 - 2 Slavia Praha", "PEC Zwolle 3 - 0 Olympiacos FC", "PEC Zwolle 1 - 2 Inter Milan", "R16 — PEC Zwolle 0 - 2 Juventus", "Inj — Juventus 2 - 0 PEC Zwolle", "Juventus 4 - 0 PEC Zwolle", "Atlético de Madrid 2 - 3 Frankfurt", "Real Madrid 6  - 2 SK Rapid", "Newcastle United 4 - 6 PSV", "AC Milan 4 - 3 Slavia Praha", "RB Leipzig 2 - 1 Galatasaray", "SL Benfica 4 - 3 OM", "Inter Milan (5) 3 - 3 (4) LOSC Lille", "FC Bayern München 1 - 3 Real Madrid", "Manchester City 5 - 3 PSV", "Paris SG 4 - 3 AC Milan", "FC Barcelona 4 - 3 RB Leipzig", "Borussia Dortmund 0 - 3 Juventus", "Liverpool 5 - 4 Frankfurt", "Sporting CP 4 - 2 SL Benfica", "SSC Napoli 4 - 1 Inter Milan", "Paris SG 4 - 3 FC Barcelona", "SSC Napoli 1 - 3 Sporting CP", "Juventus 2 - 3 Liverpool", "Real Madrid 1 - 3 Manchester City", "Sporting CP 2 - 6 Paris SG", "Liverpool 1 - 4 Manchester City", "Manchester City 1 - 3 Paris SG"
+            ]
+        }, "2027–28": {
+            "Pre-season friendlies": [
+                "PEC Zwolle 3 - 0 Bolton", "Palermo 0 - 1 PEC Zwolle", "PEC Zwolle 0 - 0 Estrela Amadora"
+            ], "Eredivisie": [
+                "PEC Zwolle 0 - 2 PSV", "sc Heerenveen 0 - 0 PEC Zwolle", "PEC Zwolle 1 - 5 N.E.C. Nijmegen", "Fortuna Sittard 0 - 2 PEC Zwolle", "PEC Zwolle 4 - 1 Telstar", "Feyenoord 3 - 3 PEC Zwolle", "PEC Zwolle 1 - 3 Ajax", "PEC Zwolle 2 - 0 FC Utrecht", "FC Twente 0 - 2 PEC Zwolle", "PEC Zwolle 2 - 0 AZ", "NAC Breda 2 - 2 PEC Zwolle", "PEC Zwolle 1 - 4 Go Ahead Eagles", "FC Volendam 1 - 1 PEC Zwolle", "PEC Zwolle 3 - 1 Excelsior", "Sparta Rotterdam 0 - 3 PEC Zwolle", "PEC Zwolle 2 - 4 FC Groningen", "Heracles Almelo 0 - 4 PEC Zwolle", "Ajax 0 - 4 PEC Zwolle", "AZ 3 - 3 PEC Zwolle", "PEC Zwolle 2 - 3 FC Twente", "FC Groningen 1 - 1 PEC Zwolle", "PEC Zwolle 1 - 0 Sparta Rotterdam", "PEC Zwolle 2 - 3 Feyenoord", "Telstar 0 - 2 PEC Zwolle", "PEC Zwolle 2 - 2 Fortuna Sittard", "N.E.C. Nijmegen 0 - 0 PEC Zwolle", "Go Ahead Eagles 4 - 1 PEC Zwolle", "PEC Zwolle 3 - 0 NAC Breda", "PEC Zwolle 2 - 2 sc Heerenveen", "PSV 2 - 1 PEC Zwolle", "Excelsior 0 - 1 PEC Zwolle", "PEC Zwolle 1 - 1 FC Volendam", "PEC Zwolle 3 - 0 Heracles Almelo", "FC Utrecht 1 - 4 PEC Zwolle"
+            ], "Oranje Beker (KNVB)": [
+                "PEC Zwolle 2 - 1 FC Utrecht", "QF — Heracles Almelo 1 - 2 PEC Zwolle", "SF — PEC Zwolle 3 - 0 FC Groningen", "F — PEC Zwolle 2 - 0 PSV"
+            ], "Champions League Qualifiers (agg)": [
+                "Fenerbahçe 3 - 4 PEC Zwolle", "Olympiacos FC 5 - 0 R. Union St.-G", "Rosenborg BK 4 - 5 Dynamo Kyiv", "Malmo FF 2 - 3 Raków", "Aberdeen 1 - 3 BSC Young Boys", "Sparta Praha 2 - 5 Rangers", "SL Benfica 7 - 3 Brøndby IF", "CFR 1907 Cluj 0 - 2 Ferencvárosi TC", "Bohemians 2 - 4 FK Bodø/Glimt", "HJK Helsinki 2 - 3 APOEL FC"
+            ], "Champions League Playoffs (agg)": [
+                "Ferencvárosi TC (2) 3 - 3 (4) FK Bodø/Glimt", "APOEL FC 4 - 3 Lech Poznań", "Raków 2 - 6 Dinamo Zagreb", "BSC Young Boys 2 - 3 RB Leipzig", "Dynamo Kyiv 0 - 2 Qarabağ FK", "Rangers 0 - 3 SL Benfica", "PEC Zwolle 4 - 1 Olympiacos FC"
+            ], "UEFA Champions League": [
+                "Athletic Club 0 - 2 PEC Zwolle", "Leverkusen 4  - 1 PEC Zwolle", "FK Bodø/Glimt 4 - 1 PEC Zwolle", "Borussia Dortmund 0 - 4 PEC Zwolle", "PEC Zwolle 3 - 1 APOEL FC", "PEC Zwolle 1 - 2 Qarabağ FK", "PEC Zwolle 2 - 3 Galatasaray", "PEC Zwolle 3 - 0 Inter Milan", "Inter Milan 4 - 1 PEC Zwolle", "PEC Zwolle 2 - 3 Inter Milan", "Borussia Dortmund 3 - 2 Athletic Club", "FC Bayern München 1 - 4 Man Utd", "SSC Napoli 5 - 1 Dinamo Zagreb", "PEC Zwolle 3 - 7 Inter Milan", "Galatasaray 3 - 4 RB Leipzig", "Feyenoord 1 - 4 OGC Nice", "Liverpool 3 - 2 AS Monaco", "Paris SG 6 - 1 Slavia Praha", "Arsenal 4 - 2 RB Leipzig", "FC Barcelona 3 - 4 Real Madrid", "Atlético de Madrid 3 - 5 Liverpool", "Newcastle United 2 - 3 Paris SG", "Ajax 3 - 2 Man Utd", "Juventus 4 - 3 Borussia Dortmund", "Real Madrid 3 - 4 SSC Napoli", "Celtic 2 - 3 OGC Nice", "Arsenal 3 - 2 Inter Milan", "Liverpool 4 - 3 Paris SG", "Ajax 2 - 3 Juventus", "SSC Napoli 4 - 2 OGC Nice", "Arsenal 3 - 4 Liverpool", "Juventus 2 - 3 SSC Napoli", "Liverpool 2 - 1 SSC Napoli"
+            ]
+        }, "2028–29": {
+            "Premier League": [
+                "Wolves 0 - 2 Brighton & Hove", "Brighton & Hove 3 - 1 Manchester City", "Liverpool 0 - 1 Brighton & Hove", "Brighton & Hove 1 - 0 Sheffield United", "Man Utd 1 - 1 Brighton & Hove", "Brighton & Hove 3 - 1 West Ham", "Fulham 2 - 0 Brighton & Hove", "Brighton & Hove 2 - 2 Arsenal", "Everton 0 - 5 Brighton & Hove", "Brighton & Hove 2 - 2 Coventry City", "Chelsea 2 - 1 Brighton & Hove", "Aston Villa 4 - 1 Brighton & Hove", "Brighton & Hove 2 - 2 Tottenham Hotspurs", "Nottingham Forest 1 - 0 Brighton & Hove", "Brighton & Hove 2 - 2 Newcastle United", "Sunderland 1 - 2 Brighton & Hove", "Brighton & Hove 2 - 1 AFC Bournemouth", "Crystal Palace 2 - 3 Brighton & Hove"
+            ], "FA Cup": [
+                "Blackburn Rovers 1 - 2 Brighton & Hove", "Brighton & Hove 3 - 4 Reading"
+            ]
+        }, "2029–30": {
+            "Pre-season friendlies": [
+                "Brighton & Hove 2 - 0 Bergamo Calcio", "Real Madrid 0 - 2 Brighton & Hove", "Brighton & Hove 3 - 1 Borussia Dortmund"
+            ], "Premier League": [
+                "Everton 0 - 5 Brighton & Hove", "Brighton & Hove 2 - 0 Brentford", "Newcastle United 0 - 0 Brighton & Hove", "Brighton & Hove 2 - 2 Liverpool", "Fulham 0 - 0 Brighton & Hove", "West Ham 1 - 2 Brighton & Hove", "Brighton & Hove 2 - 1 Arsenal", "Sunderland 0 - 2 Brighton & Hove", "Brighton & Hove 3 - 1 Norwich", "Chelsea 2 - 0 Brighton & Hove", "Brighton & Hove 1 - 1 Burnley", "AFC Bournemouth 2 - 2 Brighton & Hove", "Brighton & Hove 3 - 0 Manchester City", "Aston Villa 1 - 0 Brighton & Hove", "Brighton & Hove 5 - 0 Nottingham Forest", "Crystal Palace 2 - 1 Brighton & Hove", "Brighton & Hove 0 - 0 Southampton", "Tottenham Hotspurs 1 - 1 Brighton & Hove", "Brighton & Hove 0 - 2 Manchester United", "Brighton & Hove 2 - 0 Sunderland", "Arsenal 1 - 3 Brighton & Hove", "Brighton & Hove 2 - 2 AFC Bournemouth", "Burnley 1 - 1 Brighton & Hove", "Brighton & Hove 2 - 0 Crystal Palace", "Nottingham Forest 1 - 0 Brighton & Hove", "Brighton & Hove 0 - 0 West Ham", "Brighton & Hove 4 - 1 Fulham", "Newcastle United 0 - 0 Brighton & Hove", "Brighton & Hove 3 - 0 Tottenham Hotspurs", "Southampton 0 - 3 Brighton & Hove", "Norwich 0 - 2 Brighton & Hove", "Brentford 0 - 4 Brighton & Hove", "Brighton & Hove 2 - 0 Chelsea", "Brighton & Hove 2 - 2 Aston Villa", "Manchester City 2 - 1 Brighton & Hove", "Brighton & Hove 1 - 1 Everton", "Liverpool 0 - 1 Brighton & Hove", "Brighton & Hove 1 - 2 Newcastle United"
+            ], "Carabao Cup": [
+                "Brighton & Hove 4 - 1 Newcastle United", "Fulham 1 - 4 Brighton & Hove", "QF — Arsenal 1 - 6 Brighton & Hove", "SF — Brighton & Hove 1 - 0 Southampton", "SF — Southampton 0 - 2 Brighton & Hove", "F — Brighton & Hove 3 - 0 Manchester United"
+            ], "FA Cup": [
+                "Brighton & Hove 4 - 2 Lincoln City", "Oxford United 0 - 1 Brighton & Hove", "Sunderland 0 - 3 Brighton & Hove", "Brighton & Hove 4 - 0 Manchester City", "SF — Brighton & Hove 0 - 1 Chelsea", "F — Chelsea 2 - 0 AFC Bournemouth"
+            ]
+        }, "2030–31": {
+            "Pre-season friendlies": [
+                "Brighton & Hove 1 -  0 FC Barcelona", "Bergamo Calcio 1 - 2 Brighton & Hove", "Brighton & Hove 1 - 2 Atlético de Madrid"
+            ], "Premier League": [
+                "Newcastle United 1 - 3 Brighton & Hove", "Brighton & Hove 3 - 0 Wolves", "Chelsea 2 - 4 Brighton & Hove", "Brighton & Hove 3 - 1 Coventry City", "West Ham 1 - 3 Brighton & Hove", "Brighton & Hove 1 - 0 Liverpool", "Crystal Palace 1 - 3 Brighton & Hove", "Brighton & Hove 1 - 3 Fulham", "Manchester United 0 - 1 Brighton & Hove", "Brighton & Hove 3 - 0 Southampton", "Brentford 0 - 3 Brighton & Hove", "Brighton & Hove 0 - 0 Sheffield United", "Nottingham Forest 0 - 4 Brighton & Hove", "AFC Bournemouth 1 - 3 Brighton & Hove", "Injured — Brighton & Hove 1 - 1 Arsenal", "Manchester City 0 - 1 Brighton & Hove", "Brighton & Hove 3 - 2 Tottenham Hotspurs", "Everton 1 - 1 Brighton & Hove", "Brighton & Hove 2 - 3 Aston Villa", "Brighton & Hove 1 - 1 Newcastle United", "Coventry City 0 - 1 Brighton & Hove", "Brighton & Hove 2 - 3 Chelsea", "Brighton & Hove 3 - 0 Everton", "Tottenham Hotspurs 0 - 3 Brighton & Hove", "Brighton & Hove 1 - 0 AFC Bournemouth", "Brighton & Hove 5 - 0 Nottingham Forest", "Fulham 1 - 6 Brighton & Hove", "Brighton & Hove 4 - 0 Crystal Palace", "Liverpool 0 - 2 Brighton & Hove", "Brighton & Hove 4 - 1 West Ham", "Arsenal 0 - 2 Brighton & Hove", "Southampton 0 - 4 Brighton & Hove", "Brighton & Hove 0 - 3 Manchester City", "Brighton & Hove 2 - 0 Manchester United", "Sheffield United 0 - 2 Brighton & Hove", "Brighton & Hove 3 - 0 Brentford", "Aston Villa 1 - 0 Brighton & Hove", "Wolves 0 - 2 Brighton & Hove"
+            ], "Carabao Cup": [
+                "Brighton & Hove 1 - 0 Burton Albion", "Brighton & Hove 3 - 0 Aston Villa", "QF — Coventry City (4) 0 - 0 (5) Brighton & Hove", "SF — Arsenal 2 - 3 Brighton & Hove", "SF — Brighton & Hove 1 - 1 Arsenal", "F — Brighton & Hove 1 - 2 Ipswich"
+            ], "FA Cup": [
+                "Brighton & Hove 0 - 1 Burnley", "F — Liverpool 3 - 1 Manchester City"
+            ], "UEFA Conference League": [
+                "Brighton & Hove 5 - 0 Molde FK", "Shelbourne 0 - 5 Brighton & Hove", "APOEL FC 0 - 2 Brighton & Hove", "Brighton & Hove 5 - 0 Widzew Łódź", "Inj — Brighton & Hove 3 - 1 Shakhtar Donetsk", "LASK 0 - 2 Brighton & Hove", "VfB Stuttgart 4 - 1 FC Rapid 1923", "Real Sociedad 4 - 2 Lausanne-Sport", "Cracovia 2 - 3 Rio Ave FC", "Shakhtar Donetsk 1 - 2 Randers FC", "SK Brann 3 - 2 Göztepe", "Viking FK 3 - 0 Gaziantep", "APOEL FC 2 - 3 Bohemians", "FC Dinamo 1948 2 - 4 Wolfsberger AC", "Brighton & Hove 7 - 2 SK Brann", "Club Brugge 3 - 2 Viking FK", "FC Nordsjælland 5 - 3 Bohemians", "FC Basel 1893 3 - 2 Wolfsberger AC", "Como 1907 1 - 4 VfB Stuttgart", "Panathinaikos 2 - 7 Real Sociedad", "FC Utrecht 3 - 4 Rio Ave FC", "Stade Rennais FC 3 - 4 Randers FC", "Brighton & Hove 6 - 0 Club Brugge", "FC Basel 1893 1 - 3 FC Nordsjælland", "VfB Stuttgart 1 - 3 Real Sociedad", "Randers FC 0 - 3 Rio Ave FC", "FC Nordsjælland 1 - 5 Brighton & Hove", "Rio Ave FC 3 - 7 Real Sociedad", "Brighton & Hove 3 - 0 Real Sociedad"
+            ]
+        }, "2031–32": {
+            "Pre-season friendlies": [
+                "Brighton & Hove 3 - 1 SSC Napoli", "United Tigers SC 0 - 4 Brighton & Hove", "Brighton & Hove 0 - 1 FC Bayern München"
+            ], "Premier League": [
+                "Newcastle United 2 - 0 Brighton & Hove", "Brighton & Hove 0 - 0 Sunderland", "Wolves 0 - 6 Brighton & Hove", "Brighton & Hove 2 - 0 Burnley", "Inj — Manchester United 0 - 3 Brighton & Hove", "Brighton & Hove 2 - 0 Everton", "Brentford 1 - 2 Brighton & Hove", "Brighton & Hove 1 - 2 Aston Villa", "Chelsea 0 - 2 Brighton & Hove", "Brighton & Hove 0 - 2 Tottenham Hotspurs", "West Ham 2 - 2 Brighton & Hove", "Brighton & Hove 2 - 2 Liverpool", "Crystal Palace 3 - 1 Brighton & Hove", "Brighton & Hove 1 - 2 Arsenal", "Millwall 2 - 1 Brighton & Hove", "Fulham 1 - 2 Brighton & Hove", "Manchester City 0 - 1 Brighton & Hove", "AFC Bournemouth 1 - 2 Brighton & Hove", "Brighton & Hove 5 - 0 Nottingham Forest", "Tottenham Hotspurs 0 - 2 Brighton & Hove", "Brighton & Hove 1 - 3 Chelsea", "Everton 0 - 4 Brighton & Hove", "Brighton & Hove 3 - 0 Manchester United", "Brighton & Hove 1 - 1 AFC Bournemouth", "Brighton & Hove 1 - 2 Manchester City", "Sunderland 1 - 1 Brighton & Hove", "Brighton & Hove 0 - 1 Newcastle United", "Fulham 0 - 3 Brighton & Hove", "Brighton & Hove 2 - 1 Millwall", "Aston Villa 2 - 2 Brighton & Hove", "Brighton & Hove 1 - 1 Brentford", "Nottingham Forest 1 - 2 Brighton & Hove", "Burnley 1 - 2 Brighton & Hove", "Arsenal 1 - 1 Brighton & Hove", "Brighton & Hove 0 - 2 Crystal Palace", "Brighton & Hove 6 - 1 Wolves", "Liverpool 0 - 2 Brighton & Hove", "Brighton & Hove 3 - 2 West Ham"
+            ], "Carabao Cup": [
+                "Manchester United 2 - 1 Brighton & Hove", "F — Liverpool 4 - 1 Aston Villa"
+            ], "FA Community Shield": [
+                "Liverpool 1 - 5 Brighton & Hove"
+            ], "FA Cup": [
+                "Norwich 0 - 3 Brighton & Hove", "Wycombe 1 - 4 Brighton & Hove", "Brighton & Hove 4 - 0 Everton", "Brighton & Hove 2 - 0 Sunderland", "SF — Ipswich 1 - 4 Brighton & Hove", "F — Arsenal 0 - 1 Brighton & Hove"
+            ], "UEFA Champions League": [
+                "Slavia Praha 2 - 4 Brighton & Hove", "AS Monaco 2 - 2 Brighton & Hove", "Juventus 0 - 3 Brighton & Hove", "Brighton & Hove 2 - 1 Dynamo Kyiv", "RB Salzburg 2 - 2 Brighton & Hove", "Brighton & Hove 1 - 4 AC Milan", "Brighton & Hove 0 - 2 RB Leipzig", "Brighton & Hove 5 - 0 Celtic", "Club Brugge 2 - 4 Frankfurt", "Brighton & Hove 5 - 0 Rangers", "Arsenal 3 - 2 FC Porto", "AS Monaco 0 - 2 Sporting CP", "LOSC Lille 2 - 3 Fenerbahçe", "Athletic Club 7 - 2 SL Benfica", "Real Madrid 5 - 1 FC Midtjylland", "Feyenoord 2 - 1 Leverkusen", "FC Barcelona 2 - 1 Arsenal", "Paris SG 5 - 1 Sporting CP", "AC Milan 4 - 2 Frankfurt", "AS Roma 3 - 2 Athletic Club", "RB Leipzig 3 - 1 Fenerbahçe", "Atlético de Madrid 4 - 2 Brighton & Hove", "Manchester City 5 - 1 Real Madrid", "Liverpool 3 - 1 Feyenoord", "AC Milan 2 - 1 AS Roma", "Liverpool 0 - 2 Manchester City", "RB Leipzig (6) 2 - 2 (5) Atlético de Madrid", "Paris SG 2 - 3 FC Barcelona", "AC Milan 3 - 4 Manchester City", "FC Barcelona 5 - 3 RB Leipzig", "FC Barcelona (5) 2 - 2 (6) Manchester City"
+            ], "Euros": [
+                "Netherlands 1 - 2 Hungary", "Scotland 0 - 4 Netherlands", "Netherlands 3 - 1 Austria", "South Korea 0 - 4 Netherlands", "Austria 0 - 6 Netherlands", "Hungary 1 - 4 Netherlands", "Netherlands 4 - 1 Morocco"
+            ]
+        }, "2032–33": {
+            "Pre-season friendlies": [
+                "Brighton & Hove 1 - 2 Villareal CF", "RB Leipzig 0 - 2 Brighton & Hove", "Brighton & Hove 2 - 1 AS Roma"
+            ], "Premier League": [
+                "Coventry City 1 - 4 Brighton & Hove", "Brighton & Hove 2 - 2 Chelsea", "Sunderland 0 - 2 Brighton & Hove", "Brighton & Hove 3 - 2 Crystal Palace", "Liverpool 1 - 2 Brighton & Hove", "Brighton & Hove 0 - 3 Manchester City", "Newcastle United 0 - 2 Brighton & Hove", "Brighton & Hove 4 - 0 Leeds", "Southampton 1 - 4 Brighton & Hove", "Brighton & Hove 1 - 2 Arsenal", "Fulham 1 - 2 Brighton & Hove", "Brighton & Hove 1 - 2 AFC Bournemouth", "Everton 1 - 1 Brighton & Hove", "Brighton & Hove 3 - 2 Tottenham Hotspurs", "Nottingham Forest 1 - 3 Brighton & Hove", "Brighton & Hove 2 - 1 Manchester United", "Wolves 1 - 1 Brighton & Hove", "Brighton & Hove 1 - 2 Aston Villa", "West Ham 2 - 2 Brighton & Hove", "Arsenal 0 - 2 Brighton & Hove", "Brighton & Hove 2 - 1 Southampton", "Crystal Palace 3 - 2 Brighton & Hove", "Brighton & Hove 2 - 2 Sunderland", "Leeds 2 - 2 Brighton & Hove", "Brighton & Hove 2 - 1 Newcastle United", "AFC Bournemouth 2 - 3 Brighton & Hove", "Brighton & Hove 1 - 2 Fulham", "Tottenham Hotspurs 0 - 1 Brighton & Hove", "Brighton & Hove 2 - 3 Everton", "Brighton & Hove 2 - 0 West Ham", "Brighton & Hove 2 - 2 Nottingham Forest", "Aston Villa 1 - 2 Brighton & Hove", "Manchester United 2 - 0 Brighton & Hove", "Brighton & Hove 1 - 1 Wolves", "Chelsea 1 - 2 Brighton & Hove", "Brighton & Hove 2 - 3 Coventry City", "Manchester City 0 - 3 Brighton & Hove", "Brighton & Hove 1 - 1 Liverpool"
+            ], "Carabao Cup": [
+                "Hull City 0 - 3 Brighton & Hove", "Brighton & Hove (3) 0 - 0 (4) Aston Villa", "F — West Ham 0 - 1 Fulham"
+            ], "FA Community Shield": [
+                "Brighton & Hove 2 - 1 Arsenal"
+            ], "FA Cup": [
+                "Brighton & Hove 4 - 0 Watford", "F — Crystal Palace 1 - 2 Tottenham Hotspurs"
+            ], "UEFA Europa League": [
+                "FC Famalicão 1 - 3 Brighton & Hove", "Brighton & Hove 1 - 0 Shakhtar Donetsk", "Beşiktaş 2 - 3 Brighton & Hove", "Brighton & Hove 3 - 1 KV Mechelen", "Rangers 1 - 2 Brighton & Hove", "Brighton & Hove 0 - 1 Frankfurt", "Brighton & Hove 3 - 0 Malmö FF", "Viktoria Plzeň 2 - 4 Brighton & Hove", "Strasbourg 4 - 0 FC Basel 1893", "RSC Anderlecht 5 - 1 Trabzonspor", "KRC Genk 3 - 2 Legia Warszawa", "PAOK FC 1 - 3 SL Benfica", "Real Sociedad 2 - 1 Como", "VfL Wolfsburg (4) 2 - 2 (1) KV Mechelen", "Rangers 2 - 1 FC Nordsjælland", "Beşiktaş (3) 3 - 3 (2) Galatasaray", "Stade Rennais FC 3 - 1 Strasbourg", "SC Braga 1 - 4 VfL Wolfsburg", "Ajax 1 - 4 Rangers", "Athletic Club 4 - 2 Beşiktaş", "Brighton & Hove 7 - 1 Real Sociedad", "Frankfurt (4) 1 - 1 (5) RSC Anderlecht", "Liverpool 3 - 4 KRC Genk", "Latium 2 - 3 SL Benfica", "Stade Rennais FC 1 - 2 VfL Wolfsburg", "Athletic Club 3 - 2 Rangers", "Brighton & Hove (3) 2 - 2 (2) RSC Anderlecht", "KRC Genk 6 - 7 SL Benfica", "Athletic Club 1 - 4 VfL Wolfsburg", "Brighton & Hove 7 - 1 SL Benfica", "Brighton & Hove 4 - 0 VfL Wolfsburg"
+            ], "Euros - Round of 16": [
+                "Hungary 2 - 3 Germany", "Denmark 1 - 2 Austria", "Ukraine 1 - 2 Poland", "Netherlands 3 - 0 France", "Spain 1 - 3 England", "Czechia 2 - 0 Finland", "Türkiye 1 - 2 Italy", "Norway (4) 2 - 2 (1) Belgium", "Germany 0 - 1 Austria", "Poland 1 - 2 Netherlands", "England 1 - 3 Czechia", "Italy 4 - 1 Norway", "Austria 1 - 0 Netherlands", "Czechia 0 - 1 Italy", "Austria 1 - 5 Italy", "Netherlands 2 - 1 Ghana", "Netherlands 1 - 1 Australia", "Argentina 0 - 2 Netherlands", "Italy 1 - 1 Netherlands", "Netherlands 1 - 1 Italy", "Netherlands 1 - 2 France", "France 1 - 0 Netherlands", "Haiti 1 - 3 Netherlands"
+            ]
+        }, "2033–34": {
+            "Pre-season friendlies": [
+                "FC Bayern München 6 - 0 Südtirol", "Carrarese Calcio 1 - 3 FC Bayern München", "FC Bayern München 3 - 0 Real Sporting"
+            ], "Bundesliga": [
+                "1. FC Nürnberg 0 - 3 FC Bayern München", "1. FC Köln 0 - 1 FC Bayern München", "FC Bayern München 1 - 0 VfL Wolfsburg", "Holstein Kiel 0 - 4 FC Bayern München", "FC Bayern München 3 - 1 Leverkusen", "Borussia Dortmund 0 - 5 FC Bayern München", "FC Bayern München 1 - 2 Frankfurt", "VfB Stuttgart 0 - 2 FC Bayern München", "FC Bayern München 3 - 0 1. FSV Mainz 05", "SC Freiburg 1 - 1 FC Bayern München", "FC Bayern München 1 - 1 RB Leipzig", "Hetha BSC 2 - 3 FC Bayern München", "FC Bayern München 1 - 1 SV Werder Bremen", "Union Berlin 0 - 4 FC Bayern München", "FC Bayern München 3 - 1 FC Augsburg", "Karlsruher SC 1 - 2 FC Bayern München", "FC Bayern München 0 - 1 TSG Hoffenheim", "FC Bayern München 5 - 0 Hetha BSC", "RB Leipzig 0 - 2 FC Bayern München", "FC Bayern München 2 - 2 Holstein Kiel", "VfL Wolfburg 0 - 2 FC Bayern München", "FC Bayern München 3 - 1 Borussia Dortmund", "Leverkusen 1 - 3 FC Bayern München", "FC Bayern München 1 - 0 Karlsruher SC", "FC Augsburg 1 - 3 FC Bayern München", "FC Bayern München 2 - 2 SC Freiburg", "1. FSV Mainz 05 2 - 4 FC Bayern München", "FC Bayern München 4 - 0 VfB Stuttgart", "Frankfurt 2 - 2 FC Bayern München", "FC Bayern München 2 - 2 1. FC Köln", "FC Bayern München 2 - 0 1. FC Nürnberg", "FC Bayern München 3 - 1 Union Berlin", "SV Werder Bremen 1 - 3 FC Bayern München", "TSG Hoffenheim 1 - 4 FC Bayern München"
+            ], "UEFA Super Cup": [
+                "FC Bayern München 3 - 1 Brighton & Hove"
+            ], "F. Beckenbauer Supercup": [
+                "FC Bayern München 4 - 1 TSG Hoffenheim", "SV Werder Bremen 0 - 3 FC Bayern München", "R16 — FC Bayern München 2 - 0 SC Freiburg", "SF — 1. FC Köln 0 - 4 FC Bayern München", "F — FC Bayern München 4 - 1 Leverkusen"
+            ], "UEFA Champions League": [
+                "AC Milan 1 - 0 FC Bayern München", "FC Bayern München 2 - 0 Jagiellonia", "FC Bayern München 2 - 0 Arsenal", "FC Bayern München 4 - 1 Dynamo Kyiv", "FC Bayern München 1 - 1 AS Monaco", "FC Porto 0 - 1 FC Bayern München", "Celtic 1 - 3 FC Bayern München", "Viktoria Plzeň 1 - 3 FC Bayern München", "Rangers 1 - 4 Manchester City", "AC Milan 2 - 3 Juventus", "Celtic 5 - 2 Galatasaray", "LOSC Lille 1 - 2 Borussia Dortmund", "Real Madrid 4 - 2 PSV", "Arsenal 2 - 1 FC Porto", "Paris SG 4 - 3 TSG Hoffenheim", "KRC Genk 2 - 3 Como", "FC Barcelona 1 - 2 Paris SG", "Brighton & Hove 2 - 4 Borussia Dortmund", "FC Bayern München 5 - 1 Manchester City", "AS Monaco 2 - 5 Juventus", "Real Sociedad 3 - 2 Real Madrid", "Atlético de Madrid 5 - 4 Arsenal", "RB Leipzig 4 - 1 Celtic", "Feyenoord 2 - 1 Como", "Juventus 2 - 5 FC Bayern München", "Feyenoord 4 - 6 RB Leipzig", "Atlético de Madrid 2 - 3 Real Sociedad", "Borussia Dortmund (5) 5 - 5 (4) Paris SG", "FC Bayern München 8 - 5 RB Leipzig", "Real Sociedad 1 - 3 Borussia Dortmund", "FC Bayern München 4 - 1 Borussia Dortmund"
+            ], "World Cup": [
+                "Netherlands 5 - 0 Iraq", "Mexico 1 - 4 Netherlands", "Netherlands 3 - 3 Brazil", "Ghana 1 - 2 Algeria", "Spain 0 - 3 Qatar", "Paraguay 0 - 2 Belgium", "Canada 3 - 1 France", "Norway 1 - 2 England", "Senegal (4) 2 - 2 (1) Ecuador", "Italy 1 - 2 Congo DR", "Korea Republic 1 - 0 Japan", "South Africa 2 - 1 Uzbekistan", "Germany 0 - 2 Cote D'Ivorie", "Iraq 0 - 3 Portugal", "Poland 1 - 2 Egypt", "Croatia 0 - 2 Denmark", "Sweden 1 - 2 Argentina", "Colombia 3 - 5 Iceland", "Netherlands 4 - 1 Ireland", "Algeria 1 - 2 Belgium", "Qatar 1 - 2 Senegal", "Korea Republic 1 - 0 Cote D'Ivorie", "Portugal 2 - 1 Denmark", "Congo DR 2 - 4 South Africa", "Canada 1 - 2 England", "Iceland 2 - 1 Argentina", "Egypt 0 - 5 Netherlands", "Cote D'Ivorie 3 - 1 Netherlands", "Netherlands 1 - 1 Cote D'Ivorie", "South Africa 0 - 1 Netherlands", "South Korea 1 - 3 Netherlands", "Austria 1 - 2 Netherlands", "South Korea 0 - 4 Netherlands", "Netherlands 2 - 1 Northern Ireland", "Ghana 1 - 3 Netherlands"
+            ]
+        }, "2034–35": {
+            "Pre-season friendlies": [
+                "FC Bayern München 5 - 0 Newcastle Jets", "Chelsea 2 - 2 FC Bayern München", "FC Bayern München 4 - 0 Real Madrid"
+            ], "Bundesliga": [
+                "Mönchengladbach 0 - 2 FC Bayern München", "FC Bayern München 2 - 1 VfB Stuttgart", "VfL Wolfsburg 1 - 3 FC Bayern München", "FC Bayern München 2 - 2 Holstein Kiel", "1. FSV Mainz 05 1 - 4 FC Bayern München", "FC Bayern München 2 - 0 SV Werder Bremen", "Frankfurt 2 - 3 FC Bayern München", "FC Bayern München 1 - 0 FC Augsburg", "SC Freiburg 1 - 1 FC Bayern München", "FC Bayern München 3 - 1 Union Berlin", "TSG Hoffenheim 1 - 2 FC Bayern München", "Hertha BSC 1 - 2 FC Bayern München", "FC Bayern München 2 - 1 Hamburger SV", "Leverkusen 1 - 2 FC Bayern München", "FC Bayern München 2 - 1 RB Leipzig", "1. FC Köln 1 - 1 FC Bayern München", "FC Bayern München 0 - 1 Borussia Dortmund", "Holstein Kiel 0 - 3 FC Bayern München", "FC Bayern München 5 - 1 VfL Wolfsburg", "FC Bayern München 2 - 2 1. FC Köln", "RB Leipzig 1 - 0 FC Bayern München", "FC Bayern München 2 - 2 Leverkusen", "Hamburger SV 0 - 5 FC Bayern München", "SV Werder Bremen 0 - 3 FC Bayern München", "FC Bayern München 4 - 1 1. FSV Mainz 05", "VfB Stuttgart 1 - 2 FC Bayern München", "FC Bayern München 2 - 0 Mönchengladbach", "FC Augsburg 1 - 4 FC Bayern München", "FC Bayern München 2 - 2 Frankfurt", "FC Bayern München 3 - 0 Hertha BSC", "FC Bayern München 5 - 0 TSG Hoffenheim", "Borussia Dortmund 3 - 1 FC Bayern München", "Union Berlin 1 - 4 FC Bayern München", "FC Bayern München 3 - 2 SC Freiburg"
+            ], "UEFA Super Cup": [
+                "FC Bayern München 1 - 2 Leverkusen"
+            ], "F. Beckenbauer Supercup": [
+                "FC Bayern München 3 - 1 Leverkusen", "FC Hansa Rostock 0 - 3 FC Bayern München", "R16 — Hertha BSC 0 - 3 FC Bayern München", "QF — FC Schalke 04 1 - 2 FC Bayern München", "SF — Borussia Dortmund 2 - 5 FC Bayern München", "F — TSG Hoffenheim 1 - 5 FC Bayern München"
+            ], "UEFA Champions League": [
+                "FC Bayern München 5 - 0 Feyenoord", "Atlético de Madrid 1 - 2 FC Bayern München", "FC Bayern München 4 - 1 Ferencvárosi TC", "Brighton & Hove 2 - 1 FC Bayern München", "FC Bayern München 3 - 1 Chelsea", "FC Bayern München 1 - 1 Paris SG", "Ajax 1 - 1 FC Bayern München", "Slavia Praha 0 - 4 FC Bayern München", "Lech Poznań 3 - 4 RB Leipzig", "Real Madrid 4 - 2 RC Lens", "RSC Anderlecht 2 - 4 Atlético de Madrid", "SSC Napoli 2 - 0 Strasbourg", "Sporting CP 4 - 2 Ferencvárosi TC", "Sevilla FC 3 - 1 Celtic", "FC Barcelona (4) 3 - 3 (2) Chelsea", "Club Brugge 1 - 3 Manchester City", "Borussia Dortmund 4 - 2 FC Barcelona", "Inter Milan 2 - 3 SSC Napoli", "Brighton & Hove 0 - 2 RB Leipzig", "Liverpool (4) 2 - 2 (5) Sevilla FC", "Paris SG 5 - 4 Sporting CP", "Leverkusen 2 - 0 Real Madrid", "AC Milan 3 - 2 Atlético de Madrid", "FC Bayern München 3 - 2 Manchester City", "RB Leipzig 3 - 5 Sevilla FC", "FC Bayern München 3 - 2 AC Milan", "Leverkusen (3) 3 - 3 (4) Paris SG", "Borussia Dortmund 5 - 2 SSC Napoli", "Sevilla FC 0 - 3 FC Bayern München", "Paris SG (4) 1 - 1 (5) FC Bayern München"
+            ], "World Cup": [
+                "Netherlands 5 - 0 Iraq", "Mexico 1 - 4 Netherlands", "Netherlands 3 - 3 Brazil", "Ghana 1 - 2 Algeria", "Spain 0 - 3 Qatar", "Paraguay 0 - 2 Belgium", "Canada 3 - 1 France", "Norway 1 - 2 England", "Senegal (4) 2 - 2 (1) Ecuador", "Italy 1 - 2 Congo DR", "Korea Republic 1 - 0 Japan", "South Africa 2 - 1 Uzbekistan", "Germany 0 - 2 Cote D'Ivorie", "Iraq 0 - 3 Portugal", "Poland 1 - 2 Egypt", "Croatia 0 - 2 Denmark", "Sweden 1 - 2 Argentina", "Colombia 3 - 5 Iceland", "Netherlands 4 - 1 Ireland", "Algeria 1 - 2 Belgium", "Qatar 1 - 2 Senegal", "Korea Republic 1 - 0 Cote D'Ivorie", "Portugal 2 - 1 Denmark", "Congo DR 2 - 4 South Africa", "Canada 1 - 2 England", "Iceland 2 - 1 Argentina", "Egypt 0 - 5 Netherlands", "Senegal 1 - 2 Belgium", "Portugal 2 - 3 Korea Republic", "Iceland 1 - 3 Netherlands", "England 2 - 1 South Africa", "Belgium 2 - 1 Korea Republic", "England 0 - 4 Netherlands", "Korea Republic 0 - 1 England", "Belgium 0 - 4 Netherlands"
+            ], "Euros Qualifiers": [
+                "Wales 2 - 4 Netherlands", "Netherlands 2 - 0 Ukraine", "Czechia 1 - 2 Netherlands", "Netherlands 3 - 0 Denmark", "Netherlands 3 - 0 Wales", "Denmark 1 - 2 Netherlands", "Netherlands 1 - 1 Czechia"
+            ]
+        }, "2035–36": {
+            "Pre-season friendlies": [
+                "Borussia Dortmund 5 - 0 Inter Milan", "AS Roma 0 - 1 Borussia Dortmund", "Borussia Dortmund 2 - 3 Arsenal"
+            ], "Bundesliga": [
+                "Leverkusen 0 - 2 Borussia Dortmund", "VfB Stuttgart 3 - 2 Borussia Dortmund"
+            ], "F. Beckenbauer Supercup": [
+                "FC Bayern München 1 - 4 Borussia Dortmund"
+            ]
+        }
+    }, "jordan": {
+        "2025–26": {
+            "Pre-season friendlies": [
+                "Bristol City 1 - 0 Havre AC", "RC Deportivo 0 - 0 Bristol City", "Bristol City 0 - 0 FC Utrecht"
+            ], "EFL Championship": [
+                "Sheffield United 1 - 0 Bristol City", "Bristol City 1 - 0 Charlton Athletic", "Derby County 0 - 0 Bristol City", "Bristol City 0 - 0 Hull City", "Sheffield Wed 0 - 0 Bristol City", "Bristol City 0 - 1 Oxford United", "Preston 0 - 0 Bristol City", "Bristol City 1 - 1 Ipswich", "Bristol City 3 - 1 QPR", "Norwich 1 - 0 Bristol City", "Bristol City 3 - 1 Southampton", "Bristol City 2 - 2 Birmingham City", "Stoke City 0 - 1 Bristol City", "Bristol City 3 - 1 Blackburn Rovers", "Watford 0 - 2 Bristol City", "Bristol City 3 - 0 Swansea City", "Wrexham 3 - 2 Bristol City", "Portsmouth 1 - 3 Bristol City", "Bristol City 0 - 0 Millwall", "Bristol City 2 - 3 Leicester City", "Coventry City 0 - 1 Bristol City", "Bristol City 3 - 2 Middlesborough", "West Bromwich 0 - 2 Bristol City", "Millwall 0 - 0 Bristol City", "Bristol City 1 - 0 Portsmouth", "Bristol City 2 - 1 Preston", "Oxford United 1 - 2 Bristol City", "Ipswich 2 - 1 Bristol City", "Bristol City 1 - 0 Sheffield Wed", "Bristol City 1 - 1 Derby County", "Hull City 0 - 0 Bristol City", "Bristol City 2 - 0 Wrexham", "Swansea City 0 - 1 Bristol City", "Blackburn Rovers 1 - 2 Bristol City", "Bristol City 2 - 1 Watford", "Bristol City 2 - 0 Coventry City", "Middlesborough 0 - 1 Bristol City", "Bristol City 2 - 1 West Bromwich", "Int — Leicester City 1 - 1 Bristol City", "Charlton Athletic 1 - 3 Bristol City", "Bristol City 2 - 2 Sheffield United", "QPR 0 - 2 Bristol City", "Bristol City 2 - 1 Norwich", "Southampton 2 - 2 Bristol City", "Birmingham City 1 - 2 Bristol City", "Bristol City 1 - 0 Stoke City"
+            ], "Carabao Cup": [
+                "Sheffield United 1 - 2 Bristol City", "Cardiff City 0 - 2 Bristol City", "Bristol City (3) 0 - 0 (4) Brighton & Hove", "Arsenal 4 - 1 Liverpool"
+            ], "FA Cup": [
+                "Bristol City 1 - 0 Blackpool", "Nottingham Forest (6) 0 - 0 (5) Bristol City", "Tottenham Hotspurs 1 - 2 Nottingham Forest"
+            ], "World Cup": [
+                "England 2 - 0 Ghana", "Panama 0 - 2 England", "England 2 - 0 Croatia", "Czechia 1 - 3 Canada", "Curaçao 1 - 2 Brazil", "Sweden 2 - 3 Scotland", "Morocco 0 - 1 Japan", "Senegal 1 - 2 Netherlands", "Germany 2 - 3 Norway", "Mexico 4 - 0 Saudi Arabia", "Turkiye (4) 2 - 2 (2) Bosnia-Herzegov", "IR Iran 2 - 1 Korea Republic", "England 2 - 0 Colombia", "Spain 2 - 1 Algeria", "Congo DR 1 - 0 Panama", "Switzerland 2 - 3 New Zealand", "Austria 3 - 2 Uruguay", "Portugal 1 - 0 Cote d'Ivorie", "United States 1 - 0 Egypt", "Brazil 0 - 2 Netherlands", "Canada 2 - 1 Scotland", "Congo DR 1 - 2 Spain", "Turkiye 2 - 0 IR Iran", "Mexico 1 - 2 England", "Japan 1 - 0 Norway", "New Zealand 2 - 1 Portugal", "Austria 1 - 3 United States", "Sweden 0 - 3 England", "England 0 - 0 Ecuador"
+            ]
+        }, "2026–27": {
+            "Pre-season friendlies": [
+                "Bristol City 0 - 1 RC Deportivo", "FC Augsburg 0 - 0 Bristol City", "Bristol City 1 - 1 1. FC Köln"
+            ], "Premier League": [
+                "AFC Bournemouth 1  - 0 Bristol City", "Bristol City 1 - 0 Tottenham Hotspurs", "Chelsea 0 - 0 Bristol City", "Bristol City 0 - 1 Brentford", "Nottingham Forest 1 - 2 Bristol City", "Bristol City 1 - 2 Liverpool", "Wolves 1 - 1 Bristol City", "Bristol City 1 - 1 Newcastle United", "Arsenal 2 - 0 Bristol City", "Bristol City 2 - 2 Ipswich", "Everton 0 - 0 Bristol City", "Bristol City 1 - 4 West Ham", "Crystal Palace 2 - 1 Bristol City", "Bristol City 0 - 2 Manchester United", "Aston Villa 2 - 1 Bristol City", "Bristol City 1 - 0 Brighton & Hove", "Sunderland 1 - 1 Bristol City", "Manchester City 0 - 0 Bristol City", "Bristol City 1 - 2 Southampton", "Brighton & Hove 0 - 0 Bristol City", "Bristol City 1 - 2 Aston Villa", "Southampton 1 - 1 Bristol City", "Liverpool 2 - 1 Bristol City", "Bristol City 1 - 1 Nottingham Forest", "Ipswich 2 - 1 Bristol City", "Bristol City 2 - 4 Arsenal", "Brentford 1 - 1 Bristol City", "Bristol City 0 - 0 Chelsea", "West Ham 2 - 0 Bristol City", "Bristol City 1 - 2 Everton", "Tottenham Hotspurs 2 - 0 Bristol City", "Bristol City 2 - 0 AFC Bournemouth", "Bristol City 0 - 0 Manchester City", "Bristol City 3 - 0 Sunderland", "Manchester United 1 - 3 Bristol City", "Bristol City 1 - 2 Crystal Palace", "Newcastle United 0 - 2 Bristol City", "Bristol City 1 - 0 Wolves"
+            ], "Carabao Cup": [
+                "Bristol City 1 - 0 Crewe Alexandra", "Bristol City (4) 0 - 0 (1) Walsall", "Bristol City (5) 0 - 0 (3) Coventry City", "QF — Bristol City (4) 0 - 0 (1) Swansea City", "SF — Arsenal 1 - 0 Bristol City", "SF — Bristol City 1 - 1 Arsenal", "F — Arsenal 1 - 0 Chelsea"
+            ], "FA Cup": [
+                "Sheffield United 2 - 0 Bristol City", "Brighton & Hove 2 - 1 Manchester City"
+            ], "World Cup": [
+                "England 2 - 0 Ghana", "Panama 0 - 2 England", "England 2 - 0 Croatia", "Czechia 1 - 3 Canada", "Curaçao 1 - 2 Brazil", "Sweden 2 - 3 Scotland", "Morocco 0 - 1 Japan", "Senegal 1 - 2 Netherlands", "Germany 2 - 3 Norway", "Mexico 4 - 0 Saudi Arabia", "Turkiye (4) 2 - 2 (2) Bosnia-Herzegov", "IR Iran 2 - 1 Korea Republic", "England 2 - 0 Colombia", "Spain 2 - 1 Algeria", "Congo DR 1 - 0 Panama", "Switzerland 2 - 3 New Zealand", "Austria 3 - 2 Uruguay", "Portugal 1 - 0 Cote d'Ivorie", "United States 1 - 0 Egypt", "Brazil 0 - 2 Netherlands", "Canada 2 - 1 Scotland", "Congo DR 1 - 2 Spain", "Turkiye 2 - 0 IR Iran", "Mexico 1 - 2 England", "Japan 1 - 0 Norway", "New Zealand 2 - 1 Portugal", "Austria 1 - 3 United States", "Netherlands 2 - 1 Canada", "Spain 2 - 0 Turkiye", "Japan 0 - 1 England", "United States 1 - 3 New Zealand", "Netherlands 2 - 1 Spain", "England 4 - 0 New Zealand", "Spain 2 - 1 New Zealand", "Netherlands 2 - 1 England"
+            ], "Euros Qualifiers": [
+                "Iceland 1 - 2 England", "England 3 - 1 Wales", "Denmark 1 - 2 England", "England 3 - 3 Turkiye", "Wales 1 - 3 England", "England 2 - 1 Iceland", "Turkiye 0 - 1 England"
+            ]
+        }, "2027–28": {
+            "Pre-season friendlies": [
+                "Bristol City 1 - 0 Torino", "Getafe CF 0 - 0 Bristol City", "Bristol City 2 - 0 TSG Hoffenheim"
+            ], "Premier League": [
+                "Crystal Palace 3 - 0 Bristol City", "Bristol City 1 - 0 Everton", "Brentford 1 - 0 Bristol City", "West Ham 4 - 1 Bristol City", "AFC Bournemouth 2 - 1 Bristol City", "Bristol City 1 - 2 Tottenham Hotspurs", "Manchester United 3 - 0 Bristol City", "Bristol City 0 - 0 Leicester City", "Aston Villa 2 - 1 Bristol City", "Bristol City 2 - 0 Sunderland", "Fulham 0 - 1 Bristol City", "Bristol City 1 - 0 Newcastle United", "Brighton & Hove 0 - 1 Bristol City", "Bristol City 1 - 1 Arsenal", "Norwich 2 - 1 Bristol City", "Bristol City 1 - 2 Liverpool", "Chelsea 3 - 1 Bristol City", "Bristol City 1 - 2 Manchester City", "Nottingham Forest 3 - 2 Bristol City", "Leicester City 0 - 1 Bristol City", "Bristol City 0 - 1 Manchester United", "Bristol City 1 - 0 Nottingham Forest", "Tottenham Hotspurs 3 - 1 Bristol City", "Bristol City 1 - 0 AFC Bournemouth", "Sunderland 0 - 0 Bristol City", "Bristol City 3 - 0 Aston Villa", "Newcastle United 1 - 2 Bristol City", "Bristol City 3 - 1 Fulham", "Bristol City 1 - 1 Everton", "Bristol City 1 - 2 Crystal Palace", "Bristol City 0 - 4 Chelsea", "West Ham 2 - 1 Bristol City", "Manchester City 2 - 1 Bristol City", "Arsenal 2 - 2 Bristol City", "Bristol City 0 - 0 Brighton & Hove", "Bristol City 1 - 0 Brentford", "Liverpool 2 - 3 Bristol City", "Bristol City 1 - 1 Norwich"
+            ], "Carabao Cup": [
+                "Bristol City 1 - 2 Leyton Orient", "F — Nottingham Forest (4) 1 - 1 (5) AFC Bournemouth"
+            ], "FA Cup": [
+                "Bristol City 4 - 0 Wigan Athletic", "Charlton Athletic 0 - 2 Bristol City", "Bristol City 3 - 2 Middlesbrough", "Bristol City 4 - 0 Southampton", "SF — Bristol City 2 - 1 Manchester United", "F — Manchester City (3) 1 - 1 (4) Bristol City"
+            ], "Euros Qualifiers": [
+                "England 3 - 2 Denmark"
+            ], "Euros": [
+                "England 4 - 0 Scotland", "Bosnia-Herzegov 0 - 3 England", "England 1 - 1 Ukraine"
+            ], "International Friendlies": [
+                "England 1 - 0 Congo DR", "England 4 - 1 Northern Ireland", "England 4 - 2 Poland", "Senegal 1 - 1 England", "England 1 - 2 Jordan", "England 2 - 1 Colombia"
+            ]
+        }, "2028–29": {
+            "Pre-season friendlies": [
+                "Bristol City 1 - 1 RCD Espanyol", "Monza 1 - 4 Bristol City", "Bristol City 2 - 0 Venezia"
+            ], "Premier League": [
+                "Manchester City 3 - 2 Bristol City", "Bristol City 2 - 0 Aston Villa", "Newcastle United 1 - 2 Bristol City", "Chelsea 4 - 0 Bristol City", "Bristol City 3 - 0 AFC Bournemouth", "Crystal Palace 0 - 3 Bristol City", "Bristol City 1 - 1 West Ham", "Ipswich 1 - 0 Bristol City", "Bristol City 1 - 0 Wolves", "Manchester United 0 - 0 Bristol City"
+            ], "Carabao Cup": [
+                "Coventry City 0 - 3 Bristol City", "Bristol City 4 - 1 Liverpool", "Arsenal (3) 0 - 0 (0) Bristol City"
+            ], "FA Community Shield": [
+                "Bristol City (2) 2 - 2 (3) Manchester City"
+            ], "UEFA Europa League": [
+                "Bristol City 4 - 1 FC Nordsjælland", "Bristol City 2 - 0 Brøndby IF", "Sparta Praha 1 - 1 Bristol City", "Stade Rennais FC 1 - 2 Bristol City"
+            ], "Euros": [
+                "England 4 - 0 Scotland", "Bosnia-Herzegov 0 - 3 England", "England 1 - 1 Ukraine", "Sweden (3) 2 - 2 (2) Hungary", "Germany 4 - 0 Northern Ireland", "England (9) 3 - 3 (8) Bosnia-Herzegov", "Belgium 2 - 1 Czechia", "Netherlands (3) 1 - 1 (1) Ireland", "France (2) 1 - 1 (4) Croatia", "Spain 3 - 1 Portugal", "Italy 1 - 2 Ukraine", "Sweden (4) 3 - 3 (2) Germany", "England 4 - 0 Belgium", "Netherlands 1 - 0 Croatia", "Spain 3 - 2 Ukraine", "Sweden 4 - 2 England", "Netherlands 1 - 2 Spain", "Sweden (3) 2 - 2 (1) Spain"
+            ], "International Friendlies": [
+                "Japan 1 - 1 England", "Northern Ireland 1 - 2 England", "Jordan 2 - 4 England", "England 4 - 2 Finland"
+            ]
+        }
+    }, "espen": {
+        "2025–26": {
+            "Pre-season friendlies": [
+                "Hull City 1 - 0 RC Deportivo", "Hellas Verona 0 - 1 Hull City", "Hull City 6 - 0 1. FC Köln"
+            ], "EFL Championship": [
+                "Coventry City 2 - 2 Hull City", "Hull City 0 - 1 Oxford United", "Bristol City 0 - 2 Hull City"
+            ], "Carabao Cup": [
+                "Hull City 4 - 1 Accrington", "Hull City 3 - 0 Swansea City"
+            ]
+        }
+    }
+};
+DATA.vasi = {
+    name: 'Vasiliki Dimitriou (Βασιλική Δημητρίου)',
+    displayName: 'Vasiliki Dimitriou',
+    nickname: 'Vasi',
+    flag: '🇬🇷',
+    dob: '31 October',
+    birth: 'Thessaloniki, Greece',
+    height: '1.77 m',
+    bootBrand: 'Nike',
+    position: 'Striker',
+    current: '🇪🇸 FC Barcelona Femení',
+    number: '9',
+    international: '🇬🇷 Greece (2025–)',
+    intro: 'Vasiliki Dimitriou is a highly talented Greek striker born in Thessaloniki, Greece. Nicknamed both “The Queen” and “The Demon”, she is known for combining exceptional technical ability with a powerful and highly physical style of play. Dimitriou can overpower defenders while still producing moments of skill and composure in attacking areas, giving her a rare balance of strength and talent. Her Barcelona career began with an immediate scoring impact, while her first recorded season has also included emphatic Liga F victories and an early UEFA Women’s Champions League appearance against FC Bayern München. Her aggressive presence and natural finishing ability have quickly made her one of the most distinctive young forwards in her career.',
+    career: [
+        [
+            '2025–2035', '🇪🇸 FC Barcelona Femení', 45, 57
+        ]
+    ],
+    intl: [
+        '2025–', '🇬🇷 Greece', 4, 2
+    ],
+    stats: [
+        [
+            '2025–26', '🇪🇸 FC Barcelona Femení', 'ST', 'Liga F', '1st', '7.1', 33, 38, 5, 10
+        ], [
+            '2026–27', '🇪🇸 FC Barcelona Femení', 'ST', 'Liga F', '1st', '—', 12, 19, 2, 7
+        ]
+    ],
+    honours: {
+        '🇪🇸 FC Barcelona Femení': [
+            'Liga F Championship: 2025–26 🏆', "UEFA Women's Champions League: 2025–26 🏆", 'Golden Boot: 2026'
+        ]
+    },
+    seasons: {
+        '2025–26': {
+            inProgress: false,
+            summary: 'FC Barcelona Femení won Liga F and the UEFA Women’s Champions League. Vasiliki Dimitriou finished the season with 33 appearances, 38 goals, 5 assists and 10 clean sheets.',
+            competitions: {
+                'Pre-season friendlies': [
+                    'FC Barcelona 3 - 0 West Ham', 'London City 0 - 3 FC Barcelona', 'FC Barcelona 0 - 2 Paris FC'
+                ],
+                'Liga F': [
+                    'FC Barcelona 2 - 1 Alhama CF', 'Athletic Club 1 - 6 FC Barcelona', 'FC Barcelona 4 - 0 Logroño United', 'Sevilla FC 2 - 2 FC Barcelona', 'FC Barcelona 4 - 0 RCD Espanyol', 'SD Eibar 2 - 2 FC Barcelona', 'Inj — Atlético de Madrid 0 - 2 FC Barcelona', 'FC Barcelona 3 - 1 Granada CF', 'Real Sociedad 0 - 3 FC Barcelona', 'FC Barcelona 3 - 1 RC Deportivo', 'FC Barcelona 2 - 2 Real Madrid', 'Levante UD 1 - 3 FC Barcelona', 'FC Barcelona 2 - 0 C. Adeje Tenereife', 'Badalona Women 1 - 4 FC Barcelona', 'FC Barcelona 4 - 0 Madrid CFF', 'Alhama CF 2 - 3 FC Barcelona', 'FC Barcelona 2 - 1 Atlético de Madrid', 'FC Barcelona 1 - 2 Sevilla FC', 'Logroño United 0 - 4 FC Barcelona', 'FC Barcelona 4 - 2 SD Eibar', 'Granada CF 1 - 2 FC Barcelona', 'RC Deportivo 0 - 2 FC Barcelona', 'FC Barcelona 3 - 1 Athletic Club', 'Real Madrid 1 - 2 FC Barcelona', 'FC Barcelona 4 - 1 Badalona Women', 'RCD Espanyol 2 - 1 FC Barcelona', 'FC Barcelona 5 - 0 Levante UD', 'C. Adeje Tenereife 1 - 2 FC Barcelona', 'FC Barcelona 1 - 3 Real Sociedad', 'Madrid CFF 2 - 2 FC Barcelona'
+                ],
+                "UEFA Women's Champions League": [
+                    'FC Barcelona 1 - 1 FC Bayern München', 'Inj — Roma 2 - 1 FC Barcelona', 'FC Barcelona 1 - 2 Glasgow City FC', 'Chelsea 1 - 2 FC Barcelona', 'FC Barcelona 1 - 3 SL Benfica', 'Paris FC 1 - 3 FC Barcelona', 'Paris FC 5 - 2 PSG', 'Manchester United 1 - 5 Arsenal', 'FC Barcelona 5 - 0 OL Lyonnes', 'Juventus 1 - 4 Roma', 'Arsenal 6 - 3 SL Benfica', 'FC Barcelona 8 - 3 Real Madrid', 'Roma 3 - 2 Chelsea', 'Paris FC 4 - 3 FC Bayern München', 'FC Barcelona 5 - 0 Arsenal', 'Paris FC 4 - 1 Roma', 'F — FC Barcelona 4 - 0 Paris FC'
+                ]
+            },
+            table: '1st — 73 pts'
+        },
+        '2026–27': {
+            inProgress: true,
+            summary: 'Second FC Barcelona Femení season — currently in progress. Barcelona are 1st in Liga F after seven matches with 18 points. Vasiliki Dimitriou has 12 appearances, 19 goals, 2 assists and 7 clean sheets in the supplied season sheet.',
+            competitions: {
+                'Pre-season friendlies': [
+                    'FC Barcelona 3 - 0 Leverkusen', 'Gotham FC 1 - 3 FC Barcelona', 'FC Barcelona 2 - 0 West Ham'
+                ],
+                'Liga F': [
+                    'Granada CF 1 - 3 FC Barcelona', 'FC Barcelona 4 - 1 Levante UD', 'Badalona Women 1 - 3 FC Barcelona', 'FC Barcelona 3 - 0 SD Eibar', 'C. Adeje Tenereife 0 - 6 FC Barcelona', 'FC Barcelona 1 - 3 RCD Espanyol', 'Athletic Club 0 - 4 FC Barcelona'
+                ],
+                "UEFA Women's Champions League": [
+                    'FC Barcelona 2 - 0 Frankfurt', 'FC Barcelona 3 - 0 Juventus'
+                ]
+            },
+            table: 'In progress'
+        }
+    }
+};
+FULL_FIXTURES.vasi = {
+    '2025–26': {
+        'Pre-season friendlies': [
+            'FC Barcelona 3 - 0 West Ham', 'London City 0 - 3 FC Barcelona', 'FC Barcelona 0 - 2 Paris FC'
+        ],
+        'Liga F': [
+            'FC Barcelona 2 - 1 Alhama CF', 'Athletic Club 1 - 6 FC Barcelona', 'FC Barcelona 4 - 0 Logroño United', 'Sevilla FC 2 - 2 FC Barcelona', 'FC Barcelona 4 - 0 RCD Espanyol', 'SD Eibar 2 - 2 FC Barcelona', 'Inj — Atlético de Madrid 0 - 2 FC Barcelona', 'FC Barcelona 3 - 1 Granada CF', 'Real Sociedad 0 - 3 FC Barcelona', 'FC Barcelona 3 - 1 RC Deportivo', 'FC Barcelona 2 - 2 Real Madrid', 'Levante UD 1 - 3 FC Barcelona', 'FC Barcelona 2 - 0 C. Adeje Tenereife', 'Badalona Women 1 - 4 FC Barcelona', 'FC Barcelona 4 - 0 Madrid CFF', 'Alhama CF 2 - 3 FC Barcelona', 'FC Barcelona 2 - 1 Atlético de Madrid', 'FC Barcelona 1 - 2 Sevilla FC', 'Logroño United 0 - 4 FC Barcelona', 'FC Barcelona 4 - 2 SD Eibar', 'Granada CF 1 - 2 FC Barcelona', 'RC Deportivo 0 - 2 FC Barcelona', 'FC Barcelona 3 - 1 Athletic Club', 'Real Madrid 1 - 2 FC Barcelona', 'FC Barcelona 4 - 1 Badalona Women', 'RCD Espanyol 2 - 1 FC Barcelona', 'FC Barcelona 5 - 0 Levante UD', 'C. Adeje Tenereife 1 - 2 FC Barcelona', 'FC Barcelona 1 - 3 Real Sociedad', 'Madrid CFF 2 - 2 FC Barcelona'
+        ],
+        "UEFA Women's Champions League": [
+            'FC Barcelona 1 - 1 FC Bayern München', 'Inj — Roma 2 - 1 FC Barcelona', 'FC Barcelona 1 - 2 Glasgow City FC', 'Chelsea 1 - 2 FC Barcelona', 'FC Barcelona 1 - 3 SL Benfica', 'Paris FC 1 - 3 FC Barcelona', 'Paris FC 5 - 2 PSG', 'Manchester United 1 - 5 Arsenal', 'FC Barcelona 5 - 0 OL Lyonnes', 'Juventus 1 - 4 Roma', 'Arsenal 6 - 3 SL Benfica', 'FC Barcelona 8 - 3 Real Madrid', 'Roma 3 - 2 Chelsea', 'Paris FC 4 - 3 FC Bayern München', 'FC Barcelona 5 - 0 Arsenal', 'Paris FC 4 - 1 Roma', 'F — FC Barcelona 4 - 0 Paris FC'
+        ]
+    },
+    '2026–27': {
+        'Pre-season friendlies': [
+            'FC Barcelona 3 - 0 Leverkusen', 'Gotham FC 1 - 3 FC Barcelona', 'FC Barcelona 2 - 0 West Ham'
+        ],
+        'Liga F': [
+            'Granada CF 1 - 3 FC Barcelona', 'FC Barcelona 4 - 1 Levante UD', 'Badalona Women 1 - 3 FC Barcelona', 'FC Barcelona 3 - 0 SD Eibar', 'C. Adeje Tenereife 0 - 6 FC Barcelona', 'FC Barcelona 1 - 3 RCD Espanyol', 'Athletic Club 0 - 4 FC Barcelona'
+        ],
+        "UEFA Women's Champions League": [
+            'FC Barcelona 2 - 0 Frankfurt', 'FC Barcelona 3 - 0 Juventus'
+        ]
+    }
 };
