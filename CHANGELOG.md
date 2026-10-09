@@ -4,6 +4,17 @@ This file summarizes the major changes made to the FC26 Career Wiki during the d
 
 It is a reconstructed project history rather than a Git commit log, so it intentionally does not invent version numbers or exact release tags that were not created in Git.
 
+## Definitions and app.js cleanup
+
+- Added `data/definitions.js` for shared team flags and canonical team-name overrides.
+- Removed team flag maps, team aliases and Vasi-specific flag patches from `app.js`.
+- Moved each character's international focal team, squad focus name and home-page crest into that character's data file.
+- Moved squad-player nationality flag lookups into the relevant character data files.
+- Moved Jordan's manually supplied Timeline cup-final records into `data/jordan.js`.
+- Removed the hard-coded character route map; the character selector now routes directly from the shared `DATA` keys.
+- Replaced two hard-coded long squad-name exceptions with generic name-length handling.
+- Kept `app.js` focused on rendering, routing, calculations, charts, Timeline, H2H and table behaviour.
+
 ## Current development state
 
 ### Project structure

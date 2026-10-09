@@ -29,18 +29,12 @@ catch (error) {
 setTheme(initialTheme);
 if (themeSelect)
     themeSelect.addEventListener('change', () => setTheme(themeSelect.value));
-const CHARACTER_OVERVIEW_ROUTES = {
-    "rens": "#rens", "jordan": "#jordan", "espen": "#espen", "vasi": "#vasi"
-};
 if (characterSelect)
     characterSelect.addEventListener('change', () => {
-        const target = CHARACTER_OVERVIEW_ROUTES[characterSelect.value];
-        if (!target)
+        const selectedCharacter = characterSelect.value;
+        if (!DATA[selectedCharacter])
             return;
-        if (target.startsWith('#'))
-            location.hash = target;
-        else
-            location.href = target;
+        location.hash = `#${selectedCharacter}`;
     });
 const esc = value => String(value).replace(/[&<>]/g, character => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;'
@@ -146,33 +140,16 @@ function player(id) {
     <h2 id="honours">Honours</h2>
     ${honours(playerData)}`;
 }
-const FLAGS = {
-    'PEC Zwolle': '🇳🇱', 'PSV': '🇳🇱', 'Ajax': '🇳🇱', 'Feyenoord': '🇳🇱', 'AZ': '🇳🇱', 'FC Utrecht': '🇳🇱', 'FC Twente': '🇳🇱', 'Telstar': '🇳🇱', 'N.E.C. Nijmegen': '🇳🇱', 'Go Ahead Eagles': '🇳🇱', 'FC Volendam': '🇳🇱', 'NAC Breda': '🇳🇱', 'Heracles Almelo': '🇳🇱', 'Sparta Rotterdam': '🇳🇱', 'FC Groningen': '🇳🇱', 'sc Heerenveen': '🇳🇱', 'Fortuna Sittard': '🇳🇱', 'Excelsior': '🇳🇱',
-    'Brighton & Hove': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Brighton & Hove Albion': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Bristol City': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Manchester City': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Manchester United': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Man Utd': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Liverpool': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Arsenal': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Chelsea': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Tottenham Hotspurs': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Tottenham': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Newcastle United': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'West Ham': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Fulham': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Everton': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Aston Villa': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Crystal Palace': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Nottingham Forest': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'AFC Bournemouth': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Wolves': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Sunderland': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Southampton': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Brentford': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Ipswich': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Norwich': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Sheffield United': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Leicester City': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Reading': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Blackburn Rovers': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Blackpool': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Bolton': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Coventry City': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Walsall': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Swansea City': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Leyton Orient': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Wigan Athletic': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Charlton Athletic': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Middlesbrough': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Crewe Alexandra': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Hull': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Burnley': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Watford': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Wycombe': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Lincoln City': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Oxford United': '🏴󠁧󠁢󠁥󠁮󠁧󠁿',
-    'FC Bayern München': '🇩🇪', 'Bayern': '🇩🇪', 'Borussia Dortmund': '🇩🇪', 'Dortmund': '🇩🇪', 'RB Leipzig': '🇩🇪', 'Leverkusen': '🇩🇪', 'Bayer Leverkusen': '🇩🇪', 'Hoffenheim': '🇩🇪', 'TSG Hoffenheim': '🇩🇪', 'Frankfurt': '🇩🇪', 'Eintracht Frankfurt': '🇩🇪', 'FC Augsburg': '🇩🇪', 'Augsburg': '🇩🇪', '1. FC Köln': '🇩🇪', 'Köln': '🇩🇪', 'VfL Wolfsburg': '🇩🇪', 'VfB Stuttgart': '🇩🇪', 'Stuttgart': '🇩🇪', 'Mönchengladbach': '🇩🇪', 'Borussia Mönchengladbach': '🇩🇪', 'SC Freiburg': '🇩🇪', 'Freiburg': '🇩🇪', '1. FSV Mainz 05': '🇩🇪', 'Mainz 05': '🇩🇪', 'SV Werder Bremen': '🇩🇪', 'Werder Bremen': '🇩🇪', 'Union Berlin': '🇩🇪', 'Hertha BSC': '🇩🇪', 'Hertha Berlin': '🇩🇪', 'Hamburger SV': '🇩🇪', 'Holstein Kiel': '🇩🇪', 'FC St. Pauli': '🇩🇪', 'Schalke 04': '🇩🇪',
-    'Real Madrid': '🇪🇸', 'FC Barcelona': '🇪🇸', 'Atlético de Madrid': '🇪🇸', 'Real Sociedad': '🇪🇸', 'Athletic Club': '🇪🇸', 'Getafe CF': '🇪🇸', 'Sevilla FC': '🇪🇸', 'Villarreal': '🇪🇸', 'SD Huesca': '🇪🇸', 'Cultural Leonesa': '🇪🇸', 'RC Deportivo': '🇪🇸', 'RCD Espanyol': '🇪🇸', 'UD Almería': '🇪🇸',
-    'Juventus': '🇮🇹', 'AC Milan': '🇮🇹', 'AC Milan': '🇮🇹', 'Inter Milan': '🇮🇹', 'SSC Napoli': '🇮🇹', 'AS Roma': '🇮🇹', 'Roma': '🇮🇹', 'Inter Milan': '🇮🇹', 'Inter': '🇮🇹', 'Monza': '🇮🇹', 'Palermo': '🇮🇹', 'Bergamo Calcio': '🇮🇹', 'Torino': '🇮🇹', 'Venezia': '🇮🇹', 'Udinese': '🇮🇹', 'Cagliari': '🇮🇹',
-    'Paris SG': '🇫🇷', 'PSG': '🇫🇷', 'OM': '🇫🇷', 'LOSC Lille': '🇫🇷', 'OGC Nice': '🇫🇷', 'Strasbourg': '🇫🇷', 'Stade Rennais FC': '🇫🇷', 'Havre AC': '🇫🇷',
-    'Celtic': '🏴󠁧󠁢󠁳󠁣󠁴󠁿', 'Rangers': '🏴󠁧󠁢󠁳󠁣󠁴󠁿', 'Motherwell': '🏴󠁧󠁢󠁳󠁣󠁴󠁿', 'Sporting CP': '🇵🇹', 'SL Benfica': '🇵🇹', 'FC Porto': '🇵🇹', 'SC Braga': '🇵🇹', 'F.C. Famalicão': '🇵🇹', 'Brøndby IF': '🇩🇰', 'FC Nordsjælland': '🇩🇰', 'F.C. København': '🇩🇰', 'Sparta Praha': '🇨🇿', 'Slavia Praha': '🇨🇿', 'Viktoria Plzeň': '🇨🇿', 'Dynamo Kyiv': '🇺🇦', 'Shakhtar Donetsk': '🇺🇦', 'Fenerbahçe': '🇹🇷', 'Galatasaray': '🇹🇷', 'Beşiktaş': '🇹🇷', 'Trabzonspor': '🇹🇷', 'Samsunspor': '🇹🇷', 'Olympiacos FC': '🇬🇷', 'PAOK FC': '🇬🇷', 'Panathinaikos': '🇬🇷', 'Ajax': '🇳🇱', 'Feyenoord': '🇳🇱', 'Standard de Liège': '🇧🇪', 'RSC Anderlecht': '🇧🇪', 'KRC Genk': '🇧🇪', 'KV Mechelen': '🇧🇪', 'FC Basel 1893': '🇨🇭', 'BSC Young Boys': '🇨🇭', 'Rosenborg BK': '🇳🇴', 'FK Bodø/Glimt': '🇳🇴', 'Malmö FF': '🇸🇪', 'Malmo FF': '🇸🇪', 'Legia Warszawa': '🇵🇱', 'Raków': '🇵🇱', 'Lech Poznań': '🇵🇱', 'FCSB': '🇷🇴', 'FC Rapid 1923': '🇷🇴', 'CFR 1907 Cluj': '🇷🇴', 'Qarabağ FK': '🇦🇿', 'Ferencvárosi TC': '🇭🇺', 'APOEL FC': '🇨🇾', 'Dinamo Zagreb': '🇭🇷', 'Aberdeen': '🏴󠁧󠁢󠁳󠁣󠁴󠁿', 'Estrela Amadora': '🇵🇹', 'R. Union St.-G': '🇧🇪',
-    'AS Monaco': '🇲🇨', 'Rio Ave FC': '🇵🇹', 'Club Brugge': '🇧🇪', 'Millwall': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Bohemians': '🇮🇪', 'Randers FC': '🇩🇰', 'Hull City': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Como': '🇮🇹', 'Como 1907': '🇮🇹', 'SK Brann': '🇳🇴', 'Viking FK': '🇳🇴', 'Wolfsberger AC': '🇦🇹', 'Leeds': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Leeds United': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', '1. FC Nürnberg': '🇩🇪', 'Hetha BSC': '🇩🇪', 'Karlsruher SC': '🇩🇪', 'Derby County': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Sheffield Wed': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Preston': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Preston North End': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'QPR': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Birmingham City': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Stoke City': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Wrexham': '🏴󠁧󠁢󠁷󠁬󠁳󠁿', 'Portsmouth': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Middlesborough': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'West Bromwich': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'SK Rapid': '🇦🇹', 'HJK Helsinki': '🇫🇮', 'Burton Albion': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Molde FK': '🇳🇴', 'Shelbourne': '🇮🇪', 'Widzew Łódź': '🇵🇱', 'LASK': '🇦🇹', 'Lausanne-Sport': '🇨🇭', 'Cracovia': '🇵🇱', 'Göztepe': '🇹🇷', 'Gaziantep': '🇹🇷', 'FC Dinamo 1948': '🇷🇴', 'United Tigers SC': '🇮🇳', 'RB Salzburg': '🇦🇹', 'FC Midtjylland': '🇩🇰', 'Villareal CF': '🇪🇸', 'FC Famalicão': '🇵🇹', 'Latium': '🇮🇹', 'Südtirol': '🇮🇹', 'Carrarese Calcio': '🇮🇹', 'Real Sporting': '🇪🇸', 'VfL Wolfburg': '🇩🇪', 'Jagiellonia': '🇵🇱', 'Newcastle Jets': '🇦🇺', 'FC Hansa Rostock': '🇩🇪', 'RC Lens': '🇫🇷', 'Cardiff City': '🏴󠁧󠁢󠁷󠁬󠁳󠁿',
-    'England': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Netherlands': '🇳🇱', 'Scotland': '🏴󠁧󠁢󠁳󠁣󠁴󠁿', 'Wales': '🏴󠁧󠁢󠁷󠁬󠁳󠁿', 'Northern Ireland': '🇬🇧', 'Ireland': '🇮🇪', 'France': '🇫🇷', 'Germany': '🇩🇪', 'Spain': '🇪🇸', 'Italy': '🇮🇹', 'Belgium': '🇧🇪', 'Portugal': '🇵🇹', 'Sweden': '🇸🇪', 'Ukraine': '🇺🇦', 'Croatia': '🇭🇷', 'Hungary': '🇭🇺', 'Austria': '🇦🇹', 'Poland': '🇵🇱', 'Finland': '🇫🇮', 'Norway': '🇳🇴', 'Romania': '🇷🇴', 'Türkiye': '🇹🇷', 'Turkiye': '🇹🇷', 'Bosnia-Herzegov': '🇧🇦', 'Czechia': '🇨🇿', 'Switzerland': '🇨🇭', 'Iceland': '🇮🇸', 'Japan': '🇯🇵', 'Mexico': '🇲🇽', 'Brazil': '🇧🇷', 'Belgium': '🇧🇪', 'Ghana': '🇬🇭', 'Panama': '🇵🇦', 'Colombia': '🇨🇴', 'Canada': '🇨🇦', 'Curaçao': '🇨🇼', 'Morocco': '🇲🇦', 'Senegal': '🇸🇳', 'Saudi Arabia': '🇸🇦', 'IR Iran': '🇮🇷', 'Korea Republic': '🇰🇷', 'Algeria': '🇩🇿', 'Congo DR': '🇨🇩', 'Uruguay': '🇺🇾', 'Cote d\'Ivorie': '🇨🇮', 'United States': '🇺🇸', 'Egypt': '🇪🇬', 'New Zealand': '🇳🇿', 'Jordan': '🇯🇴', 'Iraq': '🇮🇶', 'Ecuador': '🇪🇨', 'Serbia': '🇷🇸', 'Slovenia': '🇸🇮', 'Slovakia': '🇸🇰', 'Greece': '🇬🇷', 'Albania': '🇦🇱', 'Georgia': '🇬🇪', 'Denmark': '🇩🇰', 'Australia': '🇦🇺', 'Tunisia': '🇹🇳', 'Cameroon': '🇨🇲', 'Nigeria': '🇳🇬', 'South Africa': '🇿🇦', 'Costa Rica': '🇨🇷', 'Jamaica': '🇯🇲', 'Paraguay': '🇵🇾', 'Chile': '🇨🇱', 'Peru': '🇵🇪', 'Venezuela': '🇻🇪', 'Bolivia': '🇧🇴', 'China PR': '🇨🇳', 'Qatar': '🇶🇦', 'United Arab Emirates': '🇦🇪', 'Uzbekistan': '🇺🇿', 'Honduras': '🇭🇳', 'El Salvador': '🇸🇻', 'Argentina': '🇦🇷', 'South Korea': '🇰🇷', 'Haiti': '🇭🇹', 'Cote D\'Ivorie': '🇨🇮', 'Cote D\'Ivoire': '🇨🇮', 'Cabo Verde': '🇨🇻', 'Indonesia': '🇮🇩',
-    'AEK Athens': '🇬🇷', 'Accrington': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Atalanta': '🇮🇹', 'Auckland FC': '🇳🇿', 'Barnsley': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Bengaluru FC': '🇮🇳', 'Blau-Weiß Linz': '🇦🇹', 'Bologna': '🇮🇹', 'Bradford City': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Brommapojkarna': '🇸🇪', 'Chennaiyin FC': '🇮🇳', 'Cádiz CF': '🇪🇸', 'Elche CF': '🇪🇸', 'Entella': '🇮🇹', 'Eyüpspor': '🇹🇷', 'F.C København': '🇩🇰', 'FC Lugano': '🇨🇭', 'FC Metz': '🇫🇷', 'Genoa': '🇮🇹', 'Gençlerbirliği': '🇹🇷', 'Girona FC': '🇪🇸', 'Hellas Verona': '🇮🇹', 'Melbourne Victory': '🇦🇺', 'OL': '🇫🇷', 'Parma': '🇮🇹', 'Plymouth Argyle': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Real Betis': '🇪🇸', 'Real Oviedo': '🇪🇸', 'Real Zaragoza': '🇪🇸', 'SS Juve Stabia': '🇮🇹', 'SS Lazio': '🇮🇹', 'Sampdoria': '🇮🇹', 'Sassuolo': '🇮🇹', 'Shamrock Rovers': '🇮🇪', 'St. Pats': '🇮🇪', 'Stade Brestois 29': '🇫🇷',
-    'Gotham FC': '🇺🇸', 'Spurs': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Montpellier': '🇫🇷', 'Bay FC': '🇺🇸', 'FC Fleury 91': '🇫🇷'
-};
+
 function teamFlag(teamName) {
-    if (FLAGS[teamName])
-        return FLAGS[teamName];
-    const normalizedTeamName = teamName.toLowerCase();
-    if (/bayern|dortmund|leverkusen|stuttgart|wolfsburg|mönchengladbach|monchengladbach|freiburg|mainz|bremen|frankfurt|augsburg|hoffenheim|hertha|hamburg|holstein|köln|koln|leipzig|union berlin|schalke/.test(normalizedTeamName))
-        return '🇩🇪';
-    return '🏳️';
+    return TEAM_FLAGS[teamName] || '';
 }
-const PLAYER_FLAGS = {
-    "Dillon Phillips": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Ivor Pandur": "🇭🇷", "Espen Sæheim": "🇳🇴", "Charlie Hughes": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Semi Ajayi": "🇳🇬", "John Egan": "🇮🇪", "Akin Famewo": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Paddy McNair": "🇬🇧", "Lewie Coyle": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Cody Drameh": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "John Lundstram": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Amir Hadžiahmetović": "🇧🇦", "Regan Slater": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Eliot Matazo": "🇧🇪", "Liam Millar": "🇨🇦", "Lewis Koumas": "🏴󠁧󠁢󠁷󠁬󠁳󠁿", "Matt Crooks": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Kasey Palmer": "🇯🇲", "Joe Helhardt": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Babajide David Akintola": "🇳🇬", "Kieran Dowell": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Oso": "🇪🇸", "Oli McBurnie": "🏴󠁧󠁢󠁳󠁣󠁴󠁿", "Kyle Joseph": "🏴󠁧󠁢󠁳󠁣󠁴󠁿", "Aaron Hinz": "🇩🇪", "Adam Randell": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Adam Webster": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Adrien Truffert": "🇫🇷", "Alphonso Davies": "🇨🇦", "Anselmo García Macnulty": "🇮🇪", "Armindo Sieb": "🇩🇪", "Arséne Kouassi": "🇫🇷", "Bara Sapoko Ndiaye": "🇲🇱", "Benjamin Šeško": "🇸🇮", "Benoît Badiashile": "🇫🇷", "Bradley Locko": "🇫🇷", "Brajan Gruda": "🇩🇪", "Brooke Norton-Cuffy": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Bryan Zaragoza": "🇪🇸", "Cameron Pring": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Carl Rushworth": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Carlos Baleba": "🇨🇲", "Carlos Espí": "🇪🇸", "Chemsdine Talbi": "🇲🇦", "Chris Rigg": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Christos Tzolis": "🇬🇷", "Clement Bischoff": "🇩🇪", "Corean Drost": "🇳🇱", "Damian van der Haar": "🇳🇱", "David Santos Daiber": "🇵🇹", "David Voute": "🇳🇱", "Delano Burgzorg": "🇳🇱", "Dennis Seimen": "🇩🇪", "Diego Coppola": "🇮🇹", "Diego Gómez": "🇵🇾", "Duke Verduin": "🇳🇱", "Dylan Mbayo": "🇧🇪", "Dylan Ruward": "🇳🇱", "Emeka Adiele": "🇩🇪", "Emil Riis": "🇩🇰", "Erblin Osmani": "🇩🇪", "Evan Ferguson": "🇮🇪", "Ezri Konsa": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Eíran Cashin": "🇮🇪", "Gabriël Reiziger": "🇳🇱", "Gastón Benedetti": "🇦🇷", "George Tanner": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Georginio Rutter": "🇫🇷", "Giovanni Kok": "🇳🇱", "Givaro Rahajaan": "🇳🇱", "Givaro Rahajaän": "🇳🇱", "Guglielmo Vicario": "🇮🇹", "Guido Della Rovere": "🇮🇹", "Gustaf Nilsson": "🇸🇪", "Harry Cornick": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Hiroki Ito": "🇯🇵", "Idrissa Gueye": "🇸🇳", "Ignacio Mancilla": "🇪🇸", "Igor Julio": "🇧🇷", "Jack Hinshelwood": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Jacob Slater": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Jamal Musiala": "🇩🇪", "James Beadle": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Jamie Knight-Lebel": "🇨🇦", "Jamiro Monteiro": "🇨🇻", "Jason Knight": "🇮🇪", "Jasper Schendelaar": "🇳🇱", "Jayden Holtman": "🇳🇱", "Jesús Gómez": "🇪🇸", "Joane Gadou": "🇫🇷", "Joe Lumley": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Joe Williams": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Jordan Vale": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Jorne Spileers": "🇧🇪", "Josh Campbell-Slowey": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Josh Stokes": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Josimar Alcócer": "🇨🇷", "João Costa": "🇵🇹", "Joško Gvardiol": "🇭🇷", "Kajj de Rooij": "🇳🇱", "Keinan Davis": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Kersen Irawan": "🇮🇩", "Kim Min Jae": "🇰🇷", "Koen Kostons": "🇳🇱", "Kyriani Sabbe": "🇧🇪", "Lawrence Thomas": "🇦🇺", "Len Bakker": "🇳🇱", "Lennart Karl": "🇩🇪", "Leny Yoro": "🇫🇷", "Levi Colwill": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Lucas Sarasketa": "🇪🇸", "Luke McNally": "🇮🇪", "Malick Fofana": "🇧🇪", "Malo Gusto": "🇫🇷", "Marcin Lis": "🇵🇱", "Mariusz Nowak": "🇵🇱", "Mark O'Mahony": "🇮🇪", "Mark Sykes": "🇮🇪", "Mats Wieffer": "🇳🇱", "Matt O'Riley": "🇩🇰", "Maurice Krattenmacher": "🇩🇪", "Max Bird": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Michael Olise": "🇫🇷", "Neto Borges": "🇧🇷", "Nick Fichtinger": "🇳🇱", "Nick Woltemade": "🇩🇪", "Niels Bischoff": "🇩🇪", "Noah Eile": "🇸🇪", "Noël Aséko": "🇩🇪", "Odysseus Velanas": "🇳🇱", "Olabade Aluko": "🇩🇪", "Olivier Aertssen": "🇧🇪", "Olivier Boscagli": "🇫🇷", "Oskar Pietuzszewski": "🇵🇱", "Pablo López": "🇪🇸", "Patrick Wimmer": "🇦🇹", "Radek Vítek": "🇨🇿", "Raphael Langel": "🇨🇭", "Rayan": "🇧🇷", "Rens Adisea": "🇳🇱", "Rens Adisea ⭐": "🇳🇱", "Rob Atkinson": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Rob Dickie": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Rodney Kroeze": "🇳🇱", "Ross McCrorie": "🏴󠁧󠁢󠁳󠁣󠁴󠁿", "Ryan Cordier": "🇫🇷", "Ryan Thomas": "🇳🇿", "Ryan Thomas (C)": "🇳🇿", "Saimon Bouabré": "🇫🇷", "Sam Bell": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Sam Morsy": "🇪🇬", "Santiago Mouriño": "🇺🇾", "Saïmon Bouabré": "🇫🇷", "Scott Twine": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Sherel Floranus": "🇨🇼", "Shola Soretire": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Simon Graves": "🇩🇰", "Sinclair Armstrong": "🇮🇪", "Stefan Dahlberg": "🇸🇪", "Thijs Oosting": "🇳🇱", "Tijs Velthuis": "🇳🇱", "Tom Bischof": "🇩🇪", "Tom de Graaff": "🇳🇱", "Tomi Horvat": "🇭🇷", "Vincent Manuba": "🇩🇪", "Vitor Reis": "🇧🇷", "Will Short": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Wisdom Mike": "🇩🇪", "Yankuba Minteh": "🇬🇲", "Yojan Garcés": "🇨🇴", "Younes Namli": "🇩🇰", "Yū Hirakawa": "🇯🇵", "Zico Buurmeester": "🇳🇱",
-    "Teresa Moyano": "🇪🇸", "Lauren Leal": "🇧🇷", "Rasheedat Ajibade": "🇳🇬"
-};
-function playerFlag(name) {
-    return Object.prototype.hasOwnProperty.call(PLAYER_FLAGS, name) ? PLAYER_FLAGS[name] : '🏳️';
+
+function playerFlag(name, id) {
+    const playerData = DATA[id];
+    if (!playerData || !playerData.squadFlags)
+        return '';
+    return playerData.squadFlags[name] || '';
 }
 function sectionId(name) {
     return 'section-' + name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -194,21 +171,15 @@ function parseFixture(raw) {
     };
 }
 function focalFor(id, seasonName, comp) {
-    if (/World Cup|Euros|Qualif|International Friendlies/i.test(comp))
-        return id === 'rens' ? 'Netherlands' : id === 'espen' ? 'Norway' : id === 'jordan' ? 'England' : id === 'vasi' ? 'Greece' : '';
-    let row = DATA[id].stats.find(statRow => statRow[0] === seasonName);
-    if (!row)
+    const playerData = DATA[id];
+    if (!playerData)
         return '';
-    let club = String(row[1]).replace(/^\S+\s/, '');
-    if (club === 'Brighton')
-        return 'Brighton & Hove';
-    if (club === 'Bayern')
-        return 'FC Bayern München';
-    if (club === 'Dortmund')
-        return 'Borussia Dortmund';
-    if (club === 'FC Barcelona Femení' || club === 'FC Barcelona Femini')
-        return 'FC Barcelona';
-    return club;
+    if (isInternationalCompetition(comp))
+        return playerData.internationalTeam || '';
+    const statRow = (playerData.stats || []).find(row => row[0] === seasonName);
+    if (!statRow)
+        return '';
+    return canonicalTeam(cleanClubLabel(statRow[1]));
 }
 function sameTeam(teamA, teamB) {
     const normalizeTeamName = teamName => teamName.toLowerCase().replace(/fc |afc |& hove albion|borussia |münchen/g, '').replace(/\s+/g, ' ').trim();
@@ -227,40 +198,10 @@ function outcome(fixture, focal) {
     let focalHome = sameTeam(fixture.home, focal);
     return (focalHome && homeWin) || (!focalHome && awayWin) ? 'win' : 'loss';
 }
-const UEFA_ROUND_BREAKS = {
-    'rens|2026–27|UEFA Champions League': {
-        0: 'League phase', 8: 'Knockout phase play-off', 18: 'Round of 16', 26: 'Quarter-finals', 30: 'Semi-finals', 32: 'Final'
-    },
-    'rens|2027–28|UEFA Champions League': {
-        0: 'League phase', 8: 'Knockout phase play-off', 18: 'Round of 16', 26: 'Quarter-finals', 30: 'Semi-finals', 32: 'Final'
-    },
-    'rens|2030–31|UEFA Conference League': {
-        0: 'League phase', 6: 'Knockout phase play-off', 14: 'Round of 16', 22: 'Quarter-finals', 26: 'Semi-finals', 28: 'Final'
-    },
-    'rens|2031–32|UEFA Champions League': {
-        0: 'League phase', 8: 'Knockout phase play-off', 16: 'Round of 16', 24: 'Quarter-finals', 28: 'Semi-finals', 30: 'Final'
-    },
-    'rens|2032–33|UEFA Europa League': {
-        0: 'League phase', 8: 'Knockout phase play-off', 16: 'Round of 16', 24: 'Quarter-finals', 28: 'Semi-finals', 30: 'Final'
-    },
-    'rens|2033–34|UEFA Champions League': {
-        0: 'League phase', 8: 'Knockout phase play-off', 16: 'Round of 16', 24: 'Quarter-finals', 28: 'Semi-finals', 30: 'Final'
-    },
-    'rens|2034–35|UEFA Champions League': {
-        0: 'League phase', 8: 'Knockout phase play-off', 16: 'Round of 16', 24: 'Quarter-finals', 28: 'Semi-finals', 29: 'Final'
-    },
-    'jordan|2028–29|UEFA Europa League': {
-        0: 'League phase'
-    },
-    'vasi|2025–26|UEFA Women\'s Champions League': {
-        0: 'League phase', 6: 'Playoff (agg)', 10: 'Quarter Finals (agg)', 14: 'Semi Finals (agg)', 16: 'Final'
-    },
-    'vasi|2026–27|UEFA Women\'s Champions League': {
-        0: 'League phase'
-    }
-};
+
 function tournamentRounds(comp, items, id, seasonName) {
-    let uefa = UEFA_ROUND_BREAKS[`${id}|${seasonName}|${comp}`];
+    const playerRoundBreaks = DATA[id] && DATA[id].uefaRoundBreaks ? DATA[id].uefaRoundBreaks : {};
+    const uefa = playerRoundBreaks[`${seasonName}|${comp}`];
     if (uefa)
         return uefa;
     if (comp === 'Euros' && items.length >= 18)
@@ -350,23 +291,11 @@ function competitionSideTable(id, seasonName, comp, meta) {
 function squadTable(meta, id, inProgress) {
     if (!meta || !meta.squad || !meta.squad.length)
         return `<p class="muted">${inProgress ? 'The player list has not yet been populated in the supplied in-progress season sheet.' : 'No player list was populated in the supplied season sheet.'}</p>`;
-    let target = {
-        rens: 'Rens Adisea', jordan: 'Jordan Vale', espen: 'Espen Sæheim', vasi: 'Vasiliki Dimitriou'
-    }[id] || '__no_match__';
-    let rows = meta.squad.map(squadRow => `<tr class="${squadRow[2].includes(target) ? 'focus-player' : ''}"><td>${esc(squadRow[0])}</td><td class="player-nation">${playerFlag(squadRow[2])}</td><td class="num">${esc(squadRow[1])}</td><td class="squad-name${[
-        'Maurice Krattenmacher', 'Anselmo García Macnulty'
-    ].includes(squadRow[2].replace(' ⭐', '')) ? ' compact-name' : ''}">${esc(squadRow[2])}</td>${squadRow.slice(3).map(value => `<td class="num">${value === '' ? '' : esc(value)}</td>`).join('')}</tr>`).join('');
+    const target = DATA[id].squadFocusName || DATA[id].displayName || DATA[id].name;
+    let rows = meta.squad.map(squadRow => `<tr class="${squadRow[2].includes(target) ? 'focus-player' : ''}"><td>${esc(squadRow[0])}</td><td class="player-nation">${playerFlag(squadRow[2].replace(' ⭐', ''), id)}</td><td class="num">${esc(squadRow[1])}</td><td class="squad-name${squadRow[2].replace(' ⭐', '').length > 20 ? ' compact-name' : ''}">${esc(squadRow[2])}</td>${squadRow.slice(3).map(value => `<td class="num">${value === '' ? '' : esc(value)}</td>`).join('')}</tr>`).join('');
     return `${inProgress ? '<p class="table-note">In-progress player list: blank statistics are preserved from the supplied sheet.</p>' : ''}<div class="table-scroll"><table class="wikitable squad-table"><thead><tr><th>Pos</th><th title="Nationality">Nat.</th><th>No.</th><th>Name</th><th>App</th><th>Goals</th><th>Asst</th><th>CLS</th></tr></thead><tbody>${rows}</tbody></table></div>`;
 }
-const TEAM_ALIASES = {
-    'Milano FC': 'AC Milan', 'Lombardia': 'Inter Milan', 'Lombardia FC': 'Inter Milan',
-    'Brighton & Hove Albion': 'Brighton & Hove', 'Man Utd': 'Manchester United', 'Tottenham Hotspurs': 'Tottenham', 'Newcastle': 'Newcastle United',
-    'Bayern': 'FC Bayern München', 'Dortmund': 'Borussia Dortmund', 'Leverkusen': 'Bayer Leverkusen', 'Hoffenheim': 'TSG Hoffenheim', 'Frankfurt': 'Eintracht Frankfurt',
-    'Augsburg': 'FC Augsburg', 'Köln': '1. FC Köln', 'Stuttgart': 'VfB Stuttgart', 'Freiburg': 'SC Freiburg', 'Mainz 05': '1. FSV Mainz 05', 'Werder Bremen': 'SV Werder Bremen',
-    'Hertha Berlin': 'Hertha BSC', 'PSG': 'Paris SG', 'Malmo FF': 'Malmö FF', 'FC Famalicão': 'F.C. Famalicão', 'Como 1907': 'Como', 'Middlesborough': 'Middlesbrough',
-    'Hetha BSC': 'Hertha BSC', 'VfL Wolfburg': 'VfL Wolfsburg', 'Villareal CF': 'Villarreal', 'Turkiye': 'Türkiye', 'South Korea': 'Korea Republic',
-    "Cote D'Ivorie": "Cote d'Ivorie", "Cote D'Ivoire": "Cote d'Ivorie"
-};
+
 function canonicalTeam(teamName) {
     let normalizedTeamName = cleanTeamName(teamName);
     return TEAM_ALIASES[normalizedTeamName] || normalizedTeamName;
@@ -481,25 +410,9 @@ function timelineSquadChanges(id, season, prevSeason) {
     };
 }
 function timelineCupFinals(id, season) {
-    const manualFinals = {
-        jordan: {
-            '2025–26': [
-                {
-                    comp: 'Carabao Cup', winner: 'Arsenal', runner: 'Liverpool'
-                },
-                {
-                    comp: 'FA Cup', winner: 'Nottingham Forest', runner: 'Tottenham Hotspurs'
-                }
-            ],
-            '2026–27': [
-                {
-                    comp: 'FA Cup', winner: 'Brighton & Hove', runner: 'Manchester City'
-                }
-            ]
-        }
-    };
-    const out = (manualFinals[id] && manualFinals[id][season]) ? [
-        ...manualFinals[id][season]
+    const manualFinals = DATA[id].timelineManualFinals || {};
+    const out = manualFinals[season] ? [
+        ...manualFinals[season]
     ] : [];
     const comps = (FULL_FIXTURES[id] && FULL_FIXTURES[id][season]) || {};
     Object.entries(comps).forEach(([comp, items]) => {
@@ -810,23 +723,10 @@ tableObserver.observe(app, {
 function home() {
     app.className = 'home-page';
     nav.innerHTML = '';
-    const homePlayers = [
-        [
-            'rens', 'https://www.clipartmax.com/png/middle/84-847485_maks-timurov-logo-borussia-dortmund-512-512-dls-17.png'
-        ],
-        [
-            'jordan', 'https://www.footballkitarchive.com/static/logos/t6BVBkbe5p9kPcA/bristol-city-2019-logo.png'
-        ],
-        [
-            'espen', 'https://www.pngfind.com/pngs/m/345-3454478_hull-city-fc-logo-png-transparent-new-hull.png'
-        ],
-        [
-            'vasi', 'https://www.clipartmax.com/png/middle/98-980857_fc-barcelona-logo-fathead-fc-barcelona-logo-wall-decal.png'
-        ]
-    ];
-    app.innerHTML = `<h1>FC26 Career Wiki</h1><div class="home-tiles">${homePlayers.map(([id, crest]) => {
+    const homePlayerIds = Object.keys(DATA);
+    app.innerHTML = `<h1>FC26 Career Wiki</h1><div class="home-tiles">${homePlayerIds.map(id => {
         const playerData = DATA[id];
-        return `<a class="home-player-tile" href="#${id}" style="--club-crest:url('${crest}')"><span>${playerData.flag} ${playerData.displayName || playerData.name}</span></a>`;
+        return `<a class="home-player-tile" href="#${id}" style="--club-crest:url('${playerData.homeCrest || ''}')"><span>${playerData.flag} ${playerData.displayName || playerData.name}</span></a>`;
     }).join('')}</div>`;
 }
 function route() {
@@ -851,13 +751,8 @@ function route() {
 }
 addEventListener('hashchange', route);
 route();
-Object.assign(FLAGS, {
-    'FC Barcelona Femení': '🇪🇸', 'FC Barcelona Femini': '🇪🇸', 'FC Barcelona': '🇪🇸', 'Alhama CF': '🇪🇸', 'Atlético de Madrid': '🇪🇸', 'Badalona Women': '🇪🇸', 'C. Adeje Tenereife': '🇪🇸', 'Logroño United': '🇪🇸', 'Granada CF': '🇪🇸', 'Levante UD': '🇪🇸', 'Madrid CFF': '🇪🇸', 'RC Deportivo': '🇪🇸', 'RCD Espanyol': '🇪🇸', 'Real Madrid': '🇪🇸', 'Real Sociedad': '🇪🇸', 'SD Eibar': '🇪🇸', 'Sevilla FC': '🇪🇸',
-    'Orlando Pride': '🇺🇸', 'London City': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Paris FC': '🇫🇷', 'Portland Thorns': '🇺🇸', 'West Ham': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Aston Villa': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Liverpool': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'OL Lyonnes': '🇫🇷', 'FC Rosengård': '🇸🇪', 'Glasgow City FC': '🏴󠁧󠁢󠁳󠁣󠁴󠁿', 'FC Zürich': '🇨🇭'
-});
-Object.assign(PLAYER_FLAGS, {
-    'Txell Font': '🇪🇸', 'Cata Coll': '🇪🇸', 'Gemma Font': '🇪🇸', 'Adriana Ranera': '🇪🇸', 'Marta Torrejón': '🇪🇸', 'Mapi León': '🇪🇸', 'Laia Aleixandri': '🇪🇸', 'Maria Llorella': '🇪🇸', 'Ona Batlle': '🇪🇸', 'Patri Guijarro': '🇪🇸', 'Emilia Szymczak': '🇵🇱', 'Alexia Putellas': '🇪🇸', 'Aitana Bonmatí': '🇪🇸', 'Kika Nazareth': '🇵🇹', 'Vicky López': '🇪🇸', 'Sydney Schertenleib': '🇨🇭', 'Claudia Pina': '🇪🇸', 'Salma Paralluelo': '🇪🇸', 'Caroline Graham Hansen': '🇳🇴', 'Vasiliki Dimitriou': '🇬🇷', 'Ewa Pajor': '🇵🇱'
-});
+
+
 function updateTopPlayerShortcuts() {
     const hash = (location.hash || '#home').toLowerCase();
     const isMain = hash === '' || hash === '#main' || hash === '#home';

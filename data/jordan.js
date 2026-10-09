@@ -8,6 +8,73 @@ DATA.jordan = {
   "name": "Jordan A.B. Vale",
   "displayName": "Jordan Vale",
   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+  "internationalTeam": "England",
+  "squadFocusName": "Jordan Vale",
+  "homeCrest": "https://www.footballkitarchive.com/static/logos/t6BVBkbe5p9kPcA/bristol-city-2019-logo.png",
+  "squadFlags": {
+    "Jordan Vale": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "Joe Lumley": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "Radek Vítek": "🇨🇿",
+    "Cameron Pring": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "Neto Borges": "🇧🇷",
+    "Joane Gadou": "🇫🇷",
+    "Josh Campbell-Slowey": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "Rob Dickie": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "Rob Atkinson": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "Luke McNally": "🇮🇪",
+    "Noah Eile": "🇸🇪",
+    "Jamie Knight-Lebel": "🇨🇦",
+    "Ross McCrorie": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+    "George Tanner": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "Sam Morsy": "🇪🇬",
+    "Delano Burgzorg": "🇳🇱",
+    "Sam Bell": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "Max Bird": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "Adam Randell": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "Jason Knight": "🇮🇪",
+    "Tomi Horvat": "🇭🇷",
+    "Josh Stokes": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "Scott Twine": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "Yū Hirakawa": "🇯🇵",
+    "Mark Sykes": "🇮🇪",
+    "Emil Riis": "🇩🇰",
+    "Sinclair Armstrong": "🇮🇪",
+    "Arséne Kouassi": "🇫🇷",
+    "Gastón Benedetti": "🇦🇷",
+    "Brooke Norton-Cuffy": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "Joe Williams": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "Harry Cornick": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "Keinan Davis": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "Bradley Locko": "🇫🇷",
+    "Wisdom Mike": "🇩🇪",
+    "Pablo López": "🇪🇸"
+  },
+  "timelineManualFinals": {
+    "2025–26": [
+      {
+        "comp": "Carabao Cup",
+        "winner": "Arsenal",
+        "runner": "Liverpool"
+      },
+      {
+        "comp": "FA Cup",
+        "winner": "Nottingham Forest",
+        "runner": "Tottenham Hotspurs"
+      }
+    ],
+    "2026–27": [
+      {
+        "comp": "FA Cup",
+        "winner": "Brighton & Hove",
+        "runner": "Manchester City"
+      }
+    ]
+  },
+  "uefaRoundBreaks": {
+    "2028–29|UEFA Europa League": {
+      "0": "League phase"
+    }
+  },
   "dob": "08 August",
   "birth": "Weston-super-Mare, England",
   "height": "1.82 m",

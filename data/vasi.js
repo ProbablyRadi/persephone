@@ -9,6 +9,46 @@ DATA.vasi = {
   "displayName": "Vasiliki Dimitriou",
   "nickname": "Vasi",
   "flag": "🇬🇷",
+  "internationalTeam": "Greece",
+  "squadFocusName": "Vasiliki Dimitriou",
+  "homeCrest": "https://www.clipartmax.com/png/middle/98-980857_fc-barcelona-logo-fathead-fc-barcelona-logo-wall-decal.png",
+  "squadFlags": {
+    "Txell Font": "🇪🇸",
+    "Cata Coll": "🇪🇸",
+    "Gemma Font": "🇪🇸",
+    "Adriana Ranera": "🇪🇸",
+    "Marta Torrejón": "🇪🇸",
+    "Mapi León": "🇪🇸",
+    "Laia Aleixandri": "🇪🇸",
+    "Maria Llorella": "🇪🇸",
+    "Ona Batlle": "🇪🇸",
+    "Patri Guijarro": "🇪🇸",
+    "Alexia Putellas": "🇪🇸",
+    "Aitana Bonmatí": "🇪🇸",
+    "Kika Nazareth": "🇵🇹",
+    "Vicky López": "🇪🇸",
+    "Sydney Schertenleib": "🇨🇭",
+    "Claudia Pina": "🇪🇸",
+    "Salma Paralluelo": "🇪🇸",
+    "Caroline Graham Hansen": "🇳🇴",
+    "Vasiliki Dimitriou": "🇬🇷",
+    "Ewa Pajor": "🇵🇱",
+    "Teresa Moyano": "🇪🇸",
+    "Lauren Leal": "🇧🇷",
+    "Rasheedat Ajibade": "🇳🇬"
+  },
+  "uefaRoundBreaks": {
+    "2025–26|UEFA Women's Champions League": {
+      "0": "League phase",
+      "6": "Playoff (agg)",
+      "10": "Quarter Finals (agg)",
+      "14": "Semi Finals (agg)",
+      "16": "Final"
+    },
+    "2026–27|UEFA Women's Champions League": {
+      "0": "League phase"
+    }
+  },
   "dob": "31 October",
   "birth": "Thessaloniki, Greece",
   "height": "1.77 m",

@@ -19,6 +19,7 @@ site/
 ├── assets/
 └── data/
     ├── base.js
+    ├── definitions.js
     ├── rens.js
     ├── jordan.js
     ├── espen.js
@@ -27,9 +28,10 @@ site/
 
 ## Player data
 
-All character-specific data lives in the `data/` directory:
+Character-specific data lives in the `data/` directory, while shared football definitions are kept separately:
 
 - `data/base.js` — creates the shared data containers.
+- `data/definitions.js` — shared team flags and canonical team-name overrides.
 - `data/rens.js` — Rens profile, fixtures, squad sheets and tables.
 - `data/jordan.js` — Jordan profile, fixtures, squad sheets and tables.
 - `data/espen.js` — Espen profile, fixtures, squad sheets and tables.
