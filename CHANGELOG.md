@@ -32,6 +32,21 @@ It is a reconstructed project history rather than a Git commit log, so it intent
 - This allows a club to appear in both Entered and Relegated if it was promoted and immediately relegated in the same season.
 
 
+### Jordan 2026–27 league-entry baseline
+
+- Added a Jordan-specific real-world 2025–26 Premier League membership baseline for the 2026–27 Timeline.
+- The Timeline can now derive 2026–27 **Entered** clubs even though Jordan's preceding career season was in the EFL Championship.
+- Compared with the real-world 2025–26 Premier League field, Jordan's 2026–27 save table adds Bristol City, Ipswich and Southampton.
+- The baseline is stored in `data/jordan.js`; `app.js` remains generic and only knows how to consume an optional baseline.
+
+
+### Jordan 2026–27 entry alias fix
+
+- Fixed shared team-name aliases used by Timeline league-entry comparisons.
+- Normalized `Tottenham Hotspur` / `Tottenham Hotspurs`, `West Ham United` / `West Ham`, and `Wolverhampton Wanderers` / `Wolves`.
+- Jordan's 2026–27 **Entered** list now resolves to Bristol City, Ipswich and Southampton only.
+
+
 ## Current development state
 
 ### Project structure

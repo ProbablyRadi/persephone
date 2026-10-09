@@ -482,6 +482,27 @@ function timelineLeagueMovement(id, season, previousSeason) {
             .filter(team => !previousNames.has(team.canonicalName))
             .map(team => team.displayName);
     }
+    else {
+        const playerData = DATA[id] || {};
+        const baseline = playerData.timelineLeagueEntryBaselines
+            ? playerData.timelineLeagueEntryBaselines[season]
+            : null;
+
+        if (
+            baseline
+            && baseline.league === currentMeta.league
+            && Array.isArray(baseline.teams)
+            && baseline.teams.length
+        ) {
+            const baselineNames = new Set(
+                baseline.teams.map(team => canonicalTeam(cleanTeamName(team)))
+            );
+
+            entered = currentTeams
+                .filter(team => !baselineNames.has(team.canonicalName))
+                .map(team => team.displayName);
+        }
+    }
 
     const seasonData = DATA[id] && DATA[id].seasons ? DATA[id].seasons[season] : null;
     let relegated = null;

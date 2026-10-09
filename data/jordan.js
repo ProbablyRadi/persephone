@@ -11,6 +11,35 @@ DATA.jordan = {
   "internationalTeam": "England",
   "squadFocusName": "Jordan Vale",
   "homeCrest": "https://www.footballkitarchive.com/static/logos/t6BVBkbe5p9kPcA/bristol-city-2019-logo.png",
+  "timelineLeagueEntryBaselines": {
+    "2026–27": {
+      "league": "Premier League",
+      "previousSeason": "2025–26",
+      "source": "Real-life 2025–26 Premier League membership",
+      "teams": [
+        "AFC Bournemouth",
+        "Arsenal",
+        "Aston Villa",
+        "Brentford",
+        "Brighton & Hove Albion",
+        "Burnley",
+        "Chelsea",
+        "Crystal Palace",
+        "Everton",
+        "Fulham",
+        "Leeds United",
+        "Liverpool",
+        "Manchester City",
+        "Manchester United",
+        "Newcastle United",
+        "Nottingham Forest",
+        "Sunderland",
+        "Tottenham Hotspur",
+        "West Ham United",
+        "Wolverhampton Wanderers"
+      ]
+    }
+  },
   "squadFlags": {
     "Jordan Vale": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
     "Joe Lumley": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
