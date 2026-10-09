@@ -77,7 +77,7 @@ function careerGroups(playerData) {
 function careerNavigator(id, activeSeason = '', activePage = '') {
     const playerData = DATA[id];
     const groups = careerGroups(playerData);
-    return `<div class="career-nav"><div class="career-nav-player"><span>${playerData.flag}</span><div><b>${esc(playerData.displayName || playerData.name)}</b><small>Career navigator</small></div></div><a class="career-nav-main ${!activeSeason && !activePage ? 'active' : ''}" href="#${id}">Overview</a><a class="career-nav-main ${activePage === 'timeline' ? 'active' : ''}" href="#${id}/timeline">Timeline</a><a class="career-nav-main ${activePage === 'analysis' ? 'active' : ''}" href="#${id}/analysis">Head to Head</a>${groups.map(group => `<div class="career-nav-club"><div class="career-nav-clubname">${group.label}</div>${group.seasons.map(season => `<a class="${activeSeason === season ? 'active' : ''}" href="#${id}/${season}"><span>${season}</span>${playerData.seasons[season].inProgress ? '<em>Live</em>' : ''}</a>`).join('')}</div>`).join('')}</div>`;
+    return `<div class="career-nav"><div class="career-nav-player"><span>${playerData.flag}</span><div><b>${esc(playerData.displayName || playerData.name)}</b><small>Career navigator</small></div></div><a class="career-nav-main ${!activeSeason && !activePage ? 'active' : ''}" href="#${id}">Overview</a><a class="career-nav-main ${activePage === 'timeline' ? 'active' : ''}" href="#${id}/timeline">Timeline</a><a class="career-nav-main ${activePage === 'stats' ? 'active' : ''}" href="#${id}/stats">Stats</a><a class="career-nav-main ${activePage === 'analysis' ? 'active' : ''}" href="#${id}/analysis">Head to Head</a>${groups.map(group => `<div class="career-nav-club"><div class="career-nav-clubname">${group.label}</div>${group.seasons.map(season => `<a class="${activeSeason === season ? 'active' : ''}" href="#${id}/${season}"><span>${season}</span>${playerData.seasons[season].inProgress ? '<em>Live</em>' : ''}</a>`).join('')}</div>`).join('')}</div>`;
 }
 function statForSeason(playerData, seasonName) {
     return (playerData.stats || []).find(statRow => statRow[0] === seasonName) || null;
@@ -554,6 +554,136 @@ function careerTimeline(id) {
     }).join('');
     app.innerHTML = `<div class="timeline-wrap"><p><a href="#${id}">← ${esc(playerData.displayName || playerData.name)}</a></p><h1>${playerData.flag} ${esc(playerData.displayName || playerData.name)} — Career timeline</h1><p class="lede">Season-by-season view of league leaders, recorded cup finals and squad changes. Squad movement is calculated from consecutive supplied player lists and resets when the player changes club.</p><div class="timeline-scroll"><div class="career-timeline">${cards}</div></div></div>`;
 }
+
+function numericStat(value) {
+    if (typeof value === 'number' && Number.isFinite(value))
+        return value;
+    const text = String(value == null ? '' : value).trim();
+    if (!text || text === '—' || /^in progress$/i.test(text))
+        return null;
+    const parsed = Number(text);
+    return Number.isFinite(parsed) ? parsed : null;
+}
+function numericPosition(value) {
+    const match = String(value == null ? '' : value).match(/(\d+)/);
+    return match ? Number(match[1]) : null;
+}
+function ordinal(value) {
+    if (!Number.isFinite(value))
+        return '—';
+    const moduloTen = value % 10;
+    const moduloHundred = value % 100;
+    if (moduloTen === 1 && moduloHundred !== 11)
+        return `${value}st`;
+    if (moduloTen === 2 && moduloHundred !== 12)
+        return `${value}nd`;
+    if (moduloTen === 3 && moduloHundred !== 13)
+        return `${value}rd`;
+    return `${value}th`;
+}
+function statHistory(playerData) {
+    return (playerData.stats || []).map(statRow => ({
+        season: statRow[0],
+        club: cleanClubLabel(statRow[1]),
+        league: statRow[3],
+        goals: numericStat(statRow[7]),
+        assists: numericStat(statRow[8]),
+        cleanSheets: numericStat(statRow[9]),
+        position: numericPosition(statRow[4]),
+        positionLabel: statRow[4]
+    }));
+}
+function niceMetric(value) {
+    return value == null ? '—' : String(value);
+}
+function metricScale(values) {
+    const validValues = values.filter(value => Number.isFinite(value));
+    const maxValue = validValues.length ? Math.max(...validValues) : 0;
+    if (maxValue <= 5)
+        return 5;
+    if (maxValue <= 10)
+        return 10;
+    return Math.ceil(maxValue / 5) * 5;
+}
+function barChartSvg(points, options = {}) {
+    const width = 760;
+    const height = 280;
+    const padding = { top: 20, right: 16, bottom: 60, left: 44 };
+    const plotWidth = width - padding.left - padding.right;
+    const plotHeight = height - padding.top - padding.bottom;
+    const values = points.map(point => point.value);
+    const maxValue = metricScale(values);
+    const count = Math.max(points.length, 1);
+    const step = plotWidth / count;
+    const barWidth = Math.min(48, Math.max(20, step * 0.52));
+    const ticks = [0, maxValue / 2, maxValue].map(value => Math.round(value));
+    const gridLines = ticks.map(value => {
+        const y = padding.top + plotHeight - (value / maxValue) * plotHeight;
+        return `<g class="chart-grid-group"><line class="chart-grid" x1="${padding.left}" y1="${y}" x2="${width - padding.right}" y2="${y}"></line><text class="chart-axis-label" x="${padding.left - 8}" y="${y + 4}" text-anchor="end">${value}</text></g>`;
+    }).join('');
+    const bars = points.map((point, index) => {
+        const value = Number.isFinite(point.value) ? point.value : 0;
+        const barHeight = maxValue ? (value / maxValue) * plotHeight : 0;
+        const x = padding.left + index * step + (step - barWidth) / 2;
+        const y = padding.top + plotHeight - barHeight;
+        const labelX = padding.left + index * step + step / 2;
+        return `<g class="chart-bar-group"><rect class="chart-bar ${options.className || ''}" x="${x}" y="${y}" width="${barWidth}" height="${barHeight}" rx="5"></rect><text class="chart-value-label" x="${labelX}" y="${Math.max(padding.top + 12, y - 8)}" text-anchor="middle">${value}</text><text class="chart-axis-label chart-season-label" x="${labelX}" y="${height - 18}" text-anchor="middle">${esc(point.label)}</text></g>`;
+    }).join('');
+    return `<svg class="chart-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(options.ariaLabel || options.title || 'Career chart')}"><line class="chart-axis" x1="${padding.left}" y1="${padding.top + plotHeight}" x2="${width - padding.right}" y2="${padding.top + plotHeight}"></line><line class="chart-axis" x1="${padding.left}" y1="${padding.top}" x2="${padding.left}" y2="${padding.top + plotHeight}"></line>${gridLines}${bars}</svg>`;
+}
+function positionChartSvg(points, options = {}) {
+    const validPoints = points.filter(point => Number.isFinite(point.value));
+    if (!validPoints.length)
+        return '<div class="chart-empty">No league position data recorded yet.</div>';
+    const width = 760;
+    const height = 280;
+    const padding = { top: 20, right: 16, bottom: 60, left: 48 };
+    const plotWidth = width - padding.left - padding.right;
+    const plotHeight = height - padding.top - padding.bottom;
+    const maxPosition = Math.max(...validPoints.map(point => point.value), 5);
+    const xStep = validPoints.length > 1 ? plotWidth / (validPoints.length - 1) : 0;
+    const positionY = value => {
+        if (maxPosition <= 1)
+            return padding.top + plotHeight / 2;
+        return padding.top + ((value - 1) / (maxPosition - 1)) * plotHeight;
+    };
+    const tickValues = Array.from(new Set([1, Math.ceil((1 + maxPosition) / 2), maxPosition])).sort((first, second) => first - second);
+    const gridLines = tickValues.map(value => {
+        const y = positionY(value);
+        return `<g class="chart-grid-group"><line class="chart-grid" x1="${padding.left}" y1="${y}" x2="${width - padding.right}" y2="${y}"></line><text class="chart-axis-label" x="${padding.left - 8}" y="${y + 4}" text-anchor="end">${ordinal(value)}</text></g>`;
+    }).join('');
+    const pointsWithCoords = validPoints.map((point, index) => ({
+        ...point,
+        x: padding.left + index * xStep,
+        y: positionY(point.value)
+    }));
+    const path = pointsWithCoords.map((point, index) => `${index === 0 ? 'M' : 'L'} ${point.x} ${point.y}`).join(' ');
+    const pointMarkup = pointsWithCoords.map(point => `<g class="chart-point-group"><circle class="chart-point ${options.className || ''}" cx="${point.x}" cy="${point.y}" r="5"></circle><text class="chart-value-label" x="${point.x}" y="${Math.max(14, point.y - 10)}" text-anchor="middle">${ordinal(point.value)}</text><text class="chart-axis-label chart-season-label" x="${point.x}" y="${height - 18}" text-anchor="middle">${esc(point.label)}</text></g>`).join('');
+    return `<svg class="chart-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(options.ariaLabel || options.title || 'League position chart')}"><line class="chart-axis" x1="${padding.left}" y1="${padding.top + plotHeight}" x2="${width - padding.right}" y2="${padding.top + plotHeight}"></line><line class="chart-axis" x1="${padding.left}" y1="${padding.top}" x2="${padding.left}" y2="${padding.top + plotHeight}"></line>${gridLines}<path class="chart-line ${options.className || ''}" d="${path}"></path>${pointMarkup}</svg>`;
+}
+function chartCard(title, subtitle, chartMarkup) {
+    return `<section class="chart-card season-card"><div class="panel-kicker">Visualisation</div><h2>${title}</h2><p class="chart-note">${subtitle}</p>${chartMarkup}</section>`;
+}
+function careerStats(id) {
+    app.className = 'stats-page';
+    const playerData = DATA[id];
+    const history = statHistory(playerData);
+    nav.innerHTML = careerNavigator(id, '', 'stats');
+    const seasonLabels = history.map(seasonRow => seasonRow.season);
+    const goalsPoints = history.filter(seasonRow => Number.isFinite(seasonRow.goals)).map(seasonRow => ({ label: seasonRow.season, value: seasonRow.goals }));
+    const assistsPoints = history.filter(seasonRow => Number.isFinite(seasonRow.assists)).map(seasonRow => ({ label: seasonRow.season, value: seasonRow.assists }));
+    const cleanSheetPoints = history.filter(seasonRow => Number.isFinite(seasonRow.cleanSheets)).map(seasonRow => ({ label: seasonRow.season, value: seasonRow.cleanSheets }));
+    const positionPoints = history.filter(seasonRow => Number.isFinite(seasonRow.position)).map(seasonRow => ({ label: seasonRow.season, value: seasonRow.position }));
+    const summaryRows = history.map(seasonRow => [
+        seasonRow.season,
+        seasonRow.club,
+        niceMetric(seasonRow.goals),
+        niceMetric(seasonRow.assists),
+        niceMetric(seasonRow.cleanSheets),
+        seasonRow.positionLabel || '—'
+    ]);
+    app.innerHTML = `<div class="stats-wrap"><p><a href="#${id}">← ${esc(playerData.displayName || playerData.name)}</a></p><h1>${playerData.flag} ${esc(playerData.displayName || playerData.name)} — Stats</h1><p class="lede">Visual summary of recorded career output by season. These charts use the same season-by-season stats shown on the overview page, focusing on goals, assists, clean sheets and league finishing position.</p><div class="stats-grid">${chartCard('Goals per season', 'Recorded goals in each supplied season.', barChartSvg(goalsPoints, { className: 'chart-goals', title: 'Goals per season' }))}${chartCard('Assists per season', 'Recorded assists in each supplied season.', barChartSvg(assistsPoints, { className: 'chart-assists', title: 'Assists per season' }))}${chartCard('Clean sheets per season', 'Recorded clean sheets or clean-sheet tally (CLS) for each season.', barChartSvg(cleanSheetPoints, { className: 'chart-clean-sheets', title: 'Clean sheets per season' }))}${chartCard('League finishing position', 'Lower is better: 1st place is shown at the top of the chart.', positionChartSvg(positionPoints, { className: 'chart-position', title: 'League finishing position by season' }))}</div><section class="stats-summary season-card"><div class="panel-kicker">Source data</div><h2>Season totals</h2>${table(['Season', 'Club', 'Goals', 'Assists', 'CLS', 'League finish'], summaryRows)}</section></div>`;
+}
 function season(id, seasonName) {
     app.className = 'season-view';
     let playerData = DATA[id], seasonData = playerData.seasons[seasonName], full = (FULL_FIXTURES[id] && FULL_FIXTURES[id][seasonName]) || {}, meta = (typeof SEASON_TABLES !== 'undefined' && SEASON_TABLES[id] && SEASON_TABLES[id][seasonName]) || null;
@@ -709,6 +839,8 @@ function route() {
         careerAnalysis(id);
     else if (DATA[id] && pageName === 'timeline')
         careerTimeline(id);
+    else if (DATA[id] && pageName === 'stats')
+        careerStats(id);
     else if (DATA[id] && pageName && DATA[id].seasons[pageName])
         season(id, pageName);
     else if (DATA[id])

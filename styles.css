@@ -3810,3 +3810,158 @@ body.theme-terminal.theme-dracula *::before,
 body.theme-terminal.theme-dracula *::after {
   font-family: "ProggyForever","ProggyCleanTT","ProggyClean TTF","Lucida Console","DejaVu Sans Mono",monospace !important;
 }
+
+
+/* ================================================================
+   Stats / visualisation pages
+   ================================================================ */
+
+.stats-wrap {
+  display: grid;
+  gap: 18px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+
+.chart-card,
+.stats-summary {
+  margin-top: 0;
+}
+
+.chart-card h2,
+.stats-summary h2 {
+  margin-top: 0;
+}
+
+.chart-note {
+  margin: 0 0 12px;
+  color: #54595d;
+}
+
+.chart-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.chart-svg text {
+  font-family: inherit;
+  font-size: 12px;
+  fill: currentColor;
+}
+
+.chart-axis,
+.chart-grid {
+  fill: none;
+  stroke: color-mix(in srgb, currentColor 22%, transparent);
+  stroke-width: 1;
+}
+
+.chart-grid {
+  stroke-dasharray: 4 4;
+}
+
+.chart-bar,
+.chart-line,
+.chart-point {
+  vector-effect: non-scaling-stroke;
+}
+
+.chart-bar {
+  fill: var(--chart-goals);
+}
+
+.chart-bar.chart-assists {
+  fill: var(--chart-assists);
+}
+
+.chart-bar.chart-clean-sheets {
+  fill: var(--chart-clean-sheets);
+}
+
+.chart-line {
+  fill: none;
+  stroke: var(--chart-position);
+  stroke-width: 3;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.chart-point {
+  fill: var(--chart-position);
+  stroke: var(--chart-card-bg, #fff);
+  stroke-width: 2;
+}
+
+.chart-axis-label,
+.chart-value-label {
+  opacity: 0.9;
+}
+
+.chart-value-label {
+  font-weight: bold;
+}
+
+.chart-season-label {
+  font-size: 11px;
+}
+
+.chart-empty {
+  min-height: 220px;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  color: #666;
+  padding: 18px;
+  text-align: center;
+}
+
+body {
+  --chart-goals: #3366cc;
+  --chart-assists: #2a9d8f;
+  --chart-clean-sheets: #f4a261;
+  --chart-position: #7b2cbf;
+  --chart-card-bg: #fff;
+}
+
+body.theme-terminal,
+body.theme-dracula {
+  --chart-goals: #ff79c6;
+  --chart-assists: #8be9fd;
+  --chart-clean-sheets: #50fa7b;
+  --chart-position: #f1fa8c;
+  --chart-card-bg: #282a36;
+}
+
+body.theme-glass {
+  --chart-goals: #7cc6fe;
+  --chart-assists: #9be564;
+  --chart-clean-sheets: #ffd166;
+  --chart-position: #ff9f7f;
+  --chart-card-bg: rgba(255, 255, 255, 0.25);
+}
+
+body.theme-glass .chart-note,
+body.theme-glass .chart-empty {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+body.theme-terminal .chart-note,
+body.theme-dracula .chart-note,
+body.theme-terminal .chart-empty,
+body.theme-dracula .chart-empty {
+  color: #d7dadf;
+}
+
+@media (max-width: 980px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
