@@ -452,6 +452,59 @@ function timelineTopFive(id, season) {
     const meta = (typeof SEASON_TABLES !== 'undefined' && SEASON_TABLES[id] && SEASON_TABLES[id][season]) || null;
     return meta && meta.standings && meta.standings.length ? meta.standings.slice(0, 5) : [];
 }
+function timelineLeagueMovement(id, season, previousSeason) {
+    const currentMeta = (typeof SEASON_TABLES !== 'undefined' && SEASON_TABLES[id] && SEASON_TABLES[id][season]) || null;
+    const previousMeta = previousSeason
+        ? (typeof SEASON_TABLES !== 'undefined' && SEASON_TABLES[id] && SEASON_TABLES[id][previousSeason]) || null
+        : null;
+
+    if (!currentMeta || !currentMeta.standings || !currentMeta.standings.length)
+        return null;
+
+    const currentTeams = currentMeta.standings.map(standingRow => ({
+        canonicalName: canonicalTeam(cleanTeamName(standingRow[1])),
+        displayName: cleanTeamName(standingRow[1])
+    }));
+
+    let entered = null;
+
+    if (
+        previousMeta
+        && previousMeta.league === currentMeta.league
+        && previousMeta.standings
+        && previousMeta.standings.length
+    ) {
+        const previousNames = new Set(
+            previousMeta.standings.map(standingRow => canonicalTeam(cleanTeamName(standingRow[1])))
+        );
+
+        entered = currentTeams
+            .filter(team => !previousNames.has(team.canonicalName))
+            .map(team => team.displayName);
+    }
+
+    const seasonData = DATA[id] && DATA[id].seasons ? DATA[id].seasons[season] : null;
+    let relegated = null;
+
+    if (!seasonData || !seasonData.inProgress) {
+        const relegationPlaces = typeof LEAGUE_RELEGATION_PLACES !== 'undefined'
+            ? LEAGUE_RELEGATION_PLACES[currentMeta.league]
+            : null;
+
+        if (Number.isInteger(relegationPlaces) && relegationPlaces > 0) {
+            relegated = currentTeams
+                .slice(-relegationPlaces)
+                .map(team => team.displayName);
+        }
+    }
+
+    return {
+        league: currentMeta.league,
+        entered,
+        relegated,
+        inProgress: !!(seasonData && seasonData.inProgress)
+    };
+}
 function careerTimeline(id) {
     app.className = 'timeline-page';
     const playerData = DATA[id], seasons = Object.keys(playerData.seasons || {});
@@ -459,13 +512,37 @@ function careerTimeline(id) {
     const cards = seasons.map((season, seasonIndex) => {
         const meta = (typeof SEASON_TABLES !== 'undefined' && SEASON_TABLES[id] && SEASON_TABLES[id][season]) || null;
         const stat = statForSeason(playerData, season), club = meta && meta.club ? meta.club : (stat ? cleanClubLabel(stat[1]) : '');
-        const top = timelineTopFive(id, season), cups = timelineCupFinals(id, season), moves = timelineSquadChanges(id, season, seasons[seasonIndex - 1]);
+        const top = timelineTopFive(id, season);
+        const cups = timelineCupFinals(id, season);
+        const moves = timelineSquadChanges(id, season, seasons[seasonIndex - 1]);
+        const leagueMovement = timelineLeagueMovement(id, season, seasons[seasonIndex - 1]);
+
         const topHtml = top.length ? `<ol class="timeline-topfive">${top.map(standingRow => `<li class="${canonicalTeam(cleanTeamName(standingRow[1])) === canonicalTeam(meta && meta.club ? meta.club : '') ? 'focus' : ''}"><span>${teamFlag(cleanTeamName(standingRow[1]))} ${esc(standingRow[1])}</span><b>${standingRow[9] !== '' && standingRow[9] != null ? esc(standingRow[9]) + ' pts' : ''}</b></li>`).join('')}</ol>` : '<p class="muted">No league table supplied.</p>';
         const cupHtml = cups.length ? cups.map(cupFinal => `<div class="timeline-cup"><b>${esc(cupFinal.comp)}</b><span>Winner: ${teamFlag(cupFinal.winner)} ${esc(cupFinal.winner)}</span><span>Runner-up: ${teamFlag(cupFinal.runner)} ${esc(cupFinal.runner)}</span></div>`).join('') : '<p class="muted">No recorded cup final for this season.</p>';
         const moveHtml = moves.note ? `<p class="muted">${esc(moves.note)}</p>` : `<div class="timeline-moves"><div><b>Joined</b>${moves.joined.length ? `<ul>${moves.joined.map(playerName => `<li>+ ${esc(playerName)}</li>`).join('')}</ul>` : '<span class="muted">None recorded</span>'}</div><div><b>Left</b>${moves.left.length ? `<ul>${moves.left.map(playerName => `<li>− ${esc(playerName)}</li>`).join('')}</ul>` : '<span class="muted">None recorded</span>'}</div></div>`;
-        return `<article class="timeline-season-card"><a class="timeline-dot" href="#${id}/${season}" aria-label="Open ${season} season"></a><div class="timeline-season-head"><span>${season}</span>${playerData.seasons[season].inProgress ? '<em>Live</em>' : ''}</div><h2>${club ? `${teamFlag(club)} ${esc(club)}` : 'Career season'}</h2><section><h3>League top 5</h3>${topHtml}</section><section><h3>Cup finals</h3>${cupHtml}</section><section><h3>Squad movement</h3>${moveHtml}</section></article>`;
+        const enteredHtml = leagueMovement && Array.isArray(leagueMovement.entered)
+            ? (leagueMovement.entered.length
+                ? `<ul>${leagueMovement.entered.map(team => `<li>↑ ${teamFlag(team)} ${esc(team)}</li>`).join('')}</ul>`
+                : '<span class="muted">None</span>')
+            : '<span class="muted">Unknown — no previous table for this league is supplied.</span>';
+
+        const relegatedHtml = leagueMovement
+            ? (leagueMovement.inProgress
+                ? '<span class="muted">Not final — season in progress.</span>'
+                : (Array.isArray(leagueMovement.relegated)
+                    ? (leagueMovement.relegated.length
+                        ? `<ul>${leagueMovement.relegated.map(team => `<li>↓ ${teamFlag(team)} ${esc(team)}</li>`).join('')}</ul>`
+                        : '<span class="muted">None</span>')
+                    : '<span class="muted">Relegation places are not defined for this league.</span>'))
+            : '<span class="muted">No league table supplied.</span>';
+
+        const leagueMovementHtml = leagueMovement
+            ? `<div class="timeline-league-movement"><div><b>Entered</b>${enteredHtml}</div><div><b>Relegated</b>${relegatedHtml}</div></div>`
+            : '<p class="muted">No league table supplied.</p>';
+
+        return `<article class="timeline-season-card"><a class="timeline-dot" href="#${id}/${season}" aria-label="Open ${season} season"></a><div class="timeline-season-head"><span>${season}</span>${playerData.seasons[season].inProgress ? '<em>Live</em>' : ''}</div><h2>${club ? `${teamFlag(club)} ${esc(club)}` : 'Career season'}</h2><section><h3>League top 5</h3>${topHtml}</section><section><h3>Cup finals</h3>${cupHtml}</section><section><h3>League movement</h3>${leagueMovementHtml}</section><section><h3>Squad movement</h3>${moveHtml}</section></article>`;
     }).join('');
-    app.innerHTML = `<div class="timeline-wrap"><p><a href="#${id}">← ${esc(playerData.displayName || playerData.name)}</a></p><h1>${playerData.flag} ${esc(playerData.displayName || playerData.name)} — Career timeline</h1><p class="lede">Season-by-season view of league leaders, recorded cup finals and squad changes. Squad movement is calculated from consecutive supplied player lists and resets when the player changes club.</p><div class="timeline-scroll"><div class="career-timeline">${cards}</div></div></div>`;
+    app.innerHTML = `<div class="timeline-wrap"><p><a href="#${id}">← ${esc(playerData.displayName || playerData.name)}</a></p><h1>${playerData.flag} ${esc(playerData.displayName || playerData.name)} — Career timeline</h1><p class="lede">Season-by-season view of league leaders, league movement, recorded cup finals and squad changes. Entered teams are derived by comparing a season with the previous supplied table for the same league; relegated teams come from that season's defined direct relegation places. Squad movement is calculated from consecutive supplied player lists and resets when the player changes club.</p><div class="timeline-scroll"><div class="career-timeline">${cards}</div></div></div>`;
 }
 
 function numericStat(value) {

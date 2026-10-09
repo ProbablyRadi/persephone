@@ -416,3 +416,15 @@ const TEAM_ALIASES = {
     "Cote D'Ivorie": "Cote d'Ivorie",
     "Cote D'Ivoire": "Cote d'Ivorie"
 };
+
+
+// Number of direct relegation places used by the supplied career leagues.
+// Keeping this in definitions.js means Timeline logic does not need to
+// hard-code competition rules.
+const LEAGUE_RELEGATION_PLACES = {
+    "Premier League": 3,
+    "EFL Championship": 3,
+    "Eredivisie": 2,
+    "Bundesliga": 2,
+    "Liga F": 2
+};

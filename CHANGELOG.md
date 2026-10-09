@@ -15,6 +15,23 @@ It is a reconstructed project history rather than a Git commit log, so it intent
 - Replaced two hard-coded long squad-name exceptions with generic name-length handling.
 - Kept `app.js` focused on rendering, routing, calculations, charts, Timeline, H2H and table behaviour.
 
+## Timeline league movement
+
+- Added promoted and relegated teams to Timeline season cards where consecutive supplied tables exist for the same league.
+- Promotion/relegation is derived by comparing team membership between consecutive supplied league tables rather than guessing league rules.
+- Team aliases are normalized before comparison so spelling/name variants do not create false movements.
+- When a following table for the same league is unavailable, the Timeline explicitly says the movement cannot be derived.
+
+### Timeline league movement refinement
+
+- Changed Timeline league movement to describe the season being shown.
+- **Entered** now means teams present in the current season that were absent from the previous supplied table for the same league.
+- If there is no previous supplied table for that league, Entered is shown as **Unknown**.
+- **Relegated** now uses the current season's defined direct relegation places instead of looking forward to the following season.
+- In-progress seasons do not show final relegated teams.
+- This allows a club to appear in both Entered and Relegated if it was promoted and immediately relegated in the same season.
+
+
 ## Current development state
 
 ### Project structure
