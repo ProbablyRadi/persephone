@@ -181,6 +181,17 @@ DATA.rens = {
       "24": "Quarter-finals",
       "28": "Semi-finals",
       "29": "Final"
+    },
+    "2033–34|World Cup": {
+      "0": "Group stage",
+      "3": "Round of 32",
+      "19": "Round of 16"
+    },
+    "2034–35|World Cup": {
+      "0": "Quarter-finals",
+      "4": "Semi-finals",
+      "6": "Third-place play-off",
+      "7": "Final"
     }
   },
   "dob": "01 January",
@@ -534,7 +545,7 @@ DATA.rens = {
       "table": "4th — 69 pts"
     },
     "2033–34": {
-      "summary": "First Bayern season: Bundesliga, DFB-Pokal and Champions League treble plus two super cups.",
+      "summary": "First Bayern season: Bundesliga, DFB-Pokal and Champions League treble plus two super cups. Netherlands reached the World Cup quarter-finals, with the tournament continuing into 2034–35.",
       "competitions": {
         "Bundesliga": [
           "Bayern champions 🏆 — 82 pts"
@@ -553,6 +564,24 @@ DATA.rens = {
         ],
         "F. Beckenbauer Supercup": [
           "Bayern 4–1 Hoffenheim 🏆"
+        ],
+        "World Cup": [
+          "Netherlands 5–0 Iraq",
+          "Mexico 1–4 Netherlands",
+          "Netherlands 3–3 Brazil",
+          "Netherlands 4–1 Ireland",
+          "Egypt 0–5 Netherlands",
+          "Quarter-finals continued in 2034–35"
+        ],
+        "International Friendlies": [
+          "Cote D'Ivorie 3–1 Netherlands",
+          "Netherlands 1–1 Cote D'Ivorie",
+          "South Africa 0–1 Netherlands",
+          "South Korea 1–3 Netherlands",
+          "Austria 1–2 Netherlands",
+          "South Korea 0–4 Netherlands",
+          "Netherlands 2–1 Northern Ireland",
+          "Ghana 1–3 Netherlands"
         ]
       },
       "table": "1st 🏆 — 82 pts"
@@ -1350,7 +1379,9 @@ FULL_FIXTURES.rens = {
       "Congo DR 2 - 4 South Africa",
       "Canada 1 - 2 England",
       "Iceland 2 - 1 Argentina",
-      "Egypt 0 - 5 Netherlands",
+      "Egypt 0 - 5 Netherlands"
+    ],
+    "International Friendlies": [
       "Cote D'Ivorie 3 - 1 Netherlands",
       "Netherlands 1 - 1 Cote D'Ivorie",
       "South Africa 0 - 1 Netherlands",
@@ -1447,33 +1478,6 @@ FULL_FIXTURES.rens = {
       "Paris SG (4) 1 - 1 (5) FC Bayern München"
     ],
     "World Cup": [
-      "Netherlands 5 - 0 Iraq",
-      "Mexico 1 - 4 Netherlands",
-      "Netherlands 3 - 3 Brazil",
-      "Ghana 1 - 2 Algeria",
-      "Spain 0 - 3 Qatar",
-      "Paraguay 0 - 2 Belgium",
-      "Canada 3 - 1 France",
-      "Norway 1 - 2 England",
-      "Senegal (4) 2 - 2 (1) Ecuador",
-      "Italy 1 - 2 Congo DR",
-      "Korea Republic 1 - 0 Japan",
-      "South Africa 2 - 1 Uzbekistan",
-      "Germany 0 - 2 Cote D'Ivorie",
-      "Iraq 0 - 3 Portugal",
-      "Poland 1 - 2 Egypt",
-      "Croatia 0 - 2 Denmark",
-      "Sweden 1 - 2 Argentina",
-      "Colombia 3 - 5 Iceland",
-      "Netherlands 4 - 1 Ireland",
-      "Algeria 1 - 2 Belgium",
-      "Qatar 1 - 2 Senegal",
-      "Korea Republic 1 - 0 Cote D'Ivorie",
-      "Portugal 2 - 1 Denmark",
-      "Congo DR 2 - 4 South Africa",
-      "Canada 1 - 2 England",
-      "Iceland 2 - 1 Argentina",
-      "Egypt 0 - 5 Netherlands",
       "Senegal 1 - 2 Belgium",
       "Portugal 2 - 3 Korea Republic",
       "Iceland 1 - 3 Netherlands",
@@ -1482,15 +1486,6 @@ FULL_FIXTURES.rens = {
       "England 0 - 4 Netherlands",
       "Korea Republic 0 - 1 England",
       "Belgium 0 - 4 Netherlands"
-    ],
-    "Euros Qualifiers": [
-      "Wales 2 - 4 Netherlands",
-      "Netherlands 2 - 0 Ukraine",
-      "Czechia 1 - 2 Netherlands",
-      "Netherlands 3 - 0 Denmark",
-      "Netherlands 3 - 0 Wales",
-      "Denmark 1 - 2 Netherlands",
-      "Netherlands 1 - 1 Czechia"
     ]
   },
   "2035–36": {
@@ -11351,647 +11346,6 @@ COMPETITION_TABLES.rens = {
           "-8",
           "1"
         ]
-      ]
-    },
-    "World Cup": {
-      "type": "groups",
-      "groups": [
-        {
-          "name": "Group A",
-          "rows": [
-            [
-              "1",
-              "Italy",
-              "3",
-              "3",
-              "0",
-              "0",
-              "7",
-              "2",
-              "5",
-              "9"
-            ],
-            [
-              "2",
-              "Ghana",
-              "3",
-              "0",
-              "2",
-              "1",
-              "4",
-              "5",
-              "-1",
-              "2"
-            ],
-            [
-              "3",
-              "United States",
-              "3",
-              "0",
-              "2",
-              "1",
-              "3",
-              "4",
-              "-1",
-              "2"
-            ],
-            [
-              "4",
-              "Uruguay",
-              "3",
-              "0",
-              "2",
-              "1",
-              "3",
-              "6",
-              "-3",
-              "2"
-            ]
-          ]
-        },
-        {
-          "name": "Group B",
-          "rows": [
-            [
-              "1",
-              "Poland",
-              "3",
-              "1",
-              "2",
-              "0",
-              "9",
-              "6",
-              "3",
-              "5"
-            ],
-            [
-              "2",
-              "Algeria",
-              "3",
-              "1",
-              "2",
-              "0",
-              "5",
-              "4",
-              "1",
-              "5"
-            ],
-            [
-              "3",
-              "Japan",
-              "3",
-              "0",
-              "3",
-              "0",
-              "5",
-              "5",
-              "0",
-              "3"
-            ],
-            [
-              "4",
-              "Panama",
-              "3",
-              "0",
-              "1",
-              "2",
-              "5",
-              "9",
-              "-4",
-              "1"
-            ]
-          ]
-        },
-        {
-          "name": "Group C",
-          "rows": [
-            [
-              "1",
-              "Canada",
-              "3",
-              "2",
-              "0",
-              "1",
-              "6",
-              "6",
-              "0",
-              "6"
-            ],
-            [
-              "2",
-              "Belgium",
-              "3",
-              "1",
-              "1",
-              "1",
-              "5",
-              "5",
-              "0",
-              "4"
-            ],
-            [
-              "3",
-              "Qatar",
-              "3",
-              "1",
-              "1",
-              "1",
-              "6",
-              "7",
-              "-1",
-              "4"
-            ],
-            [
-              "4",
-              "Czechia",
-              "3",
-              "1",
-              "0",
-              "2",
-              "5",
-              "4",
-              "1",
-              "3"
-            ]
-          ]
-        },
-        {
-          "name": "Group D",
-          "rows": [
-            [
-              "1",
-              "Korea Republic",
-              "3",
-              "3",
-              "0",
-              "0",
-              "6",
-              "2",
-              "4",
-              "9"
-            ],
-            [
-              "2",
-              "Sweden",
-              "3",
-              "2",
-              "0",
-              "1",
-              "5",
-              "3",
-              "2",
-              "6"
-            ],
-            [
-              "3",
-              "Ecuador",
-              "3",
-              "1",
-              "0",
-              "2",
-              "5",
-              "6",
-              "-1",
-              "3"
-            ],
-            [
-              "4",
-              "Cabo Verde",
-              "3",
-              "0",
-              "0",
-              "3",
-              "2",
-              "7",
-              "-5",
-              "0"
-            ]
-          ]
-        },
-        {
-          "name": "Group E",
-          "rows": [
-            [
-              "1",
-              "Spain",
-              "3",
-              "3",
-              "0",
-              "0",
-              "8",
-              "1",
-              "7",
-              "9"
-            ],
-            [
-              "2",
-              "Norway",
-              "3",
-              "2",
-              "0",
-              "1",
-              "4",
-              "5",
-              "-1",
-              "6"
-            ],
-            [
-              "3",
-              "Congo DR",
-              "3",
-              "1",
-              "0",
-              "2",
-              "3",
-              "4",
-              "-1",
-              "3"
-            ],
-            [
-              "4",
-              "Curaçao",
-              "3",
-              "0",
-              "0",
-              "3",
-              "1",
-              "6",
-              "-5",
-              "0"
-            ]
-          ]
-        },
-        {
-          "name": "Group F",
-          "rows": [
-            [
-              "1",
-              "Paraguay",
-              "3",
-              "2",
-              "0",
-              "1",
-              "4",
-              "3",
-              "1",
-              "6"
-            ],
-            [
-              "2",
-              "France",
-              "3",
-              "1",
-              "2",
-              "0",
-              "4",
-              "3",
-              "1",
-              "5"
-            ],
-            [
-              "3",
-              "Morocco",
-              "3",
-              "0",
-              "2",
-              "1",
-              "3",
-              "4",
-              "-1",
-              "2"
-            ],
-            [
-              "4",
-              "Australia",
-              "3",
-              "0",
-              "2",
-              "1",
-              "2",
-              "3",
-              "-1",
-              "2"
-            ]
-          ]
-        },
-        {
-          "name": "Group G",
-          "rows": [
-            [
-              "1",
-              "Germany",
-              "3",
-              "3",
-              "0",
-              "0",
-              "7",
-              "2",
-              "5",
-              "9"
-            ],
-            [
-              "2",
-              "Argentina",
-              "3",
-              "1",
-              "1",
-              "1",
-              "6",
-              "5",
-              "1",
-              "4"
-            ],
-            [
-              "3",
-              "Tunisia",
-              "3",
-              "1",
-              "0",
-              "2",
-              "2",
-              "5",
-              "-3",
-              "3"
-            ],
-            [
-              "4",
-              "Saudi Arabia",
-              "3",
-              "0",
-              "1",
-              "2",
-              "3",
-              "6",
-              "-3",
-              "1"
-            ]
-          ]
-        },
-        {
-          "name": "Group H",
-          "rows": [
-            [
-              "1",
-              "Croatia",
-              "3",
-              "2",
-              "0",
-              "1",
-              "7",
-              "3",
-              "4",
-              "6"
-            ],
-            [
-              "2",
-              "Iceland",
-              "3",
-              "2",
-              "0",
-              "1",
-              "6",
-              "3",
-              "3",
-              "6"
-            ],
-            [
-              "3",
-              "Cote D'Ivorie",
-              "3",
-              "2",
-              "0",
-              "1",
-              "5",
-              "3",
-              "2",
-              "6"
-            ],
-            [
-              "4",
-              "New Zealand",
-              "3",
-              "0",
-              "0",
-              "3",
-              "3",
-              "12",
-              "-9",
-              "0"
-            ]
-          ]
-        },
-        {
-          "name": "Group I",
-          "rows": [
-            [
-              "1",
-              "Senegal",
-              "3",
-              "3",
-              "0",
-              "0",
-              "7",
-              "4",
-              "3",
-              "9"
-            ],
-            [
-              "2",
-              "England",
-              "3",
-              "1",
-              "1",
-              "1",
-              "4",
-              "4",
-              "0",
-              "4"
-            ],
-            [
-              "3",
-              "Uzbekistan",
-              "3",
-              "1",
-              "1",
-              "1",
-              "3",
-              "3",
-              "0",
-              "4"
-            ],
-            [
-              "4",
-              "Haiti",
-              "3",
-              "0",
-              "0",
-              "3",
-              "3",
-              "6",
-              "-3",
-              "0"
-            ]
-          ]
-        },
-        {
-          "name": "Group J",
-          "rows": [
-            [
-              "1",
-              "Colombia",
-              "3",
-              "1",
-              "2",
-              "0",
-              "5",
-              "2",
-              "3",
-              "5"
-            ],
-            [
-              "2",
-              "Denmark",
-              "3",
-              "1",
-              "2",
-              "0",
-              "5",
-              "3",
-              "2",
-              "5"
-            ],
-            [
-              "3",
-              "Egypt",
-              "3",
-              "1",
-              "1",
-              "1",
-              "6",
-              "4",
-              "2",
-              "4"
-            ],
-            [
-              "4",
-              "Indonesia",
-              "3",
-              "0",
-              "1",
-              "2",
-              "1",
-              "8",
-              "-7",
-              "1"
-            ]
-          ]
-        },
-        {
-          "name": "Group K",
-          "rows": [
-            [
-              "1",
-              "Netherlands",
-              "3",
-              "2",
-              "1",
-              "0",
-              "12",
-              "4",
-              "8",
-              "7"
-            ],
-            [
-              "2",
-              "Iraq",
-              "3",
-              "1",
-              "1",
-              "1",
-              "2",
-              "6",
-              "-4",
-              "4"
-            ],
-            [
-              "3",
-              "Brazil",
-              "3",
-              "0",
-              "2",
-              "1",
-              "4",
-              "5",
-              "-1",
-              "2"
-            ],
-            [
-              "4",
-              "Mexico",
-              "3",
-              "0",
-              "2",
-              "1",
-              "3",
-              "6",
-              "-3",
-              "2"
-            ]
-          ]
-        },
-        {
-          "name": "Group L",
-          "rows": [
-            [
-              "1",
-              "South Africa",
-              "3",
-              "2",
-              "1",
-              "0",
-              "7",
-              "2",
-              "5",
-              "7"
-            ],
-            [
-              "2",
-              "Portugal",
-              "3",
-              "1",
-              "1",
-              "1",
-              "6",
-              "6",
-              "0",
-              "4"
-            ],
-            [
-              "3",
-              "Ireland",
-              "3",
-              "1",
-              "0",
-              "2",
-              "3",
-              "4",
-              "-1",
-              "3"
-            ],
-            [
-              "4",
-              "Jordan",
-              "3",
-              "1",
-              "0",
-              "2",
-              "4",
-              "8",
-              "-4",
-              "3"
-            ]
-          ]
-        }
       ]
     }
   },

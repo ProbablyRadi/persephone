@@ -55,6 +55,47 @@ It is a reconstructed project history rather than a Git commit log, so it intent
 - Eredivisie and Liga F Timeline cards no longer render a league-movement section because those in-game league systems do not produce reliable promotion/relegation data for this archive.
 
 
+### Vasi 2026–27 final season
+
+- Finalized Vasi's 2026–27 FC Barcelona Femení season.
+- Updated her season total to 42 appearances, 53 goals, 7 assists and 15 clean sheets.
+- Updated Barcelona's Liga F record to 1st with 73 points after 30 matches.
+- Added the complete supplied Liga F fixture list and final table.
+- Replaced the interim 2026–27 squad sheet with the final supplied player totals.
+- Added Ana Sampaio to the supplied squad sheet; no nationality flag was added because none was supplied.
+- Added the full UWCL league phase, knockout results and 4–1 final win over Chelsea.
+- Updated Vasi's Barcelona career aggregate to 75 appearances and 91 goals.
+- Added 2026–27 Liga F and UWCL honours.
+- Timeline, Head to Head and Stats now derive from the finalized season data.
+
+### Vasi overview career statistics
+
+- Updated Vasi's 2025–26 average rating to 7.6.
+- Updated Vasi's 2026–27 average rating to 7.1.
+- Added Player of the Month and Man of the Match columns to Vasi's overview career-statistics table.
+- 2025–26: 0 Player of the Month awards and 9 Man of the Match awards.
+- 2026–27: 2 Player of the Month awards and 11 Man of the Match awards.
+- Kept the site's internal season-stat schema unchanged so season pages, Stats charts and navigation continue to work normally.
+
+
+### Timeline European cup finals and Vasi flag
+
+- Timeline cup finals now also use supplied UEFA round-break data to identify European finals when the fixture itself is not prefixed with `F —`.
+- This allows Rens's supplied European club finals to appear in the Timeline cup section alongside domestic cup finals.
+- Added the Portuguese flag for Ana Sampaio in Vasi's 2026–27 Barcelona squad.
+
+
+### Rens 2033–34 international data correction
+
+- Re-evaluated Rens's 2033–34 international data from the supplied source.
+- Separated eight Netherlands international friendlies that had accidentally been appended to the World Cup fixture list.
+- Kept the 2033–34 World Cup data through the Round of 16 only.
+- Moved the World Cup quarter-finals onward into 2034–35, matching the supplied note that the tournament continued in that season.
+- Added World Cup round labels for the split across 2033–34 and 2034–35.
+- Removed the duplicated 2034–35 World Cup group table; the group-stage table belongs with 2033–34.
+- Head to Head now derives from the corrected, non-duplicated international fixtures.
+
+
 ## Current development state
 
 ### Project structure
@@ -63,7 +104,6 @@ It is a reconstructed project history rather than a Git commit log, so it intent
 - Split character-specific data into individual files:
   - `data/rens.js`
   - `data/jordan.js`
-  - `data/espen.js`
   - `data/vasi.js`
 - Added `data/base.js` for the shared data containers.
 - Merged each character's profile data, fixtures, season tables, squad sheets, preseason standings and competition standings into that character's own file.
@@ -261,7 +301,6 @@ Added supplied nationalities for new Barcelona players:
 - Added:
   - Rens Adisea
   - Jordan Vale
-  - Espen Sæheim
   - Vasi Dimitriou
 - Added player flags.
 - Added blurred/semi-transparent current-team crest watermarks.
@@ -317,7 +356,6 @@ Added supplied nationalities for new Barcelona players:
 - Removed Harry Cornick from the 2027–28 squad when corrected.
 - Added Timeline, H2H and Stats support.
 
-### Espen Sæheim
 
 - Added Hull City loan career data with later PSV, Monaco and Köln career plans.
 - Added Norway international profile data.
@@ -381,3 +419,9 @@ Added supplied nationalities for new Barcelona players:
 - Added a separate handover document for adapting the approach to an F1 Manager project.
 - Replaced the original text README with Markdown documentation.
 - Refactored the source specifically so future changes remain readable for learning purposes.
+
+### Character roster update
+
+- Reduced the site to three career profiles and removed the retired fourth character's data/routes.
+- Character roster is now Rens Adisea, Jordan Vale and Vasiliki Dimitriou.
+- Updated Jordan Vale career path to Bristol City (2025–2030), Manchester United (2030–2036) and PSV (2036–2040).

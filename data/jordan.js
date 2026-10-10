@@ -128,7 +128,7 @@ DATA.jordan = {
     ],
     [
       "2036–2040",
-      "🇩🇪 Borussia Dortmund",
+      "🇳🇱 PSV",
       "—",
       "—"
     ]

@@ -22,7 +22,6 @@ site/
     ├── definitions.js
     ├── rens.js
     ├── jordan.js
-    ├── espen.js
     └── vasi.js
 ```
 
@@ -34,7 +33,6 @@ Character-specific data lives in the `data/` directory, while shared football de
 - `data/definitions.js` — shared team flags and canonical team-name overrides.
 - `data/rens.js` — Rens profile, fixtures, squad sheets and tables.
 - `data/jordan.js` — Jordan profile, fixtures, squad sheets and tables.
-- `data/espen.js` — Espen profile, fixtures, squad sheets and tables.
 - `data/vasi.js` — Vasi profile, fixtures, squad sheets and tables.
 
 Each character file fills the same shared structures:

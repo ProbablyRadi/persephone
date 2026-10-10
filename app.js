@@ -134,9 +134,21 @@ function player(id) {
       </section>
     </div>
     <h2 id="stats">Career statistics</h2>
-    ${table([
-        'Season', 'Club', 'Role', 'League', 'Pos.', 'Avg', 'Apps', 'Goals', 'Assists', 'CLS'
-    ], playerData.stats)}
+    ${table(
+        playerData.careerStatsColumns || [
+            'Season',
+            'Club',
+            'Role',
+            'League',
+            'Pos.',
+            'Avg',
+            'Apps',
+            'Goals',
+            'Assists',
+            'CLS'
+        ],
+        playerData.careerStats || playerData.stats
+    )}
     <h2 id="honours">Honours</h2>
     ${honours(playerData)}`;
 }
@@ -418,9 +430,32 @@ function timelineCupFinals(id, season) {
     Object.entries(comps).forEach(([comp, items]) => {
         if (comp === 'Pre-season friendlies' || out.some(existingFinal => existingFinal.comp === comp))
             return;
-        const finalRaw = (items || []).find(fixtureText => /^F\s+—\s+/i.test(String(fixtureText).trim()));
+        let finalRaw = (items || []).find(fixtureText =>
+            /^F\s+—\s+/i.test(String(fixtureText).trim())
+        );
+
+        // Older European competition sheets do not always prefix the
+        // final fixture with "F —". When a supplied UEFA round map marks
+        // a fixture index as the Final, use that fixture instead.
+        if (!finalRaw) {
+            const roundBreaks = tournamentRounds(comp, items || [], id, season);
+            const finalEntry = Object.entries(roundBreaks).find(([, roundName]) =>
+                /final/i.test(String(roundName))
+                && !/semi|quarter|third/i.test(String(roundName))
+            );
+
+            if (finalEntry) {
+                const finalIndex = Number(finalEntry[0]);
+
+                if (Number.isInteger(finalIndex) && items[finalIndex]) {
+                    finalRaw = items[finalIndex];
+                }
+            }
+        }
+
         if (!finalRaw)
             return;
+
         const fixture = parseFixture(finalRaw);
         if (!fixture.home)
             return;
