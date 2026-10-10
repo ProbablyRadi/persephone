@@ -47,6 +47,14 @@ It is a reconstructed project history rather than a Git commit log, so it intent
 - Jordan's 2026–27 **Entered** list now resolves to Bristol City, Ipswich and Southampton only.
 
 
+### Home crest, Vasi flags and Timeline league movement
+
+- Replaced Jordan Vale's broken Bristol City home-page crest URL with a working Bristol City crest source.
+- Added missing Vasi squad flags: Giulia Dragoni 🇮🇹, Rosalía Domínguez 🇪🇸 and Martine Trollsas Fenger 🇳🇴.
+- Timeline league movement is now shown only for the Premier League and Bundesliga.
+- Eredivisie and Liga F Timeline cards no longer render a league-movement section because those in-game league systems do not produce reliable promotion/relegation data for this archive.
+
+
 ## Current development state
 
 ### Project structure

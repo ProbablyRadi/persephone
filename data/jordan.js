@@ -10,7 +10,7 @@ DATA.jordan = {
   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
   "internationalTeam": "England",
   "squadFocusName": "Jordan Vale",
-  "homeCrest": "https://www.footballkitarchive.com/static/logos/t6BVBkbe5p9kPcA/bristol-city-2019-logo.png",
+  "homeCrest": "https://www.clipartmax.com/png/middle/98-980655_bristol-city-logo-bristol-city-football-club-logo.png",
   "timelineLeagueEntryBaselines": {
     "2026–27": {
       "league": "Premier League",

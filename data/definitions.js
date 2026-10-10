@@ -426,8 +426,5 @@ const TEAM_ALIASES = {
 // hard-code competition rules.
 const LEAGUE_RELEGATION_PLACES = {
     "Premier League": 3,
-    "EFL Championship": 3,
-    "Eredivisie": 2,
-    "Bundesliga": 2,
-    "Liga F": 2
+    "Bundesliga": 2
 };
