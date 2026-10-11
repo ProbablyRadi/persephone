@@ -143,6 +143,16 @@ It is a reconstructed project history rather than a Git commit log, so it intent
 - Head to Head and Timeline now derive from the updated fixtures and roster.
 
 
+### Vasi 2027–28 in-progress update
+
+- Updated the latest 2027–28 snapshot to 27 appearances, 25 goals, 5 assists and 3 clean sheets.
+- Liga F now contains the supplied 18 completed fixtures and current table, with Barcelona 2nd on 38 points.
+- Added all six completed UEFA Women's Champions League league-phase fixtures and the supplied 18-team table.
+- Updated the current Barcelona squad/player sheet.
+- Left the supplied future UWCL playoff, quarter-final, semi-final and final slots without invented scores.
+- Head to Head and Timeline derive from the updated completed fixtures and current squad list.
+
+
 ## Current development state
 
 ### Project structure
