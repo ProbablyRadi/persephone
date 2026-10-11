@@ -96,6 +96,29 @@ It is a reconstructed project history rather than a Git commit log, so it intent
 - Head to Head now derives from the corrected, non-duplicated international fixtures.
 
 
+### Vasi 2027–28 in-progress season
+
+- Added Vasi's 2027–28 FC Barcelona Femení season as in progress.
+- Added supplied pre-season fixtures and Champions Trophy table, displayed as Pre-season friendlies.
+- Added the opening Liga F result and preserved the supplied placeholder league table exactly, including blank statistic cells and zero points.
+- Added the current 2027–28 Barcelona squad sheet.
+- Added an empty UEFA Women's Champions League placeholder that displays on the season page as “No fixtures recorded yet.”
+- Updated Vasi's running Barcelona career aggregate to 79 appearances and 93 goals.
+- Added the 2027–28 overview/career-stat row using only supplied values; rating and monthly/match awards remain unknown.
+- Timeline squad movement now derives the 2026–27 to 2027–28 changes automatically.
+- Head to Head now includes the four supplied 2027–28 Barcelona fixtures and ignores the empty UWCL placeholder.
+
+
+### Rens international tournament consolidation
+
+- Consolidated the full **Euros 2032** tournament onto the 2032–33 season page instead of splitting it across 2031–32 and 2032–33.
+- Separated the international friendlies that had been mixed into the Euros fixture lists.
+- Consolidated the full **World Cup 2034** tournament onto the 2034–35 season page instead of splitting it across 2033–34 and 2034–35.
+- Kept 2033–34 Netherlands friendlies as their own International Friendlies section.
+- Moved the supplied Euros and World Cup group-table data to the same season as the consolidated tournaments.
+- Updated tournament round labels and kept Head to Head counting each match once.
+
+
 ## Current development state
 
 ### Project structure

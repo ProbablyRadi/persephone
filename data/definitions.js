@@ -376,6 +376,8 @@ const TEAM_FLAGS = {
     "Orlando Pride": "🇺🇸",
     "London City": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
     "Paris FC": "🇫🇷",
+    "Marseille": "🇫🇷",
+    "AS Saint Étienne": "🇫🇷",
     "Portland Thorns": "🇺🇸",
     "OL Lyonnes": "🇫🇷",
     "FC Rosengård": "🇸🇪",

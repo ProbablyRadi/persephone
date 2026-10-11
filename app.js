@@ -216,11 +216,11 @@ function tournamentRounds(comp, items, id, seasonName) {
     const uefa = playerRoundBreaks[`${seasonName}|${comp}`];
     if (uefa)
         return uefa;
-    if (comp === 'Euros' && items.length >= 18)
+    if (/^Euros(?:\s+\d{4})?$/.test(comp) && items.length >= 18)
         return {
             0: 'Group stage', 3: 'Round of 16', 11: 'Quarter-finals', 15: 'Semi-finals', 17: 'Final'
         };
-    if (comp === 'World Cup' && items.length >= 35)
+    if (/^World Cup(?:\s+\d{4})?$/.test(comp) && items.length >= 35)
         return {
             0: 'Group stage', 3: 'Round of 32', 19: 'Round of 16', 27: 'Quarter-finals', 31: 'Semi-finals', 33: 'Third-place play-off', 34: 'Final'
         };
@@ -740,7 +740,7 @@ function season(id, seasonName) {
     app.className = 'season-view';
     let playerData = DATA[id], seasonData = playerData.seasons[seasonName], full = (FULL_FIXTURES[id] && FULL_FIXTURES[id][seasonName]) || {}, meta = (typeof SEASON_TABLES !== 'undefined' && SEASON_TABLES[id] && SEASON_TABLES[id][seasonName]) || null;
     nav.innerHTML = careerNavigator(id, seasonName);
-    let entries = Object.entries(full).filter(([competitionName, fixtures]) => fixtures.length);
+    let entries = Object.entries(full);
     const sideLeagueSeason = !!(meta && meta.league && full[meta.league] && meta.standings && meta.standings.length);
     let jumpItems = [
         [
@@ -757,10 +757,14 @@ function season(id, seasonName) {
     let blocks = entries.map(([competitionName, fixtures]) => {
         const side = competitionSideTable(id, seasonName, competitionName, meta);
         const leagueId = (sideLeagueSeason && meta && competitionName === meta.league) ? ' id="league-table"' : '';
+        const fixturesHtml = fixtures.length
+            ? fixtureTable(fixtures, focalFor(id, seasonName, competitionName), competitionName, id, seasonName)
+            : '<p class="muted">No fixtures recorded yet.</p>';
+
         if (side) {
-            return `<div class="competition-pair" id="${sectionId(competitionName)}"><section class="competition season-competition competition-fixture-panel"><div class="competition-heading"><h2>${competitionName}</h2><a href="#season-overview" onclick="event.preventDefault();document.getElementById('season-overview').scrollIntoView({behavior:'smooth'})">Back to top ↑</a></div><div class="competition-fixtures">${fixtureTable(fixtures, focalFor(id, seasonName, competitionName), competitionName, id, seasonName)}</div></section><aside class="competition-standings-panel"${leagueId}>${side}</aside></div>`;
+            return `<div class="competition-pair" id="${sectionId(competitionName)}"><section class="competition season-competition competition-fixture-panel"><div class="competition-heading"><h2>${competitionName}</h2><a href="#season-overview" onclick="event.preventDefault();document.getElementById('season-overview').scrollIntoView({behavior:'smooth'})">Back to top ↑</a></div><div class="competition-fixtures">${fixturesHtml}</div></section><aside class="competition-standings-panel"${leagueId}>${side}</aside></div>`;
         }
-        return `<section class="competition season-competition" id="${sectionId(competitionName)}"><div class="competition-heading"><h2>${competitionName}</h2><a href="#season-overview" onclick="event.preventDefault();document.getElementById('season-overview').scrollIntoView({behavior:'smooth'})">Back to top ↑</a></div><div class="competition-fixtures">${fixtureTable(fixtures, focalFor(id, seasonName, competitionName), competitionName, id, seasonName)}</div></section>`;
+        return `<section class="competition season-competition" id="${sectionId(competitionName)}"><div class="competition-heading"><h2>${competitionName}</h2><a href="#season-overview" onclick="event.preventDefault();document.getElementById('season-overview').scrollIntoView({behavior:'smooth'})">Back to top ↑</a></div><div class="competition-fixtures">${fixturesHtml}</div></section>`;
     }).join('');
     let leaguePanel = sideLeagueSeason ? '' : `<section class="season-data-panel season-card" id="league-table"><div class="panel-kicker">Standings</div><h2>${meta ? esc(meta.league) : 'League'} table</h2>${standingsTable(meta, seasonData.inProgress)}</section>`;
     let dataTables = `<div class="season-data-grid${sideLeagueSeason ? ' squad-only' : ''}">${leaguePanel}<section class="season-data-panel season-card" id="player-list"><div class="panel-kicker">Squad</div><h2>Player list${meta && meta.club ? ` — ${esc(meta.club)}` : ''}</h2>${squadTable(meta, id, seasonData.inProgress)}</section></div>`;

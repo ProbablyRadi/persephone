@@ -182,16 +182,21 @@ DATA.rens = {
       "28": "Semi-finals",
       "29": "Final"
     },
-    "2033–34|World Cup": {
+    "2032–33|Euros 2032": {
+      "0": "Group stage",
+      "3": "Round of 16",
+      "11": "Quarter-finals",
+      "15": "Semi-finals",
+      "17": "Final"
+    },
+    "2034–35|World Cup 2034": {
       "0": "Group stage",
       "3": "Round of 32",
-      "19": "Round of 16"
-    },
-    "2034–35|World Cup": {
-      "0": "Quarter-finals",
-      "4": "Semi-finals",
-      "6": "Third-place play-off",
-      "7": "Final"
+      "19": "Round of 16",
+      "27": "Quarter-finals",
+      "31": "Semi-finals",
+      "33": "Third-place play-off",
+      "34": "Final"
     }
   },
   "dob": "01 January",
@@ -538,14 +543,14 @@ DATA.rens = {
         "FA Community Shield": [
           "Brighton 2–1 Arsenal 🏆"
         ],
-        "Euros": [
+        "Euros 2032": [
           "Netherlands reached semi-finals"
         ]
       },
       "table": "4th — 69 pts"
     },
     "2033–34": {
-      "summary": "First Bayern season: Bundesliga, DFB-Pokal and Champions League treble plus two super cups. Netherlands reached the World Cup quarter-finals, with the tournament continuing into 2034–35.",
+      "summary": "First Bayern season: Bundesliga, DFB-Pokal and Champions League treble plus two super cups.",
       "competitions": {
         "Bundesliga": [
           "Bayern champions 🏆 — 82 pts"
@@ -564,14 +569,6 @@ DATA.rens = {
         ],
         "F. Beckenbauer Supercup": [
           "Bayern 4–1 Hoffenheim 🏆"
-        ],
-        "World Cup": [
-          "Netherlands 5–0 Iraq",
-          "Mexico 1–4 Netherlands",
-          "Netherlands 3–3 Brazil",
-          "Netherlands 4–1 Ireland",
-          "Egypt 0–5 Netherlands",
-          "Quarter-finals continued in 2034–35"
         ],
         "International Friendlies": [
           "Cote D'Ivorie 3–1 Netherlands",
@@ -598,12 +595,8 @@ DATA.rens = {
         "UEFA Champions League": [
           "PSG 1–1 Bayern — Bayern won 5–4 pens 🏆"
         ],
-        "World Cup": [
-          "Netherlands 4–1 Ireland",
-          "Egypt 0–5 Netherlands",
-          "Iceland 1–3 Netherlands",
-          "England 0–4 Netherlands",
-          "Belgium 0–4 Netherlands — Final 🏆"
+        "World Cup 2034": [
+          "Netherlands won the tournament 🏆"
         ]
       },
       "table": "1st 🏆 — 81 pts"
@@ -1140,10 +1133,7 @@ FULL_FIXTURES.rens = {
       "FC Barcelona 5 - 3 RB Leipzig",
       "FC Barcelona (5) 2 - 2 (6) Manchester City"
     ],
-    "Euros": [
-      "Netherlands 1 - 2 Hungary",
-      "Scotland 0 - 4 Netherlands",
-      "Netherlands 3 - 1 Austria",
+    "International Friendlies": [
       "South Korea 0 - 4 Netherlands",
       "Austria 0 - 6 Netherlands",
       "Hungary 1 - 4 Netherlands",
@@ -1241,7 +1231,10 @@ FULL_FIXTURES.rens = {
       "Brighton & Hove 7 - 1 SL Benfica",
       "Brighton & Hove 4 - 0 VfL Wolfsburg"
     ],
-    "Euros - Round of 16": [
+    "Euros 2032": [
+      "Netherlands 1 - 2 Hungary",
+      "Scotland 0 - 4 Netherlands",
+      "Netherlands 3 - 1 Austria",
       "Hungary 2 - 3 Germany",
       "Denmark 1 - 2 Austria",
       "Ukraine 1 - 2 Poland",
@@ -1256,7 +1249,9 @@ FULL_FIXTURES.rens = {
       "Italy 4 - 1 Norway",
       "Austria 1 - 0 Netherlands",
       "Czechia 0 - 1 Italy",
-      "Austria 1 - 5 Italy",
+      "Austria 1 - 5 Italy"
+    ],
+    "International Friendlies": [
       "Netherlands 2 - 1 Ghana",
       "Netherlands 1 - 1 Australia",
       "Argentina 0 - 2 Netherlands",
@@ -1351,35 +1346,6 @@ FULL_FIXTURES.rens = {
       "FC Bayern München 8 - 5 RB Leipzig",
       "Real Sociedad 1 - 3 Borussia Dortmund",
       "FC Bayern München 4 - 1 Borussia Dortmund"
-    ],
-    "World Cup": [
-      "Netherlands 5 - 0 Iraq",
-      "Mexico 1 - 4 Netherlands",
-      "Netherlands 3 - 3 Brazil",
-      "Ghana 1 - 2 Algeria",
-      "Spain 0 - 3 Qatar",
-      "Paraguay 0 - 2 Belgium",
-      "Canada 3 - 1 France",
-      "Norway 1 - 2 England",
-      "Senegal (4) 2 - 2 (1) Ecuador",
-      "Italy 1 - 2 Congo DR",
-      "Korea Republic 1 - 0 Japan",
-      "South Africa 2 - 1 Uzbekistan",
-      "Germany 0 - 2 Cote D'Ivorie",
-      "Iraq 0 - 3 Portugal",
-      "Poland 1 - 2 Egypt",
-      "Croatia 0 - 2 Denmark",
-      "Sweden 1 - 2 Argentina",
-      "Colombia 3 - 5 Iceland",
-      "Netherlands 4 - 1 Ireland",
-      "Algeria 1 - 2 Belgium",
-      "Qatar 1 - 2 Senegal",
-      "Korea Republic 1 - 0 Cote D'Ivorie",
-      "Portugal 2 - 1 Denmark",
-      "Congo DR 2 - 4 South Africa",
-      "Canada 1 - 2 England",
-      "Iceland 2 - 1 Argentina",
-      "Egypt 0 - 5 Netherlands"
     ],
     "International Friendlies": [
       "Cote D'Ivorie 3 - 1 Netherlands",
@@ -1477,7 +1443,34 @@ FULL_FIXTURES.rens = {
       "Sevilla FC 0 - 3 FC Bayern München",
       "Paris SG (4) 1 - 1 (5) FC Bayern München"
     ],
-    "World Cup": [
+    "World Cup 2034": [
+      "Netherlands 5 - 0 Iraq",
+      "Mexico 1 - 4 Netherlands",
+      "Netherlands 3 - 3 Brazil",
+      "Ghana 1 - 2 Algeria",
+      "Spain 0 - 3 Qatar",
+      "Paraguay 0 - 2 Belgium",
+      "Canada 3 - 1 France",
+      "Norway 1 - 2 England",
+      "Senegal (4) 2 - 2 (1) Ecuador",
+      "Italy 1 - 2 Congo DR",
+      "Korea Republic 1 - 0 Japan",
+      "South Africa 2 - 1 Uzbekistan",
+      "Germany 0 - 2 Cote D'Ivorie",
+      "Iraq 0 - 3 Portugal",
+      "Poland 1 - 2 Egypt",
+      "Croatia 0 - 2 Denmark",
+      "Sweden 1 - 2 Argentina",
+      "Colombia 3 - 5 Iceland",
+      "Netherlands 4 - 1 Ireland",
+      "Algeria 1 - 2 Belgium",
+      "Qatar 1 - 2 Senegal",
+      "Korea Republic 1 - 0 Cote D'Ivorie",
+      "Portugal 2 - 1 Denmark",
+      "Congo DR 2 - 4 South Africa",
+      "Canada 1 - 2 England",
+      "Iceland 2 - 1 Argentina",
+      "Egypt 0 - 5 Netherlands",
       "Senegal 1 - 2 Belgium",
       "Portugal 2 - 3 Korea Republic",
       "Iceland 1 - 3 Netherlands",
@@ -9067,329 +9060,6 @@ COMPETITION_TABLES.rens = {
         ]
       ]
     },
-    "Euros": {
-      "type": "groups",
-      "groups": [
-        {
-          "name": "Group A",
-          "rows": [
-            [
-              "1",
-              "Netherlands",
-              "3",
-              "2",
-              "0",
-              "1",
-              "8",
-              "3",
-              "5",
-              "6"
-            ],
-            [
-              "2",
-              "Hungary",
-              "3",
-              "2",
-              "0",
-              "1",
-              "7",
-              "4",
-              "3",
-              "6"
-            ],
-            [
-              "3",
-              "Austria",
-              "3",
-              "2",
-              "0",
-              "1",
-              "5",
-              "5",
-              "0",
-              "6"
-            ],
-            [
-              "4",
-              "Scotland",
-              "3",
-              "0",
-              "0",
-              "3",
-              "2",
-              "10",
-              "-8",
-              "0"
-            ]
-          ]
-        },
-        {
-          "name": "Group B",
-          "rows": [
-            [
-              "1",
-              "Denmark",
-              "3",
-              "3",
-              "0",
-              "0",
-              "4",
-              "1",
-              "3",
-              "9"
-            ],
-            [
-              "2",
-              "Spain",
-              "3",
-              "2",
-              "0",
-              "1",
-              "4",
-              "1",
-              "3",
-              "6"
-            ],
-            [
-              "3",
-              "Switzerland",
-              "3",
-              "1",
-              "0",
-              "2",
-              "1",
-              "3",
-              "-2",
-              "3"
-            ],
-            [
-              "4",
-              "Ireland",
-              "3",
-              "0",
-              "0",
-              "3",
-              "1",
-              "5",
-              "-4",
-              "0"
-            ]
-          ]
-        },
-        {
-          "name": "Group C",
-          "rows": [
-            [
-              "1",
-              "Türkiye",
-              "3",
-              "2",
-              "1",
-              "0",
-              "7",
-              "3",
-              "4",
-              "7"
-            ],
-            [
-              "2",
-              "Germany",
-              "3",
-              "1",
-              "2",
-              "0",
-              "5",
-              "4",
-              "1",
-              "5"
-            ],
-            [
-              "3",
-              "Poland",
-              "3",
-              "1",
-              "1",
-              "1",
-              "6",
-              "5",
-              "1",
-              "4"
-            ],
-            [
-              "4",
-              "Romania",
-              "3",
-              "0",
-              "0",
-              "3",
-              "3",
-              "9",
-              "-6",
-              "0"
-            ]
-          ]
-        },
-        {
-          "name": "Group D",
-          "rows": [
-            [
-              "1",
-              "Ukraine",
-              "3",
-              "2",
-              "1",
-              "0",
-              "5",
-              "3",
-              "2",
-              "7"
-            ],
-            [
-              "2",
-              "Belgium",
-              "3",
-              "1",
-              "2",
-              "0",
-              "7",
-              "5",
-              "2",
-              "5"
-            ],
-            [
-              "3",
-              "France",
-              "3",
-              "1",
-              "1",
-              "1",
-              "5",
-              "2",
-              "3",
-              "4"
-            ],
-            [
-              "4",
-              "Iceland",
-              "3",
-              "0",
-              "0",
-              "3",
-              "1",
-              "8",
-              "-7",
-              "0"
-            ]
-          ]
-        },
-        {
-          "name": "Group E",
-          "rows": [
-            [
-              "1",
-              "Norway",
-              "3",
-              "2",
-              "0",
-              "1",
-              "5",
-              "4",
-              "1",
-              "6"
-            ],
-            [
-              "2",
-              "Finland",
-              "3",
-              "2",
-              "0",
-              "1",
-              "5",
-              "5",
-              "0",
-              "6"
-            ],
-            [
-              "3",
-              "Portugal",
-              "3",
-              "1",
-              "0",
-              "2",
-              "5",
-              "5",
-              "0",
-              "3"
-            ],
-            [
-              "4",
-              "Sweden",
-              "3",
-              "1",
-              "0",
-              "2",
-              "5",
-              "6",
-              "-1",
-              "3"
-            ]
-          ]
-        },
-        {
-          "name": "Group F",
-          "rows": [
-            [
-              "1",
-              "England",
-              "3",
-              "2",
-              "0",
-              "1",
-              "4",
-              "2",
-              "2",
-              "6"
-            ],
-            [
-              "2",
-              "Czechia",
-              "3",
-              "1",
-              "1",
-              "1",
-              "2",
-              "2",
-              "0",
-              "4"
-            ],
-            [
-              "3",
-              "Italy",
-              "3",
-              "1",
-              "1",
-              "1",
-              "3",
-              "4",
-              "-1",
-              "4"
-            ],
-            [
-              "4",
-              "Northern Ireland",
-              "3",
-              "1",
-              "0",
-              "2",
-              "3",
-              "4",
-              "-1",
-              "3"
-            ]
-          ]
-        }
-      ]
-    }
   },
   "2032–33": {
     "UEFA Europa League": {
@@ -9828,7 +9498,331 @@ COMPETITION_TABLES.rens = {
           "2"
         ]
       ]
+    },
+    "Euros 2032": {
+      "type": "groups",
+      "groups": [
+        {
+          "name": "Group A",
+          "rows": [
+            [
+              "1",
+              "Netherlands",
+              "3",
+              "2",
+              "0",
+              "1",
+              "8",
+              "3",
+              "5",
+              "6"
+            ],
+            [
+              "2",
+              "Hungary",
+              "3",
+              "2",
+              "0",
+              "1",
+              "7",
+              "4",
+              "3",
+              "6"
+            ],
+            [
+              "3",
+              "Austria",
+              "3",
+              "2",
+              "0",
+              "1",
+              "5",
+              "5",
+              "0",
+              "6"
+            ],
+            [
+              "4",
+              "Scotland",
+              "3",
+              "0",
+              "0",
+              "3",
+              "2",
+              "10",
+              "-8",
+              "0"
+            ]
+          ]
+        },
+        {
+          "name": "Group B",
+          "rows": [
+            [
+              "1",
+              "Denmark",
+              "3",
+              "3",
+              "0",
+              "0",
+              "4",
+              "1",
+              "3",
+              "9"
+            ],
+            [
+              "2",
+              "Spain",
+              "3",
+              "2",
+              "0",
+              "1",
+              "4",
+              "1",
+              "3",
+              "6"
+            ],
+            [
+              "3",
+              "Switzerland",
+              "3",
+              "1",
+              "0",
+              "2",
+              "1",
+              "3",
+              "-2",
+              "3"
+            ],
+            [
+              "4",
+              "Ireland",
+              "3",
+              "0",
+              "0",
+              "3",
+              "1",
+              "5",
+              "-4",
+              "0"
+            ]
+          ]
+        },
+        {
+          "name": "Group C",
+          "rows": [
+            [
+              "1",
+              "Türkiye",
+              "3",
+              "2",
+              "1",
+              "0",
+              "7",
+              "3",
+              "4",
+              "7"
+            ],
+            [
+              "2",
+              "Germany",
+              "3",
+              "1",
+              "2",
+              "0",
+              "5",
+              "4",
+              "1",
+              "5"
+            ],
+            [
+              "3",
+              "Poland",
+              "3",
+              "1",
+              "1",
+              "1",
+              "6",
+              "5",
+              "1",
+              "4"
+            ],
+            [
+              "4",
+              "Romania",
+              "3",
+              "0",
+              "0",
+              "3",
+              "3",
+              "9",
+              "-6",
+              "0"
+            ]
+          ]
+        },
+        {
+          "name": "Group D",
+          "rows": [
+            [
+              "1",
+              "Ukraine",
+              "3",
+              "2",
+              "1",
+              "0",
+              "5",
+              "3",
+              "2",
+              "7"
+            ],
+            [
+              "2",
+              "Belgium",
+              "3",
+              "1",
+              "2",
+              "0",
+              "7",
+              "5",
+              "2",
+              "5"
+            ],
+            [
+              "3",
+              "France",
+              "3",
+              "1",
+              "1",
+              "1",
+              "5",
+              "2",
+              "3",
+              "4"
+            ],
+            [
+              "4",
+              "Iceland",
+              "3",
+              "0",
+              "0",
+              "3",
+              "1",
+              "8",
+              "-7",
+              "0"
+            ]
+          ]
+        },
+        {
+          "name": "Group E",
+          "rows": [
+            [
+              "1",
+              "Norway",
+              "3",
+              "2",
+              "0",
+              "1",
+              "5",
+              "4",
+              "1",
+              "6"
+            ],
+            [
+              "2",
+              "Finland",
+              "3",
+              "2",
+              "0",
+              "1",
+              "5",
+              "5",
+              "0",
+              "6"
+            ],
+            [
+              "3",
+              "Portugal",
+              "3",
+              "1",
+              "0",
+              "2",
+              "5",
+              "5",
+              "0",
+              "3"
+            ],
+            [
+              "4",
+              "Sweden",
+              "3",
+              "1",
+              "0",
+              "2",
+              "5",
+              "6",
+              "-1",
+              "3"
+            ]
+          ]
+        },
+        {
+          "name": "Group F",
+          "rows": [
+            [
+              "1",
+              "England",
+              "3",
+              "2",
+              "0",
+              "1",
+              "4",
+              "2",
+              "2",
+              "6"
+            ],
+            [
+              "2",
+              "Czechia",
+              "3",
+              "1",
+              "1",
+              "1",
+              "2",
+              "2",
+              "0",
+              "4"
+            ],
+            [
+              "3",
+              "Italy",
+              "3",
+              "1",
+              "1",
+              "1",
+              "3",
+              "4",
+              "-1",
+              "4"
+            ],
+            [
+              "4",
+              "Northern Ireland",
+              "3",
+              "1",
+              "0",
+              "2",
+              "3",
+              "4",
+              "-1",
+              "3"
+            ]
+          ]
+        }
+      ]
     }
+
   },
   "2033–34": {
     "UEFA Champions League": {
@@ -10268,7 +10262,446 @@ COMPETITION_TABLES.rens = {
         ]
       ]
     },
-    "World Cup": {
+  },
+  "2034–35": {
+    "UEFA Champions League": {
+      "type": "league",
+      "rows": [
+        [
+          "1",
+          "Brighton & Hove",
+          "8",
+          "6",
+          "1",
+          "1",
+          "15",
+          "9",
+          "6",
+          "19"
+        ],
+        [
+          "2",
+          "Paris SG",
+          "8",
+          "5",
+          "3",
+          "0",
+          "16",
+          "10",
+          "6",
+          "18"
+        ],
+        [
+          "3",
+          "FC Bayern München",
+          "8",
+          "5",
+          "2",
+          "1",
+          "21",
+          "7",
+          "14",
+          "17"
+        ],
+        [
+          "4",
+          "Inter Milan",
+          "8",
+          "5",
+          "1",
+          "2",
+          "12",
+          "7",
+          "5",
+          "16"
+        ],
+        [
+          "5",
+          "AC Milan",
+          "8",
+          "4",
+          "3",
+          "1",
+          "12",
+          "6",
+          "6",
+          "15"
+        ],
+        [
+          "6",
+          "Borussia Dortmund",
+          "8",
+          "5",
+          "0",
+          "3",
+          "11",
+          "7",
+          "4",
+          "15"
+        ],
+        [
+          "7",
+          "Liverpool",
+          "8",
+          "4",
+          "3",
+          "1",
+          "12",
+          "9",
+          "3",
+          "15"
+        ],
+        [
+          "8",
+          "Leverkusen",
+          "8",
+          "4",
+          "2",
+          "2",
+          "12",
+          "7",
+          "5",
+          "14"
+        ],
+        [
+          "9",
+          "Sevilla FC",
+          "8",
+          "3",
+          "5",
+          "0",
+          "11",
+          "6",
+          "5",
+          "14"
+        ],
+        [
+          "10",
+          "Real Madrid",
+          "8",
+          "4",
+          "2",
+          "2",
+          "14",
+          "10",
+          "4",
+          "14"
+        ],
+        [
+          "11",
+          "FC Barcelona",
+          "8",
+          "4",
+          "2",
+          "2",
+          "11",
+          "8",
+          "5",
+          "14"
+        ],
+        [
+          "12",
+          "RSC Anderlecht",
+          "8",
+          "4",
+          "2",
+          "2",
+          "13",
+          "11",
+          "2",
+          "14"
+        ],
+        [
+          "13",
+          "SSC Napoli",
+          "8",
+          "4",
+          "2",
+          "2",
+          "13",
+          "12",
+          "1",
+          "14"
+        ],
+        [
+          "14",
+          "Club Brugge",
+          "8",
+          "3",
+          "4",
+          "1",
+          "10",
+          "7",
+          "3",
+          "13"
+        ],
+        [
+          "15",
+          "Sporting CP",
+          "8",
+          "4",
+          "1",
+          "3",
+          "9",
+          "9",
+          "0",
+          "13"
+        ],
+        [
+          "16",
+          "Lech Poznań",
+          "8",
+          "3",
+          "3",
+          "2",
+          "10",
+          "10",
+          "0",
+          "12"
+        ],
+        [
+          "17",
+          "Ferencvárosi TC",
+          "8",
+          "3",
+          "3",
+          "2",
+          "11",
+          "12",
+          "-1",
+          "12"
+        ],
+        [
+          "18",
+          "RB Leipzig",
+          "8",
+          "2",
+          "5",
+          "1",
+          "9",
+          "7",
+          "2",
+          "11"
+        ],
+        [
+          "19",
+          "Strasbourg",
+          "8",
+          "2",
+          "5",
+          "1",
+          "8",
+          "6",
+          "2",
+          "11"
+        ],
+        [
+          "20",
+          "Manchester City",
+          "8",
+          "3",
+          "2",
+          "3",
+          "12",
+          "11",
+          "1",
+          "11"
+        ],
+        [
+          "21",
+          "Chelsea",
+          "8",
+          "3",
+          "2",
+          "3",
+          "9",
+          "8",
+          "1",
+          "11"
+        ],
+        [
+          "22",
+          "Atlético de Madrid",
+          "8",
+          "3",
+          "2",
+          "3",
+          "8",
+          "7",
+          "1",
+          "11"
+        ],
+        [
+          "23",
+          "Celtic",
+          "8",
+          "3",
+          "1",
+          "4",
+          "7",
+          "8",
+          "-1",
+          "10"
+        ],
+        [
+          "24",
+          "RC Lens",
+          "8",
+          "3",
+          "1",
+          "4",
+          "9",
+          "11",
+          "-2",
+          "10"
+        ],
+        [
+          "25",
+          "Feyenoord",
+          "8",
+          "3",
+          "0",
+          "5",
+          "10",
+          "15",
+          "-5",
+          "9"
+        ],
+        [
+          "26",
+          "AS Monaco",
+          "8",
+          "1",
+          "5",
+          "2",
+          "9",
+          "10",
+          "-1",
+          "8"
+        ],
+        [
+          "27",
+          "FC Midtjylland",
+          "8",
+          "2",
+          "2",
+          "4",
+          "8",
+          "10",
+          "-2",
+          "8"
+        ],
+        [
+          "28",
+          "RB Salzburg",
+          "8",
+          "1",
+          "4",
+          "3",
+          "7",
+          "10",
+          "-3",
+          "7"
+        ],
+        [
+          "29",
+          "FC Basel 1893",
+          "8",
+          "2",
+          "1",
+          "5",
+          "10",
+          "15",
+          "-5",
+          "7"
+        ],
+        [
+          "30",
+          "Dynamo Kyiv",
+          "8",
+          "1",
+          "3",
+          "4",
+          "8",
+          "13",
+          "-5",
+          "6"
+        ],
+        [
+          "31",
+          "Ajax",
+          "8",
+          "1",
+          "2",
+          "5",
+          "10",
+          "16",
+          "-6",
+          "5"
+        ],
+        [
+          "32",
+          "SK Rapid",
+          "8",
+          "1",
+          "2",
+          "5",
+          "7",
+          "14",
+          "-7",
+          "5"
+        ],
+        [
+          "33",
+          "Galatasaray",
+          "8",
+          "1",
+          "1",
+          "6",
+          "5",
+          "15",
+          "-10",
+          "4"
+        ],
+        [
+          "34",
+          "Slavia Praha",
+          "8",
+          "1",
+          "1",
+          "6",
+          "7",
+          "20",
+          "-13",
+          "4"
+        ],
+        [
+          "35",
+          "SS Lazio",
+          "8",
+          "0",
+          "3",
+          "5",
+          "6",
+          "11",
+          "-5",
+          "3"
+        ],
+        [
+          "36",
+          "AEK Athens",
+          "8",
+          "0",
+          "1",
+          "7",
+          "7",
+          "15",
+          "-8",
+          "1"
+        ]
+      ]
+    },
+    "World Cup 2034": {
       "type": "groups",
       "groups": [
         {
@@ -10909,445 +11342,7 @@ COMPETITION_TABLES.rens = {
         }
       ]
     }
-  },
-  "2034–35": {
-    "UEFA Champions League": {
-      "type": "league",
-      "rows": [
-        [
-          "1",
-          "Brighton & Hove",
-          "8",
-          "6",
-          "1",
-          "1",
-          "15",
-          "9",
-          "6",
-          "19"
-        ],
-        [
-          "2",
-          "Paris SG",
-          "8",
-          "5",
-          "3",
-          "0",
-          "16",
-          "10",
-          "6",
-          "18"
-        ],
-        [
-          "3",
-          "FC Bayern München",
-          "8",
-          "5",
-          "2",
-          "1",
-          "21",
-          "7",
-          "14",
-          "17"
-        ],
-        [
-          "4",
-          "Inter Milan",
-          "8",
-          "5",
-          "1",
-          "2",
-          "12",
-          "7",
-          "5",
-          "16"
-        ],
-        [
-          "5",
-          "AC Milan",
-          "8",
-          "4",
-          "3",
-          "1",
-          "12",
-          "6",
-          "6",
-          "15"
-        ],
-        [
-          "6",
-          "Borussia Dortmund",
-          "8",
-          "5",
-          "0",
-          "3",
-          "11",
-          "7",
-          "4",
-          "15"
-        ],
-        [
-          "7",
-          "Liverpool",
-          "8",
-          "4",
-          "3",
-          "1",
-          "12",
-          "9",
-          "3",
-          "15"
-        ],
-        [
-          "8",
-          "Leverkusen",
-          "8",
-          "4",
-          "2",
-          "2",
-          "12",
-          "7",
-          "5",
-          "14"
-        ],
-        [
-          "9",
-          "Sevilla FC",
-          "8",
-          "3",
-          "5",
-          "0",
-          "11",
-          "6",
-          "5",
-          "14"
-        ],
-        [
-          "10",
-          "Real Madrid",
-          "8",
-          "4",
-          "2",
-          "2",
-          "14",
-          "10",
-          "4",
-          "14"
-        ],
-        [
-          "11",
-          "FC Barcelona",
-          "8",
-          "4",
-          "2",
-          "2",
-          "11",
-          "8",
-          "5",
-          "14"
-        ],
-        [
-          "12",
-          "RSC Anderlecht",
-          "8",
-          "4",
-          "2",
-          "2",
-          "13",
-          "11",
-          "2",
-          "14"
-        ],
-        [
-          "13",
-          "SSC Napoli",
-          "8",
-          "4",
-          "2",
-          "2",
-          "13",
-          "12",
-          "1",
-          "14"
-        ],
-        [
-          "14",
-          "Club Brugge",
-          "8",
-          "3",
-          "4",
-          "1",
-          "10",
-          "7",
-          "3",
-          "13"
-        ],
-        [
-          "15",
-          "Sporting CP",
-          "8",
-          "4",
-          "1",
-          "3",
-          "9",
-          "9",
-          "0",
-          "13"
-        ],
-        [
-          "16",
-          "Lech Poznań",
-          "8",
-          "3",
-          "3",
-          "2",
-          "10",
-          "10",
-          "0",
-          "12"
-        ],
-        [
-          "17",
-          "Ferencvárosi TC",
-          "8",
-          "3",
-          "3",
-          "2",
-          "11",
-          "12",
-          "-1",
-          "12"
-        ],
-        [
-          "18",
-          "RB Leipzig",
-          "8",
-          "2",
-          "5",
-          "1",
-          "9",
-          "7",
-          "2",
-          "11"
-        ],
-        [
-          "19",
-          "Strasbourg",
-          "8",
-          "2",
-          "5",
-          "1",
-          "8",
-          "6",
-          "2",
-          "11"
-        ],
-        [
-          "20",
-          "Manchester City",
-          "8",
-          "3",
-          "2",
-          "3",
-          "12",
-          "11",
-          "1",
-          "11"
-        ],
-        [
-          "21",
-          "Chelsea",
-          "8",
-          "3",
-          "2",
-          "3",
-          "9",
-          "8",
-          "1",
-          "11"
-        ],
-        [
-          "22",
-          "Atlético de Madrid",
-          "8",
-          "3",
-          "2",
-          "3",
-          "8",
-          "7",
-          "1",
-          "11"
-        ],
-        [
-          "23",
-          "Celtic",
-          "8",
-          "3",
-          "1",
-          "4",
-          "7",
-          "8",
-          "-1",
-          "10"
-        ],
-        [
-          "24",
-          "RC Lens",
-          "8",
-          "3",
-          "1",
-          "4",
-          "9",
-          "11",
-          "-2",
-          "10"
-        ],
-        [
-          "25",
-          "Feyenoord",
-          "8",
-          "3",
-          "0",
-          "5",
-          "10",
-          "15",
-          "-5",
-          "9"
-        ],
-        [
-          "26",
-          "AS Monaco",
-          "8",
-          "1",
-          "5",
-          "2",
-          "9",
-          "10",
-          "-1",
-          "8"
-        ],
-        [
-          "27",
-          "FC Midtjylland",
-          "8",
-          "2",
-          "2",
-          "4",
-          "8",
-          "10",
-          "-2",
-          "8"
-        ],
-        [
-          "28",
-          "RB Salzburg",
-          "8",
-          "1",
-          "4",
-          "3",
-          "7",
-          "10",
-          "-3",
-          "7"
-        ],
-        [
-          "29",
-          "FC Basel 1893",
-          "8",
-          "2",
-          "1",
-          "5",
-          "10",
-          "15",
-          "-5",
-          "7"
-        ],
-        [
-          "30",
-          "Dynamo Kyiv",
-          "8",
-          "1",
-          "3",
-          "4",
-          "8",
-          "13",
-          "-5",
-          "6"
-        ],
-        [
-          "31",
-          "Ajax",
-          "8",
-          "1",
-          "2",
-          "5",
-          "10",
-          "16",
-          "-6",
-          "5"
-        ],
-        [
-          "32",
-          "SK Rapid",
-          "8",
-          "1",
-          "2",
-          "5",
-          "7",
-          "14",
-          "-7",
-          "5"
-        ],
-        [
-          "33",
-          "Galatasaray",
-          "8",
-          "1",
-          "1",
-          "6",
-          "5",
-          "15",
-          "-10",
-          "4"
-        ],
-        [
-          "34",
-          "Slavia Praha",
-          "8",
-          "1",
-          "1",
-          "6",
-          "7",
-          "20",
-          "-13",
-          "4"
-        ],
-        [
-          "35",
-          "SS Lazio",
-          "8",
-          "0",
-          "3",
-          "5",
-          "6",
-          "11",
-          "-5",
-          "3"
-        ],
-        [
-          "36",
-          "AEK Athens",
-          "8",
-          "0",
-          "1",
-          "7",
-          "7",
-          "15",
-          "-8",
-          "1"
-        ]
-      ]
-    }
+
   },
   "2035–36": {
     "UEFA Champions League": {
