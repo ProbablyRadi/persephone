@@ -119,6 +119,30 @@ It is a reconstructed project history rather than a Git commit log, so it intent
 - Updated tournament round labels and kept Head to Head counting each match once.
 
 
+### Jordan Vale boot update
+
+- Updated Jordan Vale's preferred boot brand from Nike to New Balance.
+
+
+### Timeline league labels
+
+- Added the league name directly beneath the club heading on every Timeline season card.
+- Timeline cards now make the season's league immediately visible before the league top-five section.
+
+
+### Jordan Vale 2028–29 in-progress update
+
+- Updated Jordan's 2028–29 Bristol City season from the latest supplied sheet.
+- Jordan now has 22 appearances and 8 clean sheets in the in-progress season.
+- Updated his Bristol City career aggregate to 171 appearances and 1 goal.
+- Added the latest Premier League result against Fulham.
+- Updated the full 2028–29 Bristol City squad sheet and pre-season table.
+- Preserved the supplied placeholder Premier League table values exactly.
+- Kept the 2028–29 Europa League standings excluded because the supplied rows are placeholders.
+- Added an empty FA Cup placeholder.
+- Head to Head and Timeline now derive from the updated fixtures and roster.
+
+
 ## Current development state
 
 ### Project structure

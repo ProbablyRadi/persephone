@@ -573,7 +573,14 @@ function careerTimeline(id) {
     nav.innerHTML = careerNavigator(id, '', 'timeline');
     const cards = seasons.map((season, seasonIndex) => {
         const meta = (typeof SEASON_TABLES !== 'undefined' && SEASON_TABLES[id] && SEASON_TABLES[id][season]) || null;
-        const stat = statForSeason(playerData, season), club = meta && meta.club ? meta.club : (stat ? cleanClubLabel(stat[1]) : '');
+        const stat = statForSeason(playerData, season);
+        const club = meta && meta.club
+            ? meta.club
+            : (stat ? cleanClubLabel(stat[1]) : '');
+        const leagueName = meta && meta.league
+            ? meta.league
+            : (stat ? stat[3] : '');
+
         const top = timelineTopFive(id, season);
         const cups = timelineCupFinals(id, season);
         const moves = timelineSquadChanges(id, season, seasons[seasonIndex - 1]);
@@ -602,7 +609,45 @@ function careerTimeline(id) {
             ? `<section><h3>League movement</h3><div class="timeline-league-movement"><div><b>Entered</b>${enteredHtml}</div><div><b>Relegated</b>${relegatedHtml}</div></div></section>`
             : '';
 
-        return `<article class="timeline-season-card"><a class="timeline-dot" href="#${id}/${season}" aria-label="Open ${season} season"></a><div class="timeline-season-head"><span>${season}</span>${playerData.seasons[season].inProgress ? '<em>Live</em>' : ''}</div><h2>${club ? `${teamFlag(club)} ${esc(club)}` : 'Career season'}</h2><section><h3>League top 5</h3>${topHtml}</section><section><h3>Cup finals</h3>${cupHtml}</section>${leagueMovementSection}<section><h3>Squad movement</h3>${moveHtml}</section></article>`;
+        return `
+            <article class="timeline-season-card">
+                <a
+                    class="timeline-dot"
+                    href="#${id}/${season}"
+                    aria-label="Open ${season} season"
+                ></a>
+
+                <div class="timeline-season-head">
+                    <span>${season}</span>
+                    ${playerData.seasons[season].inProgress ? '<em>Live</em>' : ''}
+                </div>
+
+                <h2>
+                    ${club ? `${teamFlag(club)} ${esc(club)}` : 'Career season'}
+                </h2>
+
+                ${leagueName
+                    ? `<p class="timeline-league-name">${esc(leagueName)}</p>`
+                    : ''}
+
+                <section>
+                    <h3>League top 5</h3>
+                    ${topHtml}
+                </section>
+
+                <section>
+                    <h3>Cup finals</h3>
+                    ${cupHtml}
+                </section>
+
+                ${leagueMovementSection}
+
+                <section>
+                    <h3>Squad movement</h3>
+                    ${moveHtml}
+                </section>
+            </article>
+        `;
     }).join('');
     app.innerHTML = `<div class="timeline-wrap"><p><a href="#${id}">← ${esc(playerData.displayName || playerData.name)}</a></p><h1>${playerData.flag} ${esc(playerData.displayName || playerData.name)} — Career timeline</h1><p class="lede">Season-by-season view of league leaders, recorded cup finals and squad changes. Premier League and Bundesliga cards also show league movement: Entered teams are derived from the previous supplied table, while Relegated teams come from that season's direct relegation places. Squad movement is calculated from consecutive supplied player lists and resets when the player changes club.</p><div class="timeline-scroll"><div class="career-timeline">${cards}</div></div></div>`;
 }

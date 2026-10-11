@@ -3526,8 +3526,15 @@ body.theme-glass .home-player-tile::after {
 }
 
 .timeline-season-card h2 {
-  margin: 0 0 16px;
+  margin: 0 0 4px;
   font-size: 1.18rem;
+}
+
+.timeline-league-name {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: .9rem;
+  font-weight: 600;
 }
 
 .timeline-season-card section {
