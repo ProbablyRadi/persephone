@@ -153,6 +153,19 @@ It is a reconstructed project history rather than a Git commit log, so it intent
 - Head to Head and Timeline derive from the updated completed fixtures and current squad list.
 
 
+### Vasi 2027–28 finalized
+
+- Marked 2027–28 as complete.
+- Final season totals: 44 appearances, 42 goals, 9 assists and 11 clean sheets, average rating 7.1.
+- Barcelona finished 1st in Liga F with 64 points and won the UEFA Women's Champions League.
+- Added the complete final Liga F fixture list, final standings and final squad sheet.
+- Added the completed UWCL knockout rounds through the 3–2 final win over VfL Wolfsburg.
+- Updated Vasi's career aggregate to 119 appearances and 133 goals.
+- Extended Barcelona career to 2036 and added future Gotham FC career entry for 2036–2040.
+- Updated the Overview career statistics table and honours, including the Liga F Goalscoring Record.
+- Timeline and Head to Head now derive from the completed season.
+
+
 ## Current development state
 
 ### Project structure

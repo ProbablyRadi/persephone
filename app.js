@@ -678,17 +678,29 @@ function ordinal(value) {
         return `${value}rd`;
     return `${value}th`;
 }
+function combinedContribution(goalsValue, assistsValue) {
+    const hasGoals = Number.isFinite(goalsValue);
+    const hasAssists = Number.isFinite(assistsValue);
+    if (!hasGoals && !hasAssists)
+        return null;
+    return (hasGoals ? goalsValue : 0) + (hasAssists ? assistsValue : 0);
+}
 function statHistory(playerData) {
-    return (playerData.stats || []).map(statRow => ({
-        season: statRow[0],
-        club: cleanClubLabel(statRow[1]),
-        league: statRow[3],
-        goals: numericStat(statRow[7]),
-        assists: numericStat(statRow[8]),
-        cleanSheets: numericStat(statRow[9]),
-        position: numericPosition(statRow[4]),
-        positionLabel: statRow[4]
-    }));
+    return (playerData.stats || []).map(statRow => {
+        const goals = numericStat(statRow[7]);
+        const assists = numericStat(statRow[8]);
+        return {
+            season: statRow[0],
+            club: cleanClubLabel(statRow[1]),
+            league: statRow[3],
+            goals,
+            assists,
+            contributions: combinedContribution(goals, assists),
+            cleanSheets: numericStat(statRow[9]),
+            position: numericPosition(statRow[4]),
+            positionLabel: statRow[4]
+        };
+    });
 }
 function niceMetric(value) {
     return value == null ? '—' : String(value);
@@ -703,6 +715,8 @@ function metricScale(values) {
     return Math.ceil(maxValue / 5) * 5;
 }
 function barChartSvg(points, options = {}) {
+    if (!points.length)
+        return '<div class="chart-empty">No recorded data yet.</div>';
     const width = 760;
     const height = 280;
     const padding = { top: 20, right: 16, bottom: 60, left: 44 };
@@ -766,20 +780,32 @@ function careerStats(id) {
     const playerData = DATA[id];
     const history = statHistory(playerData);
     nav.innerHTML = careerNavigator(id, '', 'stats');
-    const seasonLabels = history.map(seasonRow => seasonRow.season);
     const goalsPoints = history.filter(seasonRow => Number.isFinite(seasonRow.goals)).map(seasonRow => ({ label: seasonRow.season, value: seasonRow.goals }));
     const assistsPoints = history.filter(seasonRow => Number.isFinite(seasonRow.assists)).map(seasonRow => ({ label: seasonRow.season, value: seasonRow.assists }));
+    const contributionPoints = history.filter(seasonRow => Number.isFinite(seasonRow.contributions)).map(seasonRow => ({ label: seasonRow.season, value: seasonRow.contributions }));
     const cleanSheetPoints = history.filter(seasonRow => Number.isFinite(seasonRow.cleanSheets)).map(seasonRow => ({ label: seasonRow.season, value: seasonRow.cleanSheets }));
     const positionPoints = history.filter(seasonRow => Number.isFinite(seasonRow.position)).map(seasonRow => ({ label: seasonRow.season, value: seasonRow.position }));
+    const clubContributionMap = new Map();
+    history.forEach(seasonRow => {
+        if (!Number.isFinite(seasonRow.contributions))
+            return;
+        const currentTotal = clubContributionMap.get(seasonRow.club) || 0;
+        clubContributionMap.set(seasonRow.club, currentTotal + seasonRow.contributions);
+    });
+    const clubContributionPoints = Array.from(clubContributionMap.entries()).map(([club, total]) => ({
+        label: club,
+        value: total
+    }));
     const summaryRows = history.map(seasonRow => [
         seasonRow.season,
         seasonRow.club,
         niceMetric(seasonRow.goals),
         niceMetric(seasonRow.assists),
+        niceMetric(seasonRow.contributions),
         niceMetric(seasonRow.cleanSheets),
         seasonRow.positionLabel || '—'
     ]);
-    app.innerHTML = `<div class="stats-wrap"><p><a href="#${id}">← ${esc(playerData.displayName || playerData.name)}</a></p><h1>${playerData.flag} ${esc(playerData.displayName || playerData.name)} — Stats</h1><p class="lede">Visual summary of recorded career output by season. These charts use the same season-by-season stats shown on the overview page, focusing on goals, assists, clean sheets and league finishing position.</p><div class="stats-grid">${chartCard('Goals per season', 'Recorded goals in each supplied season.', barChartSvg(goalsPoints, { className: 'chart-goals', title: 'Goals per season' }))}${chartCard('Assists per season', 'Recorded assists in each supplied season.', barChartSvg(assistsPoints, { className: 'chart-assists', title: 'Assists per season' }))}${chartCard('Clean sheets per season', 'Recorded clean sheets or clean-sheet tally (CLS) for each season.', barChartSvg(cleanSheetPoints, { className: 'chart-clean-sheets', title: 'Clean sheets per season' }))}${chartCard('League finishing position', 'Lower is better: 1st place is shown at the top of the chart.', positionChartSvg(positionPoints, { className: 'chart-position', title: 'League finishing position by season' }))}</div><section class="stats-summary season-card"><div class="panel-kicker">Source data</div><h2>Season totals</h2>${table(['Season', 'Club', 'Goals', 'Assists', 'CLS', 'League finish'], summaryRows)}</section></div>`;
+    app.innerHTML = `<div class="stats-wrap"><p><a href="#${id}">← ${esc(playerData.displayName || playerData.name)}</a></p><h1>${playerData.flag} ${esc(playerData.displayName || playerData.name)} — Stats</h1><p class="lede">Visual summary of recorded career output by season. These charts use the same season-by-season stats shown on the overview page, now also including total goal contributions (goals + assists) across every recorded year and club.</p><div class="stats-grid">${chartCard('Goals per season', 'Recorded goals in each supplied season.', barChartSvg(goalsPoints, { className: 'chart-goals', title: 'Goals per season' }))}${chartCard('Assists per season', 'Recorded assists in each supplied season.', barChartSvg(assistsPoints, { className: 'chart-assists', title: 'Assists per season' }))}${chartCard('Goal contributions per season', 'Combined goals + assists for each recorded season.', barChartSvg(contributionPoints, { className: 'chart-contributions', title: 'Goal contributions per season' }))}${chartCard('Goal contributions by club', 'Total goal contributions across all recorded seasons for each club played.', barChartSvg(clubContributionPoints, { className: 'chart-contributions', title: 'Goal contributions by club' }))}${chartCard('Clean sheets per season', 'Recorded clean sheets or clean-sheet tally (CLS) for each season.', barChartSvg(cleanSheetPoints, { className: 'chart-clean-sheets', title: 'Clean sheets per season' }))}${chartCard('League finishing position', 'Lower is better: 1st place is shown at the top of the chart.', positionChartSvg(positionPoints, { className: 'chart-position', title: 'League finishing position by season' }))}</div><section class="stats-summary season-card"><div class="panel-kicker">Source data</div><h2>Season totals</h2>${table(['Season', 'Club', 'Goals', 'Assists', 'Goal contributions', 'CLS', 'League finish'], summaryRows)}</section></div>`;
 }
 function season(id, seasonName) {
     app.className = 'season-view';

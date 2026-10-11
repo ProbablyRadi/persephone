@@ -77,13 +77,19 @@ DATA.vasi = {
   "international": "🇬🇷 Greece (2025–)",
   "intro": "Vasiliki Dimitriou is a highly talented Greek striker born in Thessaloniki, Greece. Nicknamed both “The Queen” and “The Demon”, she is known for combining exceptional technical ability with a powerful and highly physical style of play. Dimitriou can overpower defenders while still producing moments of skill and composure in attacking areas, giving her a rare balance of strength and talent. Her Barcelona career began with an immediate scoring impact, while her first recorded season has also included emphatic Liga F victories and an early UEFA Women’s Champions League appearance against FC Bayern München. Her aggressive presence and natural finishing ability have quickly made her one of the most distinctive young forwards in her career.",
   "career": [
-    [
-      "2025–2035",
-      "🇪🇸 FC Barcelona Femení",
-      102,
-      116
-    ]
+  [
+    "2025–2036",
+    "🇪🇸 FC Barcelona Femení",
+    119,
+    133
   ],
+  [
+    "2036–2040",
+    "🇺🇸 Gotham FC",
+    "—",
+    "—"
+  ]
+],
   "intl": [
     "2025–",
     "🇬🇷 Greece",
@@ -91,105 +97,106 @@ DATA.vasi = {
     2
   ],
   "stats": [
-    [
-      "2025–26",
-      "🇪🇸 FC Barcelona Femení",
-      "ST",
-      "Liga F",
-      "1st",
-      "7.6",
-      33,
-      38,
-      5,
-      10
-    ],
-    [
-      "2026–27",
-      "🇪🇸 FC Barcelona Femení",
-      "ST",
-      "Liga F",
-      "1st",
-      "7.1",
-      42,
-      53,
-      7,
-      15
-    ],
-    [
-      "2027–28",
-      "🇪🇸 FC Barcelona Femení",
-      "ST",
-      "Liga F",
-      "2nd",
-      "—",
-      27,
-      25,
-      5,
-      3
-    ]
+  [
+    "2025–26",
+    "🇪🇸 FC Barcelona Femení",
+    "ST",
+    "Liga F",
+    "1st",
+    "7.6",
+    33,
+    38,
+    5,
+    10
   ],
+  [
+    "2026–27",
+    "🇪🇸 FC Barcelona Femení",
+    "ST",
+    "Liga F",
+    "1st",
+    "7.1",
+    42,
+    53,
+    7,
+    15
+  ],
+  [
+    "2027–28",
+    "🇪🇸 FC Barcelona Femení",
+    "ST",
+    "Liga F",
+    "1st",
+    "7.1",
+    44,
+    42,
+    9,
+    11
+  ]
+],
   "careerStatsColumns": [
-    "Season",
-    "Role",
-    "League",
-    "League Position",
-    "Average Rating",
-    "Player of the Month",
-    "Man of the Match",
-    "App",
-    "Goals",
-    "Assists",
-    "CLS"
-  ],
+  "Season",
+  "Role",
+  "League",
+  "League Position",
+  "Average Rating",
+  "Player of the Month",
+  "Player of the Match",
+  "App",
+  "Goals",
+  "Assists",
+  "CLS"
+],
   "careerStats": [
-    [
-      "2025–26",
-      "ST",
-      "Liga F",
-      "1st",
-      "7.6",
-      0,
-      9,
-      33,
-      38,
-      5,
-      10
-    ],
-    [
-      "2026–27",
-      "ST",
-      "Liga F",
-      "1st",
-      "7.1",
-      2,
-      11,
-      42,
-      53,
-      7,
-      15
-    ],
-    [
-      "2027–28",
-      "ST",
-      "Liga F",
-      "2nd",
-      "—",
-      "—",
-      "—",
-      27,
-      25,
-      5,
-      3
-    ]
+  [
+    "2025–26",
+    "ST",
+    "Liga F",
+    "1st",
+    "7.6",
+    0,
+    9,
+    33,
+    38,
+    5,
+    10
   ],
+  [
+    "2026–27",
+    "ST",
+    "Liga F",
+    "1st",
+    "7.1",
+    2,
+    11,
+    42,
+    53,
+    7,
+    15
+  ],
+  [
+    "2027–28",
+    "ST",
+    "Liga F",
+    "1st",
+    "7.1",
+    2,
+    12,
+    44,
+    42,
+    9,
+    11
+  ]
+],
   "honours": {
-    "🇪🇸 FC Barcelona Femení": [
-      "Liga F Championship: 2025–26, 2026–27 🏆🏆",
-      "UEFA Women's Champions League: 2025–26, 2026–27 🏆🏆",
-      "Golden Boot: 2025–26, 2026–27 🏅🏅",
-      "Player of the Season: 2026–27 🏅"
-    ]
-  },
+  "🇪🇸 FC Barcelona Femení": [
+    "Liga F Championship: 2025–26, 2026–27, 2027–28 🏆🏆🏆",
+    "UEFA Women's Champions League: 2025–26, 2026–27, 2027–28 🏆🏆🏆",
+    "Golden Boot: 2025–26, 2026–27 🏅🏅",
+    "Player of the Season: 2026–27 🏅",
+    "Liga F Goalscoring Record 🏅"
+  ]
+},
   "seasons": {
     "2025–26": {
       "inProgress": false,
@@ -318,8 +325,8 @@ DATA.vasi = {
       "table": "1st — 73 pts"
     },
     "2027–28": {
-  "inProgress": true,
-  "summary": "FC Barcelona Femení are 2nd in Liga F after 18 matches. Vasiliki Dimitriou has 27 appearances, 25 goals, 5 assists and 3 clean sheets in the current supplied snapshot.",
+  "inProgress": false,
+  "summary": "FC Barcelona Femení won Liga F and the UEFA Women’s Champions League. Vasiliki Dimitriou finished the season with 44 appearances, 42 goals, 9 assists and 11 clean sheets.",
   "competitions": {
     "Pre-season friendlies": [
       "FC Barcelona 4 - 1 Marseille",
@@ -344,7 +351,19 @@ DATA.vasi = {
       "Madrid CFF 1 - 7 FC Barcelona",
       "FC Barcelona 2 - 1 RC Deportivo",
       "Badalona Women 1 - 1 FC Barcelona",
-      "FC Barcelona 5 - 0 Alhama CF"
+      "FC Barcelona 5 - 0 Alhama CF",
+      "Logroño United 0 - 2 FC Barcelona",
+      "FC Barcelona 3 - 0 Granada CF",
+      "Athletic Club 1 - 1 FC Barcelona",
+      "Real Madrid 0 - 2 FC Barcelona",
+      "FC Barcelona 1 - 1 SD Eibar",
+      "FC Barcelona 4 - 1 Madrid CFF",
+      "Sevilla FC 2 - 1 FC Barcelona",
+      "FC Barcelona 2 - 0 C. Adeje Tenereife",
+      "Atlético de Madrid 0 - 1 FC Barcelona",
+      "Levante UD 0 - 3 FC Barcelona",
+      "Real Sociedad 0 - 3 FC Barcelona",
+      "FC Barcelona 2 - 3 RCD Espanyol"
     ],
     "UEFA Women's Champions League": [
       "FC Barcelona 4 - 2 Frankfurt",
@@ -352,10 +371,21 @@ DATA.vasi = {
       "OL Lyonnes 0 - 2 FC Barcelona",
       "Juventus 2 - 3 FC Barcelona",
       "FC Barcelona 1 - 2 Chelsea",
-      "Manchester City 0 - 3 FC Barcelona"
+      "Manchester City 0 - 3 FC Barcelona",
+      "FC Bayern München 3 - 4 Sevilla FC",
+      "VfL Wolfsburg 4 - 2 FC Fleury 91",
+      "Paris FC 5 - 4 Manchester City",
+      "Roma 3 - 6 OL Lyonnes",
+      "OL Lyonnes 1 - 6 Chelsea",
+      "Sevilla FC 2 - 4 FC Barcelona",
+      "Paris FC 1 - 6 Real Madrid",
+      "VfL Wolfsburg 5 - 1 Manchester United",
+      "FC Barcelona 3 - 2 Chelsea",
+      "VfL Wolfsburg 4 - 2 Real Madrid",
+      "F — FC Barcelona 3 - 2 VfL Wolfsburg"
     ]
   },
-  "table": "2nd — 38 pts"
+  "table": "1st — 64 pts"
 }
   }
 };
@@ -502,7 +532,19 @@ FULL_FIXTURES.vasi = {
     "Madrid CFF 1 - 7 FC Barcelona",
     "FC Barcelona 2 - 1 RC Deportivo",
     "Badalona Women 1 - 1 FC Barcelona",
-    "FC Barcelona 5 - 0 Alhama CF"
+    "FC Barcelona 5 - 0 Alhama CF",
+    "Logroño United 0 - 2 FC Barcelona",
+    "FC Barcelona 3 - 0 Granada CF",
+    "Athletic Club 1 - 1 FC Barcelona",
+    "Real Madrid 0 - 2 FC Barcelona",
+    "FC Barcelona 1 - 1 SD Eibar",
+    "FC Barcelona 4 - 1 Madrid CFF",
+    "Sevilla FC 2 - 1 FC Barcelona",
+    "FC Barcelona 2 - 0 C. Adeje Tenereife",
+    "Atlético de Madrid 0 - 1 FC Barcelona",
+    "Levante UD 0 - 3 FC Barcelona",
+    "Real Sociedad 0 - 3 FC Barcelona",
+    "FC Barcelona 2 - 3 RCD Espanyol"
   ],
   "UEFA Women's Champions League": [
     "FC Barcelona 4 - 2 Frankfurt",
@@ -510,7 +552,18 @@ FULL_FIXTURES.vasi = {
     "OL Lyonnes 0 - 2 FC Barcelona",
     "Juventus 2 - 3 FC Barcelona",
     "FC Barcelona 1 - 2 Chelsea",
-    "Manchester City 0 - 3 FC Barcelona"
+    "Manchester City 0 - 3 FC Barcelona",
+    "FC Bayern München 3 - 4 Sevilla FC",
+    "VfL Wolfsburg 4 - 2 FC Fleury 91",
+    "Paris FC 5 - 4 Manchester City",
+    "Roma 3 - 6 OL Lyonnes",
+    "OL Lyonnes 1 - 6 Chelsea",
+    "Sevilla FC 2 - 4 FC Barcelona",
+    "Paris FC 1 - 6 Real Madrid",
+    "VfL Wolfsburg 5 - 1 Manchester United",
+    "FC Barcelona 3 - 2 Chelsea",
+    "VfL Wolfsburg 4 - 2 Real Madrid",
+    "F — FC Barcelona 3 - 2 VfL Wolfsburg"
   ]
 }
 };
@@ -1354,195 +1407,195 @@ SEASON_TABLES.vasi = {
   "standings": [
     [
       "1",
-      "Athletic Club",
-      "18",
-      "12",
-      "4",
-      "2",
-      "29",
-      "14",
-      "15",
-      "40"
-    ],
-    [
-      "2",
       "FC Barcelona",
-      "18",
-      "11",
-      "5",
-      "2",
-      "51",
-      "20",
-      "31",
-      "38"
-    ],
-    [
-      "3",
-      "Real Madrid",
-      "18",
-      "10",
-      "7",
-      "1",
-      "38",
-      "23",
-      "15",
-      "37"
-    ],
-    [
-      "4",
-      "Badalona Women",
-      "18",
-      "6",
-      "9",
-      "3",
-      "26",
-      "22",
-      "4",
-      "27"
-    ],
-    [
-      "5",
-      "Atlético de Madrid",
-      "18",
-      "7",
-      "4",
-      "7",
-      "23",
+      "30",
       "19",
+      "7",
       "4",
-      "25"
+      "76",
+      "28",
+      "48",
+      "64"
+    ],
+    [
+      "2",
+      "Real Madrid",
+      "30",
+      "17",
+      "11",
+      "2",
+      "62",
+      "36",
+      "26",
+      "62"
+    ],
+    [
+      "3",
+      "Athletic Club",
+      "30",
+      "16",
+      "7",
+      "7",
+      "42",
+      "30",
+      "12",
+      "55"
+    ],
+    [
+      "4",
+      "Sevilla FC",
+      "30",
+      "13",
+      "11",
+      "6",
+      "47",
+      "36",
+      "11",
+      "50"
+    ],
+    [
+      "5",
+      "Real Sociedad",
+      "30",
+      "12",
+      "10",
+      "8",
+      "49",
+      "39",
+      "10",
+      "46"
     ],
     [
       "6",
-      "Sevilla FC",
-      "18",
-      "6",
+      "Badalona Women",
+      "30",
+      "11",
+      "12",
       "7",
-      "5",
-      "27",
-      "25",
-      "2",
-      "25"
+      "41",
+      "38",
+      "3",
+      "45"
     ],
     [
       "7",
       "Levante UD",
-      "18",
-      "7",
-      "4",
-      "7",
-      "23",
-      "24",
-      "-1",
-      "25"
+      "30",
+      "11",
+      "8",
+      "11",
+      "40",
+      "40",
+      "0",
+      "41"
     ],
     [
       "8",
-      "Granada CF",
-      "18",
-      "6",
-      "7",
-      "5",
-      "27",
+      "RCD Espanyol",
       "30",
+      "12",
+      "5",
+      "13",
+      "33",
+      "36",
       "-3",
-      "24"
+      "41"
     ],
     [
       "9",
-      "SD Eibar",
-      "18",
-      "7",
-      "4",
-      "7",
-      "22",
-      "29",
-      "-7",
-      "24"
+      "Granada CF",
+      "30",
+      "10",
+      "11",
+      "9",
+      "42",
+      "47",
+      "-5",
+      "41"
     ],
     [
       "10",
-      "Real Sociedad",
-      "18",
-      "5",
-      "7",
+      "Atlético de Madrid",
+      "30",
+      "11",
       "6",
-      "28",
-      "27",
-      "1",
-      "22"
+      "13",
+      "36",
+      "33",
+      "3",
+      "39"
     ],
     [
       "11",
-      "RCD Espanyol",
-      "18",
-      "7",
-      "1",
-      "10",
-      "16",
-      "20",
-      "-4",
-      "22"
+      "Madrid CFF",
+      "30",
+      "8",
+      "14",
+      "8",
+      "44",
+      "53",
+      "-9",
+      "38"
     ],
     [
       "12",
       "RC Deportivo",
-      "18",
-      "4",
-      "9",
-      "5",
-      "25",
-      "28",
-      "-3",
-      "21"
+      "30",
+      "8",
+      "12",
+      "10",
+      "41",
+      "47",
+      "-6",
+      "36"
     ],
     [
       "13",
-      "Madrid CFF",
-      "18",
-      "4",
-      "8",
-      "6",
+      "SD Eibar",
       "30",
-      "39",
-      "-9",
-      "20"
+      "8",
+      "11",
+      "11",
+      "36",
+      "47",
+      "-11",
+      "35"
     ],
     [
       "14",
       "C. Adeje Tenereife",
-      "18",
-      "1",
-      "10",
-      "7",
-      "18",
-      "27",
-      "-9",
-      "13"
+      "30",
+      "4",
+      "13",
+      "13",
+      "34",
+      "48",
+      "-14",
+      "25"
     ],
     [
       "15",
       "Logroño United",
-      "18",
-      "1",
-      "7",
-      "10",
-      "16",
-      "29",
-      "-13",
-      "10"
+      "30",
+      "2",
+      "9",
+      "19",
+      "25",
+      "50",
+      "-25",
+      "15"
     ],
     [
       "16",
       "Alhama CF",
-      "18",
+      "30",
       "0",
-      "7",
-      "11",
-      "17",
-      "40",
-      "-23",
-      "7"
+      "9",
+      "21",
+      "26",
+      "66",
+      "-40",
+      "9"
     ]
   ],
   "club": "FC Barcelona",
@@ -1560,10 +1613,10 @@ SEASON_TABLES.vasi = {
       "GK",
       "13",
       "Cata Coll",
-      "27",
+      "44",
       "0",
       "0",
-      "6"
+      "14"
     ],
     [
       "GK",
@@ -1578,7 +1631,7 @@ SEASON_TABLES.vasi = {
       "LB",
       "6",
       "Ana Sampaio",
-      "13",
+      "18",
       "1",
       "0",
       "1"
@@ -1587,10 +1640,10 @@ SEASON_TABLES.vasi = {
       "LB",
       "2",
       "Teresa Moyano",
-      "25",
+      "42",
       "1",
       "0",
-      "4"
+      "11"
     ],
     [
       "CB",
@@ -1614,16 +1667,16 @@ SEASON_TABLES.vasi = {
       "CB",
       "5",
       "Laia Aleixandri",
-      "27",
+      "44",
       "3",
       "0",
-      "6"
+      "14"
     ],
     [
       "CB",
       "3",
       "Lauren Leal",
-      "15",
+      "21",
       "0",
       "0",
       "1"
@@ -1632,16 +1685,16 @@ SEASON_TABLES.vasi = {
       "CB",
       "4",
       "Xenia Schilling",
+      "17",
+      "2",
       "0",
-      "0",
-      "0",
-      "0"
+      "8"
     ],
     [
       "RB",
       "32",
       "Maria Llorella",
-      "25",
+      "28",
       "1",
       "0",
       "6"
@@ -1650,16 +1703,16 @@ SEASON_TABLES.vasi = {
       "RB",
       "20",
       "Jade Le Guilly",
-      "3",
-      "0",
-      "0",
-      "1"
+      "20",
+      "1",
+      "2",
+      "9"
     ],
     [
       "CDM",
       "12",
       "Patri Guijarro",
-      "8",
+      "18",
       "0",
       "0",
       "0"
@@ -1677,34 +1730,34 @@ SEASON_TABLES.vasi = {
       "CM",
       "11",
       "Alexia Putellas",
-      "26",
-      "9",
+      "43",
+      "14",
       "13",
-      "6"
+      "15"
     ],
     [
       "CM",
       "14",
       "Aitana Bonmatí",
-      "27",
-      "4",
-      "11",
-      "6"
+      "44",
+      "5",
+      "12",
+      "12"
     ],
     [
       "CM",
       "18",
       "Kika Nazareth",
-      "27",
-      "4",
+      "44",
       "8",
-      "5"
+      "11",
+      "13"
     ],
     [
       "CM",
       "16",
       "Giulia Dragoni",
-      "0",
+      "4",
       "0",
       "0",
       "0"
@@ -1731,8 +1784,8 @@ SEASON_TABLES.vasi = {
       "CAM",
       "19",
       "Vicky López",
+      "3",
       "1",
-      "0",
       "0",
       "0"
     ],
@@ -1740,34 +1793,34 @@ SEASON_TABLES.vasi = {
       "LW",
       "15",
       "Claudia Pina",
-      "25",
+      "42",
+      "9",
       "7",
-      "4",
-      "5"
+      "10"
     ],
     [
       "RW",
       "10",
       "Caroline Graham Hansen",
-      "27",
-      "13",
-      "9",
-      "6"
+      "44",
+      "15",
+      "19",
+      "14"
     ],
     [
       "ST",
       "9",
       "Vasiliki Dimitriou",
-      "27",
-      "25",
-      "5",
-      "3"
+      "44",
+      "42",
+      "9",
+      "11"
     ],
     [
       "ST",
       "17",
       "Ewa Pajor",
-      "8",
+      "11",
       "0",
       "0",
       "1"

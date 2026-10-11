@@ -3892,6 +3892,10 @@ body.theme-terminal.theme-dracula *::after {
   fill: var(--chart-clean-sheets);
 }
 
+.chart-bar.chart-contributions {
+  fill: var(--chart-contributions);
+}
+
 .chart-line {
   fill: none;
   stroke: var(--chart-position);
@@ -3933,6 +3937,7 @@ body.theme-terminal.theme-dracula *::after {
 body {
   --chart-goals: #3366cc;
   --chart-assists: #2a9d8f;
+  --chart-contributions: #c0397d;
   --chart-clean-sheets: #f4a261;
   --chart-position: #7b2cbf;
   --chart-card-bg: #fff;
@@ -3942,6 +3947,7 @@ body.theme-terminal,
 body.theme-dracula {
   --chart-goals: #ff79c6;
   --chart-assists: #8be9fd;
+  --chart-contributions: #bd93f9;
   --chart-clean-sheets: #50fa7b;
   --chart-position: #f1fa8c;
   --chart-card-bg: #282a36;
@@ -3950,6 +3956,7 @@ body.theme-dracula {
 body.theme-glass {
   --chart-goals: #7cc6fe;
   --chart-assists: #9be564;
+  --chart-contributions: #d291ff;
   --chart-clean-sheets: #ffd166;
   --chart-position: #ff9f7f;
   --chart-card-bg: rgba(255, 255, 255, 0.25);
