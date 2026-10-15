@@ -43,7 +43,74 @@ function table(headers, rows) {
     return `<table class="wikitable"><thead><tr>${headers.map(header => `<th>${header}</th>`).join('')}</tr></thead><tbody>${rows.map(row => `<tr>${row.map((cellValue, columnIndex) => `<td class="${columnIndex > 1 ? 'num' : ''}">${cellValue}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
 }
 function infobox(playerData) {
-    return `<table class="infobox"><tr><th colspan="2">${playerData.flag} ${playerData.name}</th></tr>${playerData.nickname ? `<tr><td>Nickname</td><td>${playerData.nickname}</td></tr>` : ''}<tr><td>Born</td><td>${playerData.dob}<br>${playerData.birth}</td></tr><tr><td>Height</td><td>${playerData.height}</td></tr><tr><td>Boot brand</td><td>${playerData.bootBrand || 'Unknown'}</td></tr><tr><td>Position</td><td>${playerData.position}</td></tr><tr><td>Current team</td><td>${playerData.current}</td></tr><tr><td>Number</td><td>${playerData.number}</td></tr><tr><td>National team</td><td>${playerData.international}</td></tr></table>`;
+    return `
+        <table class="infobox">
+            <tr>
+                <th colspan="2">${playerData.flag} ${playerData.name}</th>
+            </tr>
+
+            <tr class="infobox-portrait-row">
+                <td colspan="2">
+                    ${playerData.portrait
+                        ? `
+                            <img
+                                class="profile-portrait"
+                                src="${esc(playerData.portrait)}"
+                                alt="${esc(playerData.displayName || playerData.name)} portrait"
+                            >
+                        `
+                        : `
+                            <div
+                                class="profile-portrait-placeholder"
+                                role="img"
+                                aria-label="Portrait placeholder for ${esc(playerData.displayName || playerData.name)}"
+                            >
+                                <span>Portrait</span>
+                            </div>
+                        `}
+                </td>
+            </tr>
+
+            ${playerData.nickname
+                ? `<tr><td>Nickname</td><td>${playerData.nickname}</td></tr>`
+                : ''}
+
+            <tr>
+                <td>Born</td>
+                <td>${playerData.dob}<br>${playerData.birth}</td>
+            </tr>
+
+            <tr>
+                <td>Height</td>
+                <td>${playerData.height}</td>
+            </tr>
+
+            <tr>
+                <td>Boot brand</td>
+                <td>${playerData.bootBrand || 'Unknown'}</td>
+            </tr>
+
+            <tr>
+                <td>Position</td>
+                <td>${playerData.position}</td>
+            </tr>
+
+            <tr>
+                <td>Current team</td>
+                <td>${playerData.current}</td>
+            </tr>
+
+            <tr>
+                <td>Number</td>
+                <td>${playerData.number}</td>
+            </tr>
+
+            <tr>
+                <td>National team</td>
+                <td>${playerData.international}</td>
+            </tr>
+        </table>
+    `;
 }
 function honours(playerData) {
     return `<div class="honours">${Object.entries(playerData.honours).map(([honourGroupName, honourItems]) => `<section><h3>${honourGroupName}</h3><ul>${honourItems.map(honour => `<li>${honour}</li>`).join('')}</ul></section>`).join('')}</div>`;
@@ -940,7 +1007,23 @@ function home() {
     const homePlayerIds = Object.keys(DATA);
     app.innerHTML = `<h1>FC26 Career Wiki</h1><div class="home-tiles">${homePlayerIds.map(id => {
         const playerData = DATA[id];
-        return `<a class="home-player-tile" href="#${id}" style="--club-crest:url('${playerData.homeCrest || ''}')"><span>${playerData.flag} ${playerData.displayName || playerData.name}</span></a>`;
+        const homeBackground = playerData.homeBackground || '';
+        const tileClass = homeBackground
+            ? 'home-player-tile has-character-background'
+            : 'home-player-tile';
+
+        return `
+            <a
+                class="${tileClass}"
+                href="#${id}"
+                style="
+                    --club-crest: url('${playerData.homeCrest || ''}');
+                    --character-background: url('${homeBackground}');
+                "
+            >
+                <span>${playerData.flag} ${playerData.displayName || playerData.name}</span>
+            </a>
+        `;
     }).join('')}</div>`;
 }
 function route() {

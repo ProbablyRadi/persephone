@@ -11,6 +11,7 @@ DATA.rens = {
   "internationalTeam": "Netherlands",
   "squadFocusName": "Rens Adisea",
   "homeCrest": "https://www.clipartmax.com/png/middle/84-847485_maks-timurov-logo-borussia-dortmund-512-512-dls-17.png",
+  "portrait": "assets/portraits/rens.png",
   "squadFlags": {
     "Jasper Schendelaar": "🇳🇱",
     "Tom de Graaff": "🇳🇱",
@@ -207,7 +208,7 @@ DATA.rens = {
   "current": "🇩🇪 Borussia Dortmund",
   "number": "46",
   "international": "🇳🇱 Netherlands (2031–)",
-  "intro": "Rens Adisea is a Dutch attacking midfielder born in Zandvoort, Netherlands. Known for an exceptional no-frills style of play, he combines elite dribbling and playmaking with the instincts of a shadow striker. Quick-witted and decisive in possession, Adisea is capable of reading situations rapidly and is equally comfortable creating chances for teammates or finishing moves himself. His career has already featured prolific spells with PEC Zwolle, Brighton & Hove Albion and FC Bayern München, including a Premier League title with Brighton and major domestic and European honours. His directness, close control and ability to arrive in dangerous areas have made him a highly versatile attacking presence.",
+  "intro": "Rens Adisea is a Dutch attacking midfielder from Zandvoort who began his senior career with PEC Zwolle in 2025. Across three seasons in the Eredivisie he developed into a prolific scorer and creator before moving to Brighton & Hove Albion in 2028, where he spent five seasons and won the Premier League, UEFA Conference League, UEFA Europa League, FA Cup, Carabao Cup and Community Shield honours. He joined FC Bayern München in 2033 and won back-to-back Bundesliga, DFB-Pokal and UEFA Champions League titles before moving to Borussia Dortmund in 2035. Adisea has represented the Netherlands since 2031, recording 41 appearances and 31 goals in the supplied career record; his international honours include the 2034 FIFA World Cup, while the Netherlands also reached the Euro 2032 semi-finals. His recorded club career currently spans ten completed seasons with an eleventh season in progress, combining long-term output as both a scorer and playmaker.",
   "career": [
     [
       "2025–2028",

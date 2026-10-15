@@ -11,6 +11,7 @@ DATA.jordan = {
   "internationalTeam": "England",
   "squadFocusName": "Jordan Vale",
   "homeCrest": "https://www.clipartmax.com/png/middle/98-980655_bristol-city-logo-bristol-city-football-club-logo.png",
+  "portrait": "assets/portraits/jordan.png",
   "timelineLeagueEntryBaselines": {
     "2026–27": {
       "league": "Premier League",
@@ -116,7 +117,7 @@ DATA.jordan = {
   "current": "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Bristol City",
   "number": "37 (international: 12, 20, 17, 1)",
   "international": "🏴󠁧󠁢󠁥󠁮󠁧󠁿 England (2025–)",
-  "intro": "Jordan Vale is an English goalkeeper born in Weston-super-Mare, England. A young rookie who caught attention quickly at Bristol City, he helped the club win promotion to the Premier League in his first season and remained loyal as they fought to establish themselves in the top flight. Vale was ever-present across long stretches of the club’s rise, recording high appearance and clean-sheet totals at a young age. He later played a major part in helping Bristol City avoid relegation and in their remarkable FA Cup triumph, a shock run that further strengthened his reputation as one of the club’s most important young players.",
+  "intro": "Jordan A.B. Vale is an English goalkeeper from Weston-super-Mare who began his senior career with Bristol City in 2025. He immediately became a major part of the side that won the 2025–26 EFL Championship, making 53 appearances, scoring once and keeping 25 clean sheets in his first recorded season. Vale remained first choice as Bristol City adjusted to Premier League football, helping the club survive in 2026–27 and finish 14th in 2027–28 before winning the FA Cup that same season. The supplied career record currently covers four Bristol City seasons, with 2028–29 still in progress and his Bristol aggregate standing at 171 appearances and one goal. His longer career path lists Bristol City from 2025–2030, Manchester United from 2030–2036 and PSV from 2036–2040. Vale has also represented England since 2025, with 30 recorded international appearances, a 2026 FIFA World Cup runners-up medal and the UEFA Euro Golden Glove in 2028.",
   "career": [
     [
       "2025–2030",

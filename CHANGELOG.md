@@ -166,6 +166,37 @@ It is a reconstructed project history rather than a Git commit log, so it intent
 - Timeline and Head to Head now derive from the completed season.
 
 
+### Character portrait placeholders
+
+- Added a consistent portrait area to each character Overview infobox.
+- The temporary portrait space uses a neutral grey placeholder until character images are supplied.
+- The placeholder keeps a fixed 4:5 portrait ratio and adapts to Wiki, Dracula and Glass themes.
+
+
+### Character profile portraits
+
+- Added supplied profile portraits for Rens, Jordan and Vasi.
+- Portrait files live under `assets/portraits/`.
+- Each character owns its portrait path in its own data file.
+- The Overview infobox now renders the portrait image and keeps the grey placeholder as a fallback.
+
+
+### Vasi character-select artwork
+
+- Added the supplied Vasi collage as her character-select tile background.
+- The artwork fills the full tile in Wiki, Dracula and Glass themes.
+- Other character tiles continue using the existing club-crest fallback.
+- Vasi's profile portrait remains unchanged.
+
+
+### Character biography refresh
+
+- Rewrote the Overview biographies for Rens, Jordan and Vasi using the career information already recorded across the site.
+- Bios now summarise nationality, position, recorded seasons, club path, major honours and international careers.
+- Future career entries are described as supplied career paths rather than completed history.
+- No unsupported statistics or honours were added.
+
+
 ## Current development state
 
 ### Project structure

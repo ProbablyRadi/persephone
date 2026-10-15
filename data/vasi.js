@@ -12,6 +12,8 @@ DATA.vasi = {
   "internationalTeam": "Greece",
   "squadFocusName": "Vasiliki Dimitriou",
   "homeCrest": "https://www.clipartmax.com/png/middle/98-980857_fc-barcelona-logo-fathead-fc-barcelona-logo-wall-decal.png",
+  "homeBackground": "assets/character-select/vasi.png",
+  "portrait": "assets/portraits/vasi.png",
   "squadFlags": {
     "Txell Font": "🇪🇸",
     "Cata Coll": "🇪🇸",
@@ -75,7 +77,7 @@ DATA.vasi = {
   "current": "🇪🇸 FC Barcelona Femení",
   "number": "9",
   "international": "🇬🇷 Greece (2025–)",
-  "intro": "Vasiliki Dimitriou is a highly talented Greek striker born in Thessaloniki, Greece. Nicknamed both “The Queen” and “The Demon”, she is known for combining exceptional technical ability with a powerful and highly physical style of play. Dimitriou can overpower defenders while still producing moments of skill and composure in attacking areas, giving her a rare balance of strength and talent. Her Barcelona career began with an immediate scoring impact, while her first recorded season has also included emphatic Liga F victories and an early UEFA Women’s Champions League appearance against FC Bayern München. Her aggressive presence and natural finishing ability have quickly made her one of the most distinctive young forwards in her career.",
+  "intro": "Vasiliki Dimitriou (Βασιλική Δημητρίου), known as Vasi, is a Greek striker from Thessaloniki who began her senior career with FC Barcelona Femení in 2025. Her first three recorded seasons produced an extraordinary 119 appearances and 133 goals, with Barcelona winning Liga F and the UEFA Women’s Champions League in 2025–26, 2026–27 and 2027–28. Individually, Dimitriou won the Golden Boot in 2025–26 and 2026–27, was named Player of the Season in 2026–27 and holds the recorded Liga F goalscoring record in this career. Her season totals include 38 goals in 2025–26, 53 in 2026–27 and 42 in 2027–28, alongside 21 assists across those three seasons. She has represented Greece since 2025, with four recorded appearances and two goals. The career plan currently keeps her at Barcelona through 2036 before a future move to Gotham FC for 2036–2040.",
   "career": [
   [
     "2025–2036",

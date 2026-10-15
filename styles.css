@@ -150,6 +150,51 @@ h2 {
   width: 40%;
 }
 
+
+.infobox .infobox-portrait-row td {
+  width: auto;
+  padding: 10px;
+  border-top: 0;
+}
+
+.profile-portrait {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  max-height: 360px;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+  border: 1px solid var(--border);
+}
+
+.profile-portrait-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  max-height: 360px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #d9d9d9;
+  color: #666;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+body.theme-terminal .profile-portrait-placeholder,
+body.theme-dracula .profile-portrait-placeholder {
+  background: #44475a;
+  color: #cfcfd7;
+}
+
+body.theme-glass .profile-portrait-placeholder {
+  background: rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.85);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
 .status {
   display: inline-block;
   background: #fff3cd;
@@ -3370,6 +3415,47 @@ body.theme-terminal.theme-dracula ::selection {
   opacity: .24;
   filter: blur(4px) saturate(.85);
   transform: scale(1.08);
+}
+
+
+.home-player-tile.has-character-background::before {
+  inset: 0;
+  background: var(--character-background) center/cover no-repeat;
+  opacity: 1;
+  filter: none;
+  transform: none;
+}
+
+.home-player-tile.has-character-background::after {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.10) 0%,
+    rgba(0, 0, 0, 0.22) 56%,
+    rgba(0, 0, 0, 0.60) 100%
+  );
+  backdrop-filter: none;
+}
+
+.home-player-tile.has-character-background span {
+  align-self: flex-end;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.92);
+}
+
+body.theme-terminal.theme-dracula .home-player-tile.has-character-background::after,
+body.theme-glass .home-player-tile.has-character-background::after {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.10) 0%,
+    rgba(0, 0, 0, 0.24) 56%,
+    rgba(0, 0, 0, 0.62) 100%
+  );
+}
+
+body.theme-terminal.theme-dracula .home-player-tile.has-character-background span,
+body.theme-glass .home-player-tile.has-character-background span {
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.92);
 }
 
 .home-player-tile::after {
