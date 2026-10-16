@@ -1,4 +1,16 @@
+## 2026-10-16 — Dracula hybrid typography
+
+- Dracula now uses the Wiki/Glass readable UI font (Segoe UI with Arial/Helvetica fallbacks) for paragraphs, statistics, tables, navigation and controls.
+- Preserved ProggyForever for page and section headings, the site brand, table heading cells and selected section labels.
+- No changes to the other themes, font sizes, player data, or layout.
+- Bumped the CSS URL version to ensure browsers load the updated stylesheet.
+
 # Changelog
+
+## Jordan Vale boot brand
+
+- Updated Jordan Vale's profile boot brand from New Balance to Nike.
+- Updated the versioned Jordan data script reference to avoid stale browser caches.
 
 ## Overview career stats: club column, awards and totals
 
@@ -599,3 +611,11 @@ Added supplied nationalities for new Barcelona players:
 - Reduced the site to three career profiles and removed the retired fourth character's data/routes.
 - Character roster is now Rens Adisea, Jordan Vale and Vasiliki Dimitriou.
 - Updated Jordan Vale career path to Bristol City (2025–2030), Manchester United (2030–2036) and PSV (2036–2040).
+
+
+### Dracula theme size/layout parity
+
+- Matched Dracula text and heading sizes and line heights to Wiki and Glass (16px body; 32/24/19px headings).
+- Removed terminal-only full-width page/table overrides and 1.5x career-navigation scaling from Dracula.
+- Matched fixture-only competition panel width and standings layout to Wiki/Glass.
+- Kept Dracula palette and ProggyForever headings/table headers, with Segoe UI for normal text.
