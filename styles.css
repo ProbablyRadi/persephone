@@ -4134,3 +4134,32 @@ body.theme-dracula .chart-empty {
   width: 36px;
   max-height: 26px;
 }
+
+/* Consistent, scrollable career statistics across all three profiles. */
+.career-stats-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.career-stats-scroll .wikitable {
+  min-width: 900px;
+}
+
+.career-stats-scroll .wikitable th {
+  white-space: normal;
+}
+
+/* Keep the same Club-first career overview layout for every player. */
+.career-stats-scroll .career-stats-table {
+  min-width: 1250px;
+}
+
+.career-stats-table td:first-child {
+  white-space: nowrap;
+}
+
+.career-stats-subtotal td,
+.career-stats-grand-total td {
+  font-weight: 700;
+  border-top: 2px solid currentColor;
+}

@@ -47,6 +47,34 @@ COMPETITION_TABLES
 
 Keeping each character's information in one file makes it easier to find and edit their profile, career stats, fixtures, league tables, squad sheets and competition tables without changing the interface used by `app.js`.
 
+### Career-overview statistics and awards
+
+The career-statistics table on every player's **Overview** page is generated from
+`DATA.<player>.stats` (the same 10-field season rows used by season pages and Stats charts).
+All players get the same columns for Role, League, Position, Average Rating,
+Player of the Month, Player of the Match, appearances, goals, assists and clean sheets.
+Every player has the Club column, including players who have only played for one club.
+The column order is identical for all players. Club subtotals and multi-club grand
+totals are calculated from **completed** seasons; live stats are visible in their
+season rows but are excluded from these totals.
+
+Optional season award counts live in `DATA.<player>.careerAwards`:
+
+```js
+"careerAwards": {
+  "2025–26": { "playerOfTheMonth": 0, "playerOfTheMatch": 9 }
+}
+```
+
+Use numbers including `0` only for **known** award counts. If an award count has not
+been supplied, omit it or leave the season out: the overview will show `—` instead.
+The awards appear **only in the Overview career-statistics table**, and do not
+change the season-stat rows or any underlying match/season calculations.
+
+Optional `careerOverviewFutureRows` can show supplied future-season placeholders
+without creating playable seasons or affecting Timeline, H2H, or the career totals.
+Each entry is `[season, club, role?, league?]`.
+
 ## Main pages
 
 Each character has access to:

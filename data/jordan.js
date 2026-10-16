@@ -198,6 +198,16 @@ DATA.jordan = {
       8
     ]
   ],
+  // Supplied career-overview awards. Only completed seasons have known counts.
+  "careerAwards": {
+    "2025–26": { "playerOfTheMonth": 0, "playerOfTheMatch": 4 },
+    "2026–27": { "playerOfTheMonth": 0, "playerOfTheMatch": 3 },
+    "2027–28": { "playerOfTheMonth": 0, "playerOfTheMatch": 0 }
+  },
+  // Placeholder supplied for the overview only, not a recorded season.
+  "careerOverviewFutureRows": [
+    ["2029–30", "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Bristol City"]
+  ],
   "honours": {
     "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Bristol City": [
       "EFL Championship: 2025–26 🏆",

@@ -266,6 +266,139 @@ function biographyLead(playerData) {
         .join('');
 }
 
+// Career overview is shared by all characters. Every row shows its club,
+// including one-club careers. Incomplete/future seasons never count towards
+// the completed-career totals; optional future rows are display-only.
+function careerStatsTable(playerData) {
+    const recordedRows = playerData.stats || [];
+    const futureRows = (playerData.careerOverviewFutureRows || []).map(
+        ([season, club, role = '', league = '']) => [
+            season, club, role, league, '', '', '', '', '', ''
+        ]
+    );
+    const groups = [];
+
+    [...recordedRows, ...futureRows].forEach(row => {
+        const clubKey = cleanClubLabel(row[1]);
+        let group = groups.find(candidate => candidate.key === clubKey);
+
+        if (!group) {
+            group = { key: clubKey, rows: [] };
+            groups.push(group);
+        }
+
+        group.rows.push(row);
+    });
+
+    const headers = [
+        'Club', 'Season', 'Role', 'League', 'League Position',
+        'Average Rating', 'Player of the Month', 'Man of the Match',
+        'App', 'Goals', 'Assists', 'CLS'
+    ];
+    const displayValue = value =>
+        value === '' || value == null ? '—' : String(value);
+    const awardsFor = season => (playerData.careerAwards || {})[season] || {};
+    const completedRows = rows => rows.filter(row =>
+        recordedRows.includes(row)
+        && playerData.seasons?.[row[0]]
+        && !playerData.seasons[row[0]].inProgress
+    );
+
+    function totalsFor(rows) {
+        if (!rows.length)
+            return null;
+
+        const validRatings = rows.filter(row =>
+            row[5] !== '' && row[5] != null && Number.isFinite(Number(row[5]))
+        );
+        const average = validRatings.length
+            ? validRatings.reduce((sum, row) => sum + Number(row[5]), 0) / validRatings.length
+            : null;
+        // Club totals for two seasons retain 2 decimals (e.g. 6.75).
+        // Larger groups and career totals use one decimal.
+        const ratingPrecision = validRatings.length === 2 ? 2 : 1;
+        const rating = average == null
+            ? '—'
+            : Number(average.toFixed(ratingPrecision)).toString();
+
+        const awardSum = key => {
+            const values = rows.map(row => awardsFor(row[0])[key]);
+            return values.every(value => typeof value === 'number')
+                ? values.reduce((sum, value) => sum + value, 0)
+                : '—';
+        };
+        const statSum = index => {
+            const values = rows.map(row => row[index]);
+            return values.every(value =>
+                value !== '' && value != null && Number.isFinite(Number(value))
+            ) ? values.reduce((sum, value) => sum + Number(value), 0) : '—';
+        };
+
+        return [
+            '', '', '', '', '', rating,
+            awardSum('playerOfTheMonth'),
+            awardSum('playerOfTheMatch'),
+            statSum(6), statSum(7), statSum(8), statSum(9)
+        ];
+    }
+
+    const tableRows = [];
+    const allCompletedRows = [];
+
+    groups.forEach(group => {
+        group.rows.forEach(row => {
+            const awards = awardsFor(row[0]);
+            tableRows.push({
+                type: 'season',
+                values: [
+                    row[1], row[0], row[2], row[3], row[4], row[5],
+                    awards.playerOfTheMonth, awards.playerOfTheMatch,
+                    row[6], row[7], row[8], row[9]
+                ]
+            });
+        });
+
+        const completed = completedRows(group.rows);
+        allCompletedRows.push(...completed);
+        tableRows.push({ type: 'subtotal', values: totalsFor(completed) });
+    });
+
+    if (groups.length > 1) {
+        tableRows.push({
+            type: 'grand-total',
+            values: totalsFor(allCompletedRows)
+        });
+    }
+
+    const body = tableRows.map(({ type, values }) => {
+        if (!values) {
+            // For a future-only club there is no completed subtotal yet.
+            values = ['', '', '', '', '', '', '', '', '', '', '', ''];
+        }
+
+        if (type !== 'season') {
+            values = [...values];
+            values[0] = type === 'grand-total' ? 'Grand Total' : 'Total';
+        }
+
+        const cells = values.map((value, index) => {
+            const text = type === 'season' || value !== ''
+                ? displayValue(value)
+                : '';
+            return `<td class="${index >= 4 ? 'num' : ''}">${esc(text)}</td>`;
+        }).join('');
+
+        return `<tr class="career-stats-${type}">${cells}</tr>`;
+    }).join('');
+
+    return `<div class="table-scroll career-stats-scroll">
+        <table class="wikitable career-stats-table">
+            <thead><tr>${headers.map(header => `<th>${esc(header)}</th>`).join('')}</tr></thead>
+            <tbody>${body}</tbody>
+        </table>
+    </div>`;
+}
+
 function player(id) {
     let playerData = DATA[id];
     app.className = 'profile-page';
@@ -299,21 +432,7 @@ function player(id) {
       </section>
     </div>
     <h2 id="stats">Career statistics</h2>
-    ${table(
-        playerData.careerStatsColumns || [
-            'Season',
-            'Club',
-            'Role',
-            'League',
-            'Pos.',
-            'Avg',
-            'Apps',
-            'Goals',
-            'Assists',
-            'CLS'
-        ],
-        playerData.careerStats || playerData.stats
-    )}
+    ${careerStatsTable(playerData)}
     <h2 id="honours">Honours</h2>
     ${honours(playerData)}`;
 }
@@ -1031,6 +1150,9 @@ function sortableValue(value) {
     };
 }
 function enhanceTable(table) {
+    // Sorting would detach club totals from their corresponding season rows.
+    if (table.classList.contains('career-stats-table'))
+        return;
     if (table.dataset.tableTools === '1' || !table.tHead || !table.tHead.rows.length)
         return;
     const header = table.tHead.rows[0];

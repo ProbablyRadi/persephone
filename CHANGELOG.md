@@ -1,8 +1,29 @@
 # Changelog
 
+## Overview career stats: club column, awards and totals
+
+- The Club column is now shown **first on every character's overview table**, even when every season is with the same club.
+- Matched table headings and ordering across Rens, Jordan and Vasi, including Player of the Month and Man of the Match.
+- Recorded the newly supplied season award counts for Rens (2025–26 through 2034–35) and Jordan (2025–26 through 2027–28).
+- Added per-club totals and multi-club grand totals, calculated from completed seasons. Current in-progress statistics remain on their own rows but are excluded from the completed totals.
+- Included the supplied future placeholder rows for Rens (PEC Zwolle and Dortmund) and Jordan (2029–30 Bristol City), without creating new playable seasons or changing existing season pages or fixtures.
+- Adjusted Rens's 2030–31 role to CAM to match the newly supplied overview table.
+- Retained Vasi's existing monthly/match award figures and all three characters' recorded live-season statistics.
+
+
 This file summarizes the major changes made to the FC26 Career Wiki during the development conversation.
 
 It is a reconstructed project history rather than a Git commit log, so it intentionally does not invent version numbers or exact release tags that were not created in Git.
+
+## Career-overview table consistency
+
+- Standardized the career-statistics table on Rens, Jordan and Vasi overview pages.
+- Player of the Month and Player of the Match columns now appear for all three.
+- Updated later: the Club column now appears for every character, regardless of club changes.
+- Award totals live in per-character `careerAwards` maps; missing counts display `—` instead of being assumed to be zero.
+- Preserved Vasi's supplied award counts and removed her duplicate career-statistics row/column definitions.
+- Kept the original season stats data format, season pages and Stats charts unchanged.
+- Added horizontal scrolling to keep wide career tables usable on smaller screens.
 
 ## Definitions and app.js cleanup
 

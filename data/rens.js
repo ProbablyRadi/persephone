@@ -309,7 +309,7 @@ DATA.rens = {
     [
       "2030–31",
       "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Brighton",
-      "CDM",
+      "CAM",
       "Premier League",
       "1st",
       "7.9",
@@ -378,6 +378,29 @@ DATA.rens = {
       "—",
       "—"
     ]
+  ],
+  // Supplied career-overview awards. Only completed seasons have known counts.
+  "careerAwards": {
+    "2025–26": { "playerOfTheMonth": 4, "playerOfTheMatch": 12 },
+    "2026–27": { "playerOfTheMonth": 3, "playerOfTheMatch": 18 },
+    "2027–28": { "playerOfTheMonth": 1, "playerOfTheMatch": 11 },
+    "2028–29": { "playerOfTheMonth": 0, "playerOfTheMatch": 4 },
+    "2029–30": { "playerOfTheMonth": 4, "playerOfTheMatch": 16 },
+    "2030–31": { "playerOfTheMonth": 4, "playerOfTheMatch": 19 },
+    "2031–32": { "playerOfTheMonth": 4, "playerOfTheMatch": 8 },
+    "2032–33": { "playerOfTheMonth": 0, "playerOfTheMatch": 15 },
+    "2033–34": { "playerOfTheMonth": 3, "playerOfTheMatch": 12 },
+    "2034–35": { "playerOfTheMonth": 1, "playerOfTheMatch": 11 }
+  },
+  // Planned overview rows from the supplied table; not played seasons.
+  "careerOverviewFutureRows": [
+    ["2039–40", "🇳🇱 PEC Zwolle", "CAM", "Eredivisie"],
+    ["2040–41", "🇳🇱 PEC Zwolle", "CAM", "Eredivisie"],
+    ["2041–42", "🇳🇱 PEC Zwolle", "CAM", "Eredivisie"],
+    ["2042–43", "🇳🇱 PEC Zwolle", "CAM", "Eredivisie"],
+    ["2036–37", "🇩🇪 Dortmund", "RAM", "Bundesliga"],
+    ["2037–38", "🇩🇪 Dortmund", "RAM", "Bundesliga"],
+    ["2038–39", "🇩🇪 Dortmund", "RAM", "Bundesliga"]
   ],
   "honours": {
     "🇳🇱 PEC Zwolle": [
