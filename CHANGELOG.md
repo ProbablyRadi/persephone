@@ -197,6 +197,58 @@ It is a reconstructed project history rather than a Git commit log, so it intent
 - No unsupported statistics or honours were added.
 
 
+### Wikipedia-style biography leads
+
+- Reworked the Rens, Jordan and Vasi Overview introductions into three-paragraph encyclopedia-style leads.
+- Removed references to planned or future transfers from the biography prose.
+- Leads now focus on current club, nationality, position, career development, established honours and completed international achievements.
+- The Overview renderer now supports multiple lead paragraphs while retaining compatibility with single-paragraph bios.
+
+
+### Biography story details
+
+- Added Rens's motivation for leaving Bayern after two dominant seasons.
+- Expanded Jordan's 2027–28 FA Cup final into the key extra-time and penalty-shootout sequence.
+- Added the final-day story behind Vasi breaking the Liga F single-season goalscoring record in her second senior season.
+- Kept the additions in a neutral, Wikipedia-style biographical tone.
+
+
+### Rens biography details
+
+- Added the significance of No. 46 as Rens's personal shirt number and his refusal to wear the traditional No. 10.
+- Added context around his delayed Netherlands call-up, including the competition for midfield places and his development from a raw prospect into a senior international in 2031.
+
+
+### Image-based country flags
+
+- Added the uploaded 32px flag pack under `assets/flags/`.
+- Replaced visible country and subdivision emoji flags with PNG images at render time.
+- This avoids Chromium/Vivaldi displaying regional-indicator country codes such as `NL` or `GR`.
+- The image renderer applies across profiles, home cards, fixtures, squad lists, standings, Timeline and Head to Head.
+- Native character selector options now use names without emoji because browser-native `<option>` elements do not reliably support inline images.
+
+
+### Larger borderless flags
+
+- Replaced the previous flag assets with the supplied 64px set.
+- Increased normal flag display size to 30px wide.
+- Increased fixture, table and squad flags to 28px wide.
+- Increased home-card, navigation and profile flags to 36px wide.
+- Removed all flag borders, rounded corners, outlines and box shadows.
+
+
+### Vasi 2028–29 update
+
+- Added Vasi's in-progress 2028–29 FC Barcelona Femení season.
+- Added all supplied pre-season, Liga F and UEFA Women's Champions League fixtures and tables.
+- Updated Vasi to 24 appearances, 22 goals, 0 assists and 11 clean sheets for the season.
+- Updated her Barcelona career aggregate to 143 appearances and 155 goals.
+- Added the 2028–29 squad so Timeline derives same-club squad movement automatically.
+- Added confirmed nationalities for Océane Deslandes and Julie Dufour (France), and Teagan Cook (Australia).
+- Head to Head now includes the newly supplied Barcelona fixtures automatically.
+- No missing knockout results or unsupplied ratings/awards were fabricated.
+
+
 ## Current development state
 
 ### Project structure

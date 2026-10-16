@@ -117,7 +117,11 @@ DATA.jordan = {
   "current": "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Bristol City",
   "number": "37 (international: 12, 20, 17, 1)",
   "international": "🏴󠁧󠁢󠁥󠁮󠁧󠁿 England (2025–)",
-  "intro": "Jordan A.B. Vale is an English goalkeeper from Weston-super-Mare who began his senior career with Bristol City in 2025. He immediately became a major part of the side that won the 2025–26 EFL Championship, making 53 appearances, scoring once and keeping 25 clean sheets in his first recorded season. Vale remained first choice as Bristol City adjusted to Premier League football, helping the club survive in 2026–27 and finish 14th in 2027–28 before winning the FA Cup that same season. The supplied career record currently covers four Bristol City seasons, with 2028–29 still in progress and his Bristol aggregate standing at 171 appearances and one goal. His longer career path lists Bristol City from 2025–2030, Manchester United from 2030–2036 and PSV from 2036–2040. Vale has also represented England since 2025, with 30 recorded international appearances, a 2026 FIFA World Cup runners-up medal and the UEFA Euro Golden Glove in 2028.",
+  "intro": [
+    "Jordan A.B. Vale is an English professional footballer who plays as a goalkeeper for Premier League club Bristol City and the England national team. Born in Weston-super-Mare, Vale began his senior career with Bristol City in 2025 and became the club's first-choice goalkeeper during their 2025–26 EFL Championship title-winning season.",
+    "Vale remained in goal following Bristol City's promotion to the Premier League, helping the club retain its top-flight status in 2026–27 and finish 14th the following season. The 2027–28 campaign was highlighted by a historic FA Cup victory over Manchester City. The final remained goalless through 90 minutes before Pablo López gave Bristol City the lead in the 101st minute. In the 121st minute, Vale saved an initial effort but Boden scored from the rebound to force a 1–1 draw and a penalty shootout, which Bristol City won after a fiercely contested series of kicks.",
+    "Vale has represented England at senior level since 2025. He was part of the England team that finished as runners-up at the 2026 FIFA World Cup and was awarded the UEFA Euro Golden Glove in 2028. He has made 30 recorded appearances for the national team."
+  ],
   "career": [
     [
       "2025–2030",
