@@ -162,73 +162,24 @@ DATA.vasi = {
     11
   ]
 ],
-  "careerStatsColumns": [
-  "Season",
-  "Role",
-  "League",
-  "League Position",
-  "Average Rating",
-  "Player of the Month",
-  "Player of the Match",
-  "App",
-  "Goals",
-  "Assists",
-  "CLS"
-],
-  "careerStats": [
-  [
-    "2025–26",
-    "ST",
-    "Liga F",
-    "1st",
-    "7.6",
-    0,
-    9,
-    33,
-    38,
-    5,
-    10
-  ],
-  [
-    "2026–27",
-    "ST",
-    "Liga F",
-    "1st",
-    "7.1",
-    2,
-    11,
-    42,
-    53,
-    7,
-    15
-  ],
-  [
-    "2027–28",
-    "ST",
-    "Liga F",
-    "1st",
-    "7.1",
-    2,
-    12,
-    44,
-    42,
-    9,
-    11
-  ],
-  [
-    "2028–29",
-    "ST",
-    "Liga F",
-    "1st",
-    "",
-    "",
-    "",
-    24,
-    22,
-    0,
-    11
-  ]
-],
+  // Confirmed overview awards: 2025–26 = 0 POTM / 9 MOTM,
+  // 2026–27 = 2 POTM / 11 MOTM, 2027–28 = 2 POTM / 12 MOTM.
+  // Missing seasons remain unknown rather than zero.
+  // These are used only in the Career statistics table on Overview.
+  "careerAwards": {
+    "2025–26": {
+      "playerOfTheMonth": 0,
+      "playerOfTheMatch": 9
+    },
+    "2026–27": {
+      "playerOfTheMonth": 2,
+      "playerOfTheMatch": 11
+    },
+    "2027–28": {
+      "playerOfTheMonth": 2,
+      "playerOfTheMatch": 12
+    }
+  },
   "honours": {
   "🇪🇸 FC Barcelona Femení": [
     "Liga F Championship: 2025–26, 2026–27, 2027–28 🏆🏆🏆",

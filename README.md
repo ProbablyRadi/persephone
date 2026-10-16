@@ -8,6 +8,12 @@ You can open `index.html` directly in a browser, or serve this folder with any s
 
 The site is also suitable for hosting with services such as GitHub Pages.
 
+**After an update:** upload/replace the complete `index.html`, `app.js`, and any
+changed `data/*.js` files together (preserving the `data/` folder). The HTML
+uses versioned script URLs to force the browser to fetch new versions. If the
+live site still shows an old value, reload the page with Ctrl+F5 (or
+Cmd+Shift+R on macOS), and verify the updated files reached the hosting service.
+
 ## Project structure
 
 ```text
@@ -86,6 +92,18 @@ Each character has access to:
 - Individual season pages
 
 The site supports the Wiki, Dracula and Glass themes.
+
+### Head to Head fixture accounting
+
+Head to Head is computed from each character's `FULL_FIXTURES` archive: domestic
+league and cup matches, European club competitions, pre-season friendlies and
+international fixtures. Only matches involving the character's recorded club
+or national team are counted; unrelated tournament fixtures are excluded.
+Overlapping World Cup/Euros fixtures recorded on adjacent season pages are
+counted once. The numbers reflect the supplied team fixtures (including
+fixtures marked as missed through injury), rather than individual player
+appearances. Season placeholders do not generate fictional matches.
+
 
 ## Development
 

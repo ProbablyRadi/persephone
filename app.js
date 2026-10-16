@@ -297,7 +297,17 @@ function careerStatsTable(playerData) {
     ];
     const displayValue = value =>
         value === '' || value == null ? '—' : String(value);
-    const awardsFor = season => (playerData.careerAwards || {})[season] || {};
+    // Season keys in imported sheets may use different kinds of dashes.
+    // Normalize for lookup so verified awards never disappear because a
+    // stats row uses "2025-26" while careerAwards uses "2025–26".
+    const seasonKey = value => String(value || '')
+        .replace(/[‐‑‒–—−]/g, '-')
+        .replace(/\s+/g, '');
+    const awardsBySeason = new Map(
+        Object.entries(playerData.careerAwards || {})
+            .map(([season, counts]) => [seasonKey(season), counts])
+    );
+    const awardsFor = season => awardsBySeason.get(seasonKey(season)) || {};
     const completedRows = rows => rows.filter(row =>
         recordedRows.includes(row)
         && playerData.seasons?.[row[0]]
@@ -597,7 +607,9 @@ function canonicalTeam(teamName) {
     return TEAM_ALIASES[normalizedTeamName] || normalizedTeamName;
 }
 function isInternationalCompetition(comp) {
-    return /World Cup|Euros|Qualif|International Friendlies/i.test(comp);
+    // Only national-team tournaments are international fixtures.
+    // Club competitions can also contain "Qualifiers" in their names.
+    return /^(?:World Cup|Euros)(?:\s+\d{4})?(?:\s+Qualifiers)?$|^International Friendlies$/i.test(comp);
 }
 function careerOpponentRows(id) {
     const seasons = FULL_FIXTURES[id] || {}, rec = new Map(), seenTournament = new Set();

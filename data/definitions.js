@@ -477,6 +477,8 @@ const TEAM_ALIASES = {
     "Milano FC": "AC Milan",
     "Lombardia": "Inter Milan",
     "Lombardia FC": "Inter Milan",
+    "Brighton": "Brighton & Hove",
+    "FC Schalke 04": "Schalke 04",
     "Brighton & Hove Albion": "Brighton & Hove",
     "Man Utd": "Manchester United",
     "Tottenham Hotspurs": "Tottenham",

@@ -112,7 +112,7 @@ DATA.jordan = {
   "dob": "08 August",
   "birth": "Weston-super-Mare, England",
   "height": "1.82 m",
-  "bootBrand": "New Balance",
+  "bootBrand": "Nike", // Confirmed: shown in Jordan Vale's Overview infobox.
   "position": "Goalkeeper",
   "current": "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Bristol City",
   "number": "37 (international: 12, 20, 17, 1)",

@@ -1,3 +1,19 @@
+## 2026-10-17 — Vasi awards and Jordan boot overview verification
+
+- Reconfirmed Vasi's career overview awards: 2025–26 (0 POTM / 9 MOTM), 2026–27 (2 / 11), 2027–28 (2 / 12), completed totals (4 / 32). The 2028–29 award counts are still unknown.
+- Reconfirmed Jordan Vale's boot brand as Nike on the overview infobox.
+- Normalized season-key dashes when looking up career awards, protecting against mismatched `2025-26` and `2025–26` data.
+- Bumped `index.html` versions for Vasi's data, Jordan's data and the page renderer to avoid clients keeping stale cached JavaScript.
+- Added an overview rendering regression check for all three characters to prevent the blank-awards/old-boot issue from recurring. No match results, season totals or Head to Head records changed.
+
+## 2026-10-17 — Head to Head fixture audit
+
+- Audited Rens, Jordan and Vasi against every scored fixture in their supplied season archives, including pre-season, domestic cups, European competitions and national-team matches.
+- Fixed club Champions League qualifiers being classified as international: Rens's 2027–28 Fenerbahçe 3–4 PEC Zwolle result now contributes to his opponent record and appears as a win on the season page.
+- Standardized Brighton's represented-team label to Brighton & Hove; also mapped FC Schalke 04 to the existing Schalke 04 flag and name.
+- Preserved deduplication of overlapping World Cup/Euros match results between adjacent season pages and exclusion of unrelated neutral-tournament fixtures. Did not modify any recorded scores or invent missing fixtures.
+- Source-data note: Rens's 2029–30 Premier League results include two identical Newcastle United 0–0 Brighton & Hove entries (with three Newcastle fixtures and one Manchester United fixture recorded). These entries were left unchanged pending confirmation of the correct result; H2H continues to reflect the supplied archive.
+
 ## 2026-10-16 — Dracula hybrid typography
 
 - Dracula now uses the Wiki/Glass readable UI font (Segoe UI with Arial/Helvetica fallbacks) for paragraphs, statistics, tables, navigation and controls.
