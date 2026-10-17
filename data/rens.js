@@ -141,58 +141,58 @@ DATA.rens = {
   "uefaRoundBreaks": {
     "2026–27|UEFA Champions League": {
       "0": "League phase",
-      "8": "Knockout phase play-off",
-      "18": "Round of 16",
-      "26": "Quarter-finals",
-      "30": "Semi-finals",
+      "8": "Knockout phase play-off (agg)",
+      "18": "Round of 16 (agg)",
+      "26": "Quarter-finals (agg)",
+      "30": "Semi-finals (agg)",
       "32": "Final"
     },
     "2027–28|UEFA Champions League": {
       "0": "League phase",
-      "8": "Knockout phase play-off",
-      "18": "Round of 16",
-      "26": "Quarter-finals",
-      "30": "Semi-finals",
+      "8": "Knockout phase play-off (agg)",
+      "18": "Round of 16 (agg)",
+      "26": "Quarter-finals (agg)",
+      "30": "Semi-finals (agg)",
       "32": "Final"
     },
     "2030–31|UEFA Conference League": {
       "0": "League phase",
-      "6": "Knockout phase play-off",
-      "14": "Round of 16",
-      "22": "Quarter-finals",
-      "26": "Semi-finals",
+      "6": "Knockout phase play-off (agg)",
+      "14": "Round of 16 (agg)",
+      "22": "Quarter-finals (agg)",
+      "26": "Semi-finals (agg)",
       "28": "Final"
     },
     "2031–32|UEFA Champions League": {
       "0": "League phase",
-      "8": "Knockout phase play-off",
-      "16": "Round of 16",
-      "24": "Quarter-finals",
-      "28": "Semi-finals",
+      "8": "Knockout phase play-off (agg)",
+      "16": "Round of 16 (agg)",
+      "24": "Quarter-finals (agg)",
+      "28": "Semi-finals (agg)",
       "30": "Final"
     },
     "2032–33|UEFA Europa League": {
       "0": "League phase",
-      "8": "Knockout phase play-off",
-      "16": "Round of 16",
-      "24": "Quarter-finals",
-      "28": "Semi-finals",
+      "8": "Knockout phase play-off (agg)",
+      "16": "Round of 16 (agg)",
+      "24": "Quarter-finals (agg)",
+      "28": "Semi-finals (agg)",
       "30": "Final"
     },
     "2033–34|UEFA Champions League": {
       "0": "League phase",
-      "8": "Knockout phase play-off",
-      "16": "Round of 16",
-      "24": "Quarter-finals",
-      "28": "Semi-finals",
+      "8": "Knockout phase play-off (agg)",
+      "16": "Round of 16 (agg)",
+      "24": "Quarter-finals (agg)",
+      "28": "Semi-finals (agg)",
       "30": "Final"
     },
     "2034–35|UEFA Champions League": {
       "0": "League phase",
-      "8": "Knockout phase play-off",
-      "16": "Round of 16",
-      "24": "Quarter-finals",
-      "28": "Semi-finals",
+      "8": "Knockout phase play-off (agg)",
+      "16": "Round of 16 (agg)",
+      "24": "Quarter-finals (agg)",
+      "28": "Semi-finals (agg)",
       "29": "Final"
     },
     "2032–33|Euros 2032": {

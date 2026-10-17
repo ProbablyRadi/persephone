@@ -1,6 +1,6 @@
 # FC26 Career Wiki
 
-A static FC26 career-mode archive/wiki for four custom career characters.
+A static FC26 career-mode archive/wiki for three custom career characters.
 
 ## Running the site
 
@@ -21,6 +21,8 @@ site/
 ├── index.html
 ├── app.js
 ├── styles.css
+├── favicon.svg          # Football icon for modern browsers
+├── favicon.ico          # Fallback tab icon
 ├── README.md
 ├── assets/
 └── data/
@@ -68,6 +70,32 @@ Every character file (`rens.js`, `jordan.js`, `vasi.js`) now has the **same five
 Subheadings inside `DATA.<player>` identify player details, career records, honours and season summaries. Season labels throughout the other sections are comments for navigation; they are **not** extra data and have no effect on the website. Some fields appear only for certain players when needed, such as additional timeline data or future overview placeholders.
 
 The website still loads the five data files as ordinary JavaScript using `index.html`. No folders were split, no imports/exports were added, and `app.js` uses the same structures as before.
+
+### European knockout ties and Head to Head
+
+In the Champions League, Europa League, Conference League and Women's Champions League,
+knockout **play-offs**, **Round of 16**, **quarter-finals** and **semi-finals** are
+labelled `(agg)` when they are shown as two-legged ties. League-phase matches
+and finals are single fixtures. The club qualifiers and play-offs that are
+separate competition sections also use `(agg)`.
+
+Fixture lists in `FULL_FIXTURES` retain their original scores. The H2H logic in
+`app.js` interprets those records as follows:
+
+- An **aggregate-only** score counts as **two matches**, with aggregate goals
+  added **once**, not twice.
+- If the data lists **both individual legs** plus a duplicate aggregate total,
+  H2H counts only the two actual games; the summary adds no extra match.
+- Where individual legs were **not recorded**, their precise W/D/L outcomes
+  cannot be reconstructed from the total. The table uses the aggregate tie's
+  outcome for **both legs as a provisional W/D/L estimate**. If real leg scores
+  become available, record both legs to replace that estimate.
+- International World Cup/Euros knockout rounds are always single matches and
+  are **not** affected by aggregate accounting.
+
+The `tests/verify-h2h.js` regression test checks both the `(agg)` labels and
+correct two-leg handling. New season data should preserve accurate
+`DATA.<player>.uefaRoundBreaks` positions for its competition stages.
 
 ### Career-overview statistics and awards
 

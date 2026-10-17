@@ -1,3 +1,23 @@
+## 2026-10-17 — Football favicon
+
+- Added a small black-and-white football favicon for the browser tab.
+- Included both a scalable `favicon.svg` and a multi-size `favicon.ico` fallback.
+- Linked the icons in `index.html`; no player data, themes, or match logic changed.
+
+### UEFA aggregate knockout labelling and H2H accounting (17 October 2026)
+
+- Labelled all recorded UEFA club knockout play-offs, Round of 16,
+  quarter-finals and semi-finals with `(agg)`; the final and league phase
+  remain single matches.
+- Standardised Vasi's Women's Champions League round headings to the same labels.
+- Counted aggregate-only ties as two Head to Head matches without doubling
+  their total goals, and removed duplicate aggregate summaries where both
+  individual legs were already recorded.
+- Kept a note explaining that W/D/L per leg is estimated from the aggregate
+  result where the individual legs were never supplied.
+- Extended H2H regression tests to cover the round headings and representative
+  two-legged ties across all three careers.
+
 ## 2026-10-17 — Player data file readability and section labels
 
 - Standardised the formatting of Rens, Jordan and Vasi's single-file character archives.

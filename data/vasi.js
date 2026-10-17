@@ -64,30 +64,30 @@ DATA.vasi = {
   "uefaRoundBreaks": {
     "2025–26|UEFA Women's Champions League": {
       "0": "League phase",
-      "6": "Playoff (agg)",
-      "10": "Quarter Finals (agg)",
-      "14": "Semi Finals (agg)",
+      "6": "Knockout phase play-off (agg)",
+      "10": "Quarter-finals (agg)",
+      "14": "Semi-finals (agg)",
       "16": "Final"
     },
     "2026–27|UEFA Women's Champions League": {
       "0": "League phase",
-      "6": "Playoff (agg)",
-      "10": "Quarter Finals (agg)",
-      "14": "Semi Finals (agg)",
+      "6": "Knockout phase play-off (agg)",
+      "10": "Quarter-finals (agg)",
+      "14": "Semi-finals (agg)",
       "16": "Final"
     },
     "2027–28|UEFA Women's Champions League": {
       "0": "League phase",
-      "6": "Playoff (agg)",
-      "10": "Quarter Finals (agg)",
-      "14": "Semi Finals (agg)",
+      "6": "Knockout phase play-off (agg)",
+      "10": "Quarter-finals (agg)",
+      "14": "Semi-finals (agg)",
       "16": "Final"
     },
     "2028–29|UEFA Women's Champions League": {
       "0": "League phase",
-      "6": "Playoff (agg)",
-      "10": "Quarter Finals (agg)",
-      "14": "Semi Finals (agg)",
+      "6": "Knockout phase play-off (agg)",
+      "10": "Quarter-finals (agg)",
+      "14": "Semi-finals (agg)",
       "16": "Final"
     }
   },

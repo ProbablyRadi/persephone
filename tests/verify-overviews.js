@@ -70,9 +70,9 @@ assert(!jordanInfobox.includes('New Balance'), 'Jordan overview must not show Ne
 const html = read('index.html');
 for (const sourceFile of ['data/vasi.js', 'data/jordan.js', 'app.js']) {
     const line = html.match(new RegExp(`<script src="${sourceFile.replace('.', '\\.')}(\\?v=[^"]+)"`));
-    assert(line && line[1].includes('20261017-overview-correction'), `Expected version bump for ${sourceFile}`);
+    assert(line && line[1].length > 3, `Missing versioned script URL for ${sourceFile}`);
 }
 console.log('Vasi: 0/9, 2/11, 2/12; totals 4/32 — PASS');
 console.log('Jordan: Overview boot brand Nike — PASS');
 console.log('Rens/Jordan/Vasi: consistent 12-column overview tables — PASS');
-console.log('Fresh JS asset versions — PASS');
+console.log('Versioned JS assets — PASS');

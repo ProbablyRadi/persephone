@@ -611,13 +611,73 @@ function isInternationalCompetition(comp) {
     // Club competitions can also contain "Qualifiers" in their names.
     return /^(?:World Cup|Euros)(?:\s+\d{4})?(?:\s+Qualifiers)?$|^International Friendlies$/i.test(comp);
 }
+// All UEFA club knockout rounds (apart from the one-match final) are two-legged.
+// A row with an aggregate score can represent both games; occasionally, as with
+// Rens's Juventus and Inter Milan ties, the sheet also includes BOTH leg scores
+// and a third, duplicate aggregate-summary row.
+function uefaAggregateRound(comp, stage) {
+    const isUefaClub = /(?:Champions League|Europa League|Conference League)/i.test(comp);
+    return isUefaClub && (/\(agg(?:regate)?\)/i.test(stage) || /\(agg(?:regate)?\)/i.test(comp));
+}
+
+function h2hFixtureWeights(id, season, comp, items, focal) {
+    const breaks = tournamentRounds(comp, items, id, season);
+    const weights = items.map(() => 1);
+    const groups = new Map();
+    let stage = '';
+
+    items.forEach((raw, index) => {
+        if (breaks[index])
+            stage = breaks[index];
+        if (!uefaAggregateRound(comp, stage))
+            return;
+        const fixture = parseFixture(raw);
+        if (!fixture.home)
+            return;
+        const focalHome = sameTeam(fixture.home, focal);
+        if (!focalHome && !sameTeam(fixture.away, focal))
+            return;
+        const opponent = canonicalTeam(focalHome ? fixture.away : fixture.home);
+        const key = `${stage}|${opponent.toLowerCase()}`;
+        if (!groups.has(key))
+            groups.set(key, []);
+        groups.get(key).push({
+            index, raw, gf: focalHome ? fixture.hg : fixture.ag,
+            ga: focalHome ? fixture.ag : fixture.hg,
+        });
+    });
+
+    for (const group of groups.values()) {
+        if (group.length === 1) {
+            // Only the aggregate result was supplied; it covers two matches.
+            weights[group[0].index] = 2;
+        } else if (group.length === 3) {
+            // If two reported legs sum to the third score, the third is only
+            // a summary of the tie. Keep the two actual games, not a third.
+            const summary = group.find(candidate => {
+                const legs = group.filter(row => row !== candidate);
+                return legs[0].gf + legs[1].gf === candidate.gf
+                    && legs[0].ga + legs[1].ga === candidate.ga;
+            });
+            if (summary)
+                weights[summary.index] = 0;
+        }
+        // Two rows for the same opponent in this stage are already two legs.
+    }
+    return weights;
+}
+
 function careerOpponentRows(id) {
     const seasons = FULL_FIXTURES[id] || {}, rec = new Map(), seenTournament = new Set();
     Object.entries(seasons).forEach(([season, competitions]) => Object.entries(competitions || {}).forEach(([comp, items]) => {
         const focal = focalFor(id, season, comp);
         if (!focal)
             return;
-        (items || []).forEach(raw => {
+        const weights = h2hFixtureWeights(id, season, comp, items || [], focal);
+        (items || []).forEach((raw, index) => {
+            const matchCount = weights[index];
+            if (!matchCount)
+                return;
             const fixture = parseFixture(raw);
             if (!fixture.home)
                 return;
@@ -637,22 +697,22 @@ function careerOpponentRows(id) {
                     opponent, played: 0, wins: 0, draws: 0, losses: 0, gf: 0, ga: 0, seasons: new Set(), represented: new Set(), international: 0, club: 0
                 });
             const opponentRecord = rec.get(key), matchOutcome = outcome(fixture, focal);
-            opponentRecord.played++;
+            opponentRecord.played += matchCount;
             opponentRecord.seasons.add(season);
             opponentRecord.represented.add(canonicalTeam(focal));
             if (isInternationalCompetition(comp))
-                opponentRecord.international++;
+                opponentRecord.international += matchCount;
             else
-                opponentRecord.club++;
+                opponentRecord.club += matchCount;
             const gf = focalHome ? fixture.hg : fixture.ag, ga = focalHome ? fixture.ag : fixture.hg;
             opponentRecord.gf += gf;
             opponentRecord.ga += ga;
             if (matchOutcome === 'win')
-                opponentRecord.wins++;
+                opponentRecord.wins += matchCount;
             else if (matchOutcome === 'loss')
-                opponentRecord.losses++;
+                opponentRecord.losses += matchCount;
             else
-                opponentRecord.draws++;
+                opponentRecord.draws += matchCount;
         });
     }));
     return [
@@ -674,7 +734,7 @@ function careerAnalysis(id) {
     nav.innerHTML = careerNavigator(id, '', 'analysis');
     let body = rows.map((opponentRecord, rowIndex) => `<tr><td class="rank">${rowIndex + 1}</td><td class="flag">${teamFlag(opponentRecord.opponent)}</td><td class="opponent">${esc(opponentRecord.opponent)}</td><td class="represented">${esc(opponentRecord.representedLabel)}</td><td>${opponentRecord.type}</td><td class="num">${opponentRecord.played}</td><td class="num">${opponentRecord.wins}</td><td class="num">${opponentRecord.draws}</td><td class="num">${opponentRecord.losses}</td><td class="num">${opponentRecord.gf}</td><td class="num">${opponentRecord.ga}</td><td class="num">${opponentRecord.gd > 0 ? '+' : ''}${opponentRecord.gd}</td><td class="num">${opponentRecord.winPct.toFixed(1)}%</td></tr>`).join('');
     const rate = totals.played ? 100 * totals.wins / totals.played : 0;
-    app.innerHTML = `<p><a href="#${id}">← ${playerData.name}</a></p><h1>${playerData.flag} ${playerData.name.split(' ')[0]} vs Teams</h1><p class="lede">Combined head-to-head record against every opponent across ${playerData.name}'s recorded career, regardless of which club or national team ${playerData.name.split(' ')[0]} was representing. Ranked by most wins by default.</p><div class="analysis-summary"><div><b>${rows.length}</b><span>Opponents</span></div><div><b>${totals.played}</b><span>Matches</span></div><div><b>${totals.wins}</b><span>Wins</span></div><div><b>${totals.draws}</b><span>Draws</span></div><div><b>${totals.losses}</b><span>Losses</span></div><div><b>${rate.toFixed(1)}%</b><span>Win rate</span></div></div><div class="note analysis-note">Penalty shoot-outs are treated as wins or losses for the result record; goals for/against use the match score before the shoot-out. Repeated World Cup/Euros fixtures carried over between adjacent season pages are counted once.</div><div class="table-scroll"><table class="wikitable analysis-table"><thead><tr><th>#</th><th></th><th>Opponent</th><th>Represented</th><th>Type</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Win %</th></tr></thead><tbody>${body}</tbody></table></div>`;
+    app.innerHTML = `<p><a href="#${id}">← ${playerData.name}</a></p><h1>${playerData.flag} ${playerData.name.split(' ')[0]} vs Teams</h1><p class="lede">Combined head-to-head record against every opponent across ${playerData.name}'s recorded career, regardless of which club or national team ${playerData.name.split(' ')[0]} was representing. Ranked by most wins by default.</p><div class="analysis-summary"><div><b>${rows.length}</b><span>Opponents</span></div><div><b>${totals.played}</b><span>Matches</span></div><div><b>${totals.wins}</b><span>Wins</span></div><div><b>${totals.draws}</b><span>Draws</span></div><div><b>${totals.losses}</b><span>Losses</span></div><div><b>${rate.toFixed(1)}%</b><span>Win rate</span></div></div><div class="note analysis-note">Penalty shoot-outs are treated as wins or losses for the result record; goals for/against use the match score before the shoot-out. Repeated World Cup/Euros fixtures carried over between adjacent season pages are counted once. Two-legged UEFA ties count as two matches; where only an aggregate score is supplied, its result is applied to both legs for W/D/L estimates, while GF/GA use the aggregate goals just once. When individual legs are recorded, their actual results are used instead.</div><div class="table-scroll"><table class="wikitable analysis-table"><thead><tr><th>#</th><th></th><th>Opponent</th><th>Represented</th><th>Type</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Win %</th></tr></thead><tbody>${body}</tbody></table></div>`;
 }
 function timelinePlayerKey(name) {
     return String(name || '')
