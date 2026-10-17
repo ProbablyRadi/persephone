@@ -1,3 +1,9 @@
+## 2026-10-17 — Restore alphabetical flag-column sorting
+
+- Restored alphabetical sorting for flag and nationality columns in squad, standings and Head to Head tables after emoji flags were replaced by local image files.
+- Sorting now uses the country's name from its local flag asset (for example, Belgium, Netherlands, Paraguay), rather than the empty text content of an image-only cell.
+- Kept the flag artwork, player data, match results and sorting of other columns unchanged; refreshed the `app.js` cache version.
+
 ## 2026-10-17 — Confirm three Manchester United squad nationalities
 
 - Set Florian Daems to **Belgium**, Rik Dekker to **the Netherlands**, and Mauricio to **Paraguay** in Jordan's 2029–30 Manchester United squad.

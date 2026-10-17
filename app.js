@@ -1247,11 +1247,34 @@ function season(id, seasonName) {
     const stat = statForSeason(playerData, seasonName), club = meta && meta.club ? meta.club : (stat ? cleanClubLabel(stat[1]) : ''), league = meta && meta.league ? meta.league : (stat ? stat[3] : '');
     app.innerHTML = `<div class="season-page"><section class="season-hero" id="season-overview"><div class="season-breadcrumb"><a href="#${id}">${esc(playerData.name)}</a><span>›</span><span>${seasonName}</span></div><div class="season-title-row"><div><div class="season-eyebrow">${club ? `${teamFlag(club)} ${esc(club)}` : 'Career season'}</div><h1>${seasonName}</h1><p class="season-subtitle">${league ? esc(league) + ' · ' : ''}${esc(playerData.name)}${seasonData.inProgress ? ' · In progress' : ''}</p></div>${seasonData.inProgress ? '<span class="season-live">In progress</span>' : ''}</div><p class="lede season-summary">${seasonData.summary}</p>${seasonStatStrip(playerData, seasonName, seasonData, meta)}<div class="season-record"><span>League record</span><b>${seasonData.table}</b></div></section>${jump}${dataTables}<div class="season-results-head"><div><div class="panel-kicker">Match archive</div><h2>Competitions & results</h2></div><p>Green = win, amber = draw, red = loss. Grey marks tournament results not involving the player's team.</p></div>${blocks || '<p>No scored fixtures have been recorded yet.</p>'}</div>`;
 }
+function flagSortName(assetPath) {
+    // Local flag filenames give the country name even when the cell
+    // contains only an image (and therefore has no visible text).
+    const fileName = String(assetPath || '').split('/').pop().split('?')[0];
+    return fileName.replace(/\.[^.]+$/, '').replace(/-/g, ' ');
+}
 function tableCellValue(row, index) {
     const cell = row.cells[index];
     if (!cell)
         return '';
-    return (cell.dataset.sortValue || cell.textContent || '').trim();
+    if (cell.dataset.sortValue)
+        return cell.dataset.sortValue.trim();
+
+    // Flag images deliberately have empty alt text, so textContent is blank.
+    // Sort nationality/flag columns by country name instead of image markup.
+    if (cell.classList.contains('flag') || cell.classList.contains('player-nation')) {
+        const image = cell.querySelector('img.country-flag');
+        if (image)
+            return flagSortName(image.getAttribute('src'));
+
+        // The same order applies if the visitor sorts before emoji -> image
+        // replacement has finished (or if the images fail to load).
+        const emoji = (cell.textContent || '').trim();
+        if (typeof FLAG_ASSETS !== 'undefined' && FLAG_ASSETS[emoji])
+            return flagSortName(FLAG_ASSETS[emoji]);
+    }
+
+    return (cell.textContent || '').trim();
 }
 function sortableValue(value) {
     const raw = String(value || '').trim().replace(/,/g, '');

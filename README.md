@@ -140,6 +140,8 @@ Each character has access to:
 
 The site supports the Wiki, Dracula and Glass themes.
 
+Flag and nationality columns in sortable tables are ordered alphabetically by country name, even though the displayed flags are local PNG images.
+
 ### Head to Head fixture accounting
 
 Head to Head is computed from each character's `FULL_FIXTURES` archive: domestic
@@ -164,6 +166,8 @@ Run the automated checks with Node.js from the project directory:
 node tests/verify-h2h.js
 node tests/verify-overviews.js
 node tests/verify-jordan-2028.js
+node tests/verify-jordan-2029.js
+node tests/verify-flag-sorting.js
 ```
 
 Jordan's 2028–29 **Champions Trophy** pre-season fixtures use the same
@@ -183,7 +187,7 @@ The current example is Jordan Vale's **2029–30 Manchester United** season in `
 - Add the new season under `DATA.jordan.seasons` with `inProgress: true`, and add a season row to `DATA.jordan.stats` using empty strings for statistics not yet known. Do not use `0` until the figure is confirmed.
 - Add competition names with empty arrays in `FULL_FIXTURES.jordan`; they display **No fixtures recorded yet** until results are added.
 - Add a `SEASON_TABLES.jordan` entry with the club name, league, a blank standing row, and the squad sheet. Each player row uses `[position, number, name, appearances, goals, assists, clean sheets]`.
-- Add nationalities to `DATA.jordan.squadFlags` only when known. Currently Florian Daems, Rik Dekker and Mauricio are awaiting confirmation, so their flag cells are intentionally blank.
+- Add nationalities to `DATA.jordan.squadFlags` only when known. Florian Daems (Belgium), Rik Dekker (Netherlands) and Mauricio (Paraguay) have confirmed flags.
 - The Timeline reads the new season's club and squad. The Career Overview excludes in-progress statistics from completed career totals, and Head to Head does not gain matches from empty fixture arrays.
 
 Run `node tests/verify-jordan-2029.js` after making season changes.
