@@ -1,3 +1,10 @@
+## 2026-10-17 — Player data file readability and section labels
+
+- Standardised the formatting of Rens, Jordan and Vasi's single-file character archives.
+- Gave each file the same five numbered sections, labelled subsections within `DATA`, and season markers within the major season archives.
+- Expanded inconsistently indented blocks and compact rows into consistent, readable formatting; kept every field, season, match result, statistic and original key order unchanged.
+- Added a section reference guide to `README.md`. No changes to website logic, appearance or player data values.
+
 ## 2026-10-17 — Vasi awards and Jordan boot overview verification
 
 - Reconfirmed Vasi's career overview awards: 2025–26 (0 POTM / 9 MOTM), 2026–27 (2 / 11), 2027–28 (2 / 12), completed totals (4 / 32). The 2028–29 award counts are still unknown.

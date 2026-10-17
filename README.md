@@ -53,6 +53,22 @@ COMPETITION_TABLES
 
 Keeping each character's information in one file makes it easier to find and edit their profile, career stats, fixtures, league tables, squad sheets and competition tables without changing the interface used by `app.js`.
 
+### Finding information in a character file
+
+Every character file (`rens.js`, `jordan.js`, `vasi.js`) now has the **same five numbered sections**, in the same order. Search for a section heading or a season such as `// 2028–29`:
+
+| Section | JavaScript object | What to edit |
+| --- | --- | --- |
+| 01 — Profile, career and season summaries | `DATA.<player>` | Identity, biography, club career, international career, career statistics, awards, honours and season summaries |
+| 02 — Match results | `FULL_FIXTURES.<player>` | Fixtures organised by season and competition (also powers Head to Head) |
+| 03 — League tables and squads | `SEASON_TABLES.<player>` | Domestic league standings and squad lists |
+| 04 — Pre-season tables | `PRESEASON_TABLES.<player>` | Friendly/pre-season competition tables |
+| 05 — Other competition tables | `COMPETITION_TABLES.<player>` | European and other tournament standings |
+
+Subheadings inside `DATA.<player>` identify player details, career records, honours and season summaries. Season labels throughout the other sections are comments for navigation; they are **not** extra data and have no effect on the website. Some fields appear only for certain players when needed, such as additional timeline data or future overview placeholders.
+
+The website still loads the five data files as ordinary JavaScript using `index.html`. No folders were split, no imports/exports were added, and `app.js` uses the same structures as before.
+
 ### Career-overview statistics and awards
 
 The career-statistics table on every player's **Overview** page is generated from

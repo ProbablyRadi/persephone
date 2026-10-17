@@ -1,10 +1,19 @@
-// ================================================================
-// Rens Adisea
-// Everything specific to this character lives in this file.
-// ================================================================
+// ============================================================================
+// RENS ADISEA — PLAYER DATA
+//
+// All information for this character stays in this one file.
+// Each player uses the same five sections in the same order.
+// The assignments below are read by app.js; do not rename them.
+// ============================================================================
 
-// Profile, career history, season summaries and overview statistics.
+// ============================================================================
+// 01 — PROFILE, CAREER AND SEASON SUMMARIES
+// DATA.rens
+// Identity, biography, overview statistics, honours and season descriptions.
+// ============================================================================
 DATA.rens = {
+  // IDENTITY AND IMAGES
+  // Name, country, club crest, and site artwork.
   "name": "Rens Wilhelm Adisea",
   "displayName": "Rens Adisea",
   "flag": "🇳🇱",
@@ -12,6 +21,9 @@ DATA.rens = {
   "squadFocusName": "Rens Adisea",
   "homeCrest": "https://www.clipartmax.com/png/middle/84-847485_maks-timurov-logo-borussia-dortmund-512-512-dls-17.png",
   "portrait": "assets/portraits/rens.png",
+
+  // DISPLAY AND TIMELINE HELPERS
+  // Squad nationality flags, timeline overrides and competition round markers.
   "squadFlags": {
     "Jasper Schendelaar": "🇳🇱",
     "Tom de Graaff": "🇳🇱",
@@ -200,6 +212,9 @@ DATA.rens = {
       "34": "Final"
     }
   },
+
+  // PLAYER DETAILS
+  // Personal information shown in the Overview infobox.
   "dob": "01 January",
   "birth": "Zandvoort, Netherlands",
   "height": "1.80 m",
@@ -208,6 +223,9 @@ DATA.rens = {
   "current": "🇩🇪 Borussia Dortmund",
   "number": "46",
   "international": "🇳🇱 Netherlands (2031–)",
+
+  // BIOGRAPHY AND CAREER OVERVIEW
+  // Biography, club history, national-team record, season statistics and awards.
   "intro": [
     "Rens Wilhelm Adisea is a Dutch professional footballer who plays as an attacking midfielder for Bundesliga club Borussia Dortmund and the Netherlands national team. Born in Zandvoort, Adisea began his senior career with PEC Zwolle in 2025 and established himself as a prolific attacking midfielder during three seasons in the Eredivisie. He chose 46 as his personal squad number early in his career and has consistently refused to wear the traditional number 10; over time, the number 46 became closely associated with him.",
     "In 2028, Adisea joined Brighton & Hove Albion, where he spent five seasons and helped the club win the Premier League in 2030–31. His time in England also brought UEFA Conference League and UEFA Europa League titles, as well as the FA Cup, Carabao Cup and two FA Community Shields. He moved to Bayern Munich in 2033 and won consecutive Bundesliga, DFB-Pokal and UEFA Champions League titles. Despite that sustained success, Adisea chose to leave Bayern in 2035, saying he wanted a greater challenge rather than continuing with a side expected to win every season, and joined Borussia Dortmund.",
@@ -245,6 +263,8 @@ DATA.rens = {
     41,
     31
   ],
+  // Row order: season, club, role, league, league position,
+  // average rating, appearances, goals, assists, clean sheets.
   "stats": [
     [
       "2025–26",
@@ -379,29 +399,98 @@ DATA.rens = {
       "—"
     ]
   ],
-  // Supplied career-overview awards. Only completed seasons have known counts.
+  // Overview-only POTM/MOTM awards, keyed by season.
+  // Missing values mean unknown; use 0 only when confirmed.
   "careerAwards": {
-    "2025–26": { "playerOfTheMonth": 4, "playerOfTheMatch": 12 },
-    "2026–27": { "playerOfTheMonth": 3, "playerOfTheMatch": 18 },
-    "2027–28": { "playerOfTheMonth": 1, "playerOfTheMatch": 11 },
-    "2028–29": { "playerOfTheMonth": 0, "playerOfTheMatch": 4 },
-    "2029–30": { "playerOfTheMonth": 4, "playerOfTheMatch": 16 },
-    "2030–31": { "playerOfTheMonth": 4, "playerOfTheMatch": 19 },
-    "2031–32": { "playerOfTheMonth": 4, "playerOfTheMatch": 8 },
-    "2032–33": { "playerOfTheMonth": 0, "playerOfTheMatch": 15 },
-    "2033–34": { "playerOfTheMonth": 3, "playerOfTheMatch": 12 },
-    "2034–35": { "playerOfTheMonth": 1, "playerOfTheMatch": 11 }
+    "2025–26": {
+      "playerOfTheMonth": 4,
+      "playerOfTheMatch": 12
+    },
+    "2026–27": {
+      "playerOfTheMonth": 3,
+      "playerOfTheMatch": 18
+    },
+    "2027–28": {
+      "playerOfTheMonth": 1,
+      "playerOfTheMatch": 11
+    },
+    "2028–29": {
+      "playerOfTheMonth": 0,
+      "playerOfTheMatch": 4
+    },
+    "2029–30": {
+      "playerOfTheMonth": 4,
+      "playerOfTheMatch": 16
+    },
+    "2030–31": {
+      "playerOfTheMonth": 4,
+      "playerOfTheMatch": 19
+    },
+    "2031–32": {
+      "playerOfTheMonth": 4,
+      "playerOfTheMatch": 8
+    },
+    "2032–33": {
+      "playerOfTheMonth": 0,
+      "playerOfTheMatch": 15
+    },
+    "2033–34": {
+      "playerOfTheMonth": 3,
+      "playerOfTheMatch": 12
+    },
+    "2034–35": {
+      "playerOfTheMonth": 1,
+      "playerOfTheMatch": 11
+    }
   },
-  // Planned overview rows from the supplied table; not played seasons.
+  // Future overview placeholders only: not playable seasons or fixtures.
   "careerOverviewFutureRows": [
-    ["2039–40", "🇳🇱 PEC Zwolle", "CAM", "Eredivisie"],
-    ["2040–41", "🇳🇱 PEC Zwolle", "CAM", "Eredivisie"],
-    ["2041–42", "🇳🇱 PEC Zwolle", "CAM", "Eredivisie"],
-    ["2042–43", "🇳🇱 PEC Zwolle", "CAM", "Eredivisie"],
-    ["2036–37", "🇩🇪 Dortmund", "RAM", "Bundesliga"],
-    ["2037–38", "🇩🇪 Dortmund", "RAM", "Bundesliga"],
-    ["2038–39", "🇩🇪 Dortmund", "RAM", "Bundesliga"]
+    [
+      "2039–40",
+      "🇳🇱 PEC Zwolle",
+      "CAM",
+      "Eredivisie"
+    ],
+    [
+      "2040–41",
+      "🇳🇱 PEC Zwolle",
+      "CAM",
+      "Eredivisie"
+    ],
+    [
+      "2041–42",
+      "🇳🇱 PEC Zwolle",
+      "CAM",
+      "Eredivisie"
+    ],
+    [
+      "2042–43",
+      "🇳🇱 PEC Zwolle",
+      "CAM",
+      "Eredivisie"
+    ],
+    [
+      "2036–37",
+      "🇩🇪 Dortmund",
+      "RAM",
+      "Bundesliga"
+    ],
+    [
+      "2037–38",
+      "🇩🇪 Dortmund",
+      "RAM",
+      "Bundesliga"
+    ],
+    [
+      "2038–39",
+      "🇩🇪 Dortmund",
+      "RAM",
+      "Bundesliga"
+    ]
   ],
+
+  // HONOURS
+  // Team titles and individual awards.
   "honours": {
     "🇳🇱 PEC Zwolle": [
       "KNVB Oranje Beker: 2027–28 🏆",
@@ -433,7 +522,11 @@ DATA.rens = {
       "UEFA Euro semi-finals: 2032"
     ]
   },
+
+  // SEASON SUMMARIES
+  // Descriptions and selected competition highlights for each season.
   "seasons": {
+    // 2025–26
     "2025–26": {
       "summary": "PEC Zwolle finished 2nd in the Eredivisie with 68 points. Rens recorded 28 appearances, 26 goals and 10 assists.",
       "competitions": {
@@ -457,6 +550,7 @@ DATA.rens = {
       },
       "table": "2nd — 34 P, 21 W, 5 D, 8 L, 72 GF, 33 GA, +39, 68 pts"
     },
+    // 2026–27
     "2026–27": {
       "summary": "PEC Zwolle finished 3rd. Rens scored 35 goals in 43 appearances and the club reached the KNVB semi-final.",
       "competitions": {
@@ -473,6 +567,7 @@ DATA.rens = {
       },
       "table": "3rd — 68 pts"
     },
+    // 2027–28
     "2027–28": {
       "summary": "Rens ended his first PEC spell by winning the KNVB Oranje Beker.",
       "competitions": {
@@ -490,6 +585,7 @@ DATA.rens = {
       },
       "table": "6th — 55 pts"
     },
+    // 2028–29
     "2028–29": {
       "summary": "First Brighton season: 8th in the Premier League; 15 goals in 20 appearances.",
       "competitions": {
@@ -500,6 +596,7 @@ DATA.rens = {
       },
       "table": "8th — 62 pts"
     },
+    // 2029–30
     "2029–30": {
       "summary": "Brighton finished 5th and won the Carabao Cup.",
       "competitions": {
@@ -517,6 +614,7 @@ DATA.rens = {
       },
       "table": "5th — 67 pts"
     },
+    // 2030–31
     "2030–31": {
       "summary": "Premier League and UEFA Conference League double; Carabao Cup runner-up.",
       "competitions": {
@@ -536,6 +634,7 @@ DATA.rens = {
       },
       "table": "1st 🏆 — 91 pts"
     },
+    // 2031–32
     "2031–32": {
       "summary": "Brighton won the FA Cup and Community Shield.",
       "competitions": {
@@ -558,6 +657,7 @@ DATA.rens = {
       },
       "table": "5th — 65 pts"
     },
+    // 2032–33
     "2032–33": {
       "summary": "Brighton finished 4th and won the UEFA Europa League.",
       "competitions": {
@@ -577,6 +677,7 @@ DATA.rens = {
       },
       "table": "4th — 69 pts"
     },
+    // 2033–34
     "2033–34": {
       "summary": "First Bayern season: Bundesliga, DFB-Pokal and Champions League treble plus two super cups.",
       "competitions": {
@@ -611,6 +712,7 @@ DATA.rens = {
       },
       "table": "1st 🏆 — 82 pts"
     },
+    // 2034–35
     "2034–35": {
       "summary": "Bayern retained the Bundesliga, DFB-Pokal and Champions League; Netherlands won the World Cup.",
       "competitions": {
@@ -629,6 +731,7 @@ DATA.rens = {
       },
       "table": "1st 🏆 — 81 pts"
     },
+    // 2035–36
     "2035–36": {
       "inProgress": true,
       "summary": "First Borussia Dortmund season — currently in progress.",
@@ -650,8 +753,13 @@ DATA.rens = {
   }
 };
 
-// Match-by-match fixtures used by season pages and Head to Head.
+// ============================================================================
+// 02 — MATCH RESULTS
+// FULL_FIXTURES.rens
+// Recorded fixtures grouped by season and competition; also used for Head to Head.
+// ============================================================================
 FULL_FIXTURES.rens = {
+  // 2025–26
   "2025–26": {
     "Pre-season friendlies": [
       "PEC Zwolle 0 - 0 Blackpool",
@@ -699,6 +807,7 @@ FULL_FIXTURES.rens = {
       "F — PSV 2 - 1 Feyenoord"
     ]
   },
+  // 2026–27
   "2026–27": {
     "Pre-season friendlies": [
       "PEC Zwolle 3 - 0 Blackpool",
@@ -783,6 +892,7 @@ FULL_FIXTURES.rens = {
       "Manchester City 1 - 3 Paris SG"
     ]
   },
+  // 2027–28
   "2027–28": {
     "Pre-season friendlies": [
       "PEC Zwolle 3 - 0 Bolton",
@@ -888,6 +998,7 @@ FULL_FIXTURES.rens = {
       "Liverpool 2 - 1 SSC Napoli"
     ]
   },
+  // 2028–29
   "2028–29": {
     "Premier League": [
       "Wolves 0 - 2 Brighton & Hove",
@@ -914,6 +1025,7 @@ FULL_FIXTURES.rens = {
       "Brighton & Hove 3 - 4 Reading"
     ]
   },
+  // 2029–30
   "2029–30": {
     "Pre-season friendlies": [
       "Brighton & Hove 2 - 0 Bergamo Calcio",
@@ -977,6 +1089,7 @@ FULL_FIXTURES.rens = {
       "F — Chelsea 2 - 0 AFC Bournemouth"
     ]
   },
+  // 2030–31
   "2030–31": {
     "Pre-season friendlies": [
       "Brighton & Hove 1 -  0 FC Barcelona",
@@ -1067,6 +1180,7 @@ FULL_FIXTURES.rens = {
       "Brighton & Hove 3 - 0 Real Sociedad"
     ]
   },
+  // 2031–32
   "2031–32": {
     "Pre-season friendlies": [
       "Brighton & Hove 3 - 1 SSC Napoli",
@@ -1168,6 +1282,7 @@ FULL_FIXTURES.rens = {
       "Netherlands 4 - 1 Morocco"
     ]
   },
+  // 2032–33
   "2032–33": {
     "Pre-season friendlies": [
       "Brighton & Hove 1 - 2 Villareal CF",
@@ -1290,6 +1405,7 @@ FULL_FIXTURES.rens = {
       "Haiti 1 - 3 Netherlands"
     ]
   },
+  // 2033–34
   "2033–34": {
     "Pre-season friendlies": [
       "FC Bayern München 6 - 0 Südtirol",
@@ -1386,6 +1502,7 @@ FULL_FIXTURES.rens = {
       "Ghana 1 - 3 Netherlands"
     ]
   },
+  // 2034–35
   "2034–35": {
     "Pre-season friendlies": [
       "FC Bayern München 5 - 0 Newcastle Jets",
@@ -1509,6 +1626,7 @@ FULL_FIXTURES.rens = {
       "Belgium 0 - 4 Netherlands"
     ]
   },
+  // 2035–36
   "2035–36": {
     "Pre-season friendlies": [
       "Borussia Dortmund 5 - 0 Inter Milan",
@@ -1525,8 +1643,13 @@ FULL_FIXTURES.rens = {
   }
 };
 
-// Domestic league standings and squad / player sheets.
+// ============================================================================
+// 03 — LEAGUE TABLES AND SQUADS
+// SEASON_TABLES.rens
+// League standings and season squad sheets.
+// ============================================================================
 SEASON_TABLES.rens = {
+  // 2025–26
   "2025–26": {
     "league": "Eredivisie",
     "standings": [
@@ -1967,6 +2090,7 @@ SEASON_TABLES.rens = {
       ]
     ]
   },
+  // 2026–27
   "2026–27": {
     "league": "Eredivisie",
     "standings": [
@@ -2425,6 +2549,7 @@ SEASON_TABLES.rens = {
       ]
     ]
   },
+  // 2027–28
   "2027–28": {
     "league": "Eredivisie",
     "standings": [
@@ -2856,6 +2981,7 @@ SEASON_TABLES.rens = {
       ]
     ]
   },
+  // 2028–29
   "2028–29": {
     "league": "Premier League",
     "standings": [
@@ -3365,6 +3491,7 @@ SEASON_TABLES.rens = {
       ]
     ]
   },
+  // 2029–30
   "2029–30": {
     "league": "Premier League",
     "standings": [
@@ -3820,6 +3947,7 @@ SEASON_TABLES.rens = {
       ]
     ]
   },
+  // 2030–31
   "2030–31": {
     "league": "Premier League",
     "standings": [
@@ -4284,6 +4412,7 @@ SEASON_TABLES.rens = {
       ]
     ]
   },
+  // 2031–32
   "2031–32": {
     "league": "Premier League",
     "standings": [
@@ -4748,6 +4877,7 @@ SEASON_TABLES.rens = {
       ]
     ]
   },
+  // 2032–33
   "2032–33": {
     "league": "Premier League",
     "standings": [
@@ -5203,6 +5333,7 @@ SEASON_TABLES.rens = {
       ]
     ]
   },
+  // 2033–34
   "2033–34": {
     "league": "Bundesliga",
     "standings": [
@@ -5661,6 +5792,7 @@ SEASON_TABLES.rens = {
       ]
     ]
   },
+  // 2034–35
   "2034–35": {
     "league": "Bundesliga",
     "standings": [
@@ -6092,6 +6224,7 @@ SEASON_TABLES.rens = {
       ]
     ]
   },
+  // 2035–36
   "2035–36": {
     "league": "Bundesliga",
     "standings": [
@@ -6317,8 +6450,13 @@ SEASON_TABLES.rens = {
   }
 };
 
-// Pre-season / friendly tournament standings.
+// ============================================================================
+// 04 — PRE-SEASON TABLES
+// PRESEASON_TABLES.rens
+// Friendly and pre-season tournament standings.
+// ============================================================================
 PRESEASON_TABLES.rens = {
+  // 2025–26
   "2025–26": {
     "type": "league",
     "rows": [
@@ -6420,6 +6558,7 @@ PRESEASON_TABLES.rens = {
       ]
     ]
   },
+  // 2026–27
   "2026–27": {
     "type": "league",
     "rows": [
@@ -6521,6 +6660,7 @@ PRESEASON_TABLES.rens = {
       ]
     ]
   },
+  // 2027–28
   "2027–28": {
     "type": "league",
     "rows": [
@@ -6622,6 +6762,7 @@ PRESEASON_TABLES.rens = {
       ]
     ]
   },
+  // 2029–30
   "2029–30": {
     "type": "league",
     "rows": [
@@ -6723,6 +6864,7 @@ PRESEASON_TABLES.rens = {
       ]
     ]
   },
+  // 2030–31
   "2030–31": {
     "type": "league",
     "rows": [
@@ -6824,6 +6966,7 @@ PRESEASON_TABLES.rens = {
       ]
     ]
   },
+  // 2031–32
   "2031–32": {
     "type": "league",
     "rows": [
@@ -6925,6 +7068,7 @@ PRESEASON_TABLES.rens = {
       ]
     ]
   },
+  // 2032–33
   "2032–33": {
     "type": "league",
     "rows": [
@@ -7026,6 +7170,7 @@ PRESEASON_TABLES.rens = {
       ]
     ]
   },
+  // 2033–34
   "2033–34": {
     "type": "league",
     "rows": [
@@ -7127,6 +7272,7 @@ PRESEASON_TABLES.rens = {
       ]
     ]
   },
+  // 2034–35
   "2034–35": {
     "type": "league",
     "rows": [
@@ -7228,6 +7374,7 @@ PRESEASON_TABLES.rens = {
       ]
     ]
   },
+  // 2035–36
   "2035–36": {
     "type": "league",
     "rows": [
@@ -7331,8 +7478,13 @@ PRESEASON_TABLES.rens = {
   }
 };
 
-// European and other competition-specific league tables.
+// ============================================================================
+// 05 — OTHER COMPETITION TABLES
+// COMPETITION_TABLES.rens
+// European and other competition-specific standings.
+// ============================================================================
 COMPETITION_TABLES.rens = {
+  // 2026–27
   "2026–27": {
     "UEFA Champions League": {
       "type": "league",
@@ -7772,6 +7924,7 @@ COMPETITION_TABLES.rens = {
       ]
     }
   },
+  // 2027–28
   "2027–28": {
     "UEFA Champions League": {
       "type": "league",
@@ -8211,6 +8364,7 @@ COMPETITION_TABLES.rens = {
       ]
     }
   },
+  // 2030–31
   "2030–31": {
     "UEFA Conference League": {
       "type": "league",
@@ -8650,6 +8804,7 @@ COMPETITION_TABLES.rens = {
       ]
     }
   },
+  // 2031–32
   "2031–32": {
     "UEFA Champions League": {
       "type": "league",
@@ -9087,8 +9242,9 @@ COMPETITION_TABLES.rens = {
           "2"
         ]
       ]
-    },
+    }
   },
+  // 2032–33
   "2032–33": {
     "UEFA Europa League": {
       "type": "league",
@@ -9850,8 +10006,8 @@ COMPETITION_TABLES.rens = {
         }
       ]
     }
-
   },
+  // 2033–34
   "2033–34": {
     "UEFA Champions League": {
       "type": "league",
@@ -10289,8 +10445,9 @@ COMPETITION_TABLES.rens = {
           "0"
         ]
       ]
-    },
+    }
   },
+  // 2034–35
   "2034–35": {
     "UEFA Champions League": {
       "type": "league",
@@ -11370,8 +11527,8 @@ COMPETITION_TABLES.rens = {
         }
       ]
     }
-
   },
+  // 2035–36
   "2035–36": {
     "UEFA Champions League": {
       "type": "league",
