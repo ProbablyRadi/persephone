@@ -1125,7 +1125,7 @@ body.font-proggy h1,body.font-proggy h2,body.font-proggy h3,body.font-proggy .br
 
 .analysis-summary {
   display: grid;
-  grid-template-columns: repeat(6,minmax(105px,1fr));
+  grid-template-columns: repeat(9,minmax(90px,1fr));
   gap: 10px;
   margin: 16px 0;
   max-width: 1100px;
@@ -1156,8 +1156,8 @@ body.font-proggy h1,body.font-proggy h2,body.font-proggy h3,body.font-proggy .br
 }
 
 .analysis-table {
-  width: min(1100px,100%);
-  min-width: 850px;
+  width: max(100%, 1190px);
+  min-width: 1190px;
 }
 
 .analysis-table .rank {

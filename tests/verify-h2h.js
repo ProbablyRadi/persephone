@@ -50,9 +50,9 @@ vm.runInContext(
 );
 
 const expected = {
-    rens: { opponents: 152, played: 554, wins: 364, draws: 88, losses: 102 },
-    jordan: { opponents: 86, played: 206, wins: 102, draws: 48, losses: 56 },
-    vasi: { opponents: 35, played: 158, wins: 118, draws: 22, losses: 18 },
+    rens: { opponents: 152, played: 554, wins: 349, draws: 88, losses: 101, aggregateOnlyTies: 16 },
+    jordan: { opponents: 96, played: 247, wins: 115, draws: 58, losses: 72, aggregateOnlyTies: 2 },
+    vasi: { opponents: 35, played: 158, wins: 111, draws: 22, losses: 18, aggregateOnlyTies: 7 },
 };
 
 // Every European club knockout heading that represents a two-legged tie
@@ -143,7 +143,9 @@ for (const [id, wanted] of Object.entries(expected)) {
             sum.draws += row.draws;
             sum.losses += row.losses;
             return sum;
-        }, { played: 0, wins: 0, draws: 0, losses: 0 });
+        }, {
+            played: 0, wins: 0, draws: 0, losses: 0
+        });
 
         const source = FULL_FIXTURES['${id}'];
         let totalFixtureRows = 0;
@@ -151,6 +153,7 @@ for (const [id, wanted] of Object.entries(expected)) {
         let representedMatches = 0;
         let unflaggedOpponents = [];
 
+        let aggregateOnlyTies = 0;
         for (const [season, competitions] of Object.entries(source)) {
             for (const [competition, matches] of Object.entries(competitions)) {
                 const focal = focalFor('${id}', season, competition);
@@ -163,6 +166,8 @@ for (const [id, wanted] of Object.entries(expected)) {
                     parsedFixtures++;
                     if (focal && (sameTeam(fixture.home, focal) || sameTeam(fixture.away, focal))) {
                         representedMatches += weights[index];
+                        if (weights[index] === 2)
+                            aggregateOnlyTies++;
                     }
                 }
             }
@@ -177,6 +182,7 @@ for (const [id, wanted] of Object.entries(expected)) {
             totalFixtureRows,
             parsedFixtures,
             representedMatches,
+            aggregateOnlyTies,
             unflaggedOpponents,
             html: app.innerHTML,
         };
@@ -186,12 +192,19 @@ for (const [id, wanted] of Object.entries(expected)) {
         assert.equal(actual[field], value, `${id}: incorrect ${field}`);
     }
 
-    assert.equal(actual.played, actual.wins + actual.draws + actual.losses);
+    assert.equal(actual.played - (actual.wins + actual.draws + actual.losses),
+        actual.aggregateOnlyTies,
+        `${id}: each aggregate-only tie must explain exactly one missing match outcome`);
     assert.equal(actual.parsedFixtures, actual.totalFixtureRows,
         `${id}: a scored fixture was not parsed`);
     assert.deepEqual(Array.from(actual.unflaggedOpponents), [],
         `${id}: missing opponent flag`);
     assert(actual.html.includes('analysis-summary'), `${id}: H2H page did not render`);
+    assert(!actual.html.includes('Agg W'), `${id}: obsolete aggregate-wins column`);
+    assert(!actual.html.includes('Agg L'), `${id}: obsolete aggregate-losses column`);
+    assert(!actual.html.includes('Unknown legs'), `${id}: obsolete unknown-legs summary`);
+    assert(actual.html.includes('P may be higher than W + D + L'),
+        `${id}: missing simplified aggregate accounting disclaimer`);
     assert.equal((actual.html.match(/class="opponent"/g) || []).length, wanted.opponents,
         `${id}: incorrect rendered opponent count`);
 
@@ -206,6 +219,72 @@ for (const [id, wanted] of Object.entries(expected)) {
         `${id}: H2H does not agree with the weighted source fixtures`);
 
     console.log(`${id}: ${actual.played} matches, ${actual.opponents} opponents, W${actual.wins} D${actual.draws} L${actual.losses} — PASS`);
+}
+
+
+// A single aggregate score represents two matches and one overall outcome;
+// two real legs count individually, and a duplicate total counts zero.
+const example = vm.runInContext(`(() => {
+    const key = 'test-season|UEFA Europa League';
+    DATA.rens.uefaRoundBreaks[key] = { 0: 'Quarter-finals (agg)' };
+    const aggregateOnly = h2hFixtureWeights(
+        'rens', 'test-season', 'UEFA Europa League',
+        ['PEC Zwolle 5 - 2 Lech Poznań'], 'PEC Zwolle'
+    );
+    const actualLegs = h2hFixtureWeights(
+        'rens', 'test-season', 'UEFA Europa League',
+        ['PEC Zwolle 3 - 0 Lech Poznań', 'Lech Poznań 2 - 2 PEC Zwolle'],
+        'PEC Zwolle'
+    );
+    const withSummary = h2hFixtureWeights(
+        'rens', 'test-season', 'UEFA Europa League',
+        ['PEC Zwolle 3 - 0 Lech Poznań', 'Lech Poznań 2 - 2 PEC Zwolle',
+         'PEC Zwolle 5 - 2 Lech Poznań'], 'PEC Zwolle'
+    );
+    delete DATA.rens.uefaRoundBreaks[key];
+    return { aggregateOnly, actualLegs, withSummary };
+})()`, context);
+assert.deepEqual(Array.from(example.aggregateOnly), [2],
+    'Aggregate-only win: one recorded result, two matches played');
+assert.deepEqual(Array.from(example.actualLegs), [1, 1],
+    'Actual individual legs: count each match once');
+assert.deepEqual(Array.from(example.withSummary), [1, 1, 0],
+    'Duplicate aggregate summary must be excluded');
+
+// A drawn aggregate with penalties has one outcome decided by shoot-out.
+const anderlecht = vm.runInContext(`careerOpponentRows('rens').find(
+    row => row.opponent === 'RSC Anderlecht'
+)`, context);
+assert.equal(anderlecht.played, 2);
+assert.equal(anderlecht.wins, 1);
+assert.equal(anderlecht.draws, 0);
+assert.equal(anderlecht.gf, 2);
+assert.equal(anderlecht.ga, 2);
+
+// Known two-leg ties: count the two supplied legs and skip duplicate summaries.
+for (const [season, opponent] of [['2027–28', 'Inter Milan'], ['2026–27', 'Juventus']]) {
+    const legResults = vm.runInContext(`(() => {
+        const id = 'rens', comp = 'UEFA Champions League';
+        const fixtures = FULL_FIXTURES[id][${JSON.stringify(season)}][comp];
+        const focal = focalFor(id, ${JSON.stringify(season)}, comp);
+        const weights = h2hFixtureWeights(id, ${JSON.stringify(season)}, comp, fixtures, focal);
+        const rounds = tournamentRounds(comp, fixtures, id, ${JSON.stringify(season)});
+        let stage = '';
+        return fixtures.flatMap((raw, index) => {
+            if (rounds[index]) stage = rounds[index];
+            if (!uefaAggregateRound(comp, stage) || weights[index] === 0) return [];
+            const fixture = parseFixture(raw);
+            const home = sameTeam(fixture.home, focal);
+            if (!home && !sameTeam(fixture.away, focal)) return [];
+            const other = canonicalTeam(home ? fixture.away : fixture.home);
+            return other === ${JSON.stringify(opponent)}
+                ? [{ weight: weights[index], result: outcome(fixture, focal) }] : [];
+        });
+    })()`, context);
+    assert.deepEqual(Array.from(legResults, result => result.weight), [1, 1],
+        `${opponent}: only two real legs should count`);
+    assert(legResults.every(result => ['win', 'draw', 'loss'].includes(result.result)),
+        `${opponent}: every leg has its own recorded result`);
 }
 
 console.log('All three Head to Head tables match the recorded fixture data.');

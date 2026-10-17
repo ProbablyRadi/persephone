@@ -1365,7 +1365,7 @@ FULL_FIXTURES.rens = {
       "Brighton & Hove 7 - 1 Real Sociedad",
       "Frankfurt (4) 1 - 1 (5) RSC Anderlecht",
       "Liverpool 3 - 4 KRC Genk",
-      "Latium 2 - 3 SL Benfica",
+      "SS Lazio 2 - 3 SL Benfica",
       "Stade Rennais FC 1 - 2 VfL Wolfsburg",
       "Athletic Club 3 - 2 Rangers",
       "Brighton & Hove (3) 2 - 2 (2) RSC Anderlecht",
@@ -7134,7 +7134,7 @@ PRESEASON_TABLES.rens = {
       ],
       [
         "6",
-        "Latium",
+        "SS Lazio",
         "3",
         "1",
         "1",
@@ -9287,7 +9287,7 @@ COMPETITION_TABLES.rens = {
         ],
         [
           "4",
-          "Latium",
+          "SS Lazio",
           "8",
           "5",
           "3",

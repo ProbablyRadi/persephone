@@ -1,3 +1,54 @@
+## 2026-10-17 — Confirm three Manchester United squad nationalities
+
+- Set Florian Daems to **Belgium**, Rik Dekker to **the Netherlands**, and Mauricio to **Paraguay** in Jordan's 2029–30 Manchester United squad.
+- The existing local PNG flag assets are used; no new imagery or player statistics were required.
+- Refreshed Jordan's script cache version and expanded the 2029–30 season test to check all three displayed flag images.
+
+## 2026-10-17 — Jordan Vale joins Manchester United (2029–30, in progress)
+
+- Added Jordan's **2029–30** season page with empty pre-season, Premier League, Carabao Cup and FA Cup fixture sections, and an unfilled league-standing row. No new results or statistics were invented.
+- Recorded Jordan's move from Bristol City to **Manchester United** ahead of 2029–30; changed the overview current club, kit number to **1**, career-history start year to 2029, and player biography. The Bristol City career total remains 208 apps / 1 goal.
+- Added the supplied **37-player Manchester United squad** with blank App/Goals/Asst/CLS values; mapped supported nationality flags and left Florian Daems, Rik Dekker and Mauricio unresolved pending confirmation.
+- New season appears in the navigation and Timeline. Kept the one-file-per-player data architecture, existing Head to Head results, 2028–29 totals, themes and favicon unchanged.
+- Added regression checks for the new season and refreshed Jordan's script version.
+
+## 2026-10-17 — Jordan Vale 2028–29 season completed
+
+- Replaced Jordan's partial 2028–29 season with the supplied completed season sheet.
+- Updated Bristol City career record to **208 apps / 1 goal**, and the final season row to **59 apps, 0 goals, 5 assists, 18 CLS, 6.3 average**, **0 POTM / 2 MOTM**, **11th Premier League (49 points)**. Completed career totals now derive from all four seasons.
+- Added all **38 Premier League fixtures**, the full **20-club table**, the **32-player Bristol City squad**, **Champions Trophy** and its 8-team table, Carabao Cup and FA Cup fixtures/finals, Community Shield, and the **31-row Europa League match archive** with its full **36-club league-phase table**.
+- Marked Europa League knockout play-offs, Round of 16, quarter-finals and semi-finals as **(agg)**. Two Bristol City aggregate-only results contribute two matches played and only one W/L each to Head to Head, per existing site policy.
+- Added four international friendlies, bringing the recorded England caps field from **30 to 34**. Kept overlapping Euros results de-duplicated in Head to Head.
+- Updated the player biography, completed-season status, Stats page data and Timeline inputs, including winners/losers of the recorded cup finals and squad changes.
+- Added missing team flags in shared definitions and a new `tests/verify-jordan-2028.js` regression check.
+- Refreshed script version labels to avoid outdated cached data.
+
+## 2026-10-17 — Standardise SS Lazio club name
+
+- Renamed the club to **SS Lazio** in Rens's recorded Europa League fixture and two competition-table rows.
+- Removed an obsolete flag lookup because `SS Lazio` already has an Italian flag entry.
+- Updated the affected script version strings so browsers load the revised data.
+- No results, standings, Head to Head calculations or character statistics were changed.
+
+## 2026-10-17 — Simplified Head to Head aggregate totals
+
+- Removed the extra `?`, `Agg W` and `Agg L` columns and summary counters.
+- Two-legged European ties supplied only as an aggregate score now add two
+  matches played, but one W/D/L result based on the aggregate outcome.
+- Recorded individual legs still use their actual W/D/L results; duplicate
+  aggregate summaries remain excluded and goals are not doubled.
+- Added an on-page disclaimer explaining why P can exceed W + D + L.
+- Restored Win % to recorded wins divided by matches played and updated tests.
+- No fixture scores, character data, seasons or themes were modified.
+
+## 2026-10-17 — Separate UEFA tie outcomes from match outcomes
+
+- Added **Agg W** and **Agg L** to every player's Head to Head table for UEFA two-legged knockout ties.
+- Aggregate-only rows now record two matches played but two unknown individual-leg results (`?`); they no longer manufacture two W/D/L results from the overall tie score.
+- Ties with two recorded legs use the actual leg W/D/L and record one aggregate tie win/loss. Duplicate aggregate summary rows remain excluded.
+- Aggregate goals remain counted only once; win percentage now uses only matches with known results.
+- Expanded Head to Head validation and kept all original fixture scores, player data and all three themes unchanged.
+
 ## 2026-10-17 — Football favicon
 
 - Added a small black-and-white football favicon for the browser tab.

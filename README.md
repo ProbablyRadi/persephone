@@ -82,14 +82,17 @@ separate competition sections also use `(agg)`.
 Fixture lists in `FULL_FIXTURES` retain their original scores. The H2H logic in
 `app.js` interprets those records as follows:
 
-- An **aggregate-only** score counts as **two matches**, with aggregate goals
-  added **once**, not twice.
+- An **aggregate-only** score counts as **two matches played (P)**, but its
+  overall outcome contributes only **one win, draw or loss** (including
+  recorded penalty shoot-outs). Aggregate goals are counted **once**, not twice.
 - If the data lists **both individual legs** plus a duplicate aggregate total,
-  H2H counts only the two actual games; the summary adds no extra match.
-- Where individual legs were **not recorded**, their precise W/D/L outcomes
-  cannot be reconstructed from the total. The table uses the aggregate tie's
-  outcome for **both legs as a provisional W/D/L estimate**. If real leg scores
-  become available, record both legs to replace that estimate.
+  H2H counts the real results of the two legs; the summary adds nothing.
+- **P may not equal W + D + L** because a single aggregate-score entry stands
+  for two played matches but contributes just one outcome. The site explains
+  this beneath the Head to Head summary, rather than adding extra columns.
+- Win percentage is recorded wins divided by matches played (W / P). Because
+  only one win can be recorded from an aggregate-only tie, this is a simplified
+  accounting convention, **not** a reconstruction of its leg-by-leg results.
 - International World Cup/Euros knockout rounds are always single matches and
   are **not** affected by aggregate accounting.
 
@@ -153,6 +156,34 @@ appearances. Season placeholders do not generate fictional matches.
 
 The project is intentionally formatted for readability and learning. JavaScript, CSS and data files are kept expanded and consistently structured rather than compressed into dense one-line code.
 
+### Checking new seasons
+
+Run the automated checks with Node.js from the project directory:
+
+```bash
+node tests/verify-h2h.js
+node tests/verify-overviews.js
+node tests/verify-jordan-2028.js
+```
+
+Jordan's 2028–29 **Champions Trophy** pre-season fixtures use the same
+`PRESEASON_TABLES` structure as other seasons' pre-season friendlies, with
+its supplied competition name visible in the season table. European league-phase
+standings appear alongside the Europa League results; all other competition
+results remain part of the same character file.
+
 ## Changelog
 
 See [`CHANGELOG.md`](CHANGELOG.md) for a reconstructed history of the major changes made during development.
+
+## Adding an in-progress season
+
+The current example is Jordan Vale's **2029–30 Manchester United** season in `data/jordan.js`.
+
+- Add the new season under `DATA.jordan.seasons` with `inProgress: true`, and add a season row to `DATA.jordan.stats` using empty strings for statistics not yet known. Do not use `0` until the figure is confirmed.
+- Add competition names with empty arrays in `FULL_FIXTURES.jordan`; they display **No fixtures recorded yet** until results are added.
+- Add a `SEASON_TABLES.jordan` entry with the club name, league, a blank standing row, and the squad sheet. Each player row uses `[position, number, name, appearances, goals, assists, clean sheets]`.
+- Add nationalities to `DATA.jordan.squadFlags` only when known. Currently Florian Daems, Rik Dekker and Mauricio are awaiting confirmation, so their flag cells are intentionally blank.
+- The Timeline reads the new season's club and squad. The Career Overview excludes in-progress statistics from completed career totals, and Head to Head does not gain matches from empty fixture arrays.
+
+Run `node tests/verify-jordan-2029.js` after making season changes.

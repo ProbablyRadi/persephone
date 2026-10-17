@@ -61,6 +61,16 @@ for (const id of ['rens', 'jordan', 'vasi']) {
     assert.equal(cellsOf(html, 'season').length > 0, true, `${id}: no season rows`);
     assert(cellsOf(html, 'season').every(row => row.length === 12), `${id}: wrong column count`);
 }
+// A completed Jordan season must flow into the Overview table and club totals.
+const jordanOverview = snapshot('jordan');
+const jordanSeason = cellsOf(jordanOverview, 'season').find(row => row[1] === '2028–29');
+assert(jordanSeason, 'Jordan 2028–29 overview season missing');
+assert.deepEqual(jordanSeason.slice(4), ['11th', '6.3', '0', '2', '59', '0', '5', '18']);
+const jordanTotal = cellsOf(jordanOverview, 'subtotal')[0];
+assert(jordanTotal, 'Jordan Bristol City total row missing');
+assert.deepEqual(jordanTotal.slice(5), ['6.2', '0', '9', '208', '1', '12', '76'],
+    'Jordan career totals should include the completed 2028–29 season');
+
 const jordanInfobox = vm.runInContext('infobox(DATA.jordan)', context);
 assert.match(jordanInfobox, /<td>Boot brand<\/td>\s*<td>Nike<\/td>/,
     'Jordan Vale overview must show Nike for Boot brand');
@@ -73,6 +83,6 @@ for (const sourceFile of ['data/vasi.js', 'data/jordan.js', 'app.js']) {
     assert(line && line[1].length > 3, `Missing versioned script URL for ${sourceFile}`);
 }
 console.log('Vasi: 0/9, 2/11, 2/12; totals 4/32 — PASS');
-console.log('Jordan: Overview boot brand Nike — PASS');
+console.log('Jordan: 2028–29 stats and 208/1/12/76 club totals; Nike boots — PASS');
 console.log('Rens/Jordan/Vasi: consistent 12-column overview tables — PASS');
 console.log('Versioned JS assets — PASS');
