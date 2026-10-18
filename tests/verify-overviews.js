@@ -23,7 +23,7 @@ vm.runInContext(
     'const esc = value => String(value).replace(/[&<>]/g, c => ({"&":"&amp;", "<":"&lt;", ">":"&gt;"})[c]);\n'
     + excerpt('function cleanClubLabel(', 'function careerGroups(')
     + excerpt('function careerStatsTable(', 'function player(')
-    + excerpt('function infobox(', 'function honours('),
+    + excerpt('function infoboxCareerTable(', 'function honours('),
     context,
 );
 
@@ -71,10 +71,45 @@ assert(jordanTotal, 'Jordan Bristol City total row missing');
 assert.deepEqual(jordanTotal.slice(5), ['6.2', '0', '9', '208', '1', '12', '76'],
     'Jordan career totals should include the completed 2028–29 season');
 
+// Rens has no Dortmund appearances/goals or league finish reported yet.
+const rensOverview = snapshot('rens');
+const rensSeason = cellsOf(rensOverview, 'season').find(row => row[1] === '2035–36');
+assert(rensSeason && rensSeason[4] === '—', 'Rens 2035–36 league finish should be a dash');
+const rensInfobox = vm.runInContext('infobox(DATA.rens)', context);
+assert.match(rensInfobox, /2035–[\s\S]*?Borussia Dortmund[\s\S]*?<td class="infobox-career-num">—<\/td>\s*<td class="infobox-career-num">—<\/td>/,
+    'Rens Dortmund appearances and goals should be dashes');
+
 const jordanInfobox = vm.runInContext('infobox(DATA.jordan)', context);
 assert.match(jordanInfobox, /<td>Boot brand<\/td>\s*<td>Nike<\/td>/,
     'Jordan Vale overview must show Nike for Boot brand');
 assert(!jordanInfobox.includes('New Balance'), 'Jordan overview must not show New Balance');
+
+// The club/international summaries belong inside the right-hand infobox,
+// while the larger Career statistics and Honours remain in the article.
+for (const id of ['rens', 'jordan', 'vasi']) {
+    const rendered = vm.runInContext(`infobox(DATA.${id})`, context);
+    const career = vm.runInContext(`DATA.${id}.career`, context);
+    const intl = vm.runInContext(`DATA.${id}.intl`, context);
+
+    assert.match(rendered, /<th colspan="2" id="career">Club career<\/th>/,
+        `${id}: missing club career heading inside infobox`);
+    assert.match(rendered, /<th colspan="2" id="international-career">International career<\/th>/,
+        `${id}: missing international heading inside infobox`);
+    assert.equal((rendered.match(/class="infobox-career-table"/g) || []).length, 2,
+        `${id}: both career sections should have compact tables`);
+    for (const row of [...career, intl]) {
+        for (const value of row) {
+            assert(rendered.includes(String(value).replace(/&/g, '&amp;')),
+                `${id}: missing original career value ${value}`);
+        }
+    }
+}
+const articleRenderer = excerpt('function player(id)', 'function teamFlag(');
+assert(!articleRenderer.includes('career-grid'), 'Club/international tables should no longer be full-width');
+assert(articleRenderer.includes('careerStatsTable(playerData)'), 'Full career statistics must remain');
+assert(articleRenderer.includes('honours(playerData)'), 'Honours must remain in the article');
+assert(articleRenderer.includes("event.preventDefault()"), 'Contents links must avoid changing the route');
+
 
 // Confirm the browser gets a fresh asset request on deployment.
 const html = read('index.html');

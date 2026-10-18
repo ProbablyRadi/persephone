@@ -1,3 +1,25 @@
+## 18 October 2026 — Rens career placeholders
+
+- Replaced the two "In progress" values for Rens’s Borussia Dortmund club career (appearances and goals) with em dashes (`—`) in the infobox.
+- Changed the 2035–36 league-position placeholder in his overview Career Statistics table to `—`.
+- Kept the 2035–36 season correctly marked as in progress; no fixtures, statistics or other player data were changed.
+
+## 18 October 2026 — Wikipedia-style career infoboxes
+
+- Moved the club career and international career summary tables into each player's right-hand profile infobox (Rens, Jordan and Vasi).
+- Preserved the existing career data and the full-width Career statistics and Honours sections.
+- Added compact responsive styling for all three themes, including local nationality flag images.
+- Kept the Contents links functional as in-page scrolling without interfering with the hash-based character router.
+
+## 2026-10-17 — Jordan Vale 2029–30 first results and James Scanlon
+
+- Recorded Manchester United's three **Champions Trophy** results and supplied eight-team group table, plus the first three **Premier League** wins and a **Carabao Cup** penalty-shootout win over Brighton & Hove.
+- Added **James Scanlon**, number **28**, **CAM**, with Gibraltar nationality to United's squad (38 players). Added the existing local Gibraltar flag asset to the country's flag mapping.
+- Added missing shared club-country flags for Rayo Vallecano, RC Mallorca, Al Ahli and Al Nassr.
+- Calculated the known Manchester United league record (3 P, 3 W, 0 D, 0 L, 7 GF, 0 GA, 9 pts) while leaving league position and other clubs' unreported table statistics blank. A placeholder 38-game season schedule is not treated as 38 completed matches.
+- Updated the season summary and player biography. Timeline no longer mistakes an incomplete list of league participants for a current top-five ranking.
+- Kept Jordan's own appearance/goals/assists/clean-sheet statistics unreported until supplied, and continued the existing Head to Head accounting conventions.
+
 ## 2026-10-17 — Restore alphabetical flag-column sorting
 
 - Restored alphabetical sorting for flag and nationality columns in squad, standings and Head to Head tables after emoji flags were replaced by local image files.

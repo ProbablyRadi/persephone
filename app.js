@@ -129,6 +129,27 @@ function replaceFlagEmoji(root = document) {
 function table(headers, rows) {
     return `<table class="wikitable"><thead><tr>${headers.map(header => `<th>${header}</th>`).join('')}</tr></thead><tbody>${rows.map(row => `<tr>${row.map((cellValue, columnIndex) => `<td class="${columnIndex > 1 ? 'num' : ''}">${cellValue}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
 }
+// Small Wikipedia-style career summaries live inside the profile infobox.
+// This uses the same career and intl data as the former full-width tables.
+function infoboxCareerTable(rows, label) {
+    return `<table class="infobox-career-table" aria-label="${esc(label)}">
+        <thead><tr>
+            <th scope="col">Years</th>
+            <th scope="col">Team</th>
+            <th scope="col" class="infobox-career-num">Apps</th>
+            <th scope="col" class="infobox-career-num">Goals</th>
+        </tr></thead>
+        <tbody>${rows.map(([years, team, appearances, goals]) => `
+            <tr>
+                <td class="infobox-career-years">${esc(years)}</td>
+                <td class="infobox-career-team">${esc(team)}</td>
+                <td class="infobox-career-num">${esc(appearances ?? '—')}</td>
+                <td class="infobox-career-num">${esc(goals ?? '—')}</td>
+            </tr>
+        `).join('')}</tbody>
+    </table>`;
+}
+
 function infobox(playerData) {
     return `
         <table class="infobox">
@@ -195,6 +216,24 @@ function infobox(playerData) {
             <tr>
                 <td>National team</td>
                 <td>${playerData.international}</td>
+            </tr>
+
+            <tr class="infobox-career-heading">
+                <th colspan="2" id="career">Club career</th>
+            </tr>
+            <tr>
+                <td colspan="2" class="infobox-career-cell">
+                    ${infoboxCareerTable(playerData.career, 'Club career')}
+                </td>
+            </tr>
+
+            <tr class="infobox-career-heading">
+                <th colspan="2" id="international-career">International career</th>
+            </tr>
+            <tr>
+                <td colspan="2" class="infobox-career-cell">
+                    ${infoboxCareerTable([playerData.intl], 'International career')}
+                </td>
             </tr>
         </table>
     `;
@@ -419,28 +458,13 @@ function player(id) {
     <div class="toc">
       <b>Contents</b>
       <ol>
-        <li><a href="#career">Club career</a></li>
-        <li><a href="#stats">Career statistics</a></li>
-        <li><a href="#honours">Honours</a></li>
+        <li><a href="#career" onclick="event.preventDefault(); document.getElementById('career').scrollIntoView({behavior:'smooth', block:'start'})">Club career</a></li>
+        <li><a href="#international-career" onclick="event.preventDefault(); document.getElementById('international-career').scrollIntoView({behavior:'smooth', block:'start'})">International career</a></li>
+        <li><a href="#stats" onclick="event.preventDefault(); document.getElementById('stats').scrollIntoView({behavior:'smooth', block:'start'})">Career statistics</a></li>
+        <li><a href="#honours" onclick="event.preventDefault(); document.getElementById('honours').scrollIntoView({behavior:'smooth', block:'start'})">Honours</a></li>
       </ol>
     </div>
     <div class="clear"></div>
-    <div class="career-grid">
-      <section>
-        <h2 id="career">Club career</h2>
-        ${table([
-        'Years', 'Team', 'Apps', 'Goals'
-    ], playerData.career)}
-      </section>
-      <section>
-        <h2>International career</h2>
-        ${table([
-        'Years', 'Team', 'Apps', 'Goals'
-    ], [
-        playerData.intl
-    ])}
-      </section>
-    </div>
     <h2 id="stats">Career statistics</h2>
     ${careerStatsTable(playerData)}
     <h2 id="honours">Honours</h2>
@@ -890,7 +914,14 @@ function timelineCupFinals(id, season) {
 }
 function timelineTopFive(id, season) {
     const meta = (typeof SEASON_TABLES !== 'undefined' && SEASON_TABLES[id] && SEASON_TABLES[id][season]) || null;
-    return meta && meta.standings && meta.standings.length ? meta.standings.slice(0, 5) : [];
+    if (!meta || !meta.standings || meta.standings.length < 5)
+        return [];
+    // A supplied list of league participants is not a live ranking.
+    // Show leaders only when the first five rows have actual positions/points.
+    const leading = meta.standings.slice(0, 5);
+    return leading.every(row => /^\d+$/.test(String(row[0])) && /^\d+$/.test(String(row[9])))
+        ? leading
+        : [];
 }
 function timelineLeagueMovement(id, season, previousSeason) {
     const currentMeta = (typeof SEASON_TABLES !== 'undefined' && SEASON_TABLES[id] && SEASON_TABLES[id][season]) || null;
@@ -991,7 +1022,7 @@ function careerTimeline(id) {
         const moves = timelineSquadChanges(id, season, seasons[seasonIndex - 1]);
         const leagueMovement = timelineLeagueMovement(id, season, seasons[seasonIndex - 1]);
 
-        const topHtml = top.length ? `<ol class="timeline-topfive">${top.map(standingRow => `<li class="${canonicalTeam(cleanTeamName(standingRow[1])) === canonicalTeam(meta && meta.club ? meta.club : '') ? 'focus' : ''}"><span>${teamFlag(cleanTeamName(standingRow[1]))} ${esc(standingRow[1])}</span><b>${standingRow[9] !== '' && standingRow[9] != null ? esc(standingRow[9]) + ' pts' : ''}</b></li>`).join('')}</ol>` : '<p class="muted">No league table supplied.</p>';
+        const topHtml = top.length ? `<ol class="timeline-topfive">${top.map(standingRow => `<li class="${canonicalTeam(cleanTeamName(standingRow[1])) === canonicalTeam(meta && meta.club ? meta.club : '') ? 'focus' : ''}"><span>${teamFlag(cleanTeamName(standingRow[1]))} ${esc(standingRow[1])}</span><b>${standingRow[9] !== '' && standingRow[9] != null ? esc(standingRow[9]) + ' pts' : ''}</b></li>`).join('')}</ol>` : '<p class="muted">League top five not yet available.</p>';
         const cupHtml = cups.length ? cups.map(cupFinal => `<div class="timeline-cup"><b>${esc(cupFinal.comp)}</b><span>Winner: ${teamFlag(cupFinal.winner)} ${esc(cupFinal.winner)}</span><span>Runner-up: ${teamFlag(cupFinal.runner)} ${esc(cupFinal.runner)}</span></div>`).join('') : '<p class="muted">No recorded cup final for this season.</p>';
         const moveHtml = moves.note ? `<p class="muted">${esc(moves.note)}</p>` : `<div class="timeline-moves"><div><b>Joined</b>${moves.joined.length ? `<ul>${moves.joined.map(playerName => `<li>+ ${esc(playerName)}</li>`).join('')}</ul>` : '<span class="muted">None recorded</span>'}</div><div><b>Left</b>${moves.left.length ? `<ul>${moves.left.map(playerName => `<li>− ${esc(playerName)}</li>`).join('')}</ul>` : '<span class="muted">None recorded</span>'}</div></div>`;
         const enteredHtml = leagueMovement && Array.isArray(leagueMovement.entered)

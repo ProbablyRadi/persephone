@@ -253,8 +253,8 @@ DATA.rens = {
     [
       "2035–",
       "🇩🇪 Borussia Dortmund",
-      "In progress",
-      "In progress"
+      "—",
+      "—"
     ]
   ],
   "intl": [
@@ -391,7 +391,7 @@ DATA.rens = {
       "🇩🇪 Dortmund",
       "RAM",
       "Bundesliga",
-      "In progress",
+      "—",
       "—",
       "—",
       "—",

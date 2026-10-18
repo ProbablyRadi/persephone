@@ -4182,3 +4182,85 @@ body.theme-dracula .chart-empty {
   font-weight: 700;
   border-top: 2px solid currentColor;
 }
+
+
+/* Wikipedia-style club and international career summaries in player infoboxes.
+   Both summary tables share the same source data as the previous article tables. */
+.profile-page .infobox {
+  width: 350px;
+}
+
+.profile-page .infobox .infobox-career-heading th {
+  font-size: 0.95em;
+  padding: 6px 8px;
+  text-align: center;
+  scroll-margin-top: 82px;
+}
+
+.profile-page .infobox .infobox-career-cell {
+  padding: 5px 7px 8px;
+  border-top: 0;
+  width: auto;
+  font-weight: normal;
+}
+
+.profile-page .infobox .infobox-career-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82em;
+  line-height: 1.4;
+  table-layout: fixed;
+}
+
+.profile-page .infobox .infobox-career-table th:nth-child(1) { width: 26%; }
+.profile-page .infobox .infobox-career-table th:nth-child(2) { width: 42%; }
+.profile-page .infobox .infobox-career-table th:nth-child(3) { width: 16%; }
+.profile-page .infobox .infobox-career-table th:nth-child(4) { width: 16%; }
+
+.profile-page .infobox .infobox-career-table th,
+.profile-page .infobox .infobox-career-table td {
+  padding: 4px 3px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: inherit;
+  vertical-align: top;
+}
+
+.profile-page .infobox .infobox-career-table th {
+  font-weight: bold;
+  text-align: left;
+}
+
+.profile-page .infobox .infobox-career-table td:first-child {
+  width: auto;
+  font-weight: normal;
+}
+
+.profile-page .infobox .infobox-career-years {
+  white-space: nowrap;
+}
+
+.profile-page .infobox .infobox-career-team {
+  overflow-wrap: break-word;
+}
+
+.profile-page .infobox .infobox-career-table .infobox-career-num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.profile-page .infobox .infobox-career-table .country-flag {
+  width: 19px;
+  max-height: 14px;
+  margin-right: 2px;
+}
+
+@media (max-width: 760px) {
+  .profile-page .infobox {
+    float: none;
+    width: 100%;
+    margin: 12px 0;
+  }
+}

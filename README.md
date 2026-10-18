@@ -140,6 +140,8 @@ Each character has access to:
 
 The site supports the Wiki, Dracula and Glass themes.
 
+On each player overview, the club and international career summaries appear in the right-hand infobox, like Wikipedia. The larger Career statistics and Honours sections remain full-width below the introductory content. Both infobox summaries are generated from the same `DATA.<player>.career` and `DATA.<player>.intl` fields as before.
+
 Flag and nationality columns in sortable tables are ordered alphabetically by country name, even though the displayed flags are local PNG images.
 
 ### Head to Head fixture accounting
@@ -170,11 +172,18 @@ node tests/verify-jordan-2029.js
 node tests/verify-flag-sorting.js
 ```
 
-Jordan's 2028–29 **Champions Trophy** pre-season fixtures use the same
+Jordan's **Champions Trophy** pre-season fixtures use the same
 `PRESEASON_TABLES` structure as other seasons' pre-season friendlies, with
-its supplied competition name visible in the season table. European league-phase
+the competition name visible in the season page. European league-phase
 standings appear alongside the Europa League results; all other competition
 results remain part of the same character file.
+
+For **in-progress seasons**, a league-participant list does not imply a current
+ranking: use blank `Pos` entries until positions are known. You can record
+statistics for a player's club from supplied fixtures while leaving other
+clubs' records blank. The Timeline does not display a provisional top five
+until standings with ranked teams and points are available. Keep individual
+player season statistics blank until they are separately supplied.
 
 ## Changelog
 

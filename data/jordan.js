@@ -120,6 +120,7 @@ DATA.jordan = {
     "Dani Ceballos": "🇪🇸",
     "Daniel Gore": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
     "Mauricio": "🇵🇾",
+    "James Scanlon": "🇬🇮",
     "Bruno Fernandes": "🇵🇹",
     "Mason Mount": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
     "Matheus Cunha": "🇧🇷",
@@ -180,7 +181,7 @@ DATA.jordan = {
     "Jordan A.B. Vale is an English professional footballer who plays as a goalkeeper for Premier League club Bristol City and the England national team. Born in Weston-super-Mare, Vale began his senior career with Bristol City in 2025 and became the club's first-choice goalkeeper during their 2025–26 EFL Championship title-winning season.",
     "Vale remained in goal following Bristol City's promotion to the Premier League, helping the club retain its top-flight status in 2026–27 and finish 14th the following season. The 2027–28 campaign was highlighted by a historic FA Cup victory over Manchester City. The final remained goalless through 90 minutes before Pablo López gave Bristol City the lead in the 101st minute. In the 121st minute, Vale saved an initial effort but Boden scored from the rebound to force a 1–1 draw and a penalty shootout, which Bristol City won after a fiercely contested series of kicks.",
     "In 2028–29, Vale played 59 times as Bristol City finished 11th in the Premier League, reached the Europa League round of 16 and went out of the Carabao Cup in a penalty shootout against Arsenal. He finished the season with 18 clean sheets, five assists and two Man of the Match awards.",
-    "Vale joined Manchester United ahead of the 2029–30 Premier League season, taking the number 1 shirt. His first season at the club is in progress, with no match results or player statistics recorded yet.",
+    "Vale joined Manchester United ahead of the 2029–30 Premier League season, taking the number 1 shirt. United opened their league campaign with three consecutive wins without conceding, against Wolves, AFC Bournemouth and Vale’s former club Bristol City. They also progressed past Brighton & Hove on penalties in the Carabao Cup. His individual season statistics remain unreported.",
     "Vale has represented England at senior level since 2025. He was part of the England team that finished as runners-up at the 2026 FIFA World Cup and was awarded the UEFA Euro Golden Glove in 2028. He has made 34 recorded appearances for the national team."
   ],
   "career": [
@@ -463,9 +464,23 @@ DATA.jordan = {
     // 2029–30
     "2029–30": {
       "inProgress": true,
-      "summary": "Jordan Vale has joined Manchester United from Bristol City for the 2029–30 season and will wear number 1. Fixtures, results and season statistics have not been supplied yet.",
-      "competitions": {},
-      "table": "Not started"
+      "summary": "Jordan Vale's first Manchester United season is in progress. United began the Premier League with three wins and three clean sheets (7 goals scored, 0 conceded), and progressed past Brighton & Hove on penalties in the Carabao Cup. Three Champions Trophy pre-season matches are also recorded; individual player statistics have not yet been supplied.",
+      "competitions": {
+        "Champions Trophy": [
+          "Manchester United 1 - 1 Rayo Vallecano",
+          "Sassuolo 1 - 0 Manchester United",
+          "Manchester United 2 - 0 SC Freiburg"
+        ],
+        "Premier League": [
+          "Manchester United 3 - 0 Wolves",
+          "AFC Bournemouth 0 - 1 Manchester United",
+          "Manchester United 3 - 0 Bristol City"
+        ],
+        "Carabao Cup": [
+          "Brighton & Hove (2) 2 - 2 (4) Manchester United — won 4–2 on penalties"
+        ]
+      },
+      "table": "3 played — 9 pts (3 W, 0 D, 0 L)"
     }
   }
 };
@@ -882,11 +897,21 @@ FULL_FIXTURES.jordan = {
       "Denmark 1 - 3 England"
     ]
   },
-  // 2029–30 — new club, fixtures not yet recorded
+  // 2029–30 — Manchester United, in progress
   "2029–30": {
-    "Pre-season friendlies": [],
-    "Premier League": [],
-    "Carabao Cup": [],
+    "Champions Trophy": [
+      "Manchester United 1 - 1 Rayo Vallecano",
+      "Sassuolo 1 - 0 Manchester United",
+      "Manchester United 2 - 0 SC Freiburg"
+    ],
+    "Premier League": [
+      "Manchester United 3 - 0 Wolves",
+      "AFC Bournemouth 0 - 1 Manchester United",
+      "Manchester United 3 - 0 Bristol City"
+    ],
+    "Carabao Cup": [
+      "Brighton & Hove (2) 2 - 2 (4) Manchester United"
+    ],
     "FA Cup": []
   }
 };
@@ -2958,13 +2983,242 @@ SEASON_TABLES.jordan = {
       ]
     ]
   },
-  // 2029–30 — empty league standings and supplied Manchester United squad
+  // 2029–30 — known league participants; ranks/other clubs' figures pending.
+  // Only Manchester United's three supplied league results can be tallied.
   "2029–30": {
     "league": "Premier League",
     "standings": [
       [
         "",
+        "Arsenal",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "Chelsea",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "Liverpool",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "Manchester City",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "Tottenham Hotspurs",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "Crystal Palace",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "Nottingham Forest",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "Newcastle United",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "West Ham",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "Brighton & Hove",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "Bristol City",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "Aston Villa",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "AFC Bournemouth",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
         "Manchester United",
+        "3",
+        "3",
+        "0",
+        "0",
+        "7",
+        "0",
+        "7",
+        "9"
+      ],
+      [
+        "",
+        "Wolves",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "Everton",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "Brentford",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "Burnley",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "Coventry City",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "Sunderland",
         "",
         "",
         "",
@@ -3206,6 +3460,15 @@ SEASON_TABLES.jordan = {
         "CM",
         "42",
         "Daniel Gore",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "CAM",
+        "28",
+        "James Scanlon",
         "",
         "",
         "",
@@ -3726,6 +3989,20 @@ PRESEASON_TABLES.jordan = {
         "-4",
         "0"
       ]
+    ]
+  },
+  // 2029–30 — Champions Trophy group standings
+  "2029–30": {
+    "type": "league",
+    "rows": [
+      ["1", "RC Mallorca", "3", "2", "1", "0", "8", "5", "3", "7"],
+      ["2", "Manchester United", "3", "1", "1", "1", "3", "2", "1", "4"],
+      ["3", "Al Ahli", "3", "1", "1", "1", "6", "6", "0", "4"],
+      ["4", "Al Nassr", "3", "1", "1", "1", "2", "3", "-1", "4"],
+      ["5", "Real Betis", "3", "1", "1", "1", "2", "2", "0", "4"],
+      ["6", "Sassuolo", "3", "1", "1", "1", "2", "2", "0", "4"],
+      ["7", "SC Freiburg", "3", "1", "0", "2", "3", "5", "-2", "3"],
+      ["8", "Rayo Vallecano", "3", "0", "2", "1", "4", "5", "-1", "2"]
     ]
   }
 };

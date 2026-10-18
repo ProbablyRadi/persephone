@@ -51,7 +51,7 @@ vm.runInContext(
 
 const expected = {
     rens: { opponents: 152, played: 554, wins: 349, draws: 88, losses: 101, aggregateOnlyTies: 16 },
-    jordan: { opponents: 96, played: 247, wins: 115, draws: 58, losses: 72, aggregateOnlyTies: 2 },
+    jordan: { opponents: 100, played: 254, wins: 120, draws: 59, losses: 73, aggregateOnlyTies: 2 },
     vasi: { opponents: 35, played: 158, wins: 111, draws: 22, losses: 18, aggregateOnlyTies: 7 },
 };
 
