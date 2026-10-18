@@ -136,7 +136,28 @@ DATA.rens = {
     "Benjamin Šeško": "🇸🇮",
     "Alphonso Davies": "🇨🇦",
     "Vitor Reis": "🇧🇷",
-    "Armindo Sieb": "🇩🇪"
+    "Armindo Sieb": "🇩🇪",
+    "Gregor Kobel": "🇨🇭",
+    "Filippo Mane": "🇮🇹",
+    "Elias Benkara": "🇩🇿",
+    "Nico Schlotterbeck": "🇩🇪",
+    "Brooke Norton-Cuffy": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "Kjell Wätjen": "🇩🇪",
+    "Danylo Krevsun": "🇺🇦",
+    "Samuele Inacio": "🇮🇹",
+    "Carney Chukwuemeka": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "Everton Teixeira": "🇧🇷",
+    "Kai Riedel": "🇩🇪",
+    "Giulio Valentini": "🇮🇹",
+    "Samuel Flament": "🇫🇷",
+    "Tariq Benzai": "🇹🇳",
+    "Pedro Villalba": "🇵🇾",
+    "Jonathan Friedrich": "🇩🇪",
+    "Petr Vávra": "🇸🇮",
+    "João Paulo Soares": "🇧🇷",
+    "Andon Mihov": "🇲🇰",
+    "Patrik Novotný": "🇨🇿",
+    "Endrick": "🇧🇷"
   },
   "uefaRoundBreaks": {
     "2026–27|UEFA Champions League": {
@@ -6224,229 +6245,438 @@ SEASON_TABLES.rens = {
       ]
     ]
   },
-  // 2035–36
+  // 2035–36: confirmed Bundesliga participants; positions and standings are not yet known.
   "2035–36": {
     "league": "Bundesliga",
     "standings": [
       [
-        "1",
-        "FC Bayern München",
-        "34",
         "",
-        "",
-        "",
-        "",
-        "",
-        "0",
-        ""
-      ],
-      [
-        "2",
-        "Borussia Dortmund",
-        "34",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "0",
-        ""
-      ],
-      [
-        "3",
-        "Frankfurt",
-        "34",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "0",
-        ""
-      ],
-      [
-        "4",
         "RB Leipzig",
-        "34",
         "",
         "",
         "",
         "",
         "",
-        "0",
+        "",
+        "",
         ""
       ],
       [
-        "5",
-        "Leverkusen",
-        "34",
+        "",
+        "Borussia Dortmund",
         "",
         "",
         "",
         "",
         "",
-        "0",
+        "",
+        "",
         ""
       ],
       [
-        "6",
-        "VfB Stuttgart",
-        "34",
         "",
-        "",
-        "",
-        "",
-        "",
-        "0",
-        ""
-      ],
-      [
-        "7",
-        "SC Freiburg",
-        "34",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "0",
-        ""
-      ],
-      [
-        "8",
         "TSG Hoffenheim",
-        "34",
         "",
         "",
         "",
         "",
         "",
-        "0",
+        "",
+        "",
         ""
       ],
       [
-        "9",
-        "VfL Wolfsburg",
-        "34",
         "",
-        "",
-        "",
-        "",
-        "",
-        "0",
-        ""
-      ],
-      [
-        "10",
-        "FC Augsburg",
-        "34",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "5",
-        ""
-      ],
-      [
-        "11",
-        "1. FC Köln",
-        "34",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "0",
-        ""
-      ],
-      [
-        "12",
-        "1. FSV Mainz 05",
-        "34",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "0",
-        ""
-      ],
-      [
-        "13",
         "Union Berlin",
-        "34",
         "",
         "",
         "",
         "",
         "",
-        "0",
+        "",
+        "",
         ""
       ],
       [
-        "14",
-        "SV Werder Bremen",
-        "34",
+        "",
+        "Frankfurt",
         "",
         "",
         "",
         "",
         "",
-        "0",
+        "",
+        "",
         ""
       ],
       [
-        "15",
-        "Hamburger SV",
-        "34",
+        "",
+        "Leverkusen",
         "",
         "",
         "",
         "",
         "",
-        "0",
+        "",
+        "",
         ""
       ],
       [
-        "16",
+        "",
+        "FC Bayern München",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "VfB Stuttgart",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "Hannover 96",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "VfL Wolfsburg",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
         "Hertha BSC",
-        "34",
         "",
         "",
         "",
         "",
         "",
-        "0",
+        "",
+        "",
         ""
       ],
       [
-        "17",
-        "Holstein Kiel",
-        "34",
+        "",
+        "1. FSV Mainz 05",
         "",
         "",
         "",
         "",
         "",
-        "0",
+        "",
+        "",
         ""
       ],
       [
-        "18",
-        "Mönchengladbach",
-        "34",
+        "",
+        "Hamburger SV",
         "",
         "",
         "",
         "",
         "",
-        "0",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "SV Werder Bremen",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "SC Freiburg",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "1. FC Nürnberg",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "FC Augsburg",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "1. FC Köln",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
         ""
       ]
     ],
     "club": "Borussia Dortmund",
-    "squad": []
+    // Current squad; individual player statistics have not been supplied yet.
+    "squad": [
+      [
+        "GK",
+        "1",
+        "Gregor Kobel",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "GK",
+        "12",
+        "Everton Teixeira",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "CB",
+        "39",
+        "Filippo Mane",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "CB",
+        "47",
+        "Elias Benkara",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "CB",
+        "4",
+        "Nico Schlotterbeck",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "CB",
+        "2",
+        "Kai Riedel",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "CB",
+        "3",
+        "Giulio Valentini",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "RB",
+        "5",
+        "Brooke Norton-Cuffy",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "RB",
+        "6",
+        "Samuel Flament",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "CDM",
+        "23",
+        "Tariq Benzai",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "LM",
+        "24",
+        "Pedro Villalba",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "LM",
+        "8",
+        "Ryan Cordier",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "CM",
+        "7",
+        "Kjell Wätjen",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "CAM",
+        "45",
+        "Danylo Krevsun",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "CAM",
+        "40",
+        "Samuele Inacio",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "CAM",
+        "17",
+        "Carney Chukwuemeka",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "CAM",
+        "15",
+        "Jonathan Friedrich",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "CAM",
+        "20",
+        "Petr Vávra",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "CAM",
+        "25",
+        "João Paulo Soares",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "CAM",
+        "19",
+        "Andon Mihov",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "RAM",
+        "46",
+        "Rens Adisea",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "ST",
+        "11",
+        "Endrick",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "ST",
+        "22",
+        "Patrik Novotný",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
   }
 };
 

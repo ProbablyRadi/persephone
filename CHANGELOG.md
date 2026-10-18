@@ -1,3 +1,24 @@
+## 18 October 2026 — Confirm Rens's Dortmund squad flags
+
+- Filled all 11 previously unknown 2035–36 Borussia Dortmund squad nationalities using user-provided countries: Everton Teixeira (Brazil), Kai Riedel (Germany), Giulio Valentini (Italy), Samuel Flament (France), Tariq Benzai (Tunisia), Pedro Villalba (Paraguay), Jonathan Friedrich (Germany), Petr Vávra (Slovenia), João Paulo Soares (Brazil), Andon Mihov (North Macedonia) and Patrik Novotný (Czechia).
+- Added the 🇲🇰 flag mapping to the existing local `Macedonia.png` asset and shared country definitions; no new flag image needed.
+- Extended the Rens 2035–36 test to verify all 11 flags and their local image paths. Updated the player/definitions script versions to refresh browser caches.
+- No squad names, shirt numbers, results or player statistics were changed.
+
+## 18 October 2026 — Rens 2035–36 Borussia Dortmund squad
+
+- Added the 23-player Borussia Dortmund squad exactly as supplied, preserving position, number and order.
+- Kept App, Goals, Asst and CLS blank: those statistics have not been provided for the in-progress season.
+- Added verified nationality flags for established squad members and retained Ryan Cordier and Rens Adisea flags already in the data. Eleven unconfirmed nationalities remain blank pending user confirmation.
+- Refreshed Rens’s data-script version and extended the Bundesliga season regression test; previous player statistics, fixtures and standings remain unchanged.
+
+## 18 October 2026 — Rens 2035–36 Bundesliga entrants
+
+- Replaced the outdated 2035–36 Bundesliga placeholder teams with the exact 18 participants supplied in the entry list, preserving their order without inventing league positions or match statistics.
+- The 2035–36 Timeline now correctly shows **Hannover 96** and **1. FC Nürnberg** as entered from 2034–35, in place of **Holstein Kiel** and **Mönchengladbach** (the previous season's bottom two).
+- Added Hannover 96 to the shared German flag mappings. The season remains in progress; its relegated teams remain unknown.
+- Added an automated regression test for Bundesliga entries and refreshed only the affected data-script versions. No fixture or player statistics were changed.
+
 ## 18 October 2026 — Rens career placeholders
 
 - Replaced the two "In progress" values for Rens’s Borussia Dortmund club career (appearances and goals) with em dashes (`—`) in the infobox.

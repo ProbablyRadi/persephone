@@ -170,6 +170,7 @@ node tests/verify-overviews.js
 node tests/verify-jordan-2028.js
 node tests/verify-jordan-2029.js
 node tests/verify-flag-sorting.js
+node tests/verify-rens-2035.js
 ```
 
 Jordan's **Champions Trophy** pre-season fixtures use the same
@@ -182,7 +183,7 @@ For **in-progress seasons**, a league-participant list does not imply a current
 ranking: use blank `Pos` entries until positions are known. You can record
 statistics for a player's club from supplied fixtures while leaving other
 clubs' records blank. The Timeline does not display a provisional top five
-until standings with ranked teams and points are available. Keep individual
+until standings with ranked teams and points are available. Rens’s **2035–36 Bundesliga** entry list follows this convention: the 18 confirmed participants are supplied in their listed order, with league positions and unreported results left blank; the Timeline compares names against 2034–35 to identify the new entrants. Keep individual
 player season statistics blank until they are separately supplied.
 
 ## Changelog
