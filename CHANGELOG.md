@@ -1,3 +1,19 @@
+## 2026-10-19 — Static infobox career summaries
+
+- Removed automatic sort arrows and click-to-sort handlers from the compact Club career and International career tables in all three player infoboxes.
+- Preserved their original chronological row order and left the other sortable tables unchanged.
+- Added regression checks for the static infobox summaries and retained sorting elsewhere.
+
+## 2026-10-19 — Career overview updates (Rens and Jordan)
+
+- Updated Rens's Netherlands infobox record to 42 appearances and 31 goals.
+- Added explicit Dortmund (2035–2040) and future PEC Zwolle (2040–2043) club career rows; aligned the 2039–40 overview placeholder with Dortmund.
+- Updated Jordan's infobox with Manchester United (2029–2037, 7 appearances/0 goals) and Celtic (2037–2040) as the later planned career move; removed the outdated PSV entry.
+- Updated Jordan's England record to 36 appearances and 1 goal, and preserved his prior Bristol City shirt number on the infobox.
+- Added future overview-only season rows for both players, without generating fixtures, season pages, stats or Head to Head results.
+- Kept their current clubs as Borussia Dortmund and Manchester United, matching the seasons already recorded; the pasted current-team labels referenced prior clubs.
+- Honours and completed-season statistics were already consistent with the supplied tables, so those values were not overwritten.
+
 ## 18 October 2026 — Confirm Rens's Dortmund squad flags
 
 - Filled all 11 previously unknown 2035–36 Borussia Dortmund squad nationalities using user-provided countries: Everton Teixeira (Brazil), Kai Riedel (Germany), Giulio Valentini (Italy), Samuel Flament (France), Tariq Benzai (Tunisia), Pedro Villalba (Paraguay), Jonathan Friedrich (Germany), Petr Vávra (Slovenia), João Paulo Soares (Brazil), Andon Mihov (North Macedonia) and Patrik Novotný (Czechia).

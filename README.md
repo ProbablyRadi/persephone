@@ -142,7 +142,7 @@ The site supports the Wiki, Dracula and Glass themes.
 
 On each player overview, the club and international career summaries appear in the right-hand infobox, like Wikipedia. The larger Career statistics and Honours sections remain full-width below the introductory content. Both infobox summaries are generated from the same `DATA.<player>.career` and `DATA.<player>.intl` fields as before.
 
-Flag and nationality columns in sortable tables are ordered alphabetically by country name, even though the displayed flags are local PNG images.
+Flag and nationality columns in sortable tables are ordered alphabetically by country name, even though the displayed flags are local PNG images. The compact **Club career** and **International career** tables inside player infoboxes are intentionally not sortable, so the chronology stays fixed. Larger league, squad and Head to Head tables remain sortable.
 
 ### Head to Head fixture accounting
 

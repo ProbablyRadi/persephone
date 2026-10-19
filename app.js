@@ -1325,8 +1325,13 @@ function sortableValue(value) {
     };
 }
 function enhanceTable(table) {
-    // Sorting would detach club totals from their corresponding season rows.
-    if (table.classList.contains('career-stats-table'))
+    // Keep career history in chronological order in the profile infobox.
+    // Sorting the large Career Statistics table would also separate subtotals
+    // from the season rows they belong to.
+    if (
+        table.classList.contains('infobox-career-table')
+        || table.classList.contains('career-stats-table')
+    )
         return;
     if (table.dataset.tableTools === '1' || !table.tHead || !table.tHead.rows.length)
         return;

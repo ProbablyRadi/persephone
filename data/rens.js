@@ -250,7 +250,7 @@ DATA.rens = {
   "intro": [
     "Rens Wilhelm Adisea is a Dutch professional footballer who plays as an attacking midfielder for Bundesliga club Borussia Dortmund and the Netherlands national team. Born in Zandvoort, Adisea began his senior career with PEC Zwolle in 2025 and established himself as a prolific attacking midfielder during three seasons in the Eredivisie. He chose 46 as his personal squad number early in his career and has consistently refused to wear the traditional number 10; over time, the number 46 became closely associated with him.",
     "In 2028, Adisea joined Brighton & Hove Albion, where he spent five seasons and helped the club win the Premier League in 2030–31. His time in England also brought UEFA Conference League and UEFA Europa League titles, as well as the FA Cup, Carabao Cup and two FA Community Shields. He moved to Bayern Munich in 2033 and won consecutive Bundesliga, DFB-Pokal and UEFA Champions League titles. Despite that sustained success, Adisea chose to leave Bayern in 2035, saying he wanted a greater challenge rather than continuing with a side expected to win every season, and joined Borussia Dortmund.",
-    "Adisea's first senior Netherlands call-up did not arrive until 2031, with the national side having considerable depth in midfield and selectors viewing him for several years as a gifted but still raw player. Once called up, he impressed immediately and established himself in the national-team picture. He was part of the Dutch side that reached the semi-finals of UEFA Euro 2032 and later won the 2034 FIFA World Cup. In the recorded career to date, he has made 41 appearances and scored 31 goals for the Netherlands."
+    "Adisea's first senior Netherlands call-up did not arrive until 2031, with the national side having considerable depth in midfield and selectors viewing him for several years as a gifted but still raw player. Once called up, he impressed immediately and established himself in the national-team picture. He was part of the Dutch side that reached the semi-finals of UEFA Euro 2032 and later won the 2034 FIFA World Cup. In the recorded career to date, he has made 42 appearances and scored 31 goals for the Netherlands."
   ],
   "career": [
     [
@@ -272,8 +272,14 @@ DATA.rens = {
       97
     ],
     [
-      "2035–",
+      "2035–2040",
       "🇩🇪 Borussia Dortmund",
+      "—",
+      "—"
+    ],
+    [
+      "2040–2043",
+      "🇳🇱 PEC Zwolle",
       "—",
       "—"
     ]
@@ -281,7 +287,7 @@ DATA.rens = {
   "intl": [
     "2031–",
     "🇳🇱 Netherlands",
-    41,
+    42,
     31
   ],
   // Row order: season, club, role, league, league position,
@@ -409,7 +415,7 @@ DATA.rens = {
     ],
     [
       "2035–36",
-      "🇩🇪 Dortmund",
+      "🇩🇪 Borussia Dortmund",
       "RAM",
       "Bundesliga",
       "—",
@@ -466,12 +472,33 @@ DATA.rens = {
   },
   // Future overview placeholders only: not playable seasons or fixtures.
   "careerOverviewFutureRows": [
+    // Borussia Dortmund: future seasons are overview placeholders only.
+    [
+      "2036–37",
+      "🇩🇪 Borussia Dortmund",
+      "RAM",
+      "Bundesliga"
+    ],
+    [
+      "2037–38",
+      "🇩🇪 Borussia Dortmund",
+      "RAM",
+      "Bundesliga"
+    ],
+    [
+      "2038–39",
+      "🇩🇪 Borussia Dortmund",
+      "RAM",
+      "Bundesliga"
+    ],
     [
       "2039–40",
-      "🇳🇱 PEC Zwolle",
-      "CAM",
-      "Eredivisie"
+      "🇩🇪 Borussia Dortmund",
+      "RAM",
+      "Bundesliga"
     ],
+
+    // Planned return to PEC Zwolle. These seasons have no fixtures yet.
     [
       "2040–41",
       "🇳🇱 PEC Zwolle",
@@ -489,24 +516,6 @@ DATA.rens = {
       "🇳🇱 PEC Zwolle",
       "CAM",
       "Eredivisie"
-    ],
-    [
-      "2036–37",
-      "🇩🇪 Dortmund",
-      "RAM",
-      "Bundesliga"
-    ],
-    [
-      "2037–38",
-      "🇩🇪 Dortmund",
-      "RAM",
-      "Bundesliga"
-    ],
-    [
-      "2038–39",
-      "🇩🇪 Dortmund",
-      "RAM",
-      "Bundesliga"
     ]
   ],
 

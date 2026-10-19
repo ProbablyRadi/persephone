@@ -172,7 +172,7 @@ DATA.jordan = {
   "bootBrand": "Nike",
   "position": "Goalkeeper",
   "current": "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester United",
-  "number": "1 (international: 12, 20, 17, 1)",
+  "number": "1 (previously 37 at Bristol City; international: 12, 20, 17, 1)",
   "international": "🏴󠁧󠁢󠁥󠁮󠁧󠁿 England (2025–)",
 
   // BIOGRAPHY AND CAREER OVERVIEW
@@ -182,7 +182,7 @@ DATA.jordan = {
     "Vale remained in goal following Bristol City's promotion to the Premier League, helping the club retain its top-flight status in 2026–27 and finish 14th the following season. The 2027–28 campaign was highlighted by a historic FA Cup victory over Manchester City. The final remained goalless through 90 minutes before Pablo López gave Bristol City the lead in the 101st minute. In the 121st minute, Vale saved an initial effort but Boden scored from the rebound to force a 1–1 draw and a penalty shootout, which Bristol City won after a fiercely contested series of kicks.",
     "In 2028–29, Vale played 59 times as Bristol City finished 11th in the Premier League, reached the Europa League round of 16 and went out of the Carabao Cup in a penalty shootout against Arsenal. He finished the season with 18 clean sheets, five assists and two Man of the Match awards.",
     "Vale joined Manchester United ahead of the 2029–30 Premier League season, taking the number 1 shirt. United opened their league campaign with three consecutive wins without conceding, against Wolves, AFC Bournemouth and Vale’s former club Bristol City. They also progressed past Brighton & Hove on penalties in the Carabao Cup. His individual season statistics remain unreported.",
-    "Vale has represented England at senior level since 2025. He was part of the England team that finished as runners-up at the 2026 FIFA World Cup and was awarded the UEFA Euro Golden Glove in 2028. He has made 34 recorded appearances for the national team."
+    "Vale has represented England at senior level since 2025. He was part of the England team that finished as runners-up at the 2026 FIFA World Cup and was awarded the UEFA Euro Golden Glove in 2028. He has made 36 appearances and scored one goal for the national team."
   ],
   "career": [
     [
@@ -192,14 +192,14 @@ DATA.jordan = {
       1
     ],
     [
-      "2029–",
+      "2029–2037",
       "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester United",
-      "—",
-      "—"
+      7,
+      0
     ],
     [
-      "2036–2040",
-      "🇳🇱 PSV",
+      "2037–2040",
+      "🏴󠁧󠁢󠁳󠁣󠁴󠁿 Celtic",
       "—",
       "—"
     ]
@@ -207,8 +207,8 @@ DATA.jordan = {
   "intl": [
     "2025–",
     "🏴󠁧󠁢󠁥󠁮󠁧󠁿 England",
-    34,
-    0
+    36,
+    1
   ],
   // Row order: season, club, role, league, league position,
   // average rating, appearances, goals, assists, clean sheets.
@@ -295,7 +295,71 @@ DATA.jordan = {
     }
   },
   // Future overview placeholders only: not playable seasons or fixtures.
-  "careerOverviewFutureRows": [],
+  "careerOverviewFutureRows": [
+    // Manchester United: the current season is already in stats; only future years appear here.
+    [
+      "2030–31",
+      "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester United",
+      "GK",
+      "Premier League"
+    ],
+    [
+      "2031–32",
+      "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester United",
+      "GK",
+      "Premier League"
+    ],
+    [
+      "2032–33",
+      "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester United",
+      "GK",
+      "Premier League"
+    ],
+    [
+      "2033–34",
+      "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester United",
+      "GK",
+      "Premier League"
+    ],
+    [
+      "2034–35",
+      "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester United",
+      "GK",
+      "Premier League"
+    ],
+    [
+      "2035–36",
+      "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester United",
+      "GK",
+      "Premier League"
+    ],
+    [
+      "2036–37",
+      "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester United",
+      "GK",
+      "Premier League"
+    ],
+
+    // Future Scottish league seasons (no fixtures or player statistics yet).
+    [
+      "2037–38",
+      "🏴󠁧󠁢󠁳󠁣󠁴󠁿 Celtic",
+      "GK",
+      "Scottish Premier"
+    ],
+    [
+      "2038–39",
+      "🏴󠁧󠁢󠁳󠁣󠁴󠁿 Celtic",
+      "GK",
+      "Scottish Premier"
+    ],
+    [
+      "2039–40",
+      "🏴󠁧󠁢󠁳󠁣󠁴󠁿 Celtic",
+      "GK",
+      "Scottish Premier"
+    ]
+  ],
 
   // HONOURS
   // Team titles and individual awards.

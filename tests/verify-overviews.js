@@ -84,6 +84,46 @@ assert.match(jordanInfobox, /<td>Boot brand<\/td>\s*<td>Nike<\/td>/,
     'Jordan Vale overview must show Nike for Boot brand');
 assert(!jordanInfobox.includes('New Balance'), 'Jordan overview must not show New Balance');
 
+// New user-supplied international/club histories and future season placeholders.
+const rensCareer = vm.runInContext('DATA.rens.career', context);
+const jordanCareer = vm.runInContext('DATA.jordan.career', context);
+const rensInternational = vm.runInContext('DATA.rens.intl', context);
+const jordanInternational = vm.runInContext('DATA.jordan.intl', context);
+assert.deepEqual(Array.from(rensInternational.slice(2)), [42, 31]);
+assert.deepEqual(Array.from(jordanInternational.slice(2)), [36, 1]);
+assert.deepEqual(Array.from(rensCareer.map(row => row[0])),
+    ['2025–2028', '2028–2033', '2033–2035', '2035–2040', '2040–2043']);
+assert.deepEqual(Array.from(jordanCareer.map(row => row[0])),
+    ['2025–2029', '2029–2037', '2037–2040']);
+assert(jordanCareer[2][1].includes('Celtic'), 'Later club should be Celtic rather than PSV');
+assert.deepEqual(Array.from(jordanCareer[1].slice(2)), [7, 0]);
+assert.equal(rensCareer[4][2], '—');
+const rensFuture = cellsOf(rensOverview, 'season');
+const jordanFuture = cellsOf(jordanOverview, 'season');
+for (const season of ['2036–37', '2037–38', '2038–39', '2039–40']) {
+    const row = rensFuture.find(cells => cells[1] === season);
+    assert(row && row[0].includes('Dortmund'), `Rens ${season} should still be at Dortmund`);
+    assert(row.slice(4).every(value => value === '—'), 'Future seasons should not have performance statistics');
+}
+for (const season of ['2040–41', '2041–42', '2042–43']) {
+    const row = rensFuture.find(cells => cells[1] === season);
+    assert(row && row[0].includes('PEC Zwolle'), `Rens ${season} return to PEC Zwolle missing`);
+}
+for (const season of ['2030–31', '2031–32', '2032–33', '2033–34',
+    '2034–35', '2035–36', '2036–37']) {
+    const row = jordanFuture.find(cells => cells[1] === season);
+    assert(row && row[0].includes('Manchester United'), `Jordan ${season} should be at Manchester United`);
+    assert(row.slice(4).every(value => value === '—'), 'Future seasons should not have performance statistics');
+}
+for (const season of ['2037–38', '2038–39', '2039–40']) {
+    const row = jordanFuture.find(cells => cells[1] === season);
+    assert(row && row[0].includes('Celtic'), `Jordan ${season} future Celtic season missing`);
+}
+assert(vm.runInContext('DATA.rens.current', context).includes('Borussia Dortmund'));
+assert(vm.runInContext('DATA.jordan.current', context).includes('Manchester United'));
+assert(!vm.runInContext('Object.keys(DATA.rens.seasons)', context).includes('2040–41'));
+assert(!vm.runInContext('Object.keys(DATA.jordan.seasons)', context).includes('2030–31'));
+
 // The club/international summaries belong inside the right-hand infobox,
 // while the larger Career statistics and Honours remain in the article.
 for (const id of ['rens', 'jordan', 'vasi']) {
@@ -104,6 +144,60 @@ for (const id of ['rens', 'jordan', 'vasi']) {
         }
     }
 }
+// The small infobox career tables must remain chronological: no clickable
+// headings, sort arrows, or automatic class changes. Other headed tables
+// should still receive interactive sorting.
+const sortingContext = vm.createContext({
+    document: {
+        createElement: () => ({
+            className: '',
+            textContent: '',
+            setAttribute() {},
+        }),
+    },
+});
+vm.runInContext(excerpt('function enhanceTable(', 'function enhanceTables('), sortingContext);
+const classList = names => {
+    const values = new Set(names);
+    return {
+        contains: name => values.has(name),
+        add: name => values.add(name),
+    };
+};
+const mockTable = name => {
+    const headings = ['Years', 'Team', 'Apps', 'Goals'].map(textContent => ({
+        textContent,
+        colSpan: 1,
+        dataset: {},
+        classList: classList([]),
+        appendChild(child) { this.indicator = child; },
+        addEventListener(eventName) { this.sortListener = eventName; },
+    }));
+    return {
+        classList: classList(name ? [name] : []),
+        dataset: {},
+        tHead: { rows: [{ cells: headings }] },
+        tBodies: [{ rows: [] }],
+        headings,
+    };
+};
+for (const tableName of ['infobox-career-table', 'career-stats-table']) {
+    const table = mockTable(tableName);
+    sortingContext.tableToCheck = table;
+    vm.runInContext('enhanceTable(tableToCheck)', sortingContext);
+    assert(!table.classList.contains('interactive-table'),
+        `${tableName}: sorting class must not be applied`);
+    assert(table.headings.every(heading => !heading.indicator && !heading.sortListener),
+        `${tableName}: heading arrows and sorting clicks must not be added`);
+}
+const standardTable = mockTable('wikitable');
+sortingContext.tableToCheck = standardTable;
+vm.runInContext('enhanceTable(tableToCheck)', sortingContext);
+assert(standardTable.classList.contains('interactive-table'),
+    'Other tables must remain sortable');
+assert(standardTable.headings.every(heading => heading.indicator && heading.sortListener === 'click'),
+    'Other tables must retain sorting arrows and click handlers');
+
 const articleRenderer = excerpt('function player(id)', 'function teamFlag(');
 assert(!articleRenderer.includes('career-grid'), 'Club/international tables should no longer be full-width');
 assert(articleRenderer.includes('careerStatsTable(playerData)'), 'Full career statistics must remain');

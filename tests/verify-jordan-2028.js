@@ -54,7 +54,7 @@ const snapshot = vm.runInContext(`(() => {
 
 assert.equal(snapshot.clubApps, 208);
 assert.equal(snapshot.clubGoals, 1);
-assert.equal(snapshot.caps, 34);
+assert.equal(snapshot.caps, 36, "Current England infobox total includes the new user-supplied career record");
 assert.equal(snapshot.season.inProgress, undefined);
 assert.equal(snapshot.season.table, '11th — 49 pts');
 assert.equal(snapshot.stats[4], '11th');
