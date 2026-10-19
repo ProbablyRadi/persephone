@@ -762,7 +762,7 @@ function careerOpponentRows(id) {
             ? 100 * opponentRecord.wins / opponentRecord.played : 0,
         type: opponentRecord.international && !opponentRecord.club ? 'International' : opponentRecord.club && !opponentRecord.international ? 'Club' : 'Mixed',
         representedLabel: [...opponentRecord.represented]
-            .map(([team, played]) => `${played}× ${team}`)
+            .map(([team, played]) => `${team} (${played})`)
             .join(', ')
     }))
         .sort((firstRecord, secondRecord) => secondRecord.wins - firstRecord.wins || secondRecord.winPct - firstRecord.winPct || secondRecord.played - firstRecord.played || (firstRecord.opponent.localeCompare(secondRecord.opponent)));

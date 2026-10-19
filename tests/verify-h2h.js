@@ -183,7 +183,7 @@ for (const [id, wanted] of Object.entries(expected)) {
         ).map(row => row.opponent);
         const representedLabelMismatches = rows.filter(row =>
             row.representedLabel !== [...row.represented]
-                .map(([team, count]) => count + '× ' + team).join(', ')
+                .map(([team, count]) => team + ' (' + count + ')').join(', ')
         ).map(row => row.opponent);
         const representedExamples = Object.fromEntries(rows
             .filter(row => ['AFC Bournemouth', 'Brighton & Hove', 'Arsenal'].includes(row.opponent))
@@ -222,17 +222,17 @@ for (const [id, wanted] of Object.entries(expected)) {
         `${id}: represented labels must show counts beside each team`);
     if (id === 'jordan') {
         assert.equal(actual.representedExamples['AFC Bournemouth'],
-            '6× Bristol City, 1× Manchester United',
+            'Bristol City (6), Manchester United (1)',
             'Jordan: the Bournemouth record should split correctly by club');
-        assert(actual.html.includes('<td class="represented">6× Bristol City, 1× Manchester United</td>'),
+        assert(actual.html.includes('<td class="represented">Bristol City (6), Manchester United (1)</td>'),
             'Jordan: the breakdown must appear in the rendered Head to Head table');
         assert.equal(actual.representedExamples['Brighton & Hove'],
-            '7× Bristol City, 2× Manchester United',
+            'Bristol City (7), Manchester United (2)',
             'Jordan: ties on penalties should count as played matches');
     }
     if (id === 'rens') {
         assert.equal(actual.representedExamples.Arsenal,
-            '14× Brighton & Hove, 1× FC Bayern München, 1× Borussia Dortmund',
+            'Brighton & Hove (14), FC Bayern München (1), Borussia Dortmund (1)',
             'Rens: the Arsenal record should split correctly by club');
     }
     assert(actual.html.includes('analysis-summary'), `${id}: H2H page did not render`);

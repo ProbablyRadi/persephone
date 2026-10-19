@@ -156,8 +156,8 @@ fixtures marked as missed through injury), rather than individual player
 appearances. Season placeholders do not generate fictional matches.
 
 The **Represented** column shows the number of matches played while representing
-*each* club or national team against that opponent, e.g. `5× Bristol City,
-2× Manchester United`. Counts are calculated from the same eligible fixtures
+*each* club or national team against that opponent, e.g. `Bristol City (5),
+Manchester United (2)`. Counts are calculated from the same eligible fixtures
 as **P**: two-legged aggregate-only ties count as two played matches, repeated
 international fixtures and aggregate-summary duplicates are excluded. The
 represented counts on any opponent row should therefore add up to that row's

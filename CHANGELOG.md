@@ -1,3 +1,9 @@
+## 2026-10-19 — Head to Head represented-team display format
+
+- Changed the **Represented** column to show full team names followed by match counts in parentheses (e.g. `Bristol City (6), Manchester United (1)`) for all three characters.
+- Kept the underlying per-club match counts, sortability, aggregate accounting, fixtures and statistics unchanged.
+- Updated the Head to Head regression checks and script cache version.
+
 ## 2026-10-19 — Vasi career overview update
 
 - Confirmed Vasi's supplied name, nickname, birth information, height, position, current club and number in the overview infobox.
