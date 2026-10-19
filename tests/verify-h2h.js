@@ -51,7 +51,7 @@ vm.runInContext(
 
 const expected = {
     rens: { opponents: 152, played: 554, wins: 349, draws: 88, losses: 101, aggregateOnlyTies: 16 },
-    jordan: { opponents: 100, played: 254, wins: 120, draws: 59, losses: 73, aggregateOnlyTies: 2 },
+    jordan: { opponents: 105, played: 277, wins: 136, draws: 61, losses: 78, aggregateOnlyTies: 2 },
     vasi: { opponents: 35, played: 158, wins: 111, draws: 22, losses: 18, aggregateOnlyTies: 7 },
 };
 
@@ -174,6 +174,20 @@ for (const [id, wanted] of Object.entries(expected)) {
         }
 
         unflaggedOpponents = rows.filter(row => !teamFlag(row.opponent)).map(row => row.opponent);
+
+        // Each Represented entry uses the same weighted, deduplicated fixtures
+        // as the Played total (including both legs of aggregate-only ties).
+        const representedCountMismatches = rows.filter(row =>
+            [...row.represented.values()].reduce((total, count) => total + count, 0)
+                !== row.played
+        ).map(row => row.opponent);
+        const representedLabelMismatches = rows.filter(row =>
+            row.representedLabel !== [...row.represented]
+                .map(([team, count]) => count + '× ' + team).join(', ')
+        ).map(row => row.opponent);
+        const representedExamples = Object.fromEntries(rows
+            .filter(row => ['AFC Bournemouth', 'Brighton & Hove', 'Arsenal'].includes(row.opponent))
+            .map(row => [row.opponent, row.representedLabel]));
         careerAnalysis('${id}');
 
         return {
@@ -184,6 +198,9 @@ for (const [id, wanted] of Object.entries(expected)) {
             representedMatches,
             aggregateOnlyTies,
             unflaggedOpponents,
+            representedCountMismatches,
+            representedLabelMismatches,
+            representedExamples,
             html: app.innerHTML,
         };
     })()`, context);
@@ -199,6 +216,25 @@ for (const [id, wanted] of Object.entries(expected)) {
         `${id}: a scored fixture was not parsed`);
     assert.deepEqual(Array.from(actual.unflaggedOpponents), [],
         `${id}: missing opponent flag`);
+    assert.deepEqual(Array.from(actual.representedCountMismatches), [],
+        `${id}: represented counts must sum to Played for every opponent`);
+    assert.deepEqual(Array.from(actual.representedLabelMismatches), [],
+        `${id}: represented labels must show counts beside each team`);
+    if (id === 'jordan') {
+        assert.equal(actual.representedExamples['AFC Bournemouth'],
+            '6× Bristol City, 1× Manchester United',
+            'Jordan: the Bournemouth record should split correctly by club');
+        assert(actual.html.includes('<td class="represented">6× Bristol City, 1× Manchester United</td>'),
+            'Jordan: the breakdown must appear in the rendered Head to Head table');
+        assert.equal(actual.representedExamples['Brighton & Hove'],
+            '7× Bristol City, 2× Manchester United',
+            'Jordan: ties on penalties should count as played matches');
+    }
+    if (id === 'rens') {
+        assert.equal(actual.representedExamples.Arsenal,
+            '14× Brighton & Hove, 1× FC Bayern München, 1× Borussia Dortmund',
+            'Rens: the Arsenal record should split correctly by club');
+    }
     assert(actual.html.includes('analysis-summary'), `${id}: H2H page did not render`);
     assert(!actual.html.includes('Agg W'), `${id}: obsolete aggregate-wins column`);
     assert(!actual.html.includes('Agg L'), `${id}: obsolete aggregate-losses column`);

@@ -50,6 +50,36 @@ for (const [season, [potm, motm]] of Object.entries(expected)) {
     assert.equal(row[6], String(potm), `Vasi ${season}: POTM is blank/wrong`);
     assert.equal(row[7], String(motm), `Vasi ${season}: MOTM is blank/wrong`);
 }
+// Vasi's compact club-career infobox tracks the supplied completed-season
+// Barcelona total. Ongoing 2028–29 figures remain on the season page and in
+// its Career Statistics season row; future clubs are only career placeholders.
+const vasiCareer = vm.runInContext('DATA.vasi.career', context);
+const vasiInternational = vm.runInContext('DATA.vasi.intl', context);
+assert.deepEqual(Array.from(vasiCareer.map(row => row[0])),
+    ['2025–2036', '2036–2040', '2040–2043']);
+assert.deepEqual(Array.from(vasiCareer[0].slice(2)), [119, 133]);
+assert(vasiCareer[0][1].includes('FC Barcelona Femení'));
+assert(vasiCareer[1][1].includes('Gotham FC'));
+assert(vasiCareer[2][1].includes('OFI Crete W.F.C.'));
+assert.deepEqual(Array.from(vasiCareer[1].slice(2)), ['—', '—']);
+assert.deepEqual(Array.from(vasiCareer[2].slice(2)), ['—', '—']);
+assert.deepEqual(Array.from(vasiInternational.slice(2)), [4, 2]);
+assert.equal(vm.runInContext('DATA.vasi.name', context),
+    'Vasiliki Dimitriou (Βασιλική Δημητρίου)');
+assert.equal(vm.runInContext('DATA.vasi.nickname', context), 'Vasi');
+assert.equal(vm.runInContext('DATA.vasi.dob', context), '31 October');
+assert.equal(vm.runInContext('DATA.vasi.birth', context), 'Thessaloniki, Greece');
+assert.equal(vm.runInContext('DATA.vasi.height', context), '1.77 m');
+assert.equal(vm.runInContext('DATA.vasi.position', context), 'Striker');
+assert.equal(vm.runInContext('DATA.vasi.number', context), '9');
+assert(vm.runInContext('DATA.vasi.current', context).includes('FC Barcelona Femení'));
+assert.deepEqual(Array.from(vm.runInContext('Object.keys(DATA.vasi.seasons)', context))
+    .filter(season => season.startsWith('2036') || season.startsWith('2040')), []);
+const vasiInfobox = vm.runInContext('infobox(DATA.vasi)', context);
+assert(vasiInfobox.includes('OFI Crete W.F.C.'), 'Future OFI club missing from infobox');
+assert(vasiInfobox.includes('119') && vasiInfobox.includes('133'),
+    'Barcelona completed-season totals must appear in infobox');
+
 const vasiTotal = cellsOf(vasi, 'subtotal')[0];
 assert(vasiTotal, 'Vasi career total row missing');
 assert.equal(vasiTotal[6], '4', 'Vasi POTM total should be four');
@@ -96,7 +126,7 @@ assert.deepEqual(Array.from(rensCareer.map(row => row[0])),
 assert.deepEqual(Array.from(jordanCareer.map(row => row[0])),
     ['2025–2029', '2029–2037', '2037–2040']);
 assert(jordanCareer[2][1].includes('Celtic'), 'Later club should be Celtic rather than PSV');
-assert.deepEqual(Array.from(jordanCareer[1].slice(2)), [7, 0]);
+assert.deepEqual(Array.from(jordanCareer[1].slice(2)), [24, 0]);
 assert.equal(rensCareer[4][2], '—');
 const rensFuture = cellsOf(rensOverview, 'season');
 const jordanFuture = cellsOf(jordanOverview, 'season');

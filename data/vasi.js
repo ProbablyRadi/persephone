@@ -108,18 +108,24 @@ DATA.vasi = {
   "intro": [
     "Vasiliki Dimitriou (Greek: Βασιλική Δημητρίου), commonly known as Vasi, is a Greek professional footballer who plays as a striker for Liga F club FC Barcelona Femení and the Greece national team. Born in Thessaloniki, she began her senior career with Barcelona in 2025 and quickly established herself as one of the side's leading goalscorers.",
     "Dimitriou broke the Liga F single-season goalscoring record in only her second season of senior football. Entering the final match of the 2026–27 season needing four goals to reach 40, she had seven first-half shots saved before scoring in the 65th, 72nd and 75th minutes to equal the previous record of 39. In the 83rd minute, Caroline Graham Hansen went through with only the goalkeeper to beat but passed to Dimitriou instead, allowing her to score the record-breaking 40th league goal. Graham Hansen later secured the Golden Boot, while Dimitriou finished the season as Liga F's new single-season record holder.",
-    "Across her first three completed senior seasons, Dimitriou made 119 appearances and scored 133 goals for Barcelona, winning Liga F and the UEFA Women's Champions League in each of the 2025–26, 2026–27 and 2027–28 seasons. During the ongoing 2028–29 campaign she has taken her Barcelona totals to 143 appearances and 155 goals. She has also represented Greece at senior level since 2025, with four recorded appearances and two goals."
+    "Across her first three completed senior seasons, Dimitriou made 119 appearances and scored 133 goals for Barcelona, winning Liga F and the UEFA Women's Champions League in each of the 2025–26, 2026–27 and 2027–28 seasons. Her compact club career summary lists those three completed seasons; the ongoing 2028–29 season currently adds 24 appearances and 22 goals, shown separately in her season statistics. She has also represented Greece at senior level since 2025, with four recorded appearances and two goals."
   ],
   "career": [
     [
       "2025–2036",
       "🇪🇸 FC Barcelona Femení",
-      143,
-      155
+      119,
+      133
     ],
     [
       "2036–2040",
       "🇺🇸 Gotham FC",
+      "—",
+      "—"
+    ],
+    [
+      "2040–2043",
+      "🇬🇷 OFI Crete W.F.C.",
       "—",
       "—"
     ]

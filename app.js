@@ -623,7 +623,7 @@ function squadTable(meta, id, inProgress) {
         return `<p class="muted">${inProgress ? 'The player list has not yet been populated in the supplied in-progress season sheet.' : 'No player list was populated in the supplied season sheet.'}</p>`;
     const target = DATA[id].squadFocusName || DATA[id].displayName || DATA[id].name;
     let rows = meta.squad.map(squadRow => `<tr class="${squadRow[2].includes(target) ? 'focus-player' : ''}"><td>${esc(squadRow[0])}</td><td class="player-nation">${playerFlag(squadRow[2].replace(' ⭐', ''), id)}</td><td class="num">${esc(squadRow[1])}</td><td class="squad-name${squadRow[2].replace(' ⭐', '').length > 20 ? ' compact-name' : ''}">${esc(squadRow[2])}</td>${squadRow.slice(3).map(value => `<td class="num">${value === '' ? '' : esc(value)}</td>`).join('')}</tr>`).join('');
-    return `${inProgress ? '<p class="table-note">In-progress player list: blank statistics are preserved from the supplied sheet.</p>' : ''}<div class="table-scroll"><table class="wikitable squad-table"><thead><tr><th>Pos</th><th title="Nationality">Nat.</th><th>No.</th><th>Name</th><th>App</th><th>Goals</th><th>Asst</th><th>CLS</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+    return `${inProgress ? '<p class="table-note">In-progress player list: unreported statistics are blank; supplied zero values are retained.</p>' : ''}<div class="table-scroll"><table class="wikitable squad-table"><thead><tr><th>Pos</th><th title="Nationality">Nat.</th><th>No.</th><th>Name</th><th>App</th><th>Goals</th><th>Asst</th><th>CLS</th></tr></thead><tbody>${rows}</tbody></table></div>`;
 }
 
 function canonicalTeam(teamName) {
@@ -723,12 +723,19 @@ function careerOpponentRows(id) {
             if (!rec.has(key))
                 rec.set(key, {
                     opponent, played: 0, wins: 0, draws: 0, losses: 0,
-                    gf: 0, ga: 0, seasons: new Set(), represented: new Set(), international: 0, club: 0
+                    gf: 0, ga: 0, seasons: new Set(), represented: new Map(), international: 0, club: 0
                 });
             const opponentRecord = rec.get(key), matchOutcome = outcome(fixture, focal);
             opponentRecord.played += matchCount;
             opponentRecord.seasons.add(season);
-            opponentRecord.represented.add(canonicalTeam(focal));
+            // Count how many matches were played against this opponent while
+            // representing each club (or national team). Aggregate-only UEFA
+            // ties add two played matches, just as they do in the P column.
+            const representedTeam = canonicalTeam(focal);
+            opponentRecord.represented.set(
+                representedTeam,
+                (opponentRecord.represented.get(representedTeam) || 0) + matchCount
+            );
             if (isInternationalCompetition(comp))
                 opponentRecord.international += matchCount;
             else
@@ -753,9 +760,10 @@ function careerOpponentRows(id) {
         gd: opponentRecord.gf - opponentRecord.ga,
         winPct: opponentRecord.played
             ? 100 * opponentRecord.wins / opponentRecord.played : 0,
-        type: opponentRecord.international && !opponentRecord.club ? 'International' : opponentRecord.club && !opponentRecord.international ? 'Club' : 'Mixed', representedLabel: [
-            ...opponentRecord.represented
-        ].join(', ')
+        type: opponentRecord.international && !opponentRecord.club ? 'International' : opponentRecord.club && !opponentRecord.international ? 'Club' : 'Mixed',
+        representedLabel: [...opponentRecord.represented]
+            .map(([team, played]) => `${played}× ${team}`)
+            .join(', ')
     }))
         .sort((firstRecord, secondRecord) => secondRecord.wins - firstRecord.wins || secondRecord.winPct - firstRecord.winPct || secondRecord.played - firstRecord.played || (firstRecord.opponent.localeCompare(secondRecord.opponent)));
 }
@@ -793,7 +801,7 @@ function careerAnalysis(id) {
     app.innerHTML = `
         <p><a href="#${id}">← ${playerData.name}</a></p>
         <h1>${playerData.flag} ${playerData.name.split(' ')[0]} vs Teams</h1>
-        <p class="lede">Combined head-to-head record against every opponent across ${playerData.name}'s recorded career, regardless of which club or national team ${playerData.name.split(' ')[0]} was representing. Ranked by most recorded wins by default.</p>
+        <p class="lede">Combined head-to-head record against every opponent across ${playerData.name}'s recorded career, regardless of which club or national team ${playerData.name.split(' ')[0]} was representing. The Represented column breaks down matches played by team. Ranked by most recorded wins by default.</p>
         <div class="analysis-summary">
             <div><b>${rows.length}</b><span>Opponents</span></div>
             <div><b>${totals.played}</b><span>Matches</span></div>
@@ -1025,6 +1033,11 @@ function careerTimeline(id) {
         const topHtml = top.length ? `<ol class="timeline-topfive">${top.map(standingRow => `<li class="${canonicalTeam(cleanTeamName(standingRow[1])) === canonicalTeam(meta && meta.club ? meta.club : '') ? 'focus' : ''}"><span>${teamFlag(cleanTeamName(standingRow[1]))} ${esc(standingRow[1])}</span><b>${standingRow[9] !== '' && standingRow[9] != null ? esc(standingRow[9]) + ' pts' : ''}</b></li>`).join('')}</ol>` : '<p class="muted">League top five not yet available.</p>';
         const cupHtml = cups.length ? cups.map(cupFinal => `<div class="timeline-cup"><b>${esc(cupFinal.comp)}</b><span>Winner: ${teamFlag(cupFinal.winner)} ${esc(cupFinal.winner)}</span><span>Runner-up: ${teamFlag(cupFinal.runner)} ${esc(cupFinal.runner)}</span></div>`).join('') : '<p class="muted">No recorded cup final for this season.</p>';
         const moveHtml = moves.note ? `<p class="muted">${esc(moves.note)}</p>` : `<div class="timeline-moves"><div><b>Joined</b>${moves.joined.length ? `<ul>${moves.joined.map(playerName => `<li>+ ${esc(playerName)}</li>`).join('')}</ul>` : '<span class="muted">None recorded</span>'}</div><div><b>Left</b>${moves.left.length ? `<ul>${moves.left.map(playerName => `<li>− ${esc(playerName)}</li>`).join('')}</ul>` : '<span class="muted">None recorded</span>'}</div></div>`;
+        // A second roster snapshot within the current season can reveal changes
+        // that season-to-season comparisons cannot show (especially after a move).
+        // A missing name is not necessarily evidence of a transfer.
+        const inSeason = playerData.timelineInSeasonSquadUpdates && playerData.timelineInSeasonSquadUpdates[season];
+        const inSeasonHtml = inSeason ? `<p class="table-note">In-season squad update — compared with the previously supplied ${esc(season)} list. Removed names are not confirmed transfers.</p><div class="timeline-moves"><div><b>Joined</b>${inSeason.added && inSeason.added.length ? `<ul>${inSeason.added.map(name => `<li>+ ${esc(name)}</li>`).join('')}</ul>` : '<span class="muted">None</span>'}</div><div><b>Left</b>${inSeason.removed && inSeason.removed.length ? `<ul>${inSeason.removed.map(name => `<li>− ${esc(name)}</li>`).join('')}</ul>` : '<span class="muted">None</span>'}</div></div>` : '';
         const enteredHtml = leagueMovement && Array.isArray(leagueMovement.entered)
             ? (leagueMovement.entered.length
                 ? `<ul>${leagueMovement.entered.map(team => `<li>↑ ${teamFlag(team)} ${esc(team)}</li>`).join('')}</ul>`
@@ -1081,6 +1094,7 @@ function careerTimeline(id) {
                 <section>
                     <h3>Squad movement</h3>
                     ${moveHtml}
+                    ${inSeasonHtml}
                 </section>
             </article>
         `;
@@ -1264,9 +1278,13 @@ function season(id, seasonName) {
     let blocks = entries.map(([competitionName, fixtures]) => {
         const side = competitionSideTable(id, seasonName, competitionName, meta);
         const leagueId = (sideLeagueSeason && meta && competitionName === meta.league) ? ' id="league-table"' : '';
-        const fixturesHtml = fixtures.length
+        const pending = seasonData.pendingFixtures && seasonData.pendingFixtures[competitionName] || [];
+        const pendingHtml = pending.length
+            ? `<div class="table-note"><b>Scheduled / score pending (not counted in results or Head to Head)</b><ul>${pending.map(item => `<li>${esc(item)}</li>`).join('')}</ul></div>`
+            : '';
+        const fixturesHtml = (fixtures.length
             ? fixtureTable(fixtures, focalFor(id, seasonName, competitionName), competitionName, id, seasonName)
-            : '<p class="muted">No fixtures recorded yet.</p>';
+            : '<p class="muted">No fixtures recorded yet.</p>') + pendingHtml;
 
         if (side) {
             return `<div class="competition-pair" id="${sectionId(competitionName)}"><section class="competition season-competition competition-fixture-panel"><div class="competition-heading"><h2>${competitionName}</h2><a href="#season-overview" onclick="event.preventDefault();document.getElementById('season-overview').scrollIntoView({behavior:'smooth'})">Back to top ↑</a></div><div class="competition-fixtures">${fixturesHtml}</div></section><aside class="competition-standings-panel"${leagueId}>${side}</aside></div>`;

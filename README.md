@@ -155,6 +155,14 @@ counted once. The numbers reflect the supplied team fixtures (including
 fixtures marked as missed through injury), rather than individual player
 appearances. Season placeholders do not generate fictional matches.
 
+The **Represented** column shows the number of matches played while representing
+*each* club or national team against that opponent, e.g. `5× Bristol City,
+2× Manchester United`. Counts are calculated from the same eligible fixtures
+as **P**: two-legged aggregate-only ties count as two played matches, repeated
+international fixtures and aggregate-summary duplicates are excluded. The
+represented counts on any opponent row should therefore add up to that row's
+**P**, even when P differs from W + D + L.
+
 
 ## Development
 
@@ -186,6 +194,16 @@ clubs' records blank. The Timeline does not display a provisional top five
 until standings with ranked teams and points are available. Rens’s **2035–36 Bundesliga** entry list follows this convention: the 18 confirmed participants are supplied in their listed order, with league positions and unreported results left blank; the Timeline compares names against 2034–35 to identify the new entrants. Keep individual
 player season statistics blank until they are separately supplied.
 
+Jordan's **2029–30** league sheet supplies positions, matches played and points
+for all 20 teams, but only **17 of United's 18** scored league results.
+The website preserves all 20 clubs' supplied rankings and points but does not
+invent the missing league score or their W/D/L or goal figures. Fixtures with
+no result yet can be listed in `DATA.jordan.seasons['2029–30'].pendingFixtures`
+by competition; the season page shows them separately, and they **do not enter
+Head to Head**. `DATA.jordan.timelineInSeasonSquadUpdates` records changes
+between two roster snapshots *within* a season; "removed from list" does not
+necessarily mean the player transferred away.
+
 ## Changelog
 
 See [`CHANGELOG.md`](CHANGELOG.md) for a reconstructed history of the major changes made during development.
@@ -196,8 +214,8 @@ The current example is Jordan Vale's **2029–30 Manchester United** season in `
 
 - Add the new season under `DATA.jordan.seasons` with `inProgress: true`, and add a season row to `DATA.jordan.stats` using empty strings for statistics not yet known. Do not use `0` until the figure is confirmed.
 - Add competition names with empty arrays in `FULL_FIXTURES.jordan`; they display **No fixtures recorded yet** until results are added.
-- Add a `SEASON_TABLES.jordan` entry with the club name, league, a blank standing row, and the squad sheet. Each player row uses `[position, number, name, appearances, goals, assists, clean sheets]`.
+- Add a `SEASON_TABLES.jordan` entry with the club name, league, known standings values and squad sheet. Each player row uses `[position, number, name, appearances, goals, assists, clean sheets]`; keep any unreported entries blank.
 - Add nationalities to `DATA.jordan.squadFlags` only when known. Florian Daems (Belgium), Rik Dekker (Netherlands) and Mauricio (Paraguay) have confirmed flags.
-- The Timeline reads the new season's club and squad. The Career Overview excludes in-progress statistics from completed career totals, and Head to Head does not gain matches from empty fixture arrays.
+- The Timeline reads the season's club and squad, plus optional in-season roster additions/removals from `timelineInSeasonSquadUpdates`. The Career Overview's subtotals and grand total exclude in-progress seasons, even if the current-season row has supplied statistics. The smaller club-career infobox can show up-to-date appearances. Head to Head only counts scored fixtures, not pending fixtures.
 
 Run `node tests/verify-jordan-2029.js` after making season changes.

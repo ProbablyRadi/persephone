@@ -1,3 +1,34 @@
+## 2026-10-19 — Vasi career overview update
+
+- Confirmed Vasi's supplied name, nickname, birth information, height, position, current club and number in the overview infobox.
+- Updated the FC Barcelona Femení club career summary to **119 appearances / 133 goals** (completed 2025–26 through 2027–28 seasons), retaining the separate 2028–29 in-progress season record of 24 appearances / 22 goals.
+- Kept **Gotham FC (2036–2040)** and added **OFI Crete W.F.C. (2040–2043)** as future club career rows with unreported appearances and goals shown as dashes.
+- Preserved the Greece international career summary at **4 appearances / 2 goals**, all honours, detailed season statistics, fixtures and Head to Head records.
+- Updated Vasi's script cache version and added regression checks for the three club rows, personal details and the absence of fabricated future season pages.
+
+## 2026-10-19 — Head to Head represented-team match counts
+
+- The **Represented** column now shows match counts by club or national team (for example `5× Bristol City, 2× Manchester United`) for all three character profiles.
+- Counts use the same eligible and deduplicated fixture records as the **P** column; aggregate-only UEFA knockout ties count as two matches, without inventing extra wins or losses.
+- Kept the existing table columns, sorting, flag rendering, outcomes and player data unchanged. Added regression checks ensuring each row’s represented counts total its played matches.
+
+## 2026-10-19 — Timeline squad movement wording
+
+- Renamed in-season squad update headings from **Added to list** / **Removed from list** to the usual **Joined** / **Left** in the Career Timeline.
+- Kept Jordan's existing 2029–30 squad names and the note that changes to a supplied squad list do not necessarily confirm transfers.
+- Updated the Timeline regression test and the `app.js` cache version. No fixture, player or other page data changed.
+
+## 2026-10-19 — Jordan Vale 2029–30 mid-season update
+
+- Updated Jordan's Manchester United 2029–30 record to **24 appearances, 0 goals, 0 assists and 8 clean sheets**, including his club career infobox and season statistics (career-statistics totals still exclude incomplete seasons).
+- Added the 14 newly supplied Premier League scores (17 known in total), three further Carabao Cup results, and six England friendlies. Preserved the existing three Champions Trophy results and eight-team table.
+- Updated the provisional Premier League table: **Manchester United 3rd, 18 played, 34 points**; retained the source's rankings and points for all 20 clubs. Only 17 league scorelines were supplied, so the unidentified 18th score and unreported W/D/L, goals and goal difference remain blank instead of being invented.
+- Kept unplayed **Manchester United vs Liverpool** (league) and **Manchester City vs Manchester United** (Carabao Cup) in a separate pending-fixtures display, excluded from Head to Head.
+- Replaced the 38-player early squad with the latest **36-player** Manchester United roster, including all supplied appearances, goals, assists and clean sheets. Added No. 5 left-back **Emeka Adiele** with an unconfirmed nationality; no flag was guessed.
+- Added an **in-season squad update** to the Timeline: Emeka Adiele added; Benjamin Šeško, Florian Daems and Rik Dekker removed from the latest squad list. Absence is not asserted as a confirmed transfer.
+- Recalculated Jordan's Head to Head: **277 played, 136 wins, 61 draws, 78 losses, 105 opponents**, retaining the aggregate accounting rules. Rens and Vasi are unchanged.
+- Extended the 2029–30 tests for the new roster, Timeline, league snapshot, pending scores and player values.
+
 ## 2026-10-19 — Static infobox career summaries
 
 - Removed automatic sort arrows and click-to-sort handlers from the compact Club career and International career tables in all three player infoboxes.
