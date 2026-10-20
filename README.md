@@ -100,6 +100,17 @@ The `tests/verify-h2h.js` regression test checks both the `(agg)` labels and
 correct two-leg handling. New season data should preserve accurate
 `DATA.<player>.uefaRoundBreaks` positions for its competition stages.
 
+### Player overview layout
+
+On each character's main overview, the compact **Club career** and
+**International career** tables remain inside the right-hand infobox. The
+**Honours** section appears directly below Contents, using the space alongside
+the infobox; its honour groups flow **left to right** in up to two columns.
+Players with a single honour group (such as Vasi) have it aligned at the left.
+The large **Career statistics** table begins below both at full width. Narrow
+screens display honours in one column. The honours still come from
+`DATA.<player>.honours` and are not duplicated or moved into the infobox.
+
 ### Career-overview statistics and awards
 
 The career-statistics table on every player's **Overview** page is generated from
@@ -140,7 +151,7 @@ Each character has access to:
 
 The site supports the Wiki, Dracula and Glass themes.
 
-On each player overview, the club and international career summaries appear in the right-hand infobox, like Wikipedia. The larger Career statistics and Honours sections remain full-width below the introductory content. Both infobox summaries are generated from the same `DATA.<player>.career` and `DATA.<player>.intl` fields as before.
+On each player overview, the club and international career summaries appear in the right-hand infobox, like Wikipedia. The larger Career statistics table remains full-width below the introductory content; Honours appears beside the infobox. Both infobox summaries are generated from the same `DATA.<player>.career` and `DATA.<player>.intl` fields as before.
 
 Flag and nationality columns in sortable tables are ordered alphabetically by country name, even though the displayed flags are local PNG images. The compact **Club career** and **International career** tables inside player infoboxes are intentionally not sortable, so the chronology stays fixed. Larger league, squad and Head to Head tables remain sortable.
 
@@ -150,10 +161,16 @@ Head to Head is computed from each character's `FULL_FIXTURES` archive: domestic
 league and cup matches, European club competitions, pre-season friendlies and
 international fixtures. Only matches involving the character's recorded club
 or national team are counted; unrelated tournament fixtures are excluded.
-Overlapping World Cup/Euros fixtures recorded on adjacent season pages are
-counted once. The numbers reflect the supplied team fixtures (including
-fixtures marked as missed through injury), rather than individual player
-appearances. Season placeholders do not generate fictional matches.
+World Cup and Euros editions are kept together on **one season page** (usually
+named for the tournament year, e.g. Jordan's *2026 World Cup* is wholly in
+**2026–27** and his *Euro 2028* wholly in **2028–29**). Their group standings,
+knockout results and season summaries stay with the fixtures. Qualifiers remain
+in the seasons in which they were supplied. Jordan's Sweden 0–3 England
+and England 0–0 Ecuador results are 2025–26 **International Friendlies**,
+not part of the 2026 World Cup. The World Cup page holds only its 35 tournament
+results. The numbers reflect the supplied team fixtures (including fixtures
+marked as missed through injury), rather than individual player appearances.
+Season placeholders do not generate fictional matches.
 
 The **Represented** column shows the number of matches played while representing
 *each* club or national team against that opponent, e.g. `Bristol City (5),

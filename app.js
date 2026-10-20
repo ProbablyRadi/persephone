@@ -460,15 +460,17 @@ function player(id) {
       <ol>
         <li><a href="#career" onclick="event.preventDefault(); document.getElementById('career').scrollIntoView({behavior:'smooth', block:'start'})">Club career</a></li>
         <li><a href="#international-career" onclick="event.preventDefault(); document.getElementById('international-career').scrollIntoView({behavior:'smooth', block:'start'})">International career</a></li>
-        <li><a href="#stats" onclick="event.preventDefault(); document.getElementById('stats').scrollIntoView({behavior:'smooth', block:'start'})">Career statistics</a></li>
         <li><a href="#honours" onclick="event.preventDefault(); document.getElementById('honours').scrollIntoView({behavior:'smooth', block:'start'})">Honours</a></li>
+        <li><a href="#stats" onclick="event.preventDefault(); document.getElementById('stats').scrollIntoView({behavior:'smooth', block:'start'})">Career statistics</a></li>
       </ol>
     </div>
+    <section class="profile-honours" aria-labelledby="honours">
+      <h2 id="honours">Honours</h2>
+      ${honours(playerData)}
+    </section>
     <div class="clear"></div>
     <h2 id="stats">Career statistics</h2>
-    ${careerStatsTable(playerData)}
-    <h2 id="honours">Honours</h2>
-    ${honours(playerData)}`;
+    ${careerStatsTable(playerData)}`;
 }
 
 function teamFlag(teamName) {

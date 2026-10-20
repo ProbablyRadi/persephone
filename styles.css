@@ -4264,3 +4264,39 @@ body.theme-dracula .chart-empty {
     margin: 12px 0;
   }
 }
+
+/* Overview: use the space beside the right-hand career infobox for honours.
+   The following clear keeps the wide Career statistics table below both. */
+.profile-page .profile-honours {
+  display: flow-root;
+  min-width: 0;
+}
+
+.profile-page .profile-honours .honours {
+  /* Grid places the first club on the left even if there is just one honour group. */
+  columns: unset;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 28px;
+  row-gap: 12px;
+  align-items: start;
+}
+
+.profile-page .profile-honours .honours section {
+  min-width: 0;
+}
+
+/* A single club (currently Vasi) takes the full row, starting on the left. */
+.profile-page .profile-honours .honours section:only-child {
+  grid-column: 1 / -1;
+}
+
+.profile-page .profile-honours #honours {
+  scroll-margin-top: 82px;
+}
+
+@media (max-width: 760px) {
+  .profile-page .profile-honours .honours {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

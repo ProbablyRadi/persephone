@@ -1,3 +1,31 @@
+## 2026-10-20 — Honours aligned from the left
+
+- Switched the Overview honours lists from balanced newspaper columns to a left-first grid for Rens, Jordan and Vasi.
+- Vasi's single Barcelona honour group now occupies the left side of the available row instead of being pushed into the right column.
+- Preserved the existing headings, honours, right-hand infobox and full-width career statistics; mobile still shows one column.
+- Updated the layout regression test and cache version. No player data changed.
+
+## 2026-10-20 — Honours repositioned on all career overviews
+
+- Moved **Honours** immediately below the Contents box on Rens's, Jordan's, and Vasi's main profiles so it fills the space to the left of the taller Wikipedia-style infobox.
+- Kept the full-width **Career statistics** table below the infobox and honours, and changed the Contents order to match the page's visual order.
+- Made the honours columns responsive (up to two columns beside the infobox; one column on narrow screens). No honours, statistics, or career data were changed.
+- Added `tests/verify-overview-honours.js` to check the section layout on all three profiles.
+
+## 2026-10-20 — Jordan international friendly classification correction
+
+- Moved **Sweden 0–3 England** and **England 0–0 Ecuador** from the 2026 World Cup's extra-results section into Jordan's **2025–26 International Friendlies** fixtures and season summary.
+- Restored the 2026 World Cup to its original **35 matches** under **2026–27**, without the misleading additional-results heading.
+- Updated tournament-placement regression checks. Match results were preserved and Head to Head accounting remains unchanged.
+
+## 2026-10-20 — World Cup and Euros season consolidation
+
+- Consolidated Jordan's **2026 World Cup** into **2026–27**, removing duplicate tournament fixture, summary and standings sections from 2025–26.
+- Combined the 35 World Cup bracket results on the 2026–27 page; two other England results were initially retained as additional matches, later correctly reclassified as 2025–26 friendlies (see correction above).
+- Consolidated all **18 Euro 2028 fixtures** and the duplicate group standings into **2028–29**, removing the 2027–28 tournament sections. Euros qualifiers were not moved.
+- Audited all three careers: Rens's World Cup and Euros were already on single pages and Vasi had no split tournament. No other competition, career statistics, or fixture scores changed.
+- Updated the international fixture Head to Head regression check and added `tests/verify-international-tournaments.js`; Head to Head totals remain unchanged.
+
 ## 2026-10-19 — Jordan English flags and Timeline cleanup
 
 - Confirmed Emeka Adiele and Andre Garcia as **English** in Jordan's 2029–30 Manchester United squad, using the existing local England flag image.

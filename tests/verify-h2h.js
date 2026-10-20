@@ -248,10 +248,9 @@ for (const [id, wanted] of Object.entries(expected)) {
         assert(actual.html.includes('Fenerbahçe'), 'Rens: missing Fenerbahçe');
     }
 
-    // The 2026 World Cup and 2028 Euros have eight repeated England fixture
-    // strings across adjacent Jordan season pages. These are not new matches.
-    const repeatedTournamentEntries = id === 'jordan' ? 8 : 0;
-    assert.equal(actual.representedMatches - repeatedTournamentEntries, actual.played,
+    // Whole World Cup and Euros editions now live under a single season.
+    // Each counted fixture should therefore match the represented total.
+    assert.equal(actual.representedMatches, actual.played,
         `${id}: H2H does not agree with the weighted source fixtures`);
 
     console.log(`${id}: ${actual.played} matches, ${actual.opponents} opponents, W${actual.wins} D${actual.draws} L${actual.losses} — PASS`);
