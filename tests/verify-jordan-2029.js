@@ -51,100 +51,176 @@ const details = vm.runInContext(`(() => {
     };
 })()`, context);
 
+// The 2029–30 record is now a finished season, not an in-progress snapshot.
 assert(details.current.includes('Manchester United'));
 assert.equal(details.boot, 'Nike');
 assert(details.number.startsWith('1 '));
 assert.deepEqual(Array.from(details.career[0].slice(2)), [208, 1]);
-assert.deepEqual(Array.from(details.career[1].slice(2)), [24, 0]);
-assert(details.career[2][1].includes('Celtic'));
-assert.equal(details.season.inProgress, true);
-assert.deepEqual(Array.from(details.stats.slice(4)), ['', '', 24, 0, 0, 8]);
+assert.deepEqual(Array.from(details.career[1].slice(2)), [48, 0]);
+assert(details.career[2][1].includes('PSV'));
+assert(details.career[3][1].includes('Celtic'));
+assert.equal(details.season.inProgress, undefined);
+assert.equal(details.season.pendingFixtures, undefined);
+assert.deepEqual(Array.from(details.stats.slice(4)), ['4th', '', 48, 0, 0, 18]);
 assert(!details.future.some(row => row[0] === '2029–30'));
-assert.equal(details.season.table, '3rd (provisional) — 18 played, 34 pts; 17 scored results supplied');
+assert(details.season.summary.includes('Carabao Cup'));
+assert(details.season.table.startsWith('4th — 74 pts'));
 assert.equal(details.preSeason.rows.length, 8);
+assert.deepEqual(Array.from(vm.runInContext('DATA.jordan.intl.slice(2)', context)), [42, 1]);
+assert(vm.runInContext('DATA.jordan.honours["🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester United"]', context)
+    .includes('Carabao Cup: 2029–30 🏆'));
 
 const fixtures = details.fixtures;
 assert.deepEqual(Object.keys(fixtures), [
     'Champions Trophy', 'Premier League', 'Carabao Cup',
-    'FA Cup', 'International Friendlies',
+    'FA Cup', 'UEFA Champions League', 'UEFA Europa League',
+    'UEFA Conference League', 'International Friendlies',
 ]);
-assert.equal(fixtures['Champions Trophy'].length, 3);
-assert.equal(fixtures['Premier League'].length, 17);
-assert.equal(fixtures['Carabao Cup'].length, 4);
-assert.equal(fixtures['FA Cup'].length, 0);
-assert.equal(fixtures['International Friendlies'].length, 6);
-assert(fixtures['Premier League'].includes('Coventry City 2 - 1 Manchester United'));
-assert(fixtures['Carabao Cup'].includes('Wrexham (8) 2 - 2 (9) Manchester United'));
-assert(fixtures['Carabao Cup'].includes('Portsmouth (2) 0 - 0 (4) Manchester United'));
-assert(fixtures['Carabao Cup'].includes('Liverpool 0 - 1 Manchester United'));
-assert(fixtures['International Friendlies'].includes('England 3 - 1 Uzbekistan'));
-assert.deepEqual(Array.from(details.season.pendingFixtures['Premier League']), [
-    'Manchester United vs Liverpool',
-]);
-assert.deepEqual(Array.from(details.season.pendingFixtures['Carabao Cup']), [
-    'Manchester City vs Manchester United',
-]);
-for (const unplayed of ['Manchester United vs Liverpool', 'Manchester City vs Manchester United']) {
-    assert(!Object.values(fixtures).some(list => list.includes(unplayed)),
-        'Unplayed fixtures must not enter Head to Head');
+for (const [competition, count] of Object.entries({
+    'Champions Trophy': 3,
+    'Premier League': 38,
+    'Carabao Cup': 6,
+    'FA Cup': 3,
+    'UEFA Champions League': 1,
+    'UEFA Europa League': 1,
+    'UEFA Conference League': 1,
+    'International Friendlies': 8,
+})) {
+    assert.equal(fixtures[competition].length, count, `${competition}: incorrect fixture total`);
+}
+assert(fixtures['Premier League'].includes('Manchester United 0 - 1 Liverpool'));
+assert(fixtures['Premier League'].includes('Manchester United 2 - 1 Coventry City'));
+assert(fixtures['Carabao Cup'].includes('F — Leeds United 0 - 1 Manchester United'));
+assert(fixtures['FA Cup'].includes('F — Liverpool 0 - 1 Manchester City'));
+assert(fixtures['International Friendlies'].includes('Finland 0 - 3 England'));
+// European finals supplied for the season overview (neither United nor England played).
+const europeanFinals = {
+    'UEFA Champions League': {
+        fixture: 'F — OM (2) 2 - 2 (4) Real Madrid',
+        winner: 'Real Madrid', runner: 'OM',
+    },
+    'UEFA Europa League': {
+        fixture: 'F — SSC Napoli 1 - 2 VfB Stuttgart',
+        winner: 'VfB Stuttgart', runner: 'SSC Napoli',
+    },
+    'UEFA Conference League': {
+        fixture: 'F — Real Sociedad 2 - 1 AS Roma',
+        winner: 'Real Sociedad', runner: 'AS Roma',
+    },
+};
+for (const [competition, result] of Object.entries(europeanFinals)) {
+    assert.deepEqual(Array.from(fixtures[competition]), [result.fixture]);
+    assert.deepEqual(Array.from(details.season.competitions[competition]), [result.fixture]);
+    assert.equal(vm.runInContext(`DATA.jordan.uefaRoundBreaks['2029–30|${competition}'][0]`, context), 'Final');
+}
+const finals = Array.from(vm.runInContext('timelineCupFinals("jordan", "2029–30")', context));
+for (const [competition, result] of Object.entries(europeanFinals)) {
+    const actual = finals.find(entry => entry.comp === competition);
+    assert(actual, `Timeline did not recognise the ${competition} final`);
+    assert.equal(actual.winner, result.winner, `${competition} winner`);
+    assert.equal(actual.runner, result.runner, `${competition} runner-up`);
 }
 
-// The supplied table has all 20 rankings, every club has P=18 and known points,
-// but the sheet doesn't supply the remaining W/D/L or goal columns.
+
+
+// Independently verify the 38 final Premier League scores against the table.
+let record = { played: 0, wins: 0, draws: 0, losses: 0, gf: 0, ga: 0 };
+for (const fixture of fixtures['Premier League']) {
+    const match = fixture.match(/^(.+?) (\d+) - (\d+) (.+)$/);
+    assert(match, `Unparseable league score: ${fixture}`);
+    const [, home, hg, ag, away] = match;
+    assert(home === 'Manchester United' || away === 'Manchester United');
+    const forGoals = home === 'Manchester United' ? Number(hg) : Number(ag);
+    const againstGoals = home === 'Manchester United' ? Number(ag) : Number(hg);
+    record.played++;
+    record.gf += forGoals;
+    record.ga += againstGoals;
+    if (forGoals > againstGoals) record.wins++;
+    else if (forGoals < againstGoals) record.losses++;
+    else record.draws++;
+}
+assert.deepEqual(record, { played: 38, wins: 23, draws: 5, losses: 10, gf: 72, ga: 44 });
 const standings = details.meta.standings;
 assert.equal(standings.length, 20);
-assert.deepEqual(Array.from(standings[2]), [
-    '3', 'Manchester United', '18', '', '', '', '', '', '', '34',
+assert.deepEqual(Array.from(standings[3]), [
+    '4', 'Manchester United', '38', '23', '5', '10', '72', '44', '28', '74',
 ]);
-assert(standings.every((r, i) => r[0] === String(i + 1) && r[2] === '18'));
-assert(standings.every(row => row.slice(3, 9).every(value => value === '')));
+assert(standings.every((row, i) => row[0] === String(i+1) && row[2] === '38'));
+assert.deepEqual(Array.from(standings.slice(-3).map(row => row[1])),
+    ['Bristol City', 'Burnley', 'Sunderland']);
 
 const squad = details.meta.squad;
-assert.equal(squad.length, 36);
-assert.equal(squad[0][2], 'Jordan Vale');
-assert.deepEqual(Array.from(squad[0].slice(3)), ['24', '0', '0', '8']);
-assert.deepEqual(Array.from(squad.find(r => r[2] === 'Emeka Adiele').slice(0, 3)),
-    ['LB', '5', 'Emeka Adiele']);
-assert.equal(new Set(squad.map(r => r[2])).size, 36);
-assert.equal(new Set(squad.map(r => r[1])).size, 36);
-assert.deepEqual(Array.from(details.squadUpdates.added), ['Emeka Adiele']);
-assert.deepEqual(Array.from(details.squadUpdates.removed), [
-    'Benjamin Šeško', 'Florian Daems', 'Rik Dekker',
-]);
-for (const name of details.squadUpdates.removed)
-    assert(!squad.some(row => row[2] === name), `${name} must be removed from the new roster`);
-assert(!details.flags['Emeka Adiele'], 'Do not guess Emeka Adiele’s nationality');
+assert.equal(squad.length, 39);
+assert.equal(new Set(squad.map(row => row[2])).size, 39);
+assert.deepEqual(Array.from(squad[0]), ['GK','1','Jordan Vale','48','0','0','18']);
+for (const name of ['Andre Garcia', 'Marco Palestra', 'Hugo Ekitiké', 'Gabriele Biancheri']) {
+    assert(squad.some(row => row[2] === name), `Missing final-roster addition: ${name}`);
+}
+assert.deepEqual(Array.from(squad.find(row => row[2] === 'Hugo Ekitiké')),
+    ['ST','18','Hugo Ekitiké','25','17','7','11']);
+for (const name of ['Benjamin Šeško', 'Florian Daems', 'Rik Dekker', 'Sergiño Dest']) {
+    assert(!squad.some(row => row[2] === name), `Removed player remains in squad: ${name}`);
+    assert(details.squadUpdates.removed.includes(name), `Missing Timeline removal: ${name}`);
+}
+for (const name of ['Emeka Adiele', 'Andre Garcia', 'Marco Palestra',
+    'Hugo Ekitiké', 'Gabriele Biancheri']) {
+    assert(details.squadUpdates.added.includes(name), `Missing Timeline addition: ${name}`);
+}
+assert.equal(details.flags['Emeka Adiele'], '🏴󠁧󠁢󠁥󠁮󠁧󠁿');
+assert.equal(details.flags['Andre Garcia'], '🏴󠁧󠁢󠁥󠁮󠁧󠁿');
+assert.equal(vm.runInContext('FLAG_ASSETS[DATA.jordan.squadFlags["Emeka Adiele"]]', context), 'assets/flags/England.png');
+assert.equal(vm.runInContext('FLAG_ASSETS[DATA.jordan.squadFlags["Andre Garcia"]]', context), 'assets/flags/England.png');
+assert.equal(details.flags['Marco Palestra'], '🇮🇹');
+assert.equal(details.flags['Hugo Ekitiké'], '🇫🇷');
+assert.equal(details.flags['Gabriele Biancheri'], '🏴󠁧󠁢󠁷󠁬󠁳󠁿');
 
 vm.runInContext("season('jordan', '2029–30')", context);
 const html = context.app.innerHTML;
-assert(html.includes('In progress'));
-assert(html.includes('3rd (provisional)'));
-assert(html.includes('Emeka Adiele'));
-assert(html.includes('Jordan Vale'));
-assert(html.includes('Liverpool') && html.includes('0 - 1'));
-assert(html.includes('Manchester United vs Liverpool'));
-assert(html.includes('Manchester City vs Manchester United'));
-assert(html.includes('not counted in results or Head to Head'));
-assert(html.includes('Uzbekistan') && html.includes('Cabo Verde'));
+assert(!html.includes('season-live') && !html.includes('In progress'), 'Season must be completed');
+assert(html.includes('4th — 74 pts'));
+assert(html.includes('Leeds United'));
+assert(html.includes('Stevenage'));
+assert(html.includes('Hugo Ekitiké'));
 assert(html.includes('Champions Trophy table'));
-assert(html.includes('No fixtures recorded yet.')); // FA Cup
-assert(!html.includes('Benjamin Šeško'));
-assert(!html.includes('Florian Daems'));
+for (const [competition, result] of Object.entries(europeanFinals)) {
+    assert(html.includes(competition), `Missing season section: ${competition}`);
+    assert(html.includes(result.winner) && html.includes(result.runner));
+}
+
+assert(html.includes('Manchester United'));
+assert(!html.includes('No fixtures recorded yet.'));
 
 const statTable = vm.runInContext('careerStatsTable(DATA.jordan)', context);
 assert(statTable.includes('2029–30'));
-assert(statTable.includes('24'));
+assert(statTable.includes('48'));
 vm.runInContext("careerTimeline('jordan')", context);
 const timeline = context.app.innerHTML;
-assert(timeline.includes('Emeka Adiele'));
-for (const name of ['Benjamin Šeško', 'Florian Daems', 'Rik Dekker'])
-    assert(timeline.includes(name), `Missing in-season squad update: ${name}`);
+assert(timeline.includes('Manchester United'));
+assert(timeline.includes('Leeds United') && timeline.includes('Carabao Cup'));
+for (const [competition, result] of Object.entries(europeanFinals)) {
+    assert(timeline.includes(`<b>${competition}</b>`), `Missing Timeline final: ${competition}`);
+    assert(timeline.includes(`Winner: `) && timeline.includes(result.winner));
+    assert(timeline.includes(`Runner-up: `) && timeline.includes(result.runner));
+}
+// Neutral European finals are excluded from Jordan's Head to Head.
+const h2h = vm.runInContext("careerOpponentRows('jordan')", context);
+const totals = Array.from(h2h).reduce((sum, opponent) => {
+    sum.played += opponent.played;
+    sum.wins += opponent.wins;
+    sum.draws += opponent.draws;
+    sum.losses += opponent.losses;
+    return sum;
+}, {played: 0, wins: 0, draws: 0, losses: 0});
+assert.deepEqual(totals, { played: 304, wins: 152, draws: 65, losses: 85 });
+
 assert(timeline.includes('<b>Joined</b>'));
 assert(timeline.includes('<b>Left</b>'));
-assert(!timeline.includes('Added to list'));
-assert(!timeline.includes('Removed from list'));
-assert(timeline.includes('Removed names are not confirmed transfers'));
-assert(timeline.includes('Not final — season in progress.'));
-assert(timeline.includes('Manchester United'));
+for (const name of [...details.squadUpdates.added, ...details.squadUpdates.removed]) {
+    assert(timeline.includes(name), `Missing Timeline squad movement: ${name}`);
+}
+assert(!timeline.includes('Club changed — squad comparison resets for the new club.'));
+assert(!timeline.includes('In-season squad update —'));
+assert(!timeline.includes('Removed names are not confirmed transfers.'));
+assert(!timeline.includes('Not final — season in progress.'));
 
-console.log('Jordan 2029–30: 17 scored league games, 18-match standings, 24 appearances, 36-player squad, 3 removals, pending fixtures, England friendlies and Timeline — PASS');
+console.log('Jordan 2029–30: 38 league fixtures, 4th/74 pts, Carabao Cup title, 48 apps/18 CLS, 39-player squad and Timeline — PASS');

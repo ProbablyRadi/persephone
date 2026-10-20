@@ -147,6 +147,7 @@ const TEAM_FLAGS = {
     "Bolton": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
     "Coventry City": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
     "MK Dons": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "Stevenage": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
     "Walsall": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
     "Swansea City": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
     "Leyton Orient": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",

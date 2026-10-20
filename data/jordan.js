@@ -130,14 +130,30 @@ DATA.jordan = {
     "Ethan Wheatley": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
     "Ferran Torres": "🇪🇸",
     "Joshua Zirkzee": "🇳🇱",
-    "Benjamin Šeško": "🇸🇮"
+    "Benjamin Šeško": "🇸🇮",
+    "Emeka Adiele": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "Andre Garcia": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "Marco Palestra": "🇮🇹",
+    "Hugo Ekitiké": "🇫🇷",
+    "Gabriele Biancheri": "🏴󠁧󠁢󠁷󠁬󠁳󠁿"
   },
   // In-season changes compared with the earlier 2029–30 squad snapshot.
   // "Removed" means absent from the current supplied list, not a confirmed transfer.
   "timelineInSeasonSquadUpdates": {
     "2029–30": {
-      "added": ["Emeka Adiele"],
-      "removed": ["Benjamin Šeško", "Florian Daems", "Rik Dekker"]
+      "added": [
+        "Emeka Adiele",
+        "Andre Garcia",
+        "Marco Palestra",
+        "Hugo Ekitiké",
+        "Gabriele Biancheri"
+      ],
+      "removed": [
+        "Benjamin Šeško",
+        "Florian Daems",
+        "Rik Dekker",
+        "Sergiño Dest"
+      ]
     }
   },
   "timelineManualFinals": {
@@ -162,6 +178,10 @@ DATA.jordan = {
     ]
   },
   "uefaRoundBreaks": {
+    // Only the three tournament finals are supplied for 2029–30.
+    "2029–30|UEFA Champions League": { "0": "Final" },
+    "2029–30|UEFA Europa League": { "0": "Final" },
+    "2029–30|UEFA Conference League": { "0": "Final" },
     "2028–29|UEFA Europa League": {
       "0": "League phase",
       "8": "Knockout play-offs (agg)",
@@ -189,8 +209,8 @@ DATA.jordan = {
     "Jordan A.B. Vale is an English professional footballer who plays as a goalkeeper for Premier League club Manchester United and the England national team. Born in Weston-super-Mare, Vale began his senior career with Bristol City in 2025 and became the club's first-choice goalkeeper during their 2025–26 EFL Championship title-winning season.",
     "Vale remained in goal following Bristol City's promotion to the Premier League, helping the club retain its top-flight status in 2026–27 and finish 14th the following season. The 2027–28 campaign was highlighted by a historic FA Cup victory over Manchester City. The final remained goalless through 90 minutes before Pablo López gave Bristol City the lead in the 101st minute. In the 121st minute, Vale saved an initial effort but Boden scored from the rebound to force a 1–1 draw and a penalty shootout, which Bristol City won after a fiercely contested series of kicks.",
     "In 2028–29, Vale played 59 times as Bristol City finished 11th in the Premier League, reached the Europa League round of 16 and went out of the Carabao Cup in a penalty shootout against Arsenal. He finished the season with 18 clean sheets, five assists and two Man of the Match awards.",
-    "Vale joined Manchester United ahead of the 2029–30 Premier League season, taking the number 1 shirt. At the latest update, United sat third with 34 points after 18 league matches (17 scored results supplied). Vale has 24 club appearances, no goals or assists and eight clean sheets. United have reached a Carabao Cup tie against Manchester City after defeating Brighton & Hove, Wrexham, Portsmouth and Liverpool.",
-    "Vale has represented England at senior level since 2025. He was part of the England team that finished as runners-up at the 2026 FIFA World Cup and was awarded the UEFA Euro Golden Glove in 2028. He has made 36 appearances and scored one goal for the national team."
+    "Vale joined Manchester United ahead of the 2029–30 Premier League season, taking the number 1 shirt. United finished fourth with 74 points, and Vale made 48 appearances and kept 18 clean sheets. United won the 2029–30 Carabao Cup, defeating Leeds United 1–0 in the final after overcoming Brighton & Hove, Wrexham, Portsmouth, Liverpool and Manchester City.",
+    "Vale has represented England at senior level since 2025. He was part of the England team that finished as runners-up at the 2026 FIFA World Cup and was awarded the UEFA Euro Golden Glove in 2028. He has made 42 appearances and scored one goal for the national team."
   ],
   "career": [
     [
@@ -200,10 +220,16 @@ DATA.jordan = {
       1
     ],
     [
-      "2029–2037",
+      "2029–2033",
       "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester United",
-      24,
+      48,
       0
+    ],
+    [
+      "2033–2037",
+      "🇳🇱 PSV",
+      "—",
+      "—"
     ],
     [
       "2037–2040",
@@ -215,7 +241,7 @@ DATA.jordan = {
   "intl": [
     "2025–",
     "🏴󠁧󠁢󠁥󠁮󠁧󠁿 England",
-    36,
+    42,
     1
   ],
   // Row order: season, club, role, league, league position,
@@ -274,12 +300,12 @@ DATA.jordan = {
       "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester United",
       "GK",
       "Premier League",
+      "4th",
       "",
-      "",
-      24,
+      48,
       0,
       0,
-      8
+      18
     ]
   ],
   // Overview-only POTM/MOTM awards, keyed by season.
@@ -303,6 +329,7 @@ DATA.jordan = {
     }
   },
   // Future overview placeholders only: not playable seasons or fixtures.
+  // Career infobox totals can be updated ahead of the detailed in-progress squad sheet.
   "careerOverviewFutureRows": [
     // Manchester United: the current season is already in stats; only future years appear here.
     [
@@ -323,29 +350,30 @@ DATA.jordan = {
       "GK",
       "Premier League"
     ],
+    // Planned PSV career: future overview rows only, with no results yet.
     [
       "2033–34",
-      "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester United",
+      "🇳🇱 PSV",
       "GK",
-      "Premier League"
+      "Eredivisie"
     ],
     [
       "2034–35",
-      "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester United",
+      "🇳🇱 PSV",
       "GK",
-      "Premier League"
+      "Eredivisie"
     ],
     [
       "2035–36",
-      "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester United",
+      "🇳🇱 PSV",
       "GK",
-      "Premier League"
+      "Eredivisie"
     ],
     [
       "2036–37",
-      "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester United",
+      "🇳🇱 PSV",
       "GK",
-      "Premier League"
+      "Eredivisie"
     ],
 
     // Future Scottish league seasons (no fixtures or player statistics yet).
@@ -375,6 +403,9 @@ DATA.jordan = {
     "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Bristol City": [
       "EFL Championship: 2025–26 🏆",
       "FA Cup: 2027–28 🏆"
+    ],
+    "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester United": [
+      "Carabao Cup: 2029–30 🏆"
     ],
     "🏴󠁧󠁢󠁥󠁮󠁧󠁿 England": [
       "FIFA World Cup runner-up: 2026 🥈",
@@ -533,10 +564,9 @@ DATA.jordan = {
       },
       "table": "11th — 49 pts"
     },
-    // 2029–30 — in progress; 18 matches in table, 17 scored results supplied.
+    // 2029–30 — completed season; United finished fourth and won the Carabao Cup.
     "2029–30": {
-      "inProgress": true,
-      "summary": "Manchester United are third in the Premier League after 18 matches on 34 points. Seventeen league results are recorded in the supplied sheet; the remaining score has not been provided. Jordan Vale has 24 club appearances and eight clean sheets. United reached the next Carabao Cup tie against Manchester City after four recorded wins, including three penalty shootouts.",
+      "summary": "Manchester United finished fourth in the Premier League with 74 points (23 wins, 5 draws, 10 defeats) and won the Carabao Cup, beating Leeds United 1–0 in the final. Jordan Vale made 48 appearances and recorded 18 clean sheets.",
       "competitions": {
         "Champions Trophy": [
           "Manchester United 1 - 1 Rayo Vallecano",
@@ -544,49 +574,42 @@ DATA.jordan = {
           "Manchester United 2 - 0 SC Freiburg"
         ],
         "Premier League": [
-          "Manchester United 3 - 0 Wolves",
-          "AFC Bournemouth 0 - 1 Manchester United",
-          "Manchester United 3 - 0 Bristol City",
-          "Crystal Palace 0 - 2 Manchester United",
-          "Manchester United 2 - 1 Nottingham Forest",
-          "Brentford 1 - 4 Manchester United",
-          "Manchester United 1 - 0 Arsenal",
-          "Manchester United 2 - 2 Brighton & Hove",
-          "Everton 2 - 1 Manchester United",
-          "Manchester United 1 - 2 Tottenham Hotspurs",
-          "Sunderland 3 - 0 Manchester United",
-          "Manchester United 1 - 0 Manchester City",
-          "Burnley 1 - 2 Manchester United",
-          "Manchester United 3 - 1 Newcastle United",
-          "West Ham 1 - 3 Manchester United",
-          "Manchester United 0 - 3 Chelsea",
-          "Coventry City 2 - 1 Manchester United"
+          "4th — 74 pts, 23 W, 5 D, 10 L, 72 GF, 44 GA"
         ],
         "Carabao Cup": [
           "Brighton & Hove (2) 2 - 2 (4) Manchester United",
           "Wrexham (8) 2 - 2 (9) Manchester United",
           "Portsmouth (2) 0 - 0 (4) Manchester United",
-          "Liverpool 0 - 1 Manchester United"
+          "Liverpool 0 - 1 Manchester United",
+          "Manchester United 1 - 0 Manchester City",
+          "F — Leeds United 0 - 1 Manchester United"
         ],
-        "FA Cup": [],
+        "FA Cup": [
+          "Manchester United 1 - 0 Stevenage",
+          "Brentford 3 - 2 Manchester United",
+          "F — Liverpool 0 - 1 Manchester City"
+        ],
+        "UEFA Champions League": [
+          "F — OM (2) 2 - 2 (4) Real Madrid"
+        ],
+        "UEFA Europa League": [
+          "F — SSC Napoli 1 - 2 VfB Stuttgart"
+        ],
+        "UEFA Conference League": [
+          "F — Real Sociedad 2 - 1 AS Roma"
+        ],
         "International Friendlies": [
           "Uzbekistan 0 - 2 England",
           "Cabo Verde 2 - 2 England",
           "Uruguay 1 - 2 England",
           "Portugal 1 - 2 England",
           "England 4 - 3 Canada",
-          "England 3 - 1 Uzbekistan"
+          "England 3 - 1 Uzbekistan",
+          "England 1 - 3 Netherlands",
+          "Finland 0 - 3 England"
         ]
       },
-      "pendingFixtures": {
-        "Premier League": [
-          "Manchester United vs Liverpool"
-        ],
-        "Carabao Cup": [
-          "Manchester City vs Manchester United"
-        ]
-      },
-      "table": "3rd (provisional) — 18 played, 34 pts; 17 scored results supplied"
+      "table": "4th — 74 pts, 23 W, 5 D, 10 L, 72 GF, 44 GA"
     }
   }
 };
@@ -1003,7 +1026,7 @@ FULL_FIXTURES.jordan = {
       "Denmark 1 - 3 England"
     ]
   },
-  // 2029–30 — scored matches only; pending fixtures stored separately in DATA.jordan.
+  // 2029–30 — complete match results, including both domestic cup finals.
   "2029–30": {
     "Champions Trophy": [
       "Manchester United 1 - 1 Rayo Vallecano",
@@ -1027,22 +1050,62 @@ FULL_FIXTURES.jordan = {
       "Manchester United 3 - 1 Newcastle United",
       "West Ham 1 - 3 Manchester United",
       "Manchester United 0 - 3 Chelsea",
-      "Coventry City 2 - 1 Manchester United"
+      "Coventry City 2 - 1 Manchester United",
+      "Manchester United 0 - 1 Liverpool",
+      "Aston Villa 0 - 0 Manchester United",
+      "Tottenham Hotspurs 0 - 1 Manchester United",
+      "Manchester United 2 - 0 Everton",
+      "Manchester United 2 - 1 Crystal Palace",
+      "Bristol City 2 - 3 Manchester United",
+      "Manchester United 1 - 1 Aston Villa",
+      "Newcastle United 1 - 1 Manchester United",
+      "Manchester United 2 - 3 Burnley",
+      "Manchester City 4 - 3 Manchester United",
+      "Manchester United 3 - 1 Sunderland",
+      "Brighton & Hove 2 - 2 Manchester United",
+      "Arsenal 2 - 1 Manchester United",
+      "Wolves 1 - 2 Manchester United",
+      "Manchester United 3 - 0 Brentford",
+      "Manchester United 2 - 0 AFC Bournemouth",
+      "Chelsea 1 - 3 Manchester United",
+      "Manchester United 1 - 2 West Ham",
+      "Nottingham Forest 0 - 4 Manchester United",
+      "Liverpool 2 - 4 Manchester United",
+      "Manchester United 2 - 1 Coventry City"
     ],
     "Carabao Cup": [
       "Brighton & Hove (2) 2 - 2 (4) Manchester United",
       "Wrexham (8) 2 - 2 (9) Manchester United",
       "Portsmouth (2) 0 - 0 (4) Manchester United",
-      "Liverpool 0 - 1 Manchester United"
+      "Liverpool 0 - 1 Manchester United",
+      "Manchester United 1 - 0 Manchester City",
+      "F — Leeds United 0 - 1 Manchester United"
     ],
-    "FA Cup": [],
+    "FA Cup": [
+      "Manchester United 1 - 0 Stevenage",
+      "Brentford 3 - 2 Manchester United",
+      "F — Liverpool 0 - 1 Manchester City"
+    ],
+    // Tournament finals are included for the season page and Timeline,
+    // but neither Manchester United nor England played in these three games.
+    "UEFA Champions League": [
+      "F — OM (2) 2 - 2 (4) Real Madrid"
+    ],
+    "UEFA Europa League": [
+      "F — SSC Napoli 1 - 2 VfB Stuttgart"
+    ],
+    "UEFA Conference League": [
+      "F — Real Sociedad 2 - 1 AS Roma"
+    ],
     "International Friendlies": [
       "Uzbekistan 0 - 2 England",
       "Cabo Verde 2 - 2 England",
       "Uruguay 1 - 2 England",
       "Portugal 1 - 2 England",
       "England 4 - 3 Canada",
-      "England 3 - 1 Uzbekistan"
+      "England 3 - 1 Uzbekistan",
+      "England 1 - 3 Netherlands",
+      "Finland 0 - 3 England"
     ]
   }
 
@@ -3115,250 +3178,249 @@ SEASON_TABLES.jordan = {
       ]
     ]
   },
-  // 2029–30 — supplied positions, P and points after 18 matches.
-  // Other league columns omitted from source; 17 scored fixtures are recorded.
+  // 2029–30 — final standings (38 matches) and 39-player squad.
   "2029–30": {
     "league": "Premier League",
     "standings": [
       [
         "1",
-        "Chelsea",
-        "18",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "36"
+        "Arsenal",
+        "38",
+        "24",
+        "6",
+        "8",
+        "76",
+        "42",
+        "34",
+        "78"
       ],
       [
         "2",
         "Liverpool",
-        "18",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "36"
+        "38",
+        "23",
+        "8",
+        "7",
+        "66",
+        "45",
+        "21",
+        "77"
       ],
       [
         "3",
-        "Manchester United",
-        "18",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "34"
+        "Manchester City",
+        "38",
+        "23",
+        "6",
+        "9",
+        "73",
+        "50",
+        "23",
+        "75"
       ],
       [
         "4",
-        "Tottenham Hotspurs",
-        "18",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "32"
+        "Manchester United",
+        "38",
+        "23",
+        "5",
+        "10",
+        "72",
+        "44",
+        "28",
+        "74"
       ],
       [
         "5",
-        "Arsenal",
-        "18",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "32"
+        "Chelsea",
+        "38",
+        "21",
+        "8",
+        "9",
+        "68",
+        "43",
+        "25",
+        "71"
       ],
       [
         "6",
-        "Aston Villa",
-        "18",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "30"
+        "Tottenham Hotspurs",
+        "38",
+        "19",
+        "8",
+        "11",
+        "62",
+        "42",
+        "20",
+        "65"
       ],
       [
         "7",
-        "Manchester City",
-        "18",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "30"
+        "Aston Villa",
+        "38",
+        "16",
+        "11",
+        "11",
+        "56",
+        "47",
+        "9",
+        "59"
       ],
       [
         "8",
-        "West Ham",
-        "18",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "30"
+        "Newcastle United",
+        "38",
+        "15",
+        "13",
+        "10",
+        "65",
+        "54",
+        "11",
+        "58"
       ],
       [
         "9",
-        "Nottingham Forest",
-        "18",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "26"
+        "West Ham",
+        "38",
+        "15",
+        "13",
+        "10",
+        "58",
+        "56",
+        "2",
+        "58"
       ],
       [
         "10",
-        "Newcastle United",
-        "18",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "25"
+        "Nottingham Forest",
+        "38",
+        "15",
+        "12",
+        "11",
+        "56",
+        "56",
+        "0",
+        "57"
       ],
       [
         "11",
         "Everton",
-        "18",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "21"
+        "38",
+        "13",
+        "10",
+        "15",
+        "49",
+        "49",
+        "0",
+        "49"
       ],
       [
         "12",
         "Brighton & Hove",
-        "18",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "20"
+        "38",
+        "12",
+        "9",
+        "17",
+        "54",
+        "54",
+        "0",
+        "45"
       ],
       [
         "13",
         "Wolves",
-        "18",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "19"
+        "38",
+        "12",
+        "9",
+        "17",
+        "46",
+        "61",
+        "-15",
+        "45"
       ],
       [
         "14",
         "Crystal Palace",
-        "18",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "18"
+        "38",
+        "11",
+        "10",
+        "17",
+        "54",
+        "62",
+        "-8",
+        "43"
       ],
       [
         "15",
         "AFC Bournemouth",
+        "38",
+        "11",
+        "9",
         "18",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "18"
+        "48",
+        "55",
+        "-7",
+        "42"
       ],
       [
         "16",
-        "Coventry City",
-        "18",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "16"
+        "Brentford",
+        "38",
+        "8",
+        "8",
+        "22",
+        "42",
+        "72",
+        "-30",
+        "32"
       ],
       [
         "17",
-        "Bristol City",
-        "18",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "16"
+        "Coventry City",
+        "38",
+        "6",
+        "13",
+        "19",
+        "50",
+        "75",
+        "-25",
+        "31"
       ],
       [
         "18",
-        "Sunderland",
-        "18",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "13"
+        "Bristol City",
+        "38",
+        "6",
+        "11",
+        "21",
+        "40",
+        "64",
+        "-24",
+        "29"
       ],
       [
         "19",
-        "Brentford",
-        "18",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "13"
+        "Burnley",
+        "38",
+        "6",
+        "11",
+        "21",
+        "42",
+        "77",
+        "-35",
+        "29"
       ],
       [
         "20",
-        "Burnley",
-        "18",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "11"
+        "Sunderland",
+        "38",
+        "6",
+        "10",
+        "22",
+        "37",
+        "65",
+        "-28",
+        "28"
       ]
     ],
     "club": "Manchester United",
@@ -3367,19 +3429,19 @@ SEASON_TABLES.jordan = {
         "GK",
         "1",
         "Jordan Vale",
-        "24",
+        "48",
         "0",
         "0",
-        "8"
+        "18"
       ],
       [
         "GK",
         "22",
         "Tom Heaton",
-        "",
-        "",
-        "",
-        ""
+        "0",
+        "0",
+        "0",
+        "0"
       ],
       [
         "GK",
@@ -3401,8 +3463,8 @@ SEASON_TABLES.jordan = {
       ],
       [
         "LB",
-        "5",
-        "Emeka Adiele",
+        "3",
+        "Andre Garcia",
         "2",
         "0",
         "0",
@@ -3410,54 +3472,63 @@ SEASON_TABLES.jordan = {
       ],
       [
         "LB",
+        "5",
+        "Emeka Adiele",
+        "10",
+        "0",
+        "0",
+        "2"
+      ],
+      [
+        "LB",
         "14",
         "Lucas Mincarelli",
-        "23",
-        "1",
-        "1",
-        "8"
+        "45",
+        "3",
+        "2",
+        "16"
       ],
       [
         "CB",
         "26",
         "Ayden Heaven",
-        "9",
+        "20",
         "0",
         "0",
-        "4"
+        "8"
       ],
       [
         "CB",
         "4",
         "Matthijs De Ligt",
-        "19",
+        "33",
         "0",
         "0",
-        "5"
+        "9"
       ],
       [
         "CB",
         "6",
         "Lisandro Martínez",
-        "15",
+        "23",
         "1",
         "0",
-        "1"
+        "4"
       ],
       [
         "CB",
         "16",
         "Malick Thiaw",
-        "19",
+        "43",
         "1",
         "0",
-        "5"
+        "11"
       ],
       [
         "CB",
         "21",
         "Thijmen Blokzijl",
-        "2",
+        "5",
         "0",
         "0",
         "1"
@@ -3466,115 +3537,115 @@ SEASON_TABLES.jordan = {
         "CB",
         "33",
         "Tyler Fredricson",
-        "",
-        "",
-        "",
-        ""
+        "0",
+        "0",
+        "0",
+        "0"
       ],
       [
         "RB",
         "2",
         "Trent Alexander-Arnold",
-        "23",
+        "48",
         "0",
-        "4",
-        "9"
+        "7",
+        "17"
       ],
       [
         "RB",
-        "3",
-        "Sergiño Dest",
-        "",
-        "",
-        "",
-        ""
+        "31",
+        "Marco Palestra",
+        "13",
+        "0",
+        "0",
+        "1"
       ],
       [
         "CDM",
         "27",
         "Sékou Koné",
-        "",
-        "",
-        "",
-        ""
+        "0",
+        "0",
+        "0",
+        "0"
       ],
       [
         "CDM",
         "29",
         "Jacob Devaney",
-        "8",
-        "1",
-        "0",
-        "3"
+        "25",
+        "2",
+        "2",
+        "11"
       ],
       [
         "CDM",
         "25",
         "Toby Collyer",
-        "22",
+        "32",
         "1",
         "3",
-        "6"
+        "9"
       ],
       [
         "LM",
         "17",
         "Ro-Zangelo Daal",
-        "1",
+        "17",
+        "4",
+        "3",
+        "7"
+      ],
+      [
+        "LM",
+        "24",
+        "Ethan Williams",
+        "0",
         "0",
         "0",
         "0"
       ],
       [
         "LM",
-        "24",
-        "Ethan Williams",
-        "",
-        "",
-        "",
-        ""
-      ],
-      [
-        "LM",
         "13",
         "Jadon Sancho",
-        "11",
+        "18",
+        "2",
         "1",
-        "1",
-        "5"
+        "8"
       ],
       [
         "CM",
         "38",
         "Jack Fletcher",
-        "",
-        "",
-        "",
-        ""
+        "0",
+        "0",
+        "0",
+        "0"
       ],
       [
         "CM",
         "39",
         "Tyler Fletcher",
-        "",
-        "",
-        "",
-        ""
+        "0",
+        "0",
+        "0",
+        "0"
       ],
       [
         "CM",
         "20",
         "Walem Mefrane",
-        "23",
-        "5",
-        "5",
-        "7"
+        "49",
+        "6",
+        "8",
+        "16"
       ],
       [
         "CM",
         "15",
         "Dani Ceballos",
-        "8",
+        "14",
         "2",
         "0",
         "0"
@@ -3583,10 +3654,10 @@ SEASON_TABLES.jordan = {
         "CM",
         "42",
         "Daniel Gore",
-        "",
-        "",
-        "",
-        ""
+        "0",
+        "0",
+        "0",
+        "0"
       ],
       [
         "CAM",
@@ -3601,25 +3672,25 @@ SEASON_TABLES.jordan = {
         "CAM",
         "47",
         "Mauricio",
-        "8",
+        "21",
         "1",
-        "0",
-        "0"
+        "4",
+        "3"
       ],
       [
         "CAM",
         "8",
         "Bruno Fernandes",
-        "24",
-        "6",
-        "1",
-        "8"
+        "42",
+        "14",
+        "5",
+        "15"
       ],
       [
         "CAM",
         "7",
         "Mason Mount",
-        "1",
+        "2",
         "0",
         "0",
         "0"
@@ -3628,26 +3699,26 @@ SEASON_TABLES.jordan = {
         "CAM",
         "10",
         "Matheus Cunha",
-        "17",
-        "4",
-        "0",
+        "23",
+        "7",
+        "1",
         "5"
       ],
       [
         "RM",
         "43",
         "Ethan Ennis",
-        "",
-        "",
-        "",
-        ""
+        "0",
+        "0",
+        "0",
+        "0"
       ],
       [
         "LW",
         "36",
         "Marcus Rashford",
-        "5",
-        "0",
+        "11",
+        "1",
         "1",
         "0"
       ],
@@ -3655,25 +3726,25 @@ SEASON_TABLES.jordan = {
         "RW",
         "19",
         "Bryan Mbeumo",
-        "24",
-        "5",
-        "2",
-        "8"
+        "50",
+        "14",
+        "8",
+        "18"
       ],
       [
         "ST",
         "23",
         "Ethan Wheatley",
-        "",
-        "",
-        "",
-        ""
+        "0",
+        "0",
+        "0",
+        "0"
       ],
       [
         "ST",
         "9",
         "Ferran Torres",
-        "24",
+        "26",
         "7",
         "5",
         "8"
@@ -3684,6 +3755,24 @@ SEASON_TABLES.jordan = {
         "Joshua Zirkzee",
         "4",
         "2",
+        "0",
+        "0"
+      ],
+      [
+        "ST",
+        "18",
+        "Hugo Ekitiké",
+        "25",
+        "17",
+        "7",
+        "11"
+      ],
+      [
+        "ST",
+        "30",
+        "Gabriele Biancheri",
+        "0",
+        "0",
         "0",
         "0"
       ]

@@ -194,15 +194,19 @@ clubs' records blank. The Timeline does not display a provisional top five
 until standings with ranked teams and points are available. Rens’s **2035–36 Bundesliga** entry list follows this convention: the 18 confirmed participants are supplied in their listed order, with league positions and unreported results left blank; the Timeline compares names against 2034–35 to identify the new entrants. Keep individual
 player season statistics blank until they are separately supplied.
 
-Jordan's **2029–30** league sheet supplies positions, matches played and points
-for all 20 teams, but only **17 of United's 18** scored league results.
-The website preserves all 20 clubs' supplied rankings and points but does not
-invent the missing league score or their W/D/L or goal figures. Fixtures with
-no result yet can be listed in `DATA.jordan.seasons['2029–30'].pendingFixtures`
-by competition; the season page shows them separately, and they **do not enter
-Head to Head**. `DATA.jordan.timelineInSeasonSquadUpdates` records changes
-between two roster snapshots *within* a season; "removed from list" does not
-necessarily mean the player transferred away.
+Jordan's **2029–30** Manchester United season is now **complete**: all 38
+Premier League scores agree with the supplied fourth-place finish (74 points,
+23 wins, 5 draws, 10 losses, 72 GF, 44 GA), and the Carabao Cup final is
+recorded as a Manchester United win over Leeds United. The complete 39-player
+squad is included in `SEASON_TABLES.jordan`, and Jordan's detailed season record
+shows 48 appearances and 18 clean sheets. England's career infobox records
+42 caps (independently supplied: do not infer caps from fixture lists).
+`DATA.jordan.timelineInSeasonSquadUpdates` records roster differences between
+snapshots *within* a season; "Left" means missing from the newer supplied list,
+not necessarily a confirmed transfer. The provided squad assigns No. 31 to
+both Senne Lammens and Marco Palestra; this is preserved pending clarification.
+Emeka Adiele and Andre Garcia have confirmed English nationalities and use
+the local England flag image.
 
 ## Changelog
 
@@ -210,7 +214,7 @@ See [`CHANGELOG.md`](CHANGELOG.md) for a reconstructed history of the major chan
 
 ## Adding an in-progress season
 
-The current example is Jordan Vale's **2029–30 Manchester United** season in `data/jordan.js`.
+A good example to study is the earlier in-progress structure (now completed) of Jordan Vale's **2029–30 Manchester United** season in `data/jordan.js`. For a current example, refer to Rens’s **2035–36** entry in `data/rens.js`.
 
 - Add the new season under `DATA.jordan.seasons` with `inProgress: true`, and add a season row to `DATA.jordan.stats` using empty strings for statistics not yet known. Do not use `0` until the figure is confirmed.
 - Add competition names with empty arrays in `FULL_FIXTURES.jordan`; they display **No fixtures recorded yet** until results are added.
@@ -218,4 +222,4 @@ The current example is Jordan Vale's **2029–30 Manchester United** season in `
 - Add nationalities to `DATA.jordan.squadFlags` only when known. Florian Daems (Belgium), Rik Dekker (Netherlands) and Mauricio (Paraguay) have confirmed flags.
 - The Timeline reads the season's club and squad, plus optional in-season roster additions/removals from `timelineInSeasonSquadUpdates`. The Career Overview's subtotals and grand total exclude in-progress seasons, even if the current-season row has supplied statistics. The smaller club-career infobox can show up-to-date appearances. Head to Head only counts scored fixtures, not pending fixtures.
 
-Run `node tests/verify-jordan-2029.js` after making season changes.
+Run `node tests/verify-jordan-2029.js` after editing Jordan’s completed 2029–30 season; the test validates all 38 league scores, the final standings, cup results, squad, Timeline, and overview.

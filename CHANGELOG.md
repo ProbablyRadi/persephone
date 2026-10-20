@@ -1,3 +1,32 @@
+## 2026-10-19 — Jordan English flags and Timeline cleanup
+
+- Confirmed Emeka Adiele and Andre Garcia as **English** in Jordan's 2029–30 Manchester United squad, using the existing local England flag image.
+- Removed the visible "Club changed — squad comparison resets for the new club" and "In-season squad update" explanatory notes from the Timeline, keeping the **Joined** and **Left** lists.
+- Updated the Jordan regression test and script version references. No fixtures, statistics, squad memberships or Head to Head records changed.
+
+## 2026-10-19 — Jordan 2029–30 European finals
+
+- Added the UEFA Champions League final (OM 2–2 Real Madrid, Real Madrid won 4–2 on penalties), Europa League final (SSC Napoli 1–2 VfB Stuttgart), and Conference League final (Real Sociedad 2–1 AS Roma) to Jordan’s 2029–30 season fixtures and competition summaries.
+- Marked each competition section as a Final, allowing the existing Career Timeline to display the winners and runners-up without manually duplicating them.
+- Kept the three neutral finals outside Jordan’s Head to Head and personal honours. Added regression checks for all three results and unchanged Head to Head totals.
+
+## 2026-10-19 — Jordan Vale 2029–30 completed season
+
+- Replaced the mid-season Manchester United snapshot with **38 scored Premier League fixtures** and the complete table: **4th, 74 points, 23 W / 5 D / 10 L, 72 GF / 44 GA**.
+- Updated Jordan's detailed **2029–30** statistics and career infobox to **48 appearances, 0 goals, 0 assists and 18 clean sheets**. England's career record is now **42 appearances / 1 goal**, as separately supplied.
+- Completed the Carabao Cup run, including the **1–0 final win over Leeds United** and the resulting **2029–30 Carabao Cup honour**. Added the FA Cup results and final, plus the remaining two international friendlies. No pending fixtures remain.
+- Replaced the player list with the **39-player final squad**, updating all supplied player totals. Added Andre Garcia, Marco Palestra, Hugo Ekitiké and Gabriele Biancheri; recorded Sergiño Dest's absence alongside previously removed players in the Timeline. Missing squad names are not asserted to have transferred.
+- Added Stevenage to shared team-flag definitions. Kept Emeka Adiele's and Andre Garcia's nationality flags blank pending confirmation, and preserved the source's overlapping No. 31 assigned to Senne Lammens and Marco Palestra.
+- Recalculated Jordan's Head to Head: **304 played / 152 W / 65 D / 85 L against 106 opponents**. Rens and Vasi unchanged. Updated and passed all regression tests.
+
+## 2026-10-19 — Jordan Vale career overview: PSV and updated totals
+
+- Updated Jordan's **career infobox** to Manchester United (2029–2033, **34 apps / 0 goals**), PSV (2033–2037, no results yet) and Celtic (2037–2040, no results yet); Bristol City remains at 208 apps / 1 goal.
+- Updated his England infobox record to **40 appearances / 1 goal** and adjusted the biography to reflect those current career-summary figures.
+- Reassigned the 2033–34 through 2036–37 future **Career Statistics** placeholders from Manchester United to PSV (Eredivisie). No match results, future season pages or honours were invented.
+- Kept the detailed **2029–30 Manchester United squad/season sheet at 24 appearances / 8 clean sheets**, as that is the latest supplied breakdown. The new 34-app career summary is a separate, user-confirmed overview figure pending a later season-sheet update.
+- Updated overview/season regression checks and the Jordan data asset version; other players, fixtures, Head to Head and themes were preserved.
+
 ## 2026-10-19 — Head to Head represented-team display format
 
 - Changed the **Represented** column to show full team names followed by match counts in parentheses (e.g. `Bristol City (6), Manchester United (1)`) for all three characters.

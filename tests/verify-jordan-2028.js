@@ -54,7 +54,7 @@ const snapshot = vm.runInContext(`(() => {
 
 assert.equal(snapshot.clubApps, 208);
 assert.equal(snapshot.clubGoals, 1);
-assert.equal(snapshot.caps, 36, "Current England infobox total includes the new user-supplied career record");
+assert.equal(snapshot.caps, 42, "England infobox reflects the latest user-supplied career record");
 assert.equal(snapshot.season.inProgress, undefined);
 assert.equal(snapshot.season.table, '11th — 49 pts');
 assert.equal(snapshot.stats[4], '11th');
@@ -119,8 +119,8 @@ vm.runInContext(`careerTimeline('jordan')`, context);
 assert(context.app.innerHTML.includes('Liverpool'), 'FA Cup winner missing on timeline');
 assert(context.app.innerHTML.includes('RB Leipzig'), 'Europa League winner missing on timeline');
 assert(context.app.innerHTML.includes('Bristol City'), 'Player club missing on timeline');
-assert(context.app.innerHTML.includes('Not final — season in progress.'),
-    '2029–30 must appear as an in-progress season on the timeline');
+assert(context.app.innerHTML.includes('Carabao Cup'),
+    'The completed 2029–30 Carabao Cup honour should appear on the timeline');
 assert.equal(snapshot.season.inProgress, undefined,
     'The completed 2028–29 season must remain marked completed');
 

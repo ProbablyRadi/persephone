@@ -51,7 +51,7 @@ vm.runInContext(
 
 const expected = {
     rens: { opponents: 152, played: 554, wins: 349, draws: 88, losses: 101, aggregateOnlyTies: 16 },
-    jordan: { opponents: 105, played: 277, wins: 136, draws: 61, losses: 78, aggregateOnlyTies: 2 },
+    jordan: { opponents: 106, played: 304, wins: 152, draws: 65, losses: 85, aggregateOnlyTies: 2 },
     vasi: { opponents: 35, played: 158, wins: 111, draws: 22, losses: 18, aggregateOnlyTies: 7 },
 };
 
@@ -222,12 +222,12 @@ for (const [id, wanted] of Object.entries(expected)) {
         `${id}: represented labels must show counts beside each team`);
     if (id === 'jordan') {
         assert.equal(actual.representedExamples['AFC Bournemouth'],
-            'Bristol City (6), Manchester United (1)',
+            'Bristol City (6), Manchester United (2)',
             'Jordan: the Bournemouth record should split correctly by club');
-        assert(actual.html.includes('<td class="represented">Bristol City (6), Manchester United (1)</td>'),
+        assert(actual.html.includes('<td class="represented">Bristol City (6), Manchester United (2)</td>'),
             'Jordan: the breakdown must appear in the rendered Head to Head table');
         assert.equal(actual.representedExamples['Brighton & Hove'],
-            'Bristol City (7), Manchester United (2)',
+            'Bristol City (7), Manchester United (3)',
             'Jordan: ties on penalties should count as played matches');
     }
     if (id === 'rens') {

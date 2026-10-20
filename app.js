@@ -840,7 +840,7 @@ function timelineSquadChanges(id, season, prevSeason) {
         };
     if (canonicalTeam(cur.club || '') !== canonicalTeam(prev.club || ''))
         return {
-            joined: [], left: [], note: 'Club changed — squad comparison resets for the new club.'
+            joined: [], left: [], note: '', comparisonSkipped: true
         };
     const curNames = timelineSquadNames(cur), prevNames = timelineSquadNames(prev);
     const curMap = new Map(curNames.map(playerName => [
@@ -1032,12 +1032,12 @@ function careerTimeline(id) {
 
         const topHtml = top.length ? `<ol class="timeline-topfive">${top.map(standingRow => `<li class="${canonicalTeam(cleanTeamName(standingRow[1])) === canonicalTeam(meta && meta.club ? meta.club : '') ? 'focus' : ''}"><span>${teamFlag(cleanTeamName(standingRow[1]))} ${esc(standingRow[1])}</span><b>${standingRow[9] !== '' && standingRow[9] != null ? esc(standingRow[9]) + ' pts' : ''}</b></li>`).join('')}</ol>` : '<p class="muted">League top five not yet available.</p>';
         const cupHtml = cups.length ? cups.map(cupFinal => `<div class="timeline-cup"><b>${esc(cupFinal.comp)}</b><span>Winner: ${teamFlag(cupFinal.winner)} ${esc(cupFinal.winner)}</span><span>Runner-up: ${teamFlag(cupFinal.runner)} ${esc(cupFinal.runner)}</span></div>`).join('') : '<p class="muted">No recorded cup final for this season.</p>';
-        const moveHtml = moves.note ? `<p class="muted">${esc(moves.note)}</p>` : `<div class="timeline-moves"><div><b>Joined</b>${moves.joined.length ? `<ul>${moves.joined.map(playerName => `<li>+ ${esc(playerName)}</li>`).join('')}</ul>` : '<span class="muted">None recorded</span>'}</div><div><b>Left</b>${moves.left.length ? `<ul>${moves.left.map(playerName => `<li>− ${esc(playerName)}</li>`).join('')}</ul>` : '<span class="muted">None recorded</span>'}</div></div>`;
+        const moveHtml = moves.comparisonSkipped ? '' : moves.note ? `<p class="muted">${esc(moves.note)}</p>` : `<div class="timeline-moves"><div><b>Joined</b>${moves.joined.length ? `<ul>${moves.joined.map(playerName => `<li>+ ${esc(playerName)}</li>`).join('')}</ul>` : '<span class="muted">None recorded</span>'}</div><div><b>Left</b>${moves.left.length ? `<ul>${moves.left.map(playerName => `<li>− ${esc(playerName)}</li>`).join('')}</ul>` : '<span class="muted">None recorded</span>'}</div></div>`;
         // A second roster snapshot within the current season can reveal changes
         // that season-to-season comparisons cannot show (especially after a move).
         // A missing name is not necessarily evidence of a transfer.
         const inSeason = playerData.timelineInSeasonSquadUpdates && playerData.timelineInSeasonSquadUpdates[season];
-        const inSeasonHtml = inSeason ? `<p class="table-note">In-season squad update — compared with the previously supplied ${esc(season)} list. Removed names are not confirmed transfers.</p><div class="timeline-moves"><div><b>Joined</b>${inSeason.added && inSeason.added.length ? `<ul>${inSeason.added.map(name => `<li>+ ${esc(name)}</li>`).join('')}</ul>` : '<span class="muted">None</span>'}</div><div><b>Left</b>${inSeason.removed && inSeason.removed.length ? `<ul>${inSeason.removed.map(name => `<li>− ${esc(name)}</li>`).join('')}</ul>` : '<span class="muted">None</span>'}</div></div>` : '';
+        const inSeasonHtml = inSeason ? `<div class="timeline-moves"><div><b>Joined</b>${inSeason.added && inSeason.added.length ? `<ul>${inSeason.added.map(name => `<li>+ ${esc(name)}</li>`).join('')}</ul>` : '<span class="muted">None</span>'}</div><div><b>Left</b>${inSeason.removed && inSeason.removed.length ? `<ul>${inSeason.removed.map(name => `<li>− ${esc(name)}</li>`).join('')}</ul>` : '<span class="muted">None</span>'}</div></div>` : '';
         const enteredHtml = leagueMovement && Array.isArray(leagueMovement.entered)
             ? (leagueMovement.entered.length
                 ? `<ul>${leagueMovement.entered.map(team => `<li>↑ ${teamFlag(team)} ${esc(team)}</li>`).join('')}</ul>`
@@ -1091,11 +1091,11 @@ function careerTimeline(id) {
 
                 ${leagueMovementSection}
 
-                <section>
+                ${moveHtml || inSeasonHtml ? `<section>
                     <h3>Squad movement</h3>
                     ${moveHtml}
                     ${inSeasonHtml}
-                </section>
+                </section>` : ''}
             </article>
         `;
     }).join('');
