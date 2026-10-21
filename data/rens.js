@@ -20,6 +20,7 @@ DATA.rens = {
   "internationalTeam": "Netherlands",
   "squadFocusName": "Rens Adisea",
   "homeCrest": "https://www.clipartmax.com/png/middle/84-847485_maks-timurov-logo-borussia-dortmund-512-512-dls-17.png",
+  "homeBackground": "assets/character-select/rens.png",
   "portrait": "assets/portraits/rens.png",
 
   // DISPLAY AND TIMELINE HELPERS

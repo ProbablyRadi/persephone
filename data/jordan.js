@@ -20,6 +20,7 @@ DATA.jordan = {
   "internationalTeam": "England",
   "squadFocusName": "Jordan Vale",
   "homeCrest": "https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg",
+  "homeBackground": "assets/character-select/jordan.jpg",
   "portrait": "assets/portraits/jordan.png",
 
   // DISPLAY AND TIMELINE HELPERS

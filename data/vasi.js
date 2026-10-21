@@ -21,7 +21,7 @@ DATA.vasi = {
   "internationalTeam": "Greece",
   "squadFocusName": "Vasiliki Dimitriou",
   "homeCrest": "https://www.clipartmax.com/png/middle/98-980857_fc-barcelona-logo-fathead-fc-barcelona-logo-wall-decal.png",
-  "homeBackground": "assets/character-select/vasi.png",
+  "homeBackground": "assets/character-select/vasi.jpg",
   "portrait": "assets/portraits/vasi.png",
 
   // DISPLAY AND TIMELINE HELPERS
