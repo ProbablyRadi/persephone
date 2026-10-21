@@ -52,7 +52,7 @@ vm.runInContext(
 const expected = {
     rens: { opponents: 152, played: 554, wins: 349, draws: 88, losses: 101, aggregateOnlyTies: 16 },
     jordan: { opponents: 106, played: 304, wins: 152, draws: 65, losses: 85, aggregateOnlyTies: 2 },
-    vasi: { opponents: 35, played: 158, wins: 111, draws: 22, losses: 18, aggregateOnlyTies: 7 },
+    vasi: { opponents: 35, played: 177, wins: 125, draws: 25, losses: 18, aggregateOnlyTies: 9 },
 };
 
 // Every European club knockout heading that represents a two-legged tie

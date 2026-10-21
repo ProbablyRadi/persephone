@@ -4251,11 +4251,7 @@ body.theme-dracula .chart-empty {
   overflow-wrap: anywhere;
 }
 
-.profile-page .infobox .infobox-career-table .country-flag {
-  width: 19px;
-  max-height: 14px;
-  margin-right: 2px;
-}
+/* Club and international career flags inherit the regular 30px flag size. */
 
 @media (max-width: 760px) {
   .profile-page .infobox {

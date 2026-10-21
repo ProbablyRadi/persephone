@@ -240,3 +240,13 @@ A good example to study is the earlier in-progress structure (now completed) of 
 - The Timeline reads the season's club and squad, plus optional in-season roster additions/removals from `timelineInSeasonSquadUpdates`. The Career Overview's subtotals and grand total exclude in-progress seasons, even if the current-season row has supplied statistics. The smaller club-career infobox can show up-to-date appearances. Head to Head only counts scored fixtures, not pending fixtures.
 
 Run `node tests/verify-jordan-2029.js` after editing Jordan’s completed 2029–30 season; the test validates all 38 league scores, the final standings, cup results, squad, Timeline, and overview.
+
+## Vasi's completed 2028–29 season
+
+Vasi's final 2028–29 Barcelona statistics are recorded in `data/vasi.js`: **43 appearances, 37 goals, 1 assist, 15 clean sheets**, and a **Liga F title** on **78 points**. The file contains 30 league results, the 16-team final league table, 24 squad rows, the 17-line Women's Champions League bracket (including neutral-club results), and the pre-season Champions Trophy. The career infobox totals **162 appearances and 170 goals** over her four completed Barcelona seasons.
+
+Her **2028–29 average rating and POTM/MOTM counts were not supplied**. Leave them unreported until confirmed; the award grand total displays a dash because that season is missing award counts (the earlier three years' supplied awards remain intact). Anna Affolter's nationality is confirmed as Swiss and her flag uses the local Switzerland image.
+
+**Corrected UEFA result:** The 2028–29 Women's Champions League league phase includes **Juventus 0–2 FC Barcelona** (previously recorded the wrong way round). Barcelona’s six recorded results now agree with the supplied league-phase standings: **4 W / 1 D / 1 L, 12 GF / 7 GA and 13 points**.
+
+Run `node tests/verify-vasi-2028.js` along with the existing regression tests after future updates.

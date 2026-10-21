@@ -1,3 +1,29 @@
+## 2026-10-20 — Vasi 2028–29 Juventus result corrected
+
+- Corrected **Juventus 0–2 FC Barcelona** in both the season summary and full Women’s Champions League fixtures. The fixture had previously been reversed.
+- Barcelona’s six league-phase results now reconcile with the supplied UEFA table: **4 wins, 1 draw, 1 loss; 12 GF, 7 GA; 13 points**.
+- Recalculated Vasi’s Head to Head: **177 played / 125 wins / 25 draws / 18 losses**. All other fixture results and player statistics are unchanged.
+
+## 2026-10-20 — Vasi 2028–29: Anna Affolter nationality
+
+- Confirmed Anna Affolter (CAM, No. 22) as Swiss, using the existing local Switzerland flag image. No squad statistics or match results changed.
+
+## 2026-10-20 — Vasi 2028–29 final season
+
+- Completed Vasi’s 2028–29 Barcelona season from the supplied final sheet: **43 appearances, 37 goals, 1 assist and 15 clean sheets**. No average rating or POTM/MOTM figures were supplied; those remain unknown rather than being invented.
+- Added all **30 Liga F fixtures**, the final **16-team table** (Barcelona champions: **25 W, 3 D, 2 L, 77 GF, 23 GA, 78 pts**) and Barcelona's **fourth consecutive Liga F title** to Honours.
+- Added the full 2028–29 **Women's Champions League** knockout bracket and final: Barcelona lost **2–4 (agg) to Paris SG** in the semi-finals, and FC Bayern München beat Paris SG **3–0** in the final. The UWCL league-phase table was preserved from the user's sheet.
+- Updated the complete **24-player Barcelona squad**, including Anna Affolter (nationality unreported), with all supplied App/Goals/Assists/CLS figures. The Timeline now reflects the season's cup result, final standings and squad movements.
+- Updated Barcelona's club career infobox to **162 appearances / 170 goals** from the four completed seasons. Head to Head now reads **177 played / 124 W / 25 D / 19 L**, preserving the aggregate-only-tie accounting rule.
+- Added `tests/verify-vasi-2028.js` and updated the Head to Head and Overview regression expectations. Existing Rens/Jordan data and website themes remain unchanged.
+- Source discrepancy: the six supplied Barcelona UWCL league-phase fixtures imply **3 W / 1 D / 2 L**, while the supplied league-phase table says **4 W / 1 D / 1 L**. Both are preserved exactly pending confirmation.
+
+## 2026-10-20 — Career infobox flags match the site
+
+- Removed the compact 19px flag override from Club career and International career tables on all three character overviews.
+- Career-table flags now inherit the regular `.country-flag` sizing (30px wide, up to 22px tall), matching other infobox flag displays.
+- Changed only the flag styling and CSS cache version; all career records, table columns, and themes are unchanged.
+
 ## 2026-10-20 — Honours aligned from the left
 
 - Switched the Overview honours lists from balanced newspaper columns to a left-first grid for Rens, Jordan and Vasi.
