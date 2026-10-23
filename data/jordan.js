@@ -211,7 +211,7 @@ DATA.jordan = {
   "bootBrand": "Nike",
   "position": "Goalkeeper",
   "current": "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester United",
-  "number": "1 (previously 37 at Bristol City; international: 12, 20, 17, 1)",
+  "number": "37 (Bristol City), 1 (Manchester United); international: 12, 20, 17, 1",
   "international": "🏴󠁧󠁢󠁥󠁮󠁧󠁿 England (2025–)",
 
   // BIOGRAPHY AND CAREER OVERVIEW
@@ -231,20 +231,20 @@ DATA.jordan = {
       1
     ],
     [
-      "2029–2033",
+      "2029–2031",
       "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester United",
       48,
       0
     ],
     [
-      "2033–2037",
+      "2031–2037",
       "🇳🇱 PSV",
       "—",
       "—"
     ],
     [
       "2037–2040",
-      "🏴󠁧󠁢󠁳󠁣󠁴󠁿 Celtic",
+      "🇲🇨 AS Monaco",
       "—",
       "—"
     ]
@@ -312,7 +312,7 @@ DATA.jordan = {
       "GK",
       "Premier League",
       "4th",
-      "",
+      "6.5",
       48,
       0,
       0,
@@ -337,31 +337,36 @@ DATA.jordan = {
     "2028–29": {
       "playerOfTheMonth": 0,
       "playerOfTheMatch": 2
+    },
+    "2029–30": {
+      "playerOfTheMonth": 0,
+      "playerOfTheMatch": 0
     }
   },
   // Future overview placeholders only: not playable seasons or fixtures.
   // Career infobox totals can be updated ahead of the detailed in-progress squad sheet.
   "careerOverviewFutureRows": [
-    // Manchester United: the current season is already in stats; only future years appear here.
+    // Manchester United: only the unplayed 2030–31 season remains.
     [
       "2030–31",
       "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester United",
       "GK",
       "Premier League"
     ],
+
+    // Planned PSV career (2031–37): display-only placeholders.
     [
       "2031–32",
-      "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester United",
+      "🇳🇱 PSV",
       "GK",
-      "Premier League"
+      "Eredivisie"
     ],
     [
       "2032–33",
-      "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester United",
+      "🇳🇱 PSV",
       "GK",
-      "Premier League"
+      "Eredivisie"
     ],
-    // Planned PSV career: future overview rows only, with no results yet.
     [
       "2033–34",
       "🇳🇱 PSV",
@@ -387,24 +392,24 @@ DATA.jordan = {
       "Eredivisie"
     ],
 
-    // Future Scottish league seasons (no fixtures or player statistics yet).
+    // Planned AS Monaco career (2037–40): Ligue 1, no results yet.
     [
       "2037–38",
-      "🏴󠁧󠁢󠁳󠁣󠁴󠁿 Celtic",
+      "🇲🇨 AS Monaco",
       "GK",
-      "Scottish Premier"
+      "Ligue 1"
     ],
     [
       "2038–39",
-      "🏴󠁧󠁢󠁳󠁣󠁴󠁿 Celtic",
+      "🇲🇨 AS Monaco",
       "GK",
-      "Scottish Premier"
+      "Ligue 1"
     ],
     [
       "2039–40",
-      "🏴󠁧󠁢󠁳󠁣󠁴󠁿 Celtic",
+      "🇲🇨 AS Monaco",
       "GK",
-      "Scottish Premier"
+      "Ligue 1"
     ]
   ],
 

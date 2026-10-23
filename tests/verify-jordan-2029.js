@@ -54,14 +54,16 @@ const details = vm.runInContext(`(() => {
 // The 2029–30 record is now a finished season, not an in-progress snapshot.
 assert(details.current.includes('Manchester United'));
 assert.equal(details.boot, 'Nike');
-assert(details.number.startsWith('1 '));
+assert(details.number.includes('1 (Manchester United)'));
+assert(details.number.includes('37 (Bristol City)'));
+assert(details.number.includes('12, 20, 17, 1'));
 assert.deepEqual(Array.from(details.career[0].slice(2)), [208, 1]);
 assert.deepEqual(Array.from(details.career[1].slice(2)), [48, 0]);
 assert(details.career[2][1].includes('PSV'));
-assert(details.career[3][1].includes('Celtic'));
+assert(details.career[3][1].includes('AS Monaco'));
 assert.equal(details.season.inProgress, undefined);
 assert.equal(details.season.pendingFixtures, undefined);
-assert.deepEqual(Array.from(details.stats.slice(4)), ['4th', '', 48, 0, 0, 18]);
+assert.deepEqual(Array.from(details.stats.slice(4)), ['4th', '6.5', 48, 0, 0, 18]);
 assert(!details.future.some(row => row[0] === '2029–30'));
 assert(details.season.summary.includes('Carabao Cup'));
 assert(details.season.table.startsWith('4th — 74 pts'));

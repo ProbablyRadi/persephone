@@ -1,3 +1,11 @@
+## 2026-10-23 — Jordan Vale career overview refresh
+
+- Updated Manchester United career years to 2029–2031 (48 apps, 0 goals recorded through 2029–30).
+- Moved PSV placeholder period to 2031–2037 and replaced Celtic with AS Monaco (2037–2040) in the infobox and career overview.
+- Added placeholder rows for all six PSV seasons and all three AS Monaco Ligue 1 seasons, without inventing fixtures, appearances or awards.
+- Confirmed Jordan's 2029–30 average rating of 6.5 and zero Player of the Month / Man of the Match awards; preserved Bristol City's four completed seasons, honours, caps and totals.
+- Clarified shirt-number history and bumped the Jordan data cache version.
+
 ## 2026-10-20 — Vasi 2028–29 Juventus result corrected
 
 - Corrected **Juventus 0–2 FC Barcelona** in both the season summary and full Women’s Champions League fixtures. The fixture had previously been reversed.
