@@ -136,7 +136,43 @@ DATA.jordan = {
     "Andre Garcia": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
     "Marco Palestra": "🇮🇹",
     "Hugo Ekitiké": "🇫🇷",
-    "Gabriele Biancheri": "🏴󠁧󠁢󠁷󠁬󠁳󠁿"
+    "Gabriele Biancheri": "🏴󠁧󠁢󠁷󠁬󠁳󠁿",
+    // 2030–31 Brighton — nine game-generated nationalities confirmed by the user.
+    "Amnay Aït Zekran": "🇩🇿",
+    "Lance White": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "Besian Kutleshi": "🇦🇺",
+    "Josen Escobar": "🇨🇴",
+    "Kirk Leitch": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+    "Nehemiah Oriola": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "Kamari Doyle": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "Maxloren Castro": "🇵🇪",
+    "Felipe Chavez": "🇪🇸",
+    // 2030–31 Brighton — known nationalities; unconfirmed new-game players have no flag.
+    "Lucas Hernández": "🇫🇷",
+    "Carlos Romero": "🇪🇸",
+    "Tosin Adarabioyo": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "Olivier Boscagli": "🇫🇷",
+    "Eíran Cashin": "🇮🇪",
+    "Diego Coppola": "🇮🇹",
+    "Mats Wieffer": "🇳🇱",
+    "Yasin Ayari": "🇸🇪",
+    "Diego Gómez": "🇵🇾",
+    "Carlos Baleba": "🇨🇲",
+    "Jack Hinshelwood": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "Ramón Sosa": "🇵🇾",
+    "Malick Yalcouyé": "🇨🇮",
+    "Matt O'Riley": "🇩🇰",
+    "Georginio Rutter": "🇫🇷",
+    "Facundo Buonanotte": "🇦🇷",
+    "Brajan Gruda": "🇩🇪",
+    "Yankuba Minteh": "🇬🇲",
+    "Evan Ferguson": "🇮🇪",
+    "Endrick": "🇧🇷",
+    "Mark O'Mahony": "🇮🇪",
+    "Stefanos Tzimas": "🇬🇷",
+    "Cherif Diouf": "🇸🇳",
+    "Samuele Fabbri": "🇮🇹",
+    "Tom Watson": "🏴󠁧󠁢󠁥󠁮󠁧󠁿"
   },
   // In-season changes compared with the earlier 2029–30 squad snapshot.
   // "Removed" means absent from the current supplied list, not a confirmed transfer.
@@ -183,7 +219,16 @@ DATA.jordan = {
     "2029–30|UEFA Champions League": { "0": "Final" },
     "2029–30|UEFA Europa League": { "0": "Final" },
     "2029–30|UEFA Conference League": { "0": "Final" },
-    // The full 2026 World Cup tournament appears only on the 2026–27 page.
+    // The 2030 and 2026 World Cups each belong to their finishing-year seasons.
+    "2030–31|World Cup": {
+      "0": "Group stage",
+      "3": "Round of 32",
+      "19": "Round of 16",
+      "27": "Quarter-finals",
+      "31": "Semi-finals",
+      "33": "Third-place play-off",
+      "34": "Final"
+    },
     "2026–27|World Cup": {
       "0": "Group stage",
       "3": "Round of 32",
@@ -208,20 +253,20 @@ DATA.jordan = {
   "dob": "08 August",
   "birth": "Weston-super-Mare, England",
   "height": "1.82 m",
-  "bootBrand": "Nike",
+  "bootBrand": "New Balance",
   "position": "Goalkeeper",
-  "current": "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester United",
-  "number": "37 (Bristol City), 1 (Manchester United); international: 12, 20, 17, 1",
+  "current": "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Brighton & Hove",
+  "number": "99",
   "international": "🏴󠁧󠁢󠁥󠁮󠁧󠁿 England (2025–)",
 
   // BIOGRAPHY AND CAREER OVERVIEW
   // Biography, club history, national-team record, season statistics and awards.
   "intro": [
-    "Jordan A.B. Vale is an English professional footballer who plays as a goalkeeper for Premier League club Manchester United and the England national team. Born in Weston-super-Mare, Vale began his senior career with Bristol City in 2025 and became the club's first-choice goalkeeper during their 2025–26 EFL Championship title-winning season.",
+    "Jordan A.B. Vale is an English professional footballer who plays as a goalkeeper for Premier League club Brighton & Hove and the England national team. Born in Weston-super-Mare, Vale began his senior career with Bristol City in 2025 and became the club's first-choice goalkeeper during their 2025–26 EFL Championship title-winning season.",
     "Vale remained in goal following Bristol City's promotion to the Premier League, helping the club retain its top-flight status in 2026–27 and finish 14th the following season. The 2027–28 campaign was highlighted by a historic FA Cup victory over Manchester City. The final remained goalless through 90 minutes before Pablo López gave Bristol City the lead in the 101st minute. In the 121st minute, Vale saved an initial effort but Boden scored from the rebound to force a 1–1 draw and a penalty shootout, which Bristol City won after a fiercely contested series of kicks.",
     "In 2028–29, Vale played 59 times as Bristol City finished 11th in the Premier League, reached the Europa League round of 16 and went out of the Carabao Cup in a penalty shootout against Arsenal. He finished the season with 18 clean sheets, five assists and two Man of the Match awards.",
-    "Vale joined Manchester United ahead of the 2029–30 Premier League season, taking the number 1 shirt. United finished fourth with 74 points, and Vale made 48 appearances and kept 18 clean sheets. United won the 2029–30 Carabao Cup, defeating Leeds United 1–0 in the final after overcoming Brighton & Hove, Wrexham, Portsmouth, Liverpool and Manchester City.",
-    "Vale has represented England at senior level since 2025. He was part of the England team that finished as runners-up at the 2026 FIFA World Cup and was awarded the UEFA Euro Golden Glove in 2028. He has made 42 appearances and scored one goal for the national team."
+    "Vale joined Manchester United ahead of the 2029–30 Premier League season, taking the number 1 shirt. United finished fourth with 74 points, and Vale made 48 appearances and kept 18 clean sheets. United won the 2029–30 Carabao Cup, defeating Leeds United 1–0 in the final after overcoming Brighton & Hove, Wrexham, Portsmouth, Liverpool and Manchester City. He later moved to Brighton & Hove, where he wears the number 99 shirt. He has seven recorded appearances, including three clean sheets, in the ongoing 2030–31 campaign.",
+    "Vale has represented England at senior level since 2025. He was part of the England team that finished as runners-up at the 2026 FIFA World Cup and won the 2030 tournament, beating Spain in the final. He won the UEFA Euro Golden Glove in 2028 and the FIFA World Cup Golden Glove in 2030. He has 50 international appearances listed in the updated career record."
   ],
   "career": [
     [
@@ -231,20 +276,20 @@ DATA.jordan = {
       1
     ],
     [
-      "2029–2031",
+      "2029–2030",
       "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester United",
       48,
       0
     ],
     [
-      "2031–2037",
-      "🇳🇱 PSV",
-      "—",
-      "—"
+      "2030–2035",
+      "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Brighton & Hove",
+      7,
+      0
     ],
     [
-      "2037–2040",
-      "🇲🇨 AS Monaco",
+      "2035–2040",
+      "🇳🇱 PSV",
       "—",
       "—"
     ]
@@ -252,8 +297,8 @@ DATA.jordan = {
   "intl": [
     "2025–",
     "🏴󠁧󠁢󠁥󠁮󠁧󠁿 England",
-    42,
-    1
+    50,
+    0
   ],
   // Row order: season, club, role, league, league position,
   // average rating, appearances, goals, assists, clean sheets.
@@ -317,6 +362,18 @@ DATA.jordan = {
       0,
       0,
       18
+    ],
+    [
+      "2030–31",
+      "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Brighton & Hove",
+      "GK",
+      "Premier League",
+      "",
+      "",
+      7,
+      0,
+      0,
+      3
     ]
   ],
   // Overview-only POTM/MOTM awards, keyed by season.
@@ -346,39 +403,33 @@ DATA.jordan = {
   // Future overview placeholders only: not playable seasons or fixtures.
   // Career infobox totals can be updated ahead of the detailed in-progress squad sheet.
   "careerOverviewFutureRows": [
-    // Manchester United: only the unplayed 2030–31 season remains.
+    // Planned Brighton & Hove career (2030–35): one recorded appearance so far, then placeholders.
     [
-      "2030–31",
-      "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester United",
+      "2031–32",
+      "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Brighton & Hove",
+      "GK",
+      "Premier League"
+    ],
+    [
+      "2032–33",
+      "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Brighton & Hove",
+      "GK",
+      "Premier League"
+    ],
+    [
+      "2033–34",
+      "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Brighton & Hove",
+      "GK",
+      "Premier League"
+    ],
+    [
+      "2034–35",
+      "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Brighton & Hove",
       "GK",
       "Premier League"
     ],
 
-    // Planned PSV career (2031–37): display-only placeholders.
-    [
-      "2031–32",
-      "🇳🇱 PSV",
-      "GK",
-      "Eredivisie"
-    ],
-    [
-      "2032–33",
-      "🇳🇱 PSV",
-      "GK",
-      "Eredivisie"
-    ],
-    [
-      "2033–34",
-      "🇳🇱 PSV",
-      "GK",
-      "Eredivisie"
-    ],
-    [
-      "2034–35",
-      "🇳🇱 PSV",
-      "GK",
-      "Eredivisie"
-    ],
+    // Planned PSV career (2035–40): display-only placeholders.
     [
       "2035–36",
       "🇳🇱 PSV",
@@ -391,25 +442,23 @@ DATA.jordan = {
       "GK",
       "Eredivisie"
     ],
-
-    // Planned AS Monaco career (2037–40): Ligue 1, no results yet.
     [
       "2037–38",
-      "🇲🇨 AS Monaco",
+      "🇳🇱 PSV",
       "GK",
-      "Ligue 1"
+      "Eredivisie"
     ],
     [
       "2038–39",
-      "🇲🇨 AS Monaco",
+      "🇳🇱 PSV",
       "GK",
-      "Ligue 1"
+      "Eredivisie"
     ],
     [
       "2039–40",
-      "🇲🇨 AS Monaco",
+      "🇳🇱 PSV",
       "GK",
-      "Ligue 1"
+      "Eredivisie"
     ]
   ],
 
@@ -424,7 +473,9 @@ DATA.jordan = {
       "Carabao Cup: 2029–30 🏆"
     ],
     "🏴󠁧󠁢󠁥󠁮󠁧󠁿 England": [
+      "FIFA World Cup winners: 2030 🏆",
       "FIFA World Cup runner-up: 2026 🥈",
+      "FIFA World Cup Golden Glove: 2030 🧤",
       "UEFA Euro Golden Glove: 2028 🧤"
     ]
   },
@@ -623,6 +674,27 @@ DATA.jordan = {
         ]
       },
       "table": "4th — 74 pts, 23 W, 5 D, 10 L, 72 GF, 44 GA"
+    },
+    // 2030–31 — Brighton pre-season plus first three league matches and Carabao Cup round.
+    "2030–31": {
+      "inProgress": true,
+      "summary": "Jordan Vale joined Brighton & Hove and wears the number 99 shirt. Brighton won all three Champions Trophy matches, opened the Premier League with one win, one draw and one loss, and beat MK Dons 3–1 in the Carabao Cup. Vale has seven recorded appearances and three clean sheets. England won the 2030 World Cup, defeating Spain 1–0 in the final; Vale won the World Cup Golden Glove.",
+      "competitions": {
+        "Champions Trophy": [
+          "Brighton & Hove won all three matches (9 pts)."
+        ],
+        "Premier League": [
+          "Opening three matches: 1 W, 1 D, 1 L; 4 pts. League positions are still provisional."
+        ],
+        "Carabao Cup": [
+          "Brighton beat MK Dons 3–1 away."
+        ],
+        "World Cup": [
+          "2030 World Cup champions: England 🏆",
+          "Runners-up: Spain 🥈; third place: Uruguay 🥉"
+        ]
+      },
+      "table": "3 played — 4 pts, 1 W, 1 D, 1 L, 2 GF, 2 GA"
     }
   }
 };
@@ -1088,7 +1160,63 @@ FULL_FIXTURES.jordan = {
       "England 1 - 3 Netherlands",
       "Finland 0 - 3 England"
     ]
-  }
+  },
+  "2030–31": {
+  "Champions Trophy": [
+    "Brighton & Hove 1 - 0 SV Werder Bremen",
+    "Hamburger SV 1 - 4 Brighton & Hove",
+    "Brighton & Hove 2 - 1 FC Augsburg"
+  ],
+  "Premier League": [
+    "Coventry City 0 - 0 Brighton & Hove",
+    "Brighton & Hove 2 - 0 Ipswich",
+    "Manchester City 2 - 0 Brighton & Hove"
+  ],
+  "Carabao Cup": [
+    "MK Dons 1 - 3 Brighton & Hove"
+  ],
+  "FA Cup": [],
+  "UEFA Champions League": [],
+  "UEFA Europa League": [],
+  "UEFA Conference League": [],
+  "World Cup": [
+    "England 4 - 1 Ghana",
+    "Saudi Arabia 3 - 0 England",
+    "England 2 - 1 Colombia",
+    "Ecuador 0 - 2 Sweden",
+    "Korea Republic 1 - 2 Croatia",
+    "Scotland 0 - 2 Paraguay",
+    "France 1 - 2 Senegal",
+    "United States 1 - 3 Canada",
+    "Germany 2 - 1 Panama",
+    "Turkiye 1 - 2 Egypt",
+    "Belgium 0 - 1 Uruguay",
+    "Argentina 1 - 0 Colombia",
+    "Italy (4) 2 - 2 (3) Australia",
+    "IR Iran 1 - 2 Tunisia",
+    "Congo DR (4) 1 - 1 (5) England",
+    "Cote d'Ivorie 0 - 1 Morocco",
+    "Portugal 3 - 0 Romania",
+    "Saudi Arabia (4) 3 - 3 (3) Denmark",
+    "Spain 3 - 2 Brazil",
+    "Sweden 3 - 4 Croatia",
+    "Senegal 4 - 0 Egypt",
+    "Tunisia 0 - 2 England",
+    "Argentina 1 - 3 Italy",
+    "Paraguay 1 - 2 Canada",
+    "Germany 1 - 2 Uruguay",
+    "Saudi Arabia 1 - 2 Spain",
+    "Morocco 1 - 2 Portugal",
+    "Senegal (4) 1 - 1 (5) Croatia",
+    "England 1 - 0 Italy",
+    "Canada 1 - 2 Uruguay",
+    "Spain 3 - 1 Portugal",
+    "Croatia 0 - 2 England",
+    "Uruguay 1 - 2 Spain",
+    "Croatia 1 - 2 Uruguay",
+    "F — England 1 - 0 Spain"
+  ]
+}
 
 };
 
@@ -3758,7 +3886,561 @@ SEASON_TABLES.jordan = {
         "0"
       ]
     ]
-  }
+  },
+  "2030–31": {
+  "league": "Premier League",
+  "club": "Brighton & Hove",
+  "standings": [
+    [
+      "—",
+      "Arsenal",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "—",
+      "Liverpool",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "—",
+      "Manchester City",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "—",
+      "Manchester United",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "—",
+      "Chelsea",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "—",
+      "Tottenham Hotspurs",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "—",
+      "Aston Villa",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "—",
+      "Newcastle United",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "—",
+      "West Ham",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "—",
+      "Nottingham Forest",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "—",
+      "Everton",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "—",
+      "Brighton & Hove",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "—",
+      "Wolves",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "—",
+      "Crystal Palace",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "—",
+      "AFC Bournemouth",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "—",
+      "Brentford",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "—",
+      "Coventry City",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "—",
+      "Leeds United",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "—",
+      "Fulham",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    [
+      "—",
+      "Ipswich",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  ],
+  "squad": [
+    [
+        "GK",
+        "99",
+        "Jordan Vale",
+        "7",
+        "0",
+        "0",
+        "3"
+    ],
+    [
+        "GK",
+        "1",
+        "Cherif Diouf",
+        "0",
+        "0",
+        "0",
+        "0"
+    ],
+    [
+        "LB",
+        "29",
+        "Lucas Hernández",
+        "0",
+        "0",
+        "0",
+        "0"
+    ],
+    [
+        "LB",
+        "28",
+        "Carlos Romero",
+        "7",
+        "1",
+        "1",
+        "3"
+    ],
+    [
+        "CB",
+        "2",
+        "Amnay Aït Zekran",
+        "0",
+        "0",
+        "0",
+        "0"
+    ],
+    [
+        "CB",
+        "35",
+        "Tosin Adarabioyo",
+        "0",
+        "0",
+        "0",
+        "0"
+    ],
+    [
+        "CB",
+        "21",
+        "Olivier Boscagli",
+        "1",
+        "0",
+        "0",
+        "0"
+    ],
+    [
+        "CB",
+        "31",
+        "Diego Coppola",
+        "7",
+        "0",
+        "0",
+        "0"
+    ],
+    [
+        "CB",
+        "3",
+        "Lance White",
+        "7",
+        "0",
+        "0",
+        "3"
+    ],
+    [
+        "RB",
+        "4",
+        "Samuele Fabbri",
+        "3",
+        "0",
+        "0",
+        "1"
+    ],
+    [
+        "RB",
+        "5",
+        "Sergiño Dest",
+        "4",
+        "0",
+        "0",
+        "2"
+    ],
+    [
+        "CDM",
+        "27",
+        "Mats Wieffer",
+        "0",
+        "0",
+        "0",
+        "0"
+    ],
+    [
+        "CDM",
+        "26",
+        "Yasin Ayari",
+        "7",
+        "1",
+        "3",
+        "2"
+    ],
+    [
+        "CDM",
+        "25",
+        "Diego Gómez",
+        "4",
+        "0",
+        "0",
+        "0"
+    ],
+    [
+        "CDM",
+        "17",
+        "Carlos Baleba",
+        "7",
+        "1",
+        "1",
+        "3"
+    ],
+    [
+        "CDM",
+        "13",
+        "Jack Hinshelwood",
+        "0",
+        "0",
+        "0",
+        "0"
+    ],
+    [
+        "CDM",
+        "32",
+        "Josen Escobar",
+        "0",
+        "0",
+        "0",
+        "0"
+    ],
+    [
+        "CDM",
+        "18",
+        "Kirk Leitch",
+        "2",
+        "1",
+        "0",
+        "1"
+    ],
+    [
+        "LM",
+        "58",
+        "Nehemiah Oriola",
+        "0",
+        "0",
+        "0",
+        "0"
+    ],
+    [
+        "LM",
+        "44",
+        "Ramón Sosa",
+        "0",
+        "0",
+        "0",
+        "0"
+    ],
+    [
+        "LM",
+        "41",
+        "Tom Watson",
+        "7",
+        "3",
+        "1",
+        "3"
+    ],
+    [
+        "LM",
+        "16",
+        "Malick Yalcouyé",
+        "0",
+        "0",
+        "0",
+        "0"
+    ],
+    [
+        "CAM",
+        "33",
+        "Matt O'Riley",
+        "0",
+        "0",
+        "0",
+        "0"
+    ],
+    [
+        "CAM",
+        "10",
+        "Georginio Rutter",
+        "5",
+        "0",
+        "1",
+        "1"
+    ],
+    [
+        "CAM",
+        "8",
+        "Facundo Buonanotte",
+        "0",
+        "0",
+        "0",
+        "0"
+    ],
+    [
+        "CAM",
+        "7",
+        "Brajan Gruda",
+        "4",
+        "1",
+        "0",
+        "0"
+    ],
+    [
+        "CAM",
+        "43",
+        "Kamari Doyle",
+        "1",
+        "0",
+        "0",
+        "0"
+    ],
+    [
+        "RM",
+        "11",
+        "Yankuba Minteh",
+        "7",
+        "2",
+        "1",
+        "3"
+    ],
+    [
+        "LW",
+        "15",
+        "Maxloren Castro",
+        "0",
+        "0",
+        "0",
+        "0"
+    ],
+    [
+        "RW",
+        "23",
+        "Felipe Chavez",
+        "1",
+        "0",
+        "0",
+        "0"
+    ],
+    [
+        "ST",
+        "20",
+        "Evan Ferguson",
+        "0",
+        "0",
+        "0",
+        "0"
+    ],
+    [
+        "ST",
+        "9",
+        "Endrick",
+        "7",
+        "2",
+        "1",
+        "3"
+    ],
+    [
+        "ST",
+        "30",
+        "Mark O'Mahony",
+        "0",
+        "0",
+        "0",
+        "0"
+    ],
+    [
+        "ST",
+        "14",
+        "Stefanos Tzimas",
+        "0",
+        "0",
+        "0",
+        "0"
+    ]
+]
+}
 
 };
 
@@ -4189,7 +4871,108 @@ PRESEASON_TABLES.jordan = {
       ["7", "SC Freiburg", "3", "1", "0", "2", "3", "5", "-2", "3"],
       ["8", "Rayo Vallecano", "3", "0", "2", "1", "4", "5", "-1", "2"]
     ]
-  }
+  },
+  "2030–31": {
+  "type": "league",
+  "rows": [
+    [
+      "1",
+      "Brighton & Hove",
+      "3",
+      "3",
+      "0",
+      "0",
+      "7",
+      "2",
+      "5",
+      "9"
+    ],
+    [
+      "2",
+      "1. FC Köln",
+      "3",
+      "2",
+      "1",
+      "0",
+      "5",
+      "2",
+      "3",
+      "7"
+    ],
+    [
+      "3",
+      "VfB Stuttgart",
+      "3",
+      "2",
+      "1",
+      "0",
+      "6",
+      "4",
+      "2",
+      "7"
+    ],
+    [
+      "4",
+      "SV Werder Bremen",
+      "3",
+      "1",
+      "1",
+      "1",
+      "2",
+      "2",
+      "0",
+      "4"
+    ],
+    [
+      "5",
+      "Hamburger SV",
+      "3",
+      "1",
+      "1",
+      "1",
+      "4",
+      "5",
+      "-1",
+      "4"
+    ],
+    [
+      "6",
+      "FC Augsburg",
+      "3",
+      "0",
+      "1",
+      "2",
+      "3",
+      "5",
+      "-2",
+      "1"
+    ],
+    [
+      "7",
+      "Newcastle Jets",
+      "3",
+      "0",
+      "1",
+      "2",
+      "3",
+      "6",
+      "-3",
+      "1"
+    ],
+    [
+      "8",
+      "Melbourne Victory",
+      "3",
+      "0",
+      "0",
+      "3",
+      "3",
+      "7",
+      "-4",
+      "0"
+    ]
+  ]
+}
 };
 
 // ============================================================================
@@ -5610,6 +6393,648 @@ COMPETITION_TABLES.jordan = {
         }
       ]
     }
+  },
+  "2030–31": {
+  "World Cup": {
+    "type": "groups",
+    "groups": [
+      {
+        "name": "Group A",
+        "rows": [
+          [
+            "1",
+            "Germany",
+            "3",
+            "3",
+            "0",
+            "0",
+            "6",
+            "1",
+            "5",
+            "9"
+          ],
+          [
+            "2",
+            "Ecuador",
+            "3",
+            "2",
+            "0",
+            "1",
+            "5",
+            "3",
+            "2",
+            "6"
+          ],
+          [
+            "3",
+            "South Africa",
+            "3",
+            "0",
+            "1",
+            "2",
+            "3",
+            "5",
+            "-2",
+            "1"
+          ],
+          [
+            "4",
+            "Curaçao",
+            "3",
+            "0",
+            "1",
+            "2",
+            "2",
+            "7",
+            "-5",
+            "1"
+          ]
+        ]
+      },
+      {
+        "name": "Group B",
+        "rows": [
+          [
+            "1",
+            "Cote d'Ivorie",
+            "3",
+            "2",
+            "1",
+            "0",
+            "6",
+            "4",
+            "2",
+            "7"
+          ],
+          [
+            "2",
+            "Sweden",
+            "3",
+            "2",
+            "0",
+            "1",
+            "5",
+            "4",
+            "1",
+            "6"
+          ],
+          [
+            "3",
+            "Japan",
+            "3",
+            "0",
+            "2",
+            "1",
+            "1",
+            "2",
+            "-1",
+            "2"
+          ],
+          [
+            "4",
+            "Mexico",
+            "3",
+            "0",
+            "1",
+            "2",
+            "2",
+            "4",
+            "-2",
+            "1"
+          ]
+        ]
+      },
+      {
+        "name": "Group C",
+        "rows": [
+          [
+            "1",
+            "Scotland",
+            "3",
+            "2",
+            "1",
+            "0",
+            "6",
+            "3",
+            "3",
+            "7"
+          ],
+          [
+            "2",
+            "Croatia",
+            "3",
+            "2",
+            "0",
+            "1",
+            "5",
+            "3",
+            "2",
+            "6"
+          ],
+          [
+            "3",
+            "Panama",
+            "3",
+            "1",
+            "0",
+            "2",
+            "4",
+            "6",
+            "-2",
+            "3"
+          ],
+          [
+            "4",
+            "New Zealand",
+            "3",
+            "0",
+            "1",
+            "2",
+            "2",
+            "5",
+            "-3",
+            "1"
+          ]
+        ]
+      },
+      {
+        "name": "Group D",
+        "rows": [
+          [
+            "1",
+            "Argentina",
+            "3",
+            "2",
+            "0",
+            "1",
+            "8",
+            "5",
+            "3",
+            "6"
+          ],
+          [
+            "2",
+            "Spain",
+            "3",
+            "1",
+            "2",
+            "0",
+            "8",
+            "6",
+            "2",
+            "5"
+          ],
+          [
+            "3",
+            "Senegal",
+            "3",
+            "1",
+            "1",
+            "1",
+            "5",
+            "6",
+            "-1",
+            "4"
+          ],
+          [
+            "4",
+            "Qatar",
+            "3",
+            "0",
+            "1",
+            "2",
+            "3",
+            "7",
+            "-4",
+            "1"
+          ]
+        ]
+      },
+      {
+        "name": "Group E",
+        "rows": [
+          [
+            "1",
+            "France",
+            "3",
+            "2",
+            "1",
+            "0",
+            "9",
+            "4",
+            "5",
+            "7"
+          ],
+          [
+            "2",
+            "United States",
+            "3",
+            "2",
+            "1",
+            "0",
+            "4",
+            "1",
+            "3",
+            "7"
+          ],
+          [
+            "3",
+            "Algeria",
+            "3",
+            "1",
+            "0",
+            "2",
+            "4",
+            "8",
+            "-4",
+            "3"
+          ],
+          [
+            "4",
+            "Wales",
+            "3",
+            "0",
+            "0",
+            "3",
+            "2",
+            "6",
+            "-4",
+            "0"
+          ]
+        ]
+      },
+      {
+        "name": "Group F",
+        "rows": [
+          [
+            "1",
+            "Korea Republic",
+            "3",
+            "2",
+            "1",
+            "0",
+            "6",
+            "3",
+            "3",
+            "7"
+          ],
+          [
+            "2",
+            "Paraguay",
+            "3",
+            "1",
+            "1",
+            "1",
+            "5",
+            "5",
+            "0",
+            "4"
+          ],
+          [
+            "3",
+            "Egypt",
+            "3",
+            "1",
+            "0",
+            "2",
+            "5",
+            "6",
+            "-1",
+            "3"
+          ],
+          [
+            "4",
+            "Netherlands",
+            "3",
+            "1",
+            "0",
+            "2",
+            "6",
+            "8",
+            "-2",
+            "3"
+          ]
+        ]
+      },
+      {
+        "name": "Group G",
+        "rows": [
+          [
+            "1",
+            "Italy",
+            "3",
+            "2",
+            "1",
+            "0",
+            "8",
+            "4",
+            "4",
+            "7"
+          ],
+          [
+            "2",
+            "Brazil",
+            "3",
+            "2",
+            "1",
+            "0",
+            "7",
+            "5",
+            "2",
+            "7"
+          ],
+          [
+            "3",
+            "Morocco",
+            "3",
+            "1",
+            "0",
+            "2",
+            "3",
+            "4",
+            "-1",
+            "3"
+          ],
+          [
+            "4",
+            "Iraq",
+            "3",
+            "0",
+            "0",
+            "3",
+            "5",
+            "10",
+            "-5",
+            "0"
+          ]
+        ]
+      },
+      {
+        "name": "Group H",
+        "rows": [
+          [
+            "1",
+            "Congo DR",
+            "3",
+            "2",
+            "1",
+            "0",
+            "6",
+            "3",
+            "3",
+            "7"
+          ],
+          [
+            "2",
+            "Denmark",
+            "3",
+            "1",
+            "1",
+            "1",
+            "5",
+            "5",
+            "0",
+            "4"
+          ],
+          [
+            "3",
+            "Australia",
+            "3",
+            "1",
+            "0",
+            "2",
+            "5",
+            "7",
+            "-2",
+            "3"
+          ],
+          [
+            "4",
+            "Iceland",
+            "3",
+            "0",
+            "2",
+            "1",
+            "3",
+            "4",
+            "-1",
+            "2"
+          ]
+        ]
+      },
+      {
+        "name": "Group I",
+        "rows": [
+          [
+            "1",
+            "Turkiye",
+            "3",
+            "3",
+            "0",
+            "0",
+            "10",
+            "2",
+            "8",
+            "9"
+          ],
+          [
+            "2",
+            "Canada",
+            "3",
+            "2",
+            "0",
+            "1",
+            "3",
+            "2",
+            "1",
+            "6"
+          ],
+          [
+            "3",
+            "Indonesia",
+            "3",
+            "0",
+            "1",
+            "2",
+            "4",
+            "7",
+            "-3",
+            "1"
+          ],
+          [
+            "4",
+            "Cabo Verde",
+            "3",
+            "0",
+            "1",
+            "2",
+            "1",
+            "7",
+            "-6",
+            "1"
+          ]
+        ]
+      },
+      {
+        "name": "Group J",
+        "rows": [
+          [
+            "1",
+            "Saudi Arabia",
+            "3",
+            "3",
+            "0",
+            "0",
+            "7",
+            "1",
+            "6",
+            "9"
+          ],
+          [
+            "2",
+            "England",
+            "3",
+            "2",
+            "0",
+            "1",
+            "6",
+            "5",
+            "1",
+            "6"
+          ],
+          [
+            "3",
+            "Colombia",
+            "3",
+            "1",
+            "0",
+            "2",
+            "4",
+            "5",
+            "-1",
+            "3"
+          ],
+          [
+            "4",
+            "Ghana",
+            "3",
+            "0",
+            "0",
+            "3",
+            "2",
+            "8",
+            "-6",
+            "0"
+          ]
+        ]
+      },
+      {
+        "name": "Group K",
+        "rows": [
+          [
+            "1",
+            "Portugal",
+            "3",
+            "2",
+            "1",
+            "0",
+            "7",
+            "3",
+            "4",
+            "7"
+          ],
+          [
+            "2",
+            "IR Iran",
+            "3",
+            "1",
+            "1",
+            "1",
+            "6",
+            "6",
+            "0",
+            "4"
+          ],
+          [
+            "3",
+            "Uruguay",
+            "3",
+            "1",
+            "0",
+            "2",
+            "2",
+            "5",
+            "-3",
+            "3"
+          ],
+          [
+            "4",
+            "Haiti",
+            "3",
+            "0",
+            "2",
+            "1",
+            "5",
+            "6",
+            "-1",
+            "2"
+          ]
+        ]
+      },
+      {
+        "name": "Group L",
+        "rows": [
+          [
+            "1",
+            "Belgium",
+            "3",
+            "3",
+            "0",
+            "0",
+            "8",
+            "4",
+            "4",
+            "9"
+          ],
+          [
+            "2",
+            "Tunisia",
+            "3",
+            "2",
+            "0",
+            "1",
+            "9",
+            "7",
+            "2",
+            "6"
+          ],
+          [
+            "3",
+            "Romania",
+            "3",
+            "1",
+            "0",
+            "2",
+            "5",
+            "5",
+            "0",
+            "3"
+          ],
+          [
+            "4",
+            "Jordan",
+            "3",
+            "0",
+            "0",
+            "3",
+            "3",
+            "9",
+            "-6",
+            "0"
+          ]
+        ]
+      }
+    ]
   }
+}
 };
-

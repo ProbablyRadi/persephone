@@ -96,7 +96,7 @@ DATA.vasi = {
   // PLAYER DETAILS
   // Personal information shown in the Overview infobox.
   "dob": "31 October",
-  "birth": "Thessaloniki, Greece",
+  "birth": "Arachnes, Greece",
   "height": "1.77 m",
   "bootBrand": "Nike",
   "position": "Striker",
@@ -107,7 +107,7 @@ DATA.vasi = {
   // BIOGRAPHY AND CAREER OVERVIEW
   // Biography, club history, national-team record, season statistics and awards.
   "intro": [
-    "Vasiliki Dimitriou (Greek: Βασιλική Δημητρίου), commonly known as Vasi, is a Greek professional footballer who plays as a striker for Liga F club FC Barcelona Femení and the Greece national team. Born in Thessaloniki, she began her senior career with Barcelona in 2025 and quickly established herself as one of the side's leading goalscorers.",
+    "Vasiliki Dimitriou (Greek: Βασιλική Δημητρίου), commonly known as Vasi, is a Greek professional footballer who plays as a striker for Liga F club FC Barcelona Femení and the Greece national team. Born in Arachnes, she began her senior career with Barcelona in 2025 and quickly established herself as one of the side's leading goalscorers.",
     "Dimitriou broke the Liga F single-season goalscoring record in only her second season of senior football. Entering the final match of the 2026–27 season needing four goals to reach 40, she had seven first-half shots saved before scoring in the 65th, 72nd and 75th minutes to equal the previous record of 39. In the 83rd minute, Caroline Graham Hansen went through with only the goalkeeper to beat but passed to Dimitriou instead, allowing her to score the record-breaking 40th league goal. Graham Hansen later secured the Golden Boot, while Dimitriou finished the season as Liga F's new single-season record holder.",
     "Across her first three completed senior seasons, Dimitriou made 162 appearances and scored 170 goals for Barcelona across her first four completed seasons, winning Liga F four times (2025–26 through 2028–29) and the UEFA Women's Champions League in each of her first three seasons. In 2028–29 she scored 37 goals in 43 appearances as Barcelona reached the Champions League semi-finals. She has also represented Greece at senior level since 2025, with four recorded appearances and two goals."
   ],

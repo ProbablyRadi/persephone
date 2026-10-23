@@ -1,3 +1,53 @@
+## 2026-10-24 — Brighton / Stuttgart flag corrections
+- Confirmed Cherif Diouf (Senegal) and Samuele Fabbri (Italy) in Brighton's 2030–31 squad, using the existing local PNG assets.
+- Corrected the Champions Trophy standby table's typo `VfG Stuttgart` to `VfB Stuttgart` so its existing Germany flag mapping appears.
+- Refreshed Jordan's browser cache token and updated the season regression test. No statistics, fixtures or standings were changed.
+
+## 2026-10-23 — JV Brighton 2030–31 squad and first scored games
+- Updated Brighton's 2030–31 squad to the latest 34-player list, recording all supplied appearances, goals, assists and clean sheets (including the new Cherif Diouf, Samuele Fabbri and Tom Watson entries).
+- Recorded three Premier League games (Coventry 0–0 Brighton, Brighton 2–0 Ipswich, Manchester City 2–0 Brighton) and Brighton's 3–1 Carabao Cup win away to MK Dons.
+- Updated Jordan Vale's in-progress Brighton total to 7 appearances, 0 goals, 0 assists and 3 clean sheets on the career infobox, overview and season page. League opening record is 3 played, 4 points; ranking remains unreported.
+- Tom Watson's England nationality is documented by the Premier League; Cherif Diouf and Samuele Fabbri remain unflagged pending confirmation.
+- Preserved England's 50 caps/0 goals record, World Cup 2030, all earlier completed seasons and historical totals. Kept the club-switch Timeline without unsupported squad movement.
+- Updated browser cache version and regression checks.
+
+## 2026-10-23 — Jordan Vale Brighton nationality confirmations
+- Confirmed nine 2030–31 Brighton squad nationalities: Amnay Aït Zekran (Algeria), Lance White (England), Besian Kutleshi (Australia), Josen Escobar (Colombia), Kirk Leitch (Scotland), Nehemiah Oriola (England), Kamari Doyle (England), Maxloren Castro (Peru) and Felipe Chavez (Spain).
+- Corrected the duplicate 2030–31 Premier League entry: Fulham replaces the second Wolves listing; the original Wolves entry is retained.
+- Confirmed Jordan Vale international career remains 50 caps and **0 goals**.
+- Refreshed the `jordan.js` browser cache version.
+
+## 2026-10-23 — Jordan Vale 2030–31 and 2030 World Cup
+
+- Added Brighton & Hove 2030–31 in-progress season: all 3 Champions Trophy fixtures, 8-team pre-season standings, 33-player squad, and 20-club Premier League membership list. The league sheet contains no completed scores; scaffold positions and 38 scheduled games are intentionally not displayed as actual results.
+- Added complete 2030 World Cup archive (35 knockout/group fixtures, 12 group tables), with England beating Spain 1–0 in the final and Uruguay third, including the World Cup podium in Jordan's Timeline.
+- Updated Jordan international infobox from the user-provided 42 caps/1 goal to the latest supplied 50 caps/0 goals; note that 8 England World Cup games support the possible increase but do not verify individual participation. Prior 1 goal conflicts with the new zero and awaits confirmation.
+- Updated England honours: 2030 World Cup winner and Golden Glove; 2026 runner-up and 2028 Euro Golden Glove preserved. Current Brighton number 99 and New Balance boots preserved.
+- League movement compares Brighton's Premier League membership with the 2029–30 Premier League table, even though Jordan changed clubs. It identifies Leeds United and Ipswich as new entrants; duplicate Wolves in the new sheet obscures another entrant. No misleading squad joins/leaves for a club switch.
+- Unconfirmed Brighton player nationalities are left blank, as is VfG Stuttgart's club flag until the club spelling is confirmed.
+- Added `tests/verify-jordan-2030.js` and revised tournament, H2H, overview and timeline regression assertions. 
+
+## 2026-10-23
+- Updated Jordan Vale overview: current club Brighton & Hove, shirt number 99, career path adjusted to Manchester United (2029–2030), Brighton & Hove (2030–2035), PSV (2035–2040).
+
+## 2026-10-23 — World Cup podiums in Career Timeline
+
+- Added the World Cup third-place finisher alongside winner and runner-up in the existing Cup finals section of any season with recorded World Cup final and third-place play-off fixtures.
+- 2026 (Jordan, 2026–27): Netherlands / England / Spain. 2034 (Rens, 2034–35): Netherlands / Belgium / England.
+- Podiums are derived from the supplied match results and round labels; missing third-place results display “Not recorded”. No player data or match results changed.
+- Bumped the app renderer browser cache version and added regression coverage.
+
+## 2026-10-23 — Vasi birthplace correction
+
+- Updated Vasiliki Dimitriou’s birthplace from Heraklion to **Arachnes, Greece**, in her profile and biography, as requested.
+- Updated the Vasi data cache version and regression checks. All career statistics, fixtures and other player details are unchanged.
+
+## 2026-10-23 — Player profile details
+
+- Updated Jordan Vale’s preferred boot brand from Nike to **New Balance**.
+- Corrected Vasiliki Dimitriou’s place of birth from Thessaloniki to **Heraklion, Greece**, including her profile biography.
+- Refreshed the browser cache tokens for Jordan and Vasi’s data files and aligned the regression tests with the supplied details. No other player information, matches or statistics changed.
+
 ## 2026-10-23 — Jordan Vale career overview refresh
 
 - Updated Manchester United career years to 2029–2031 (48 apps, 0 goals recorded through 2029–30).

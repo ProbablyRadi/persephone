@@ -52,15 +52,14 @@ const details = vm.runInContext(`(() => {
 })()`, context);
 
 // The 2029–30 record is now a finished season, not an in-progress snapshot.
-assert(details.current.includes('Manchester United'));
-assert.equal(details.boot, 'Nike');
-assert(details.number.includes('1 (Manchester United)'));
-assert(details.number.includes('37 (Bristol City)'));
-assert(details.number.includes('12, 20, 17, 1'));
+assert(details.current.includes('Brighton & Hove'));
+assert.equal(details.boot, 'New Balance');
+assert.equal(details.number, '99');
 assert.deepEqual(Array.from(details.career[0].slice(2)), [208, 1]);
 assert.deepEqual(Array.from(details.career[1].slice(2)), [48, 0]);
-assert(details.career[2][1].includes('PSV'));
-assert(details.career[3][1].includes('AS Monaco'));
+assert(details.career[2][1].includes('Brighton & Hove'));
+assert(details.career[3][1].includes('PSV'));
+assert.deepEqual(Array.from(details.career[2].slice(2)), [7, 0]);
 assert.equal(details.season.inProgress, undefined);
 assert.equal(details.season.pendingFixtures, undefined);
 assert.deepEqual(Array.from(details.stats.slice(4)), ['4th', '6.5', 48, 0, 0, 18]);
@@ -68,7 +67,7 @@ assert(!details.future.some(row => row[0] === '2029–30'));
 assert(details.season.summary.includes('Carabao Cup'));
 assert(details.season.table.startsWith('4th — 74 pts'));
 assert.equal(details.preSeason.rows.length, 8);
-assert.deepEqual(Array.from(vm.runInContext('DATA.jordan.intl.slice(2)', context)), [42, 1]);
+assert.deepEqual(Array.from(vm.runInContext('DATA.jordan.intl.slice(2)', context)), [50, 0]);
 assert(vm.runInContext('DATA.jordan.honours["🏴󠁧󠁢󠁥󠁮󠁧󠁿 Manchester United"]', context)
     .includes('Carabao Cup: 2029–30 🏆'));
 
@@ -213,7 +212,7 @@ const totals = Array.from(h2h).reduce((sum, opponent) => {
     sum.losses += opponent.losses;
     return sum;
 }, {played: 0, wins: 0, draws: 0, losses: 0});
-assert.deepEqual(totals, { played: 304, wins: 152, draws: 65, losses: 85 });
+assert.deepEqual(totals, { played: 319, wins: 164, draws: 66, losses: 87 });
 
 assert(timeline.includes('<b>Joined</b>'));
 assert(timeline.includes('<b>Left</b>'));
@@ -223,6 +222,6 @@ for (const name of [...details.squadUpdates.added, ...details.squadUpdates.remov
 assert(!timeline.includes('Club changed — squad comparison resets for the new club.'));
 assert(!timeline.includes('In-season squad update —'));
 assert(!timeline.includes('Removed names are not confirmed transfers.'));
-assert(!timeline.includes('Not final — season in progress.'));
+assert(timeline.includes('Not final — season in progress.')); // 2030–31 is live
 
 console.log('Jordan 2029–30: 38 league fixtures, 4th/74 pts, Carabao Cup title, 48 apps/18 CLS, 39-player squad and Timeline — PASS');

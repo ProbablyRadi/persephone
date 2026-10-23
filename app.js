@@ -860,6 +860,19 @@ function timelineSquadChanges(id, season, prevSeason) {
         note: ''
     };
 }
+// Determine the winning side of a recorded final or third-place play-off.
+// Penalties are used only when the score is level; no winner is invented for a draw.
+function timelineFixtureWinner(fixture) {
+    if (!fixture.home || !fixture.away)
+        return '';
+    if (fixture.hg > fixture.ag)
+        return fixture.home;
+    if (fixture.ag > fixture.hg)
+        return fixture.away;
+    if (fixture.hp != null && fixture.ap != null && fixture.hp !== fixture.ap)
+        return fixture.hp > fixture.ap ? fixture.home : fixture.away;
+    return '';
+}
 function timelineCupFinals(id, season) {
     const manualFinals = DATA[id].timelineManualFinals || {};
     const out = manualFinals[season] ? [
@@ -898,22 +911,27 @@ function timelineCupFinals(id, season) {
         const fixture = parseFixture(finalRaw);
         if (!fixture.home)
             return;
-        let winner = '', runner = '', score = `${fixture.hg} - ${fixture.ag}`;
-        if (fixture.hg > fixture.ag) {
-            winner = fixture.home;
-            runner = fixture.away;
+        const winner = timelineFixtureWinner(fixture);
+        const runner = winner
+            ? (winner === fixture.home ? fixture.away : fixture.home)
+            : '';
+        const score = `${fixture.hg} - ${fixture.ag}`;
+
+        // World Cup fixtures include a separate third-place play-off. Read its
+        // winner from the supplied round labels rather than assuming a ranking.
+        let third = '';
+        if (/^World Cup(?:\s+\d{4})?$/i.test(comp)) {
+            const rounds = tournamentRounds(comp, items || [], id, season);
+            const thirdRound = Object.entries(rounds).find(([, roundName]) =>
+                /third[- ]place/i.test(String(roundName))
+            );
+            if (thirdRound && items[Number(thirdRound[0])])
+                third = timelineFixtureWinner(parseFixture(items[Number(thirdRound[0])]));
         }
-        else if (fixture.ag > fixture.hg) {
-            winner = fixture.away;
-            runner = fixture.home;
-        }
-        else if (fixture.hp != null && fixture.ap != null) {
-            winner = fixture.hp > fixture.ap ? fixture.home : fixture.away;
-            runner = fixture.hp > fixture.ap ? fixture.away : fixture.home;
-        }
+
         if (winner)
             out.push({
-                comp, winner, runner, score
+                comp, winner, runner, score, third
             });
     });
     const cupOrder = {
@@ -1033,7 +1051,7 @@ function careerTimeline(id) {
         const leagueMovement = timelineLeagueMovement(id, season, seasons[seasonIndex - 1]);
 
         const topHtml = top.length ? `<ol class="timeline-topfive">${top.map(standingRow => `<li class="${canonicalTeam(cleanTeamName(standingRow[1])) === canonicalTeam(meta && meta.club ? meta.club : '') ? 'focus' : ''}"><span>${teamFlag(cleanTeamName(standingRow[1]))} ${esc(standingRow[1])}</span><b>${standingRow[9] !== '' && standingRow[9] != null ? esc(standingRow[9]) + ' pts' : ''}</b></li>`).join('')}</ol>` : '<p class="muted">League top five not yet available.</p>';
-        const cupHtml = cups.length ? cups.map(cupFinal => `<div class="timeline-cup"><b>${esc(cupFinal.comp)}</b><span>Winner: ${teamFlag(cupFinal.winner)} ${esc(cupFinal.winner)}</span><span>Runner-up: ${teamFlag(cupFinal.runner)} ${esc(cupFinal.runner)}</span></div>`).join('') : '<p class="muted">No recorded cup final for this season.</p>';
+        const cupHtml = cups.length ? cups.map(cupFinal => `<div class="timeline-cup"><b>${esc(cupFinal.comp)}</b><span>Winner: ${teamFlag(cupFinal.winner)} ${esc(cupFinal.winner)}</span><span>Runner-up: ${teamFlag(cupFinal.runner)} ${esc(cupFinal.runner)}</span>${/^World Cup(?:\s+\d{4})?$/i.test(cupFinal.comp) ? `<span>Third place: ${cupFinal.third ? `${teamFlag(cupFinal.third)} ${esc(cupFinal.third)}` : 'Not recorded'}</span>` : ''}</div>`).join('') : '<p class="muted">No recorded cup final for this season.</p>';
         const moveHtml = moves.comparisonSkipped ? '' : moves.note ? `<p class="muted">${esc(moves.note)}</p>` : `<div class="timeline-moves"><div><b>Joined</b>${moves.joined.length ? `<ul>${moves.joined.map(playerName => `<li>+ ${esc(playerName)}</li>`).join('')}</ul>` : '<span class="muted">None recorded</span>'}</div><div><b>Left</b>${moves.left.length ? `<ul>${moves.left.map(playerName => `<li>− ${esc(playerName)}</li>`).join('')}</ul>` : '<span class="muted">None recorded</span>'}</div></div>`;
         // A second roster snapshot within the current season can reveal changes
         // that season-to-season comparisons cannot show (especially after a move).

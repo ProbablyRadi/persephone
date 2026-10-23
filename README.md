@@ -250,3 +250,12 @@ Her **2028–29 average rating and POTM/MOTM counts were not supplied**. Leave t
 **Corrected UEFA result:** The 2028–29 Women's Champions League league phase includes **Juventus 0–2 FC Barcelona** (previously recorded the wrong way round). Barcelona’s six recorded results now agree with the supplied league-phase standings: **4 W / 1 D / 1 L, 12 GF / 7 GA and 13 points**.
 
 Run `node tests/verify-vasi-2028.js` along with the existing regression tests after future updates.
+
+
+Latest local change: Jordan Vale overview updated to Brighton & Hove / number 99 / future PSV plan.
+
+
+### 2030–31 Jordan data notes
+Brighton's 2030–31 Premier League membership list is recorded with placeholder ranks and incomplete points; it must **not** be displayed as final standings. The separate fixture archive currently contains 3 Brighton Premier League results (1 win, 1 draw, 1 loss; 4 points) and one Carabao Cup result (3–1 win at MK Dons), on top of 3 pre-season wins. Jordan's latest user-supplied 34-player Brighton roster lists 7 appearances, 0 goals, 0 assists and 3 clean sheets for him. These are in-progress season figures and are excluded from completed-season career totals.
+
+The 2030–31 Premier League entrant comparison now recognises Fulham, Leeds United and Ipswich after the user corrected the duplicate Wolves entry. The England World Cup source contains 8 England fixtures but not Jordan's individual appearances; the user explicitly confirmed his international record as **50 caps, 0 goals**. The user confirmed nine earlier Brighton squad nationalities. Tom Watson is English (Premier League player biography); Cherif Diouf and Samuele Fabbri have unknown nationalities and are shown without flags until confirmed. The Champions Trophy source still says "VfG Stuttgart", which is left unchanged pending user correction.

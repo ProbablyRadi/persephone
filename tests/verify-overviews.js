@@ -67,7 +67,9 @@ assert.equal(vm.runInContext('DATA.vasi.name', context),
     'Vasiliki Dimitriou (Βασιλική Δημητρίου)');
 assert.equal(vm.runInContext('DATA.vasi.nickname', context), 'Vasi');
 assert.equal(vm.runInContext('DATA.vasi.dob', context), '31 October');
-assert.equal(vm.runInContext('DATA.vasi.birth', context), 'Thessaloniki, Greece');
+assert.equal(vm.runInContext('DATA.vasi.birth', context), 'Arachnes, Greece');
+assert.match(vm.runInContext('DATA.vasi.intro[0]', context), /Born in Arachnes/,
+    'Vasi biography should agree with the updated place of birth');
 assert.equal(vm.runInContext('DATA.vasi.height', context), '1.77 m');
 assert.equal(vm.runInContext('DATA.vasi.position', context), 'Striker');
 assert.equal(vm.runInContext('DATA.vasi.number', context), '9');
@@ -76,6 +78,7 @@ assert.deepEqual(Array.from(vm.runInContext('Object.keys(DATA.vasi.seasons)', co
     .filter(season => season.startsWith('2036') || season.startsWith('2040')), []);
 const vasiInfobox = vm.runInContext('infobox(DATA.vasi)', context);
 assert(vasiInfobox.includes('OFI Crete W.F.C.'), 'Future OFI club missing from infobox');
+assert(vasiInfobox.includes('Arachnes, Greece'), 'Vasi birth location missing from infobox');
 assert(vasiInfobox.includes('162') && vasiInfobox.includes('170'),
     'Barcelona completed-season totals must appear in infobox');
 
@@ -112,9 +115,9 @@ assert.match(rensInfobox, /2035–[\s\S]*?Borussia Dortmund[\s\S]*?<td class="in
     'Rens Dortmund appearances and goals should be dashes');
 
 const jordanInfobox = vm.runInContext('infobox(DATA.jordan)', context);
-assert.match(jordanInfobox, /<td>Boot brand<\/td>\s*<td>Nike<\/td>/,
-    'Jordan Vale overview must show Nike for Boot brand');
-assert(!jordanInfobox.includes('New Balance'), 'Jordan overview must not show New Balance');
+assert.match(jordanInfobox, /<td>Boot brand<\/td>\s*<td>New Balance<\/td>/,
+    'Jordan Vale overview must show New Balance for Boot brand');
+assert(!jordanInfobox.includes('<td>Nike</td>'), 'Jordan overview must not show Nike for his boots');
 
 // New user-supplied international/club histories and future season placeholders.
 const rensCareer = vm.runInContext('DATA.rens.career', context);
@@ -122,22 +125,20 @@ const jordanCareer = vm.runInContext('DATA.jordan.career', context);
 const rensInternational = vm.runInContext('DATA.rens.intl', context);
 const jordanInternational = vm.runInContext('DATA.jordan.intl', context);
 assert.deepEqual(Array.from(rensInternational.slice(2)), [42, 31]);
-assert.deepEqual(Array.from(jordanInternational.slice(2)), [42, 1]);
+assert.deepEqual(Array.from(jordanInternational.slice(2)), [50, 0]);
 assert.deepEqual(Array.from(rensCareer.map(row => row[0])),
     ['2025–2028', '2028–2033', '2033–2035', '2035–2040', '2040–2043']);
 assert.deepEqual(Array.from(jordanCareer.map(row => row[0])),
-    ['2025–2029', '2029–2031', '2031–2037', '2037–2040']);
-assert(jordanCareer[2][1].includes('PSV'), 'Planned 2031–2037 club should be PSV');
-assert(jordanCareer[3][1].includes('AS Monaco'), 'Planned 2037–2040 club should be AS Monaco');
+    ['2025–2029', '2029–2030', '2030–2035', '2035–2040']);
+assert(jordanCareer[2][1].includes('Brighton & Hove'), 'Planned 2030–2035 club should be Brighton & Hove');
+assert(jordanCareer[3][1].includes('PSV'), 'Planned 2035–2040 club should be PSV');
 assert.deepEqual(Array.from(jordanCareer[1].slice(2)), [48, 0]);
-assert.deepEqual(Array.from(jordanCareer[2].slice(2)), ['—', '—']);
+assert.deepEqual(Array.from(jordanCareer[2].slice(2)), [7, 0]);
 assert.deepEqual(Array.from(jordanCareer[3].slice(2)), ['—', '—']);
-assert(jordanCareer[3][1].includes('🇲🇨'), 'AS Monaco should use the Monaco flag asset');
-assert.equal(vm.runInContext('FLAG_ASSETS["🇲🇨"]', context), 'assets/flags/Monaco.png');
 const jordanSeason2029 = cellsOf(jordanOverview, 'season').find(row => row[1] === '2029–30');
 assert.deepEqual(jordanSeason2029.slice(4), ['4th', '6.5', '0', '0', '48', '0', '0', '18']);
 const jordanSeasonRows = cellsOf(jordanOverview, 'season');
-assert.equal(jordanSeasonRows.length, 15, 'Exactly five recorded and ten future seasons expected');
+assert.equal(jordanSeasonRows.length, 15, 'Exactly five completed, one in-progress and nine future seasons expected');
 assert.deepEqual(Array.from(jordanSeasonRows.map(row => row[1])), [
     '2025–26', '2026–27', '2027–28', '2028–29', '2029–30', '2030–31',
     '2031–32', '2032–33', '2033–34', '2034–35', '2035–36', '2036–37',
@@ -145,15 +146,18 @@ assert.deepEqual(Array.from(jordanSeasonRows.map(row => row[1])), [
 ]);
 const jordanSubtotals = cellsOf(jordanOverview, 'subtotal');
 assert.deepEqual(jordanSubtotals[1].slice(5), ['6.5', '0', '0', '48', '0', '0', '18']);
+const jordanBrighton = jordanSeasonRows.find(row => row[1] === '2030–31');
+assert(jordanBrighton[0].includes('Brighton & Hove'));
+assert.deepEqual(jordanBrighton.slice(8), ['7', '0', '0', '3']);
 const jordanGrand = cellsOf(jordanOverview, 'grand-total')[0];
 assert.deepEqual(jordanGrand.slice(8), ['256', '1', '12', '94'],
     'Grand total must count completed seasons without counting placeholder seasons');
 const jordanFutureSeasons = vm.runInContext('Object.keys(DATA.jordan.seasons)', context);
-assert(!jordanFutureSeasons.some(season => Number(season.slice(0, 4)) >= 2030),
+assert(!jordanFutureSeasons.some(season => Number(season.slice(0, 4)) >= 2031),
     'Planned seasons are overview placeholders, not fabricated season pages');
 
-assert(jordanInfobox.includes('PSV') && jordanInfobox.includes('42'),
-    'Jordan infobox should include future PSV club and 42 England appearances');
+assert(jordanInfobox.includes('Brighton & Hove') && jordanInfobox.includes('PSV') && jordanInfobox.includes('50'),
+    'Jordan infobox should include Brighton & Hove, future PSV club and 50 England appearances');
 assert.equal(rensCareer[4][2], '—');
 const rensFuture = cellsOf(rensOverview, 'season');
 const jordanFuture = cellsOf(jordanOverview, 'season');
@@ -166,33 +170,28 @@ for (const season of ['2040–41', '2041–42', '2042–43']) {
     const row = rensFuture.find(cells => cells[1] === season);
     assert(row && row[0].includes('PEC Zwolle'), `Rens ${season} return to PEC Zwolle missing`);
 }
-for (const season of ['2030–31']) {
+for (const season of ['2031–32', '2032–33', '2033–34', '2034–35']) {
     const row = jordanFuture.find(cells => cells[1] === season);
-    assert(row && row[0].includes('Manchester United'), `Jordan ${season} should be at Manchester United`);
-    assert(row.slice(4).every(value => value === '—'), 'Future seasons should not have performance statistics');
+    assert(row && row[0].includes('Brighton & Hove'), `Jordan ${season} should be at Brighton & Hove`);
+    assert(row[3] === 'Premier League' && row.slice(4).every(value => value === '—'),
+        'Future Brighton seasons should show the Premier League but no performance statistics');
 }
-for (const season of ['2031–32', '2032–33', '2033–34', '2034–35', '2035–36', '2036–37']) {
+for (const season of ['2035–36', '2036–37', '2037–38', '2038–39', '2039–40']) {
     const row = jordanFuture.find(cells => cells[1] === season);
     assert(row && row[0].includes('PSV'), `Jordan ${season} future PSV season missing`);
     assert(row[3] === 'Eredivisie' && row.slice(4).every(value => value === '—'),
         'Future PSV seasons should show the Eredivisie but no performance statistics');
 }
-for (const season of ['2037–38', '2038–39', '2039–40']) {
-    const row = jordanFuture.find(cells => cells[1] === season);
-    assert(row && row[0].includes('AS Monaco'), `Jordan ${season} future Monaco season missing`);
-    assert(row[3] === 'Ligue 1' && row.slice(4).every(value => value === '—'),
-        'Future Monaco seasons should show Ligue 1 but no performance statistics');
-}
 assert(vm.runInContext('DATA.rens.current', context).includes('Borussia Dortmund'));
-assert(vm.runInContext('DATA.jordan.current', context).includes('Manchester United'));
+assert(vm.runInContext('DATA.jordan.current', context).includes('Brighton & Hove'));
 assert(!vm.runInContext('Object.keys(DATA.rens.seasons)', context).includes('2040–41'));
-assert(!vm.runInContext('Object.keys(DATA.jordan.seasons)', context).includes('2030–31'));
+assert(vm.runInContext('DATA.jordan.seasons["2030–31"].inProgress', context));
 assert(!vm.runInContext('Object.keys(DATA.jordan.seasons)', context).includes('2033–34'));
-assert(vm.runInContext('DATA.jordan.intro.at(-1)', context).includes('42 appearances'));
-assert.equal(vm.runInContext('DATA.jordan.stats.at(-1)[5]', context), '6.5');
+assert(vm.runInContext('DATA.jordan.intro.at(-1)', context).includes('50 international appearances'));
+assert.equal(vm.runInContext('DATA.jordan.stats.at(-2)[5]', context), '6.5');
 assert.deepEqual(Array.from(vm.runInContext('Object.values(DATA.jordan.careerAwards["2029–30"])', context)), [0, 0]);
 assert(vm.runInContext('DATA.jordan.intro[3]', context).includes('48 appearances'));
-assert.deepEqual(Array.from(vm.runInContext('DATA.jordan.stats.at(-1).slice(6)', context)),
+assert.deepEqual(Array.from(vm.runInContext('DATA.jordan.stats.at(-2).slice(6)', context)),
     [48, 0, 0, 18], '2029–30 completed-season totals should match the supplied squad and infobox');
 
 // The club/international summaries belong inside the right-hand infobox,
@@ -283,6 +282,6 @@ for (const sourceFile of ['data/vasi.js', 'data/jordan.js', 'app.js']) {
     assert(line && line[1].length > 3, `Missing versioned script URL for ${sourceFile}`);
 }
 console.log('Vasi: completed 2028–29, awards unreported; 162 apps, 170 goals — PASS');
-console.log('Jordan: 2028–29 stats and 208/1/12/76 club totals; Nike boots — PASS');
+console.log('Jordan: 2028–29 stats and 208/1/12/76 club totals; New Balance boots — PASS');
 console.log('Rens/Jordan/Vasi: consistent 12-column overview tables — PASS');
 console.log('Versioned JS assets — PASS');
