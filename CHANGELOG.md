@@ -1,3 +1,9 @@
+## 2026-10-24 — Stylesheet consolidation
+- Refactored the existing `styles.css` from 4,640 to 2,516 lines (~46% fewer), and from 94,769 to 75,903 bytes (~20% smaller), while retaining readable rules and the original cascade order.
+- Removed 119 superseded CSS declarations, unused non-Dracula Terminal-only rules and malformed escaped-newline selector fragments while retaining their valid selectors.
+- Verified parity for 2,128 active selector/property winners and passed all 14 JavaScript regression tests. Browsers in this environment block visual page navigation, so no live screenshot comparison was possible.
+- Updated the stylesheet cache version in `index.html` without changing any player data or gallery images.
+
 ## 2026-10-24 — Vasi home-page tile background
 - Replaced Vasi's home-page character-select background with the newly provided screenshot (Vasi smiling on the pitch).
 - Kept the three-character home layout and standalone 17-photo gallery unchanged.

@@ -40,8 +40,7 @@ The home page has three large character tiles, with a small **Photo gallery**
 link at the lower-right. It opens a separate `#gallery` page with a large carousel,
 and a link back to the character-select page.
 
-The gallery currently displays seven user-provided photos: one of Rens, four of
-Vasi, and two of Jordan, in that order. The current captions are brief
+The gallery currently displays 17 user-provided photos in upload order. The current captions are brief
 image descriptions and can be replaced with fuller stories later. To add
 more photos, place them in `assets/gallery/` and list them in
 `data/gallery.js` in the order they should appear:
@@ -296,3 +295,16 @@ Vasi's 2029–30 FC Barcelona Femení season is **in progress**. The currently r
 ### Character-select home screen
 
 The home screen uses a full-width layout (no left sidebar), with image-backed tiles taking approximately 75% of the viewport width on desktops and stacking on phones. Selecting “Choose character” in the top Character menu from any player or season returns to `#home`.
+
+## Stylesheet maintenance
+
+`styles.css` is the single, framework-free stylesheet for Wiki, Dracula and
+Glass themes. It was consolidated in October 2026: repeated declarations for
+identical selectors, unused legacy Terminal-only styles, and malformed old
+selector fragments were removed. Short rules are written on a single line;
+more involved rules still use one declaration per line.
+
+**Important:** some later rules intentionally override earlier ones, and
+media queries can appear in multiple sections to keep relevant mobile styles
+close to their components. When modifying the stylesheet, preserve cascade
+order unless you compare the resulting styles across all three themes.
