@@ -40,7 +40,7 @@ const expected = {
     '2025–26': [0, 9],
     '2026–27': [2, 11],
     '2027–28': [2, 12],
-    '2028–29': ['—', '—'],
+    '2028–29': [2, 10],
 };
 for (const [season, [potm, motm]] of Object.entries(expected)) {
     const row = vasiRows.find(cells => cells[1] === season);
@@ -84,11 +84,17 @@ assert(vasiInfobox.includes('162') && vasiInfobox.includes('170'),
 
 const vasiTotal = cellsOf(vasi, 'subtotal')[0];
 assert(vasiTotal, 'Vasi career total row missing');
-assert.equal(vasiTotal[6], '—', 'Vasi POTM grand total must remain unknown until 2028–29 is supplied');
-assert.equal(vasiTotal[7], '—', 'Vasi MOTM grand total must remain unknown until 2028–29 is supplied');
+assert.equal(vasiTotal[5], '7.2', 'Vasi average rating should reflect all four completed seasons');
+assert.equal(vasiTotal[6], '6', 'Vasi POTM total should include 2028–29');
+assert.equal(vasiTotal[7], '42', 'Vasi MOTM total should include 2028–29');
 assert.deepEqual(Array.from(vm.runInContext('DATA.vasi.careerAwards["2027–28"] && [DATA.vasi.careerAwards["2025–26"].playerOfTheMatch, DATA.vasi.careerAwards["2026–27"].playerOfTheMatch, DATA.vasi.careerAwards["2027–28"].playerOfTheMatch]', context)), [9, 11, 12]);
 const vasiSeason2028 = vasiRows.find(row => row[1] === '2028–29');
-assert.deepEqual(vasiSeason2028.slice(4), ['1st', '—', '—', '—', '43', '37', '1', '15']);
+assert.deepEqual(vasiSeason2028.slice(4), ['1st', '6.9', '2', '10', '43', '37', '1', '15']);
+const vasiSeason2029 = vasiRows.find(row => row[1] === '2029–30');
+assert.deepEqual(vasiSeason2029.slice(4), ['1st', '—', '—', '—', '25', '28', '0', '12'],
+    'In-progress 2029–30 figures must not be fabricated');
+assert.deepEqual(vasiTotal.slice(8), ['162', '170', '22', '51'],
+    'In-progress 2029–30 numbers must not enter completed-season totals');
 
 for (const id of ['rens', 'jordan', 'vasi']) {
     const html = snapshot(id);
@@ -281,7 +287,7 @@ for (const sourceFile of ['data/vasi.js', 'data/jordan.js', 'app.js']) {
     const line = html.match(new RegExp(`<script src="${sourceFile.replace('.', '\\.')}(\\?v=[^"]+)"`));
     assert(line && line[1].length > 3, `Missing versioned script URL for ${sourceFile}`);
 }
-console.log('Vasi: completed 2028–29, awards unreported; 162 apps, 170 goals — PASS');
+console.log('Vasi: 2028–29 awards 2 POTM/10 MOTM, career 6 POTM/42 MOTM; 162 apps, 170 goals — PASS');
 console.log('Jordan: 2028–29 stats and 208/1/12/76 club totals; New Balance boots — PASS');
 console.log('Rens/Jordan/Vasi: consistent 12-column overview tables — PASS');
 console.log('Versioned JS assets — PASS');

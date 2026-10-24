@@ -21,7 +21,7 @@ DATA.vasi = {
   "internationalTeam": "Greece",
   "squadFocusName": "Vasiliki Dimitriou",
   "homeCrest": "https://www.clipartmax.com/png/middle/98-980857_fc-barcelona-logo-fathead-fc-barcelona-logo-wall-decal.png",
-  "homeBackground": "assets/character-select/vasi.jpg",
+  "homeBackground": "assets/character-select/vasi-home-smile-20261024.jpg",
   "portrait": "assets/portraits/vasi.png",
 
   // DISPLAY AND TIMELINE HELPERS
@@ -60,7 +60,12 @@ DATA.vasi = {
     "Jade Le Guilly": "🇫🇷",
     "Océane Deslandes": "🇫🇷",
     "Julie Dufour": "🇫🇷",
-    "Teagan Cook": "🇦🇺"
+    "Teagan Cook": "🇦🇺",
+    "Chiamaka Nnadozi": "🇳🇬",
+    "Steinunn Einarsdóttir": "🇮🇸",
+    "Alizée Coulon": "🇫🇷",
+    "Teagan McNamara": "🇦🇺",
+    "Lauren James": "🏴󠁧󠁢󠁥󠁮󠁧󠁿"
   },
   "uefaRoundBreaks": {
     "2025–26|UEFA Women's Champions League": {
@@ -109,7 +114,7 @@ DATA.vasi = {
   "intro": [
     "Vasiliki Dimitriou (Greek: Βασιλική Δημητρίου), commonly known as Vasi, is a Greek professional footballer who plays as a striker for Liga F club FC Barcelona Femení and the Greece national team. Born in Arachnes, she began her senior career with Barcelona in 2025 and quickly established herself as one of the side's leading goalscorers.",
     "Dimitriou broke the Liga F single-season goalscoring record in only her second season of senior football. Entering the final match of the 2026–27 season needing four goals to reach 40, she had seven first-half shots saved before scoring in the 65th, 72nd and 75th minutes to equal the previous record of 39. In the 83rd minute, Caroline Graham Hansen went through with only the goalkeeper to beat but passed to Dimitriou instead, allowing her to score the record-breaking 40th league goal. Graham Hansen later secured the Golden Boot, while Dimitriou finished the season as Liga F's new single-season record holder.",
-    "Across her first three completed senior seasons, Dimitriou made 162 appearances and scored 170 goals for Barcelona across her first four completed seasons, winning Liga F four times (2025–26 through 2028–29) and the UEFA Women's Champions League in each of her first three seasons. In 2028–29 she scored 37 goals in 43 appearances as Barcelona reached the Champions League semi-finals. She has also represented Greece at senior level since 2025, with four recorded appearances and two goals."
+    "Across her first four completed senior seasons, Dimitriou made 162 appearances and scored 170 goals for Barcelona, winning Liga F four times (2025–26 through 2028–29) and the UEFA Women's Champions League in each of her first three seasons. In 2028–29 she scored 37 goals in 43 appearances as Barcelona reached the Champions League semi-finals. She has also represented Greece at senior level since 2025, with four recorded appearances and two goals."
   ],
   "career": [
     [
@@ -182,11 +187,23 @@ DATA.vasi = {
       "ST",
       "Liga F",
       "1st",
-      "",
+      "6.9",
       43,
       37,
       1,
       15
+    ],
+    [
+      "2029–30",
+      "🇪🇸 FC Barcelona Femení",
+      "ST",
+      "Liga F",
+      "1st",
+      "",
+      25,
+      28,
+      0,
+      12
     ]
   ],
   // Overview-only POTM/MOTM awards, keyed by season.
@@ -203,6 +220,10 @@ DATA.vasi = {
     "2027–28": {
       "playerOfTheMonth": 2,
       "playerOfTheMatch": 12
+    },
+    "2028–29": {
+      "playerOfTheMonth": 2,
+      "playerOfTheMatch": 10
     }
   },
 
@@ -476,7 +497,46 @@ DATA.vasi = {
       ]
     },
     "table": "1st — 78 pts"
-  }
+  },
+  // 2029–30 (in progress)
+  "2029–30": {
+  "inProgress": true,
+  "summary": "Barcelona lead Liga F after 16 matches (13 wins, 1 draw, 2 losses; 40 points), and finished first in the UEFA Women’s Champions League league phase with six wins from six games (18 points). They previously finished fourth in the Champions Trophy (5 points). Vasiliki Dimitriou has 25 appearances, 28 goals, 0 assists and 12 clean sheets so far. The season and Champions League knockout rounds remain in progress.",
+  "competitions": {
+    "Champions Trophy": [
+      "FC Barcelona 0 - 0 Strasbourg",
+      "Leicester City 1 - 1 FC Barcelona",
+      "FC Barcelona 3 - 0 KC Current"
+    ],
+    "Liga F": [
+      "Madrid CFF 0 - 3 FC Barcelona",
+      "FC Barcelona 7 - 0 RC Deportivo",
+      "RCD Espanyol 0 - 3 FC Barcelona",
+      "Alhama CF 0 - 1 FC Barcelona",
+      "FC Barcelona 3 - 2 Atlético de Madrid",
+      "SD Eibar 2 - 4 FC Barcelona",
+      "FC Barcelona 1 - 0 C. Adeje Tenereife",
+      "Logroño United 1 - 2 FC Barcelona",
+      "FC Barcelona 2 - 0 Granada CF",
+      "Levante UD 0 - 2 FC Barcelona",
+      "FC Barcelona 2 - 3 Sevilla FC",
+      "Badalona Women 1 - 3 FC Barcelona",
+      "FC Barcelona 1 - 3 Athletic Club",
+      "Real Sociedad 0 - 4 FC Barcelona",
+      "FC Barcelona 2 - 2 Real Madrid",
+      "FC Barcelona 1 - 0 Alhama CF"
+    ],
+    "UEFA Women's Champions League": [
+      "FC Barcelona 4 - 1 FC Fleury 91",
+      "Frankfurt 2 - 3 FC Barcelona",
+      "FC Zürich 1 - 3 FC Barcelona",
+      "FC Bayern München 2 - 3 FC Barcelona",
+      "FC Barcelona 4 - 0 FC Rosengård",
+      "FC Barcelona 2 - 0 Real Madrid"
+    ]
+  },
+  "table": "1st — 40 pts (16 played; in progress)"
+}
   }
 };
 
@@ -721,7 +781,41 @@ FULL_FIXTURES.vasi = {
       "FC Barcelona 2 - 4 Paris SG",
       "F — FC Bayern München 3 - 0 Paris SG"
     ]
-  }
+  },
+  // 2029–30 (in progress)
+  "2029–30": {
+  "Champions Trophy": [
+    "FC Barcelona 0 - 0 Strasbourg",
+    "Leicester City 1 - 1 FC Barcelona",
+    "FC Barcelona 3 - 0 KC Current"
+  ],
+  "Liga F": [
+    "Madrid CFF 0 - 3 FC Barcelona",
+    "FC Barcelona 7 - 0 RC Deportivo",
+    "RCD Espanyol 0 - 3 FC Barcelona",
+    "Alhama CF 0 - 1 FC Barcelona",
+    "FC Barcelona 3 - 2 Atlético de Madrid",
+    "SD Eibar 2 - 4 FC Barcelona",
+    "FC Barcelona 1 - 0 C. Adeje Tenereife",
+    "Logroño United 1 - 2 FC Barcelona",
+    "FC Barcelona 2 - 0 Granada CF",
+    "Levante UD 0 - 2 FC Barcelona",
+    "FC Barcelona 2 - 3 Sevilla FC",
+    "Badalona Women 1 - 3 FC Barcelona",
+    "FC Barcelona 1 - 3 Athletic Club",
+    "Real Sociedad 0 - 4 FC Barcelona",
+    "FC Barcelona 2 - 2 Real Madrid",
+    "FC Barcelona 1 - 0 Alhama CF"
+  ],
+  "UEFA Women's Champions League": [
+    "FC Barcelona 4 - 1 FC Fleury 91",
+    "Frankfurt 2 - 3 FC Barcelona",
+    "FC Zürich 1 - 3 FC Barcelona",
+    "FC Bayern München 2 - 3 FC Barcelona",
+    "FC Barcelona 4 - 0 FC Rosengård",
+    "FC Barcelona 2 - 0 Real Madrid"
+  ]
+}
 };
 
 // ============================================================================
@@ -2406,7 +2500,451 @@ SEASON_TABLES.vasi = {
         "1"
       ]
     ]
-  }
+  },
+  // 2029–30 (in progress)
+  "2029–30": {
+  "league": "Liga F",
+  "club": "FC Barcelona",
+  "standings": [
+    [
+      "1",
+      "FC Barcelona",
+      "16",
+      "13",
+      "1",
+      "2",
+      "41",
+      "14",
+      "27",
+      "40"
+    ],
+    [
+      "2",
+      "Atlético de Madrid",
+      "15",
+      "11",
+      "2",
+      "2",
+      "28",
+      "13",
+      "15",
+      "35"
+    ],
+    [
+      "3",
+      "Sevilla FC",
+      "15",
+      "10",
+      "3",
+      "2",
+      "29",
+      "15",
+      "14",
+      "33"
+    ],
+    [
+      "4",
+      "Athletic Club",
+      "16",
+      "9",
+      "2",
+      "5",
+      "28",
+      "23",
+      "5",
+      "29"
+    ],
+    [
+      "5",
+      "Badalona Women",
+      "16",
+      "7",
+      "4",
+      "5",
+      "23",
+      "17",
+      "6",
+      "25"
+    ],
+    [
+      "6",
+      "Real Madrid",
+      "15",
+      "6",
+      "6",
+      "3",
+      "26",
+      "20",
+      "6",
+      "24"
+    ],
+    [
+      "7",
+      "Real Sociedad",
+      "15",
+      "6",
+      "6",
+      "3",
+      "28",
+      "23",
+      "5",
+      "24"
+    ],
+    [
+      "8",
+      "Levante UD",
+      "16",
+      "6",
+      "2",
+      "8",
+      "22",
+      "25",
+      "-3",
+      "20"
+    ],
+    [
+      "9",
+      "RC Deportivo",
+      "15",
+      "5",
+      "5",
+      "5",
+      "19",
+      "25",
+      "-6",
+      "20"
+    ],
+    [
+      "10",
+      "Madrid CFF",
+      "16",
+      "5",
+      "4",
+      "7",
+      "24",
+      "26",
+      "-2",
+      "19"
+    ],
+    [
+      "11",
+      "Granada CF",
+      "16",
+      "6",
+      "1",
+      "9",
+      "16",
+      "18",
+      "-2",
+      "19"
+    ],
+    [
+      "12",
+      "RCD Espanyol",
+      "15",
+      "6",
+      "1",
+      "8",
+      "18",
+      "22",
+      "-4",
+      "19"
+    ],
+    [
+      "13",
+      "C. Adeje Tenereife",
+      "15",
+      "3",
+      "6",
+      "6",
+      "14",
+      "20",
+      "-6",
+      "15"
+    ],
+    [
+      "14",
+      "SD Eibar",
+      "16",
+      "2",
+      "4",
+      "10",
+      "17",
+      "30",
+      "-13",
+      "10"
+    ],
+    [
+      "15",
+      "Alhama CF",
+      "16",
+      "2",
+      "2",
+      "12",
+      "10",
+      "30",
+      "-20",
+      "8"
+    ],
+    [
+      "16",
+      "Logroño United",
+      "15",
+      "2",
+      "1",
+      "12",
+      "14",
+      "36",
+      "-22",
+      "7"
+    ]
+  ],
+  "squad": [
+    [
+      "GK",
+      "37",
+      "Txell Font",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "GK",
+      "1",
+      "Chiamaka Nnadozi",
+      "1",
+      "0",
+      "0",
+      "1"
+    ],
+    [
+      "GK",
+      "13",
+      "Cata Coll",
+      "24",
+      "0",
+      "0",
+      "12"
+    ],
+    [
+      "GK",
+      "23",
+      "Gemma Font",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "LB",
+      "20",
+      "Ana Sampaio",
+      "9",
+      "0",
+      "1",
+      "3"
+    ],
+    [
+      "LB",
+      "2",
+      "Steinunn Einarsdóttir",
+      "15",
+      "0",
+      "1",
+      "7"
+    ],
+    [
+      "CB",
+      "24",
+      "Marta Torrejón",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "CB",
+      "5",
+      "Océane Deslandes",
+      "25",
+      "2",
+      "1",
+      "12"
+    ],
+    [
+      "CB",
+      "4",
+      "Xenia Schilling",
+      "25",
+      "0",
+      "0",
+      "13"
+    ],
+    [
+      "RB",
+      "3",
+      "Alizée Coulon",
+      "2",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "RB",
+      "32",
+      "Maria Llorella",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "RB",
+      "19",
+      "Teagan Cook",
+      "22",
+      "0",
+      "1",
+      "10"
+    ],
+    [
+      "RB",
+      "6",
+      "Teagan McNamara",
+      "18",
+      "0",
+      "0",
+      "3"
+    ],
+    [
+      "CDM",
+      "12",
+      "Patri Guijarro",
+      "14",
+      "1",
+      "1",
+      "0"
+    ],
+    [
+      "LM",
+      "7",
+      "Guro Reiten",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "LM",
+      "8",
+      "Lauren James",
+      "4",
+      "0",
+      "1",
+      "0"
+    ],
+    [
+      "CM",
+      "11",
+      "Alexia Putellas",
+      "25",
+      "3",
+      "5",
+      "14"
+    ],
+    [
+      "CM",
+      "14",
+      "Aitana Bonmatí",
+      "25",
+      "10",
+      "8",
+      "13"
+    ],
+    [
+      "CM",
+      "18",
+      "Kika Nazareth",
+      "25",
+      "2",
+      "6",
+      "13"
+    ],
+    [
+      "CM",
+      "16",
+      "Giulia Dragoni",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "CAM",
+      "35",
+      "Martine Trollsas Fenger",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "CAM",
+      "22",
+      "Anna Affolter",
+      "3",
+      "1",
+      "0",
+      "0"
+    ],
+    [
+      "LW",
+      "15",
+      "Claudia Pina",
+      "25",
+      "10",
+      "5",
+      "11"
+    ],
+    [
+      "RW",
+      "10",
+      "Caroline Graham Hansen",
+      "25",
+      "5",
+      "5",
+      "12"
+    ],
+    [
+      "RW",
+      "21",
+      "Julie Dufour",
+      "5",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "ST",
+      "9",
+      "Vasiliki Dimitriou",
+      "25",
+      "28",
+      "0",
+      "12"
+    ],
+    [
+      "ST",
+      "17",
+      "Ewa Pajor",
+      "8",
+      "1",
+      "0",
+      "0"
+    ]
+  ]
+}
 };
 
 // ============================================================================
@@ -2818,6 +3356,108 @@ PRESEASON_TABLES.vasi = {
         "2",
         "2",
         "5",
+        "-3",
+        "1"
+      ]
+    ]
+  },
+  // 2029–30 (in progress)
+  "2029–30": {
+    "type": "league",
+    "rows": [
+      [
+        "1",
+        "Manchester City",
+        "3",
+        "2",
+        "1",
+        "0",
+        "4",
+        "2",
+        "2",
+        "7"
+      ],
+      [
+        "2",
+        "Leverkusen",
+        "3",
+        "2",
+        "0",
+        "1",
+        "4",
+        "2",
+        "2",
+        "6"
+      ],
+      [
+        "3",
+        "KC Current",
+        "3",
+        "2",
+        "0",
+        "1",
+        "3",
+        "3",
+        "0",
+        "6"
+      ],
+      [
+        "4",
+        "FC Barcelona",
+        "3",
+        "1",
+        "2",
+        "0",
+        "4",
+        "1",
+        "3",
+        "5"
+      ],
+      [
+        "5",
+        "TSG Hoffenheim",
+        "3",
+        "1",
+        "0",
+        "2",
+        "1",
+        "3",
+        "-2",
+        "3"
+      ],
+      [
+        "6",
+        "Bay FC",
+        "3",
+        "1",
+        "0",
+        "2",
+        "2",
+        "3",
+        "-1",
+        "3"
+      ],
+      [
+        "7",
+        "Leicester City",
+        "3",
+        "0",
+        "2",
+        "1",
+        "3",
+        "4",
+        "-1",
+        "2"
+      ],
+      [
+        "8",
+        "Strasbourg",
+        "3",
+        "0",
+        "1",
+        "2",
+        "0",
+        "3",
         "-3",
         "1"
       ]
@@ -3727,5 +4367,230 @@ COMPETITION_TABLES.vasi = {
       ]
     }
   }
+  ,
+  // 2029–30 (in progress)
+  "2029–30": {
+  "UEFA Women's Champions League": {
+    "type": "league",
+    "rows": [
+      [
+        "1",
+        "FC Barcelona",
+        "6",
+        "6",
+        "0",
+        "0",
+        "19",
+        "6",
+        "13",
+        "18"
+      ],
+      [
+        "2",
+        "Arsenal",
+        "6",
+        "5",
+        "1",
+        "0",
+        "10",
+        "4",
+        "6",
+        "16"
+      ],
+      [
+        "3",
+        "Chelsea",
+        "6",
+        "4",
+        "0",
+        "2",
+        "10",
+        "5",
+        "5",
+        "12"
+      ],
+      [
+        "4",
+        "London City",
+        "6",
+        "4",
+        "0",
+        "2",
+        "10",
+        "10",
+        "0",
+        "12"
+      ],
+      [
+        "5",
+        "VfL Wolfsburg",
+        "6",
+        "3",
+        "2",
+        "1",
+        "11",
+        "6",
+        "5",
+        "11"
+      ],
+      [
+        "6",
+        "OL Lyonnes",
+        "6",
+        "3",
+        "2",
+        "1",
+        "10",
+        "7",
+        "3",
+        "11"
+      ],
+      [
+        "7",
+        "Paris SG",
+        "6",
+        "2",
+        "3",
+        "1",
+        "10",
+        "8",
+        "2",
+        "9"
+      ],
+      [
+        "8",
+        "FC Bayern München",
+        "6",
+        "2",
+        "3",
+        "1",
+        "9",
+        "8",
+        "1",
+        "9"
+      ],
+      [
+        "9",
+        "Real Madrid",
+        "6",
+        "3",
+        "0",
+        "3",
+        "7",
+        "8",
+        "-1",
+        "9"
+      ],
+      [
+        "10",
+        "Frankfurt",
+        "6",
+        "2",
+        "2",
+        "2",
+        "10",
+        "9",
+        "1",
+        "8"
+      ],
+      [
+        "11",
+        "Slavia Praha",
+        "6",
+        "2",
+        "1",
+        "3",
+        "11",
+        "11",
+        "0",
+        "7"
+      ],
+      [
+        "12",
+        "FC Fleury 91",
+        "6",
+        "2",
+        "1",
+        "3",
+        "7",
+        "9",
+        "-2",
+        "7"
+      ],
+      [
+        "13",
+        "Real Sociedad",
+        "6",
+        "1",
+        "3",
+        "2",
+        "9",
+        "7",
+        "2",
+        "6"
+      ],
+      [
+        "14",
+        "Ajax",
+        "6",
+        "1",
+        "1",
+        "4",
+        "9",
+        "13",
+        "-4",
+        "4"
+      ],
+      [
+        "15",
+        "Roma",
+        "6",
+        "1",
+        "1",
+        "4",
+        "5",
+        "11",
+        "-6",
+        "4"
+      ],
+      [
+        "16",
+        "FC Rosengård",
+        "6",
+        "1",
+        "1",
+        "4",
+        "6",
+        "15",
+        "-9",
+        "4"
+      ],
+      [
+        "17",
+        "FC Zürich",
+        "6",
+        "1",
+        "0",
+        "5",
+        "8",
+        "13",
+        "-5",
+        "3"
+      ],
+      [
+        "18",
+        "Juventus",
+        "6",
+        "0",
+        "1",
+        "5",
+        "3",
+        "14",
+        "-11",
+        "1"
+      ]
+    ]
+  }
+}
 };
 

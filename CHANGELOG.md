@@ -1,3 +1,56 @@
+## 2026-10-24 — Vasi home-page tile background
+- Replaced Vasi's home-page character-select background with the newly provided screenshot (Vasi smiling on the pitch).
+- Kept the three-character home layout and standalone 17-photo gallery unchanged.
+- Gave the new image a distinct filename and bumped the Vasi script cache version to prevent stale backgrounds after deployment.
+- Updated gallery regression test expectations to cover all 17 already-added photos.
+
+## 2026-10-24 — Expanded photo gallery
+- Added 10 more user-provided photos to the standalone carousel page, expanding the gallery from 7 images to 17.
+- Included new football scenes for Vasi, Rens / the Netherlands, Jordan Vale / Bristol City, England and additional trophy-celebration shots.
+- Stored the new files locally in `assets/gallery/` and added editable titles, alt text and captions in `data/gallery.js` without changing any player statistics or page layouts.
+
+## 2026-10-24 — Vasi 2029–30 mid-season update
+- Added 16 Liga F results, updated the 16-club live table (Barcelona 1st, 40 points), and all six UEFA Women’s Champions League league-phase results and 18-club table (Barcelona 1st, 18 points).
+- Updated Barcelona’s 27-player squad including Vasi (25 apps, 28 goals, 0 assists, 12 CLS).
+- Recomputed Vasi Head to Head; retained the season as in progress and left completed-season totals unchanged.
+
+## 2026-10-24 — Separate photo gallery page
+- Restored the home page to three large player tiles, with Vasi bottom-left and a compact Photo gallery link aligned bottom-right beneath the grid.
+- Moved the full seven-photo carousel to its own `#gallery` page, with a back link to the home page; retained the original images and captions.
+- Preserved arrow/dot/keyboard/swipe controls, improved image fit for the larger gallery viewer, and kept sidebar hidden on both home and gallery pages.
+- Updated browser asset cache versions and navigation/gallery regression tests without changing player data.
+
+## 2026-10-24 — Home-page photo gallery populated
+- Added seven user-provided photos to the existing home-page Gallery carousel: Rens (1), Vasi (4) and Jordan Vale (2), in upload order.
+- Added short descriptive titles, alt text and editable captions in `data/gallery.js` without inventing match details.
+- Reused existing carousel controls and 2×2 layout; updated the gallery browser cache version and gallery regression checks.
+- Kept all player profiles, fixtures, career statistics, flags and themes unchanged.
+
+## 2026-10-24 — Home-page gallery tile
+- Returned Vasi's character-select tile to the lower-left position and added a fourth Gallery tile in the lower-right, keeping the 2×2 desktop layout at roughly 75% width.
+- Added an empty gallery with captions, previous/next arrows, dot controls, keyboard navigation and touch swipes for future user-supplied photos and descriptions.
+- Created `data/gallery.js` and `assets/gallery/` for easy photo updates without touching character data. No sample photos were added.
+- Updated browser cache versions and added gallery-specific tests; kept other data and character profiles unchanged.
+
+## 2026-10-24 — Vasi Career Overview award totals
+- Confirmed 2028–29 average rating **6.9**, Player of the Month **2**, and Player of the Match **10**, while retaining 43 appearances, 37 goals, 1 assist and 15 clean sheets.
+- Career Overview Barcelona completed-season average rating **7.2**, with **6 POTM** and **42 MOTM** across 2025–26 through 2028–29.
+- 2029–30 remains in progress with no rating or award totals supplied; excluded from completed-season totals. Updated Vasi data cache token and regression tests.
+
+## 2026-10-24 — Home selection and Vasi nationality flags
+- Confirmed Steinunn Einarsdóttir 🇮🇸, Alizée Coulon 🇫🇷 and Teagan McNamara 🇦🇺 in Vasi’s 2029–30 squad using existing PNG assets.
+- Hid the left navigation sidebar on the home screen only, centred and enlarged character-select images to approximately 75% of desktop width, and centred the last tile.
+- “Choose character” now returns to the home page from any character/season. Updated browser asset versions.
+
+## 2026-10-24 — Vasi 2029–30 begins
+- Added Vasi’s live 2029–30 Barcelona season: Champions Trophy draws against Strasbourg and Leicester City, 3–0 win over KC Current, and 8-team pre-season standings (fourth, 5 points).
+- Added 16-club Liga F starting membership table without treating the sheet’s starting order as confirmed league positions; no league fixtures have been recorded.
+- Updated the 27-player Barcelona squad with all reported appearances, goals, assists and clean sheets; Vasi has 3 appearances, 3 goals, 0 assists and 2 clean sheets so far.
+- Added recognised Nigeria and England flags for Chiamaka Nnadozi and Lauren James, and the USA flag for KC Current. Left Steinunn Einarsdóttir, Alizée Coulon and Teagan McNamara unflagged pending user confirmation.
+- Kept 2028–29 completed and Barcelona’s 162 appearances / 170 goals completed-season infobox record unchanged. In-progress 2029–30 stats are displayed on Career Overview but excluded from completed totals.
+- Head to Head now counts 180 played, 126 wins, 27 draws, 18 losses, 38 opponents. Added a new 2029–30 season regression test and refreshed Vasi / definitions browser script versions.
+- Corrected a previously duplicated phrase in Vasi’s career biography without changing any results.
+
 ## 2026-10-24 — Brighton / Stuttgart flag corrections
 - Confirmed Cherif Diouf (Senegal) and Samuele Fabbri (Italy) in Brighton's 2030–31 squad, using the existing local PNG assets.
 - Corrected the Champions Trophy standby table's typo `VfG Stuttgart` to `VfB Stuttgart` so its existing Germany flag mapping appears.

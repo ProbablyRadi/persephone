@@ -4296,3 +4296,345 @@ body.theme-dracula .chart-empty {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+
+/* ========================================================================== */
+/* Full-width character-select home page                                       */
+/* The sidebar remains visible on character pages, but not the home screen.    */
+/* ========================================================================== */
+
+body.is-home .layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  max-width: none;
+  width: 100%;
+  box-sizing: border-box;
+  padding: clamp(16px, 2.5vw, 48px);
+}
+
+body.is-home .layout > aside {
+  display: none;
+}
+
+body.is-home .home-page {
+  width: 100%;
+}
+
+body.is-home .home-page > h1,
+body.is-home .home-page .home-tiles {
+  width: min(75vw, 1600px);
+  max-width: 100%;
+}
+
+body.is-home .home-page .home-tiles {
+  --home-tile-gap: clamp(16px, 1.6vw, 30px);
+  gap: var(--home-tile-gap);
+}
+
+body.is-home .home-player-tile {
+  min-height: clamp(280px, 22vw, 410px);
+}
+
+@media (max-width: 900px) {
+  body.is-home .home-page > h1,
+  body.is-home .home-page .home-tiles {
+    width: min(100%, 760px);
+  }
+
+  body.is-home .home-player-tile {
+    min-height: clamp(220px, 32vw, 320px);
+  }
+}
+
+@media (max-width: 760px) {
+  body.is-home .home-page .home-tiles {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body.is-home .home-player-tile {
+    min-height: clamp(190px, 48vw, 290px);
+  }
+
+}
+
+/* ========================================================================== */
+/* Standalone photo gallery page, reached via the small home-page link.       */
+/* Image captions and sources are configured in data/gallery.js.              */
+/* ========================================================================== */
+
+.gallery-carousel {
+  position: relative;
+  min-width: 0;
+  min-height: 290px;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #101521;
+  box-shadow: 0 7px 24px rgba(0, 0, 0, .08);
+}
+
+body.is-gallery .gallery-carousel {
+  width: min(80vw, 1400px);
+  max-width: 100%;
+  height: clamp(440px, 67vh, 850px);
+  min-height: 0;
+  margin: 0 auto;
+}
+
+.gallery-carousel:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.gallery-carousel.is-empty {
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  text-align: center;
+  background: linear-gradient(150deg, var(--head), var(--bg));
+}
+
+.gallery-empty {
+  max-width: 28rem;
+  color: var(--text);
+}
+
+.gallery-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  font-size: 2.5rem;
+  line-height: 1;
+  opacity: .7;
+}
+
+.gallery-empty h2 {
+  margin: 0 0 10px;
+  font-size: clamp(1.6rem, 2.6vw, 2.35rem);
+}
+
+.gallery-empty p {
+  margin: 0;
+  font-size: clamp(.95rem, 1.15vw, 1.1rem);
+  opacity: .8;
+}
+
+.gallery-slides,
+.gallery-slide {
+  position: absolute;
+  inset: 0;
+}
+
+.gallery-slide {
+  margin: 0;
+}
+
+.gallery-slide[hidden] {
+  display: none !important;
+}
+
+.gallery-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.gallery-slide figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-height: 55%;
+  overflow-y: auto;
+  padding: 55px 24px 22px;
+  color: #fff;
+  background: linear-gradient(transparent, rgba(0, 0, 0, .82) 60%);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, .9);
+}
+
+.gallery-slide figcaption strong {
+  display: block;
+  font-size: clamp(1.1rem, 1.6vw, 1.45rem);
+}
+
+.gallery-slide figcaption span {
+  display: block;
+  margin-top: 5px;
+  font-size: clamp(.85rem, 1vw, 1rem);
+  line-height: 1.4;
+}
+
+.gallery-count {
+  position: absolute;
+  z-index: 2;
+  top: 15px;
+  left: 16px;
+  padding: 5px 11px;
+  border-radius: 15px;
+  color: #fff;
+  background: rgba(0, 0, 0, .64);
+  font-size: .85rem;
+}
+
+.gallery-arrow {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  transform: translateY(-50%);
+  border: 1px solid rgba(255, 255, 255, .45);
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(0, 0, 0, .58);
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.gallery-arrow:hover,
+.gallery-dot:hover {
+  background: rgba(0, 0, 0, .82);
+}
+
+.gallery-arrow.is-previous {
+  left: 12px;
+}
+
+.gallery-arrow.is-next {
+  right: 12px;
+}
+
+.gallery-dots {
+  position: absolute;
+  z-index: 2;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  justify-content: flex-end;
+  max-width: 60%;
+}
+
+.gallery-dot {
+  width: 11px;
+  height: 11px;
+  padding: 0;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .35);
+  cursor: pointer;
+}
+
+.gallery-dot[aria-current="true"] {
+  background: #fff;
+}
+
+.gallery-arrow:focus-visible,
+.gallery-dot:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  body.is-gallery .gallery-carousel {
+    width: min(100%, 960px);
+    height: min(60vh, 650px);
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 760px) {
+  body.is-gallery .gallery-carousel {
+    height: clamp(260px, 65vw, 440px);
+    min-height: 0;
+  }
+}
+
+/* Gallery is a separate route; the home page retains just three player tiles. */
+body.is-home .home-page .home-actions {
+  display: flex;
+  justify-content: flex-end;
+  width: min(75vw, 1600px);
+  max-width: 100%;
+  margin-top: 18px;
+}
+
+.home-gallery-link,
+.gallery-back-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  background: var(--head);
+  text-decoration: none;
+  font-size: .94rem;
+  font-weight: 600;
+  transition: border-color .16s ease, transform .16s ease;
+}
+
+.home-gallery-link:hover,
+.gallery-back-link:hover {
+  border-color: var(--blue);
+  transform: translateY(-1px);
+}
+
+.home-gallery-link:focus-visible,
+.gallery-back-link:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+body.is-gallery .layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  max-width: none;
+  width: 100%;
+  box-sizing: border-box;
+  padding: clamp(16px, 2.5vw, 48px);
+}
+
+body.is-gallery .layout > aside {
+  display: none;
+}
+
+.gallery-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 24px;
+}
+
+.gallery-page-header {
+  width: min(80vw, 1400px);
+  max-width: 100%;
+}
+
+.gallery-page-header h1 {
+  margin: 18px 0 8px;
+}
+
+.gallery-page-header p {
+  margin: 0;
+  opacity: .8;
+}
+
+@media (max-width: 900px) {
+  body.is-home .home-page .home-actions,
+  .gallery-page-header {
+    width: min(100%, 960px);
+  }
+}

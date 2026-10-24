@@ -47,9 +47,9 @@ assert.equal(data.season.table, '1st — 78 pts');
 assert.equal(data.profile.career[0][2], 162);
 assert.equal(data.profile.career[0][3], 170);
 assert.deepEqual(Array.from(data.profile.stats.find(row => row[0] === '2028–29').slice(4)),
-    ['1st', '', 43, 37, 1, 15]);
-assert.equal(data.profile.careerAwards['2028–29'], undefined,
-    'Unreported POTM and MOTM must not be fabricated');
+    ['1st', '6.9', 43, 37, 1, 15]);
+assert.deepEqual(Array.from(Object.values(data.profile.careerAwards['2028–29'])), [2, 10],
+    'User-confirmed POTM and MOTM must appear in 2028–29');
 assert(data.profile.honours['🇪🇸 FC Barcelona Femení'][0].includes('2028–29'));
 assert.equal(data.fixtures['Pre-season friendlies'].length, 3);
 assert.equal(data.fixtures['Liga F'].length, 30);

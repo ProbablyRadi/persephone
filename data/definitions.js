@@ -462,6 +462,7 @@ const TEAM_FLAGS = {
     "Spurs": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
     "Montpellier": "🇫🇷",
     "Bay FC": "🇺🇸",
+    "KC Current": "🇺🇸",
     "FC Fleury 91": "🇫🇷",
     "FC Barcelona Femení": "🇪🇸",
     "FC Barcelona Femini": "🇪🇸",

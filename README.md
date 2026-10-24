@@ -33,6 +33,34 @@ site/
     └── vasi.js
 ```
 
+
+## Photo gallery
+
+The home page has three large character tiles, with a small **Photo gallery**
+link at the lower-right. It opens a separate `#gallery` page with a large carousel,
+and a link back to the character-select page.
+
+The gallery currently displays seven user-provided photos: one of Rens, four of
+Vasi, and two of Jordan, in that order. The current captions are brief
+image descriptions and can be replaced with fuller stories later. To add
+more photos, place them in `assets/gallery/` and list them in
+`data/gallery.js` in the order they should appear:
+
+```js
+const GALLERY_ITEMS = [
+    {
+        src: 'assets/gallery/match-day.jpg',
+        alt: 'An accessible description of the image',
+        title: 'Match day',
+        description: 'A caption describing what happened.'
+    }
+];
+```
+
+The carousel displays captions over each photo and supports previous/next
+buttons, indicator dots, keyboard left/right arrows, and touch swipes. At least
+two photos are needed to show navigation controls. No framework is required.
+
 ## Player data
 
 Character-specific data lives in the `data/` directory, while shared football definitions are kept separately:
@@ -259,3 +287,12 @@ Latest local change: Jordan Vale overview updated to Brighton & Hove / number 99
 Brighton's 2030–31 Premier League membership list is recorded with placeholder ranks and incomplete points; it must **not** be displayed as final standings. The separate fixture archive currently contains 3 Brighton Premier League results (1 win, 1 draw, 1 loss; 4 points) and one Carabao Cup result (3–1 win at MK Dons), on top of 3 pre-season wins. Jordan's latest user-supplied 34-player Brighton roster lists 7 appearances, 0 goals, 0 assists and 3 clean sheets for him. These are in-progress season figures and are excluded from completed-season career totals.
 
 The 2030–31 Premier League entrant comparison now recognises Fulham, Leeds United and Ipswich after the user corrected the duplicate Wolves entry. The England World Cup source contains 8 England fixtures but not Jordan's individual appearances; the user explicitly confirmed his international record as **50 caps, 0 goals**. The user confirmed nine earlier Brighton squad nationalities. Tom Watson is English (Premier League player biography); Cherif Diouf and Samuele Fabbri have unknown nationalities and are shown without flags until confirmed. The Champions Trophy source still says "VfG Stuttgart", which is left unchanged pending user correction.
+
+### Latest Vasi season (2029–30)
+
+Vasi's 2029–30 FC Barcelona Femení season is **in progress**. The currently recorded three Champions Trophy fixtures and 27-player squad live in `data/vasi.js`. The Liga F teams are listed without actual rankings until league games are supplied. Three squad nationalities are awaiting confirmation (Steinunn Einarsdóttir, Alizée Coulon and Teagan McNamara).
+
+
+### Character-select home screen
+
+The home screen uses a full-width layout (no left sidebar), with image-backed tiles taking approximately 75% of the viewport width on desktops and stacking on phones. Selecting “Choose character” in the top Character menu from any player or season returns to `#home`.
