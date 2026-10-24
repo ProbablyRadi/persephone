@@ -7,7 +7,7 @@ const vm = require('node:vm');
 
 const root = path.resolve(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
-const source = read('app.js');
+const source = require('./helpers/site-source').clientSource();
 const start = source.indexOf('function performanceStandingsRows(');
 const end = source.indexOf('function timelinePlayerKey(', start);
 assert(start > 0 && end > start, 'Competition Performance functions must be present');
@@ -69,7 +69,7 @@ for (const id of ['rens', 'jordan', 'vasi']) {
 assert(source.indexOf('>Head to Head</a>') < source.indexOf('>Competition Performance</a>'),
     'Competition Performance must appear after Head to Head in the sidebar');
 assert(source.includes("pageName === 'performance'"), 'The hash router must recognise performance pages');
-assert(read('styles.css').includes('.performance-series-dimmed'), 'Team highlighting styles missing');
+assert(require('./helpers/site-source').styleSource().includes('.performance-series-dimmed'), 'Team highlighting styles missing');
 for (const id of ['rens','jordan','vasi']) {
     const info = performance(id);
     console.log(`${id}: ${info.competitions.length} position charts; ${info.groupSnapshots.length} tournament group snapshots`);

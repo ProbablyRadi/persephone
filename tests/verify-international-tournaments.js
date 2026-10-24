@@ -69,7 +69,7 @@ assert(friendlies.includes('England 0 - 0 Ecuador'));
 assert(DATA.jordan.seasons['2025–26'].competitions['International Friendlies']);
 assert.equal(DATA.jordan.uefaRoundBreaks['2026–27|World Cup'][34], 'Final');
 assert(!DATA.jordan.uefaRoundBreaks['2026–27|World Cup'][35]);
-const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+const app = require('./helpers/site-source').clientSource();
 const roundsStart = app.indexOf('function tournamentRounds(');
 const roundsEnd = app.indexOf('function fixtureTable(', roundsStart);
 assert(roundsStart >= 0 && roundsEnd > roundsStart);

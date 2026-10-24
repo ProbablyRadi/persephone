@@ -1,310 +1,203 @@
-# FC26 Career Wiki
+# FC26 Career Wiki — project guide
 
-A static FC26 career-mode archive/wiki for three custom career characters.
+This site is a career-mode archive for Rens Adisea, Jordan Vale and Vasiliki
+Dimitriou. It displays their profiles, season results, squads, standings,
+career statistics, timelines and photos.
 
-## Running the site
+It is a static website: HTML provides the page structure, CSS controls its
+appearance, and JavaScript turns the recorded data into pages. Everything
+runs in the browser. There is no database, build step or application server.
+You can open `index.html` directly or serve the folder as a website.
 
-You can open `index.html` directly in a browser, or serve this folder with any static web server.
-
-The site is also suitable for hosting with services such as GitHub Pages.
-
-**After an update:** upload/replace the complete `index.html`, `app.js`, and any
-changed `data/*.js` files together (preserving the `data/` folder). The HTML
-uses versioned script URLs to force the browser to fetch new versions. If the
-live site still shows an old value, reload the page with Ctrl+F5 (or
-Cmd+Shift+R on macOS), and verify the updated files reached the hosting service.
-
-## Project structure
+## Folder structure
 
 ```text
-site/
+persephone/
 ├── index.html
 ├── app.js
 ├── styles.css
-├── favicon.svg          # Football icon for modern browsers
-├── favicon.ico          # Fallback tab icon
+├── favicon.svg
+├── favicon.ico
 ├── README.md
+├── CHANGELOG.md
+├── data/
+│   ├── base.js
+│   ├── definitions.js
+│   ├── rens.js
+│   ├── jordan.js
+│   ├── vasi.js
+│   └── gallery.js
+├── js/
+│   ├── shared.js
+│   ├── profile.js
+│   ├── matches.js
+│   ├── timeline.js
+│   ├── stats.js
+│   ├── season.js
+│   ├── tables.js
+│   └── gallery.js
+├── styles/
+│   ├── appearance.css
+│   ├── pages.css
+│   └── mobile.css
 ├── assets/
-└── data/
-    ├── base.js
-    ├── definitions.js
-    ├── rens.js
-    ├── jordan.js
-    └── vasi.js
+│   ├── character-select/
+│   ├── flags/
+│   ├── gallery/
+│   ├── portraits/
+│   └── stadium-glass-bg.jpg
+└── tests/
+    ├── helpers/
+    │   └── site-source.js
+    └── verify-*.js
 ```
 
+## Files in the main folder
 
-## Photo gallery
+| File | Purpose |
+| --- | --- |
+| `index.html` | The page shell: header, character/theme selectors, navigation and the empty main content area. It also lists the stylesheets, data files and scripts to load. |
+| `app.js` | Starts the site, reads the URL to choose a page, connects the selectors, remembers the chosen theme and manages the mobile career menu. It watches rendered content so flags and table controls can be added. |
+| `styles.css` | The first stylesheet. Defines shared colours, basic page layout, tables, navigation and career dashboard styling. |
+| `favicon.svg` | Scalable football icon shown in the browser tab. |
+| `favicon.ico` | Alternative browser-tab icon for browsers that use the ICO format. |
+| `README.md` | This guide to the project's files and how they fit together. |
+| `CHANGELOG.md` | The history of changes to the site's code, content and design. |
 
-The home page has three large character tiles, with a small **Photo gallery**
-link at the lower-right. It opens a separate `#gallery` page with a large carousel,
-and a link back to the character-select page.
+## `data/` — the information shown on the site
 
-The gallery currently displays 17 user-provided photos in upload order. The current captions are brief
-image descriptions and can be replaced with fuller stories later. To add
-more photos, place them in `assets/gallery/` and list them in
-`data/gallery.js` in the order they should appear:
+These files hold the football records and image references. The files in
+`js/` read this information to build the pages.
 
-```js
-const GALLERY_ITEMS = [
-    {
-        src: 'assets/gallery/match-day.jpg',
-        alt: 'An accessible description of the image',
-        title: 'Match day',
-        description: 'A caption describing what happened.'
-    }
-];
-```
+| File | Purpose |
+| --- | --- |
+| `base.js` | Creates the shared objects that the character files fill with data. Loads before the other data files. |
+| `definitions.js` | Shared definitions: flag image paths, team flags, alternative team names and league relegation-place counts. |
+| `rens.js` | Rens's profile, career history, honours, statistics, season summaries, fixtures, squads and competition tables. |
+| `jordan.js` | Jordan's records, using the same structure as Rens's file. |
+| `vasi.js` | Vasi's records, using the same structure as the other character files. |
+| `gallery.js` | The ordered photo list, with each image's path, alternative text, title and description. |
 
-The carousel displays captions over each photo and supports previous/next
-buttons, indicator dots, keyboard left/right arrows, and touch swipes. At least
-two photos are needed to show navigation controls. No framework is required.
+Each character file has five numbered sections:
 
-## Player data
-
-Character-specific data lives in the `data/` directory, while shared football definitions are kept separately:
-
-- `data/base.js` — creates the shared data containers.
-- `data/definitions.js` — shared team flags and canonical team-name overrides.
-- `data/rens.js` — Rens profile, fixtures, squad sheets and tables.
-- `data/jordan.js` — Jordan profile, fixtures, squad sheets and tables.
-- `data/vasi.js` — Vasi profile, fixtures, squad sheets and tables.
-
-Each character file fills the same shared structures:
-
-```js
-DATA
-FULL_FIXTURES
-SEASON_TABLES
-PRESEASON_TABLES
-COMPETITION_TABLES
-```
-
-Keeping each character's information in one file makes it easier to find and edit their profile, career stats, fixtures, league tables, squad sheets and competition tables without changing the interface used by `app.js`.
-
-### Finding information in a character file
-
-Every character file (`rens.js`, `jordan.js`, `vasi.js`) now has the **same five numbered sections**, in the same order. Search for a section heading or a season such as `// 2028–29`:
-
-| Section | JavaScript object | What to edit |
+| Section | Shared object | Contents |
 | --- | --- | --- |
-| 01 — Profile, career and season summaries | `DATA.<player>` | Identity, biography, club career, international career, career statistics, awards, honours and season summaries |
-| 02 — Match results | `FULL_FIXTURES.<player>` | Fixtures organised by season and competition (also powers Head to Head) |
-| 03 — League tables and squads | `SEASON_TABLES.<player>` | Domestic league standings and squad lists |
-| 04 — Pre-season tables | `PRESEASON_TABLES.<player>` | Friendly/pre-season competition tables |
-| 05 — Other competition tables | `COMPETITION_TABLES.<player>` | European and other tournament standings |
+| 01 — Profile, career and season summaries | `DATA` | Personal details, career records, honours, statistics and season summaries. |
+| 02 — Match results | `FULL_FIXTURES` | Fixtures grouped by season and competition. |
+| 03 — League tables and squads | `SEASON_TABLES` | League standings and player lists for each season. |
+| 04 — Pre-season tables | `PRESEASON_TABLES` | Pre-season competition standings. |
+| 05 — Other competition tables | `COMPETITION_TABLES` | Other tournament standings, including league phases and groups. |
 
-Subheadings inside `DATA.<player>` identify player details, career records, honours and season summaries. Season labels throughout the other sections are comments for navigation; they are **not** extra data and have no effect on the website. Some fields appear only for certain players when needed, such as additional timeline data or future overview placeholders.
+The character name is a key inside each shared object. For example,
+`DATA.rens` holds Rens's profile and season summaries, while
+`FULL_FIXTURES.rens` holds his match results. Season records are nested under
+season names such as `2025–26`.
 
-The website still loads the five data files as ordinary JavaScript using `index.html`. No folders were split, no imports/exports were added, and `app.js` uses the same structures as before.
+These are JavaScript data files, rather than separate HTML pages. Keeping all
+of a character's records together lets the different page renderers use the
+same information.
 
-### European knockout ties and Head to Head
+## `js/` — building the pages and controls
 
-In the Champions League, Europa League, Conference League and Women's Champions League,
-knockout **play-offs**, **Round of 16**, **quarter-finals** and **semi-finals** are
-labelled `(agg)` when they are shown as two-legged ties. League-phase matches
-and finals are single fixtures. The club qualifiers and play-offs that are
-separate competition sections also use `(agg)`.
+A renderer is a function that builds HTML from data and places it in the
+page. These files contain the renderers and their supporting functions.
 
-Fixture lists in `FULL_FIXTURES` retain their original scores. The H2H logic in
-`app.js` interprets those records as follows:
+| File | Purpose |
+| --- | --- |
+| `shared.js` | Shared helpers for escaping text, replacing flag emoji with local images and creating basic tables. |
+| `profile.js` | Builds character overviews, portrait infoboxes, career summaries, honours and the career navigation links. |
+| `matches.js` | Reads recorded score strings, identifies teams and outcomes, builds fixture/standings/squad tables and calculates Head to Head records. |
+| `timeline.js` | Builds season timeline cards, including league finishes, cup podiums, squad changes and movement between leagues. |
+| `stats.js` | Prepares career statistics and draws charts as SVG markup. Also builds the Stats page and its season totals table. |
+| `season.js` | Assembles a season page: summary, headline statistics, section links, squad, standings and competition panels. Uses table builders from `matches.js`. |
+| `tables.js` | Adds sorting controls to eligible tables, works out country names for flag sorting and creates scrollable table regions. |
+| `gallery.js` | Builds the home character-selection tiles and photo gallery. Handles gallery arrows, dots, keyboard navigation and touch swipes. |
 
-- An **aggregate-only** score counts as **two matches played (P)**, but its
-  overall outcome contributes only **one win, draw or loss** (including
-  recorded penalty shoot-outs). Aggregate goals are counted **once**, not twice.
-- If the data lists **both individual legs** plus a duplicate aggregate total,
-  H2H counts the real results of the two legs; the summary adds nothing.
-- **P may not equal W + D + L** because a single aggregate-score entry stands
-  for two played matches but contributes just one outcome. The site explains
-  this beneath the Head to Head summary, rather than adding extra columns.
-- Win percentage is recorded wins divided by matches played (W / P). Because
-  only one win can be recorded from an aggregate-only tie, this is a simplified
-  accounting convention, **not** a reconstruction of its leg-by-leg results.
-- International World Cup/Euros knockout rounds are always single matches and
-  are **not** affected by aggregate accounting.
+These are ordinary browser scripts, sharing one JavaScript scope. They do
+not use `import` or `export`. `index.html` loads them before `app.js` starts
+rendering, so the entry point can call their functions.
 
-The `tests/verify-h2h.js` regression test checks both the `(agg)` labels and
-correct two-leg handling. New season data should preserve accurate
-`DATA.<player>.uefaRoundBreaks` positions for its competition stages.
+## `styles/` — appearance and responsive layouts
 
-### Player overview layout
+The browser loads the stylesheets in this order:
 
-On each character's main overview, the compact **Club career** and
-**International career** tables remain inside the right-hand infobox. The
-**Honours** section appears directly below Contents, using the space alongside
-the infobox; its honour groups flow **left to right** in up to two columns.
-Players with a single honour group (such as Vasi) have it aligned at the left.
-The large **Career statistics** table begins below both at full width. Narrow
-screens display honours in one column. The honours still come from
-`DATA.<player>.honours` and are not duplicated or moved into the infobox.
+1. `styles.css` — shared layout and base styling.
+2. `styles/appearance.css` — Glass and Dracula appearance, header controls and competition-layout overrides.
+3. `styles/pages.css` — home, timeline, charts, profile summaries and gallery styling, plus shared typography.
+4. `styles/mobile.css` — phone layouts, mobile navigation, touch controls, vertical timelines and reduced-motion styling.
 
-### Career-overview statistics and awards
+CSS rules loaded later can override earlier ones, so this order matters.
+The same pages support Wiki, Dracula and Glass through classes on the
+`body` element. The selected theme is saved in the browser's local storage.
 
-The career-statistics table on every player's **Overview** page is generated from
-`DATA.<player>.stats` (the same 10-field season rows used by season pages and Stats charts).
-All players get the same columns for Role, League, Position, Average Rating,
-Player of the Month, Player of the Match, appearances, goals, assists and clean sheets.
-Every player has the Club column, including players who have only played for one club.
-The column order is identical for all players. Club subtotals and multi-club grand
-totals are calculated from **completed** seasons; live stats are visible in their
-season rows but are excluded from these totals.
+CSS image paths are relative to the stylesheet containing them. A file in
+`styles/` therefore uses `../assets/` to reach the main assets folder.
 
-Optional season award counts live in `DATA.<player>.careerAwards`:
+## `assets/` — images
 
-```js
-"careerAwards": {
-  "2025–26": { "playerOfTheMonth": 0, "playerOfTheMatch": 9 }
-}
-```
+| Folder or file | Purpose |
+| --- | --- |
+| `character-select/` | Image backgrounds for the character tiles on the home page. |
+| `flags/` | Local country flag PNGs used in profiles, navigation, fixtures and tables. |
+| `gallery/` | Photo-gallery images. Its `README.txt` is an older note about the image collection; `data/gallery.js` defines the actual current list and order. |
+| `portraits/` | Character portrait images used in profile infoboxes. |
+| `stadium-glass-bg.jpg` | Stadium background for the Glass theme. |
 
-Use numbers including `0` only for **known** award counts. If an award count has not
-been supplied, omit it or leave the season out: the overview will show `—` instead.
-The awards appear **only in the Overview career-statistics table**, and do not
-change the season-stat rows or any underlying match/season calculations.
+The data and stylesheets refer to these images by their paths. An image
+appears on the site when a data entry or CSS rule points to it.
 
-Optional `careerOverviewFutureRows` can show supplied future-season placeholders
-without creating playable seasons or affecting Timeline, H2H, or the career totals.
-Each entry is `[season, club, role?, league?]`.
+## `tests/` — checks for the data and interface
 
-## Main pages
+The tests are Node.js scripts that check recorded data and generated page
+markup. They are development tools; the browser does not load them.
 
-Each character has access to:
+| File | What it checks |
+| --- | --- |
+| `helpers/site-source.js` | Reads the script and stylesheet lists from `index.html`, allowing tests to inspect the same source files in the same order as the browser. |
+| `verify-home-page.js` | Home character tiles, the separate gallery route and character selection. |
+| `verify-home-gallery.js` | Gallery image files, captions, empty state and navigation behaviour. |
+| `verify-overviews.js` | Career overview tables, statistics, awards and profile details. |
+| `verify-overview-honours.js` | The placement of honours relative to the infobox and career statistics. |
+| `verify-h2h.js` | Head to Head calculations, including aggregate ties and represented-team counts. |
+| `verify-flag-sorting.js` | Alphabetical country sorting for both flag images and emoji. |
+| `verify-international-tournaments.js` | How international tournament records are grouped into season pages. |
+| `verify-world-cup-timeline.js` | World Cup winners, runners-up and third-place teams shown on the timeline. |
+| `verify-jordan-2028.js` | Jordan's 2028–29 records and their use in career, season and timeline views. |
+| `verify-jordan-2029.js` | Jordan's 2029–30 results, squad, career totals and timeline. |
+| `verify-jordan-2030.js` | Jordan's 2030–31 Brighton season and 2030 World Cup records. |
+| `verify-rens-2035.js` | Rens's 2035–36 league participants, squad and timeline. |
+| `verify-vasi-2028.js` | Vasi's completed 2028–29 season, honours, standings and related views. |
+| `verify-vasi-2029.js` | Vasi's in-progress 2029–30 season and related views. |
+| `verify-competition-performance.js` | Expectations for a Competition Performance feature that is not currently implemented in the site. |
 
-- Overview
-- Timeline
-- Stats
-- Head to Head
-- Individual season pages
+For example, `node tests/verify-h2h.js` runs the Head to Head checks.
 
-The site supports the Wiki, Dracula and Glass themes.
+## How a page is displayed
 
-On each player overview, the club and international career summaries appear in the right-hand infobox, like Wikipedia. The larger Career statistics table remains full-width below the introductory content; Honours appears beside the infobox. Both infobox summaries are generated from the same `DATA.<player>.career` and `DATA.<player>.intl` fields as before.
+1. The browser opens `index.html` and creates the header, navigation and main content area.
+2. It loads the four stylesheets in order.
+3. It runs `data/base.js`, shared definitions, the three character files and the gallery data.
+4. It loads the functions in `js/`, then runs `app.js` to connect the controls and display the initial page.
+5. `route()` in `app.js` reads the part of the URL after `#` and calls the appropriate renderer.
+6. That renderer reads the shared data and replaces the contents of `<main id="app">`. It also updates the career navigation where needed.
+7. The rendering observer adds table controls and converts flag emoji into images as content changes.
 
-Flag and nationality columns in sortable tables are ordered alphabetically by country name, even though the displayed flags are local PNG images. The compact **Club career** and **International career** tables inside player infoboxes are intentionally not sortable, so the chronology stays fixed. Larger league, squad and Head to Head tables remain sortable.
+The URL selects a view inside the same HTML file:
 
-### Head to Head fixture accounting
+| URL ending | View |
+| --- | --- |
+| `#home` | Character selection. |
+| `#gallery` | Photo gallery. |
+| `#rens` | Rens's overview. |
+| `#rens/timeline` | Rens's career timeline. |
+| `#rens/stats` | Rens's statistics and charts. |
+| `#rens/analysis` | Rens's Head to Head records. |
+| `#rens/2025–26` | Rens's 2025–26 season page. |
 
-Head to Head is computed from each character's `FULL_FIXTURES` archive: domestic
-league and cup matches, European club competitions, pre-season friendlies and
-international fixtures. Only matches involving the character's recorded club
-or national team are counted; unrelated tournament fixtures are excluded.
-World Cup and Euros editions are kept together on **one season page** (usually
-named for the tournament year, e.g. Jordan's *2026 World Cup* is wholly in
-**2026–27** and his *Euro 2028* wholly in **2028–29**). Their group standings,
-knockout results and season summaries stay with the fixtures. Qualifiers remain
-in the seasons in which they were supplied. Jordan's Sweden 0–3 England
-and England 0–0 Ecuador results are 2025–26 **International Friendlies**,
-not part of the 2026 World Cup. The World Cup page holds only its 35 tournament
-results. The numbers reflect the supplied team fixtures (including fixtures
-marked as missed through injury), rather than individual player appearances.
-Season placeholders do not generate fictional matches.
+Replace `rens` with `jordan` or `vasi` to open the equivalent character view.
+Changing the hash triggers the router without downloading a separate HTML
+page. On phones, the same content uses the layouts in `styles/mobile.css`.
 
-The **Represented** column shows the number of matches played while representing
-*each* club or national team against that opponent, e.g. `Bristol City (5),
-Manchester United (2)`. Counts are calculated from the same eligible fixtures
-as **P**: two-legged aggregate-only ties count as two played matches, repeated
-international fixtures and aggregate-summary duplicates are excluded. The
-represented counts on any opponent row should therefore add up to that row's
-**P**, even when P differs from W + D + L.
-
-
-## Development
-
-The project is intentionally formatted for readability and learning. JavaScript, CSS and data files are kept expanded and consistently structured rather than compressed into dense one-line code.
-
-### Checking new seasons
-
-Run the automated checks with Node.js from the project directory:
-
-```bash
-node tests/verify-h2h.js
-node tests/verify-overviews.js
-node tests/verify-jordan-2028.js
-node tests/verify-jordan-2029.js
-node tests/verify-flag-sorting.js
-node tests/verify-rens-2035.js
-```
-
-Jordan's **Champions Trophy** pre-season fixtures use the same
-`PRESEASON_TABLES` structure as other seasons' pre-season friendlies, with
-the competition name visible in the season page. European league-phase
-standings appear alongside the Europa League results; all other competition
-results remain part of the same character file.
-
-For **in-progress seasons**, a league-participant list does not imply a current
-ranking: use blank `Pos` entries until positions are known. You can record
-statistics for a player's club from supplied fixtures while leaving other
-clubs' records blank. The Timeline does not display a provisional top five
-until standings with ranked teams and points are available. Rens’s **2035–36 Bundesliga** entry list follows this convention: the 18 confirmed participants are supplied in their listed order, with league positions and unreported results left blank; the Timeline compares names against 2034–35 to identify the new entrants. Keep individual
-player season statistics blank until they are separately supplied.
-
-Jordan's **2029–30** Manchester United season is now **complete**: all 38
-Premier League scores agree with the supplied fourth-place finish (74 points,
-23 wins, 5 draws, 10 losses, 72 GF, 44 GA), and the Carabao Cup final is
-recorded as a Manchester United win over Leeds United. The complete 39-player
-squad is included in `SEASON_TABLES.jordan`, and Jordan's detailed season record
-shows 48 appearances and 18 clean sheets. England's career infobox records
-42 caps (independently supplied: do not infer caps from fixture lists).
-`DATA.jordan.timelineInSeasonSquadUpdates` records roster differences between
-snapshots *within* a season; "Left" means missing from the newer supplied list,
-not necessarily a confirmed transfer. The provided squad assigns No. 31 to
-both Senne Lammens and Marco Palestra; this is preserved pending clarification.
-Emeka Adiele and Andre Garcia have confirmed English nationalities and use
-the local England flag image.
-
-## Changelog
-
-See [`CHANGELOG.md`](CHANGELOG.md) for a reconstructed history of the major changes made during development.
-
-## Adding an in-progress season
-
-A good example to study is the earlier in-progress structure (now completed) of Jordan Vale's **2029–30 Manchester United** season in `data/jordan.js`. For a current example, refer to Rens’s **2035–36** entry in `data/rens.js`.
-
-- Add the new season under `DATA.jordan.seasons` with `inProgress: true`, and add a season row to `DATA.jordan.stats` using empty strings for statistics not yet known. Do not use `0` until the figure is confirmed.
-- Add competition names with empty arrays in `FULL_FIXTURES.jordan`; they display **No fixtures recorded yet** until results are added.
-- Add a `SEASON_TABLES.jordan` entry with the club name, league, known standings values and squad sheet. Each player row uses `[position, number, name, appearances, goals, assists, clean sheets]`; keep any unreported entries blank.
-- Add nationalities to `DATA.jordan.squadFlags` only when known. Florian Daems (Belgium), Rik Dekker (Netherlands) and Mauricio (Paraguay) have confirmed flags.
-- The Timeline reads the season's club and squad, plus optional in-season roster additions/removals from `timelineInSeasonSquadUpdates`. The Career Overview's subtotals and grand total exclude in-progress seasons, even if the current-season row has supplied statistics. The smaller club-career infobox can show up-to-date appearances. Head to Head only counts scored fixtures, not pending fixtures.
-
-Run `node tests/verify-jordan-2029.js` after editing Jordan’s completed 2029–30 season; the test validates all 38 league scores, the final standings, cup results, squad, Timeline, and overview.
-
-## Vasi's completed 2028–29 season
-
-Vasi's final 2028–29 Barcelona statistics are recorded in `data/vasi.js`: **43 appearances, 37 goals, 1 assist, 15 clean sheets**, and a **Liga F title** on **78 points**. The file contains 30 league results, the 16-team final league table, 24 squad rows, the 17-line Women's Champions League bracket (including neutral-club results), and the pre-season Champions Trophy. The career infobox totals **162 appearances and 170 goals** over her four completed Barcelona seasons.
-
-Her **2028–29 average rating and POTM/MOTM counts were not supplied**. Leave them unreported until confirmed; the award grand total displays a dash because that season is missing award counts (the earlier three years' supplied awards remain intact). Anna Affolter's nationality is confirmed as Swiss and her flag uses the local Switzerland image.
-
-**Corrected UEFA result:** The 2028–29 Women's Champions League league phase includes **Juventus 0–2 FC Barcelona** (previously recorded the wrong way round). Barcelona’s six recorded results now agree with the supplied league-phase standings: **4 W / 1 D / 1 L, 12 GF / 7 GA and 13 points**.
-
-Run `node tests/verify-vasi-2028.js` along with the existing regression tests after future updates.
-
-
-Latest local change: Jordan Vale overview updated to Brighton & Hove / number 99 / future PSV plan.
-
-
-### 2030–31 Jordan data notes
-Brighton's 2030–31 Premier League membership list is recorded with placeholder ranks and incomplete points; it must **not** be displayed as final standings. The separate fixture archive currently contains 3 Brighton Premier League results (1 win, 1 draw, 1 loss; 4 points) and one Carabao Cup result (3–1 win at MK Dons), on top of 3 pre-season wins. Jordan's latest user-supplied 34-player Brighton roster lists 7 appearances, 0 goals, 0 assists and 3 clean sheets for him. These are in-progress season figures and are excluded from completed-season career totals.
-
-The 2030–31 Premier League entrant comparison now recognises Fulham, Leeds United and Ipswich after the user corrected the duplicate Wolves entry. The England World Cup source contains 8 England fixtures but not Jordan's individual appearances; the user explicitly confirmed his international record as **50 caps, 0 goals**. The user confirmed nine earlier Brighton squad nationalities. Tom Watson is English (Premier League player biography); Cherif Diouf and Samuele Fabbri have unknown nationalities and are shown without flags until confirmed. The Champions Trophy source still says "VfG Stuttgart", which is left unchanged pending user correction.
-
-### Latest Vasi season (2029–30)
-
-Vasi's 2029–30 FC Barcelona Femení season is **in progress**. The currently recorded three Champions Trophy fixtures and 27-player squad live in `data/vasi.js`. The Liga F teams are listed without actual rankings until league games are supplied. Three squad nationalities are awaiting confirmation (Steinunn Einarsdóttir, Alizée Coulon and Teagan McNamara).
-
-
-### Character-select home screen
-
-The home screen uses a full-width layout (no left sidebar), with image-backed tiles taking approximately 75% of the viewport width on desktops and stacking on phones. Selecting “Choose character” in the top Character menu from any player or season returns to `#home`.
-
-## Stylesheet maintenance
-
-`styles.css` is the single, framework-free stylesheet for Wiki, Dracula and
-Glass themes. It was consolidated in October 2026: repeated declarations for
-identical selectors, unused legacy Terminal-only styles, and malformed old
-selector fragments were removed. Short rules are written on a single line;
-more involved rules still use one declaration per line.
-
-**Important:** some later rules intentionally override earlier ones, and
-media queries can appear in multiple sections to keep relevant mobile styles
-close to their components. When modifying the stylesheet, preserve cascade
-order unless you compare the resulting styles across all three themes.
+The `?v=...` values attached to script and stylesheet paths in `index.html`
+are cache-version labels. Changing a label tells the browser to request the
+updated file; it does not change the underlying filename.

@@ -17,7 +17,7 @@ for (const file of ['base', 'definitions', 'rens', 'jordan', 'vasi']) {
     vm.runInContext(read(`data/${file}.js`), context);
 }
 
-const source = read('app.js');
+const source = require('./helpers/site-source').clientSource();
 function excerpt(start, end) {
     const from = source.indexOf(start);
     const to = source.indexOf(end, from);

@@ -7,8 +7,8 @@ const vm = require('node:vm');
 
 const root = path.resolve(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
-const script = read('app.js');
-const css = read('styles.css');
+const script = require('./helpers/site-source').clientSource();
+const css = require('./helpers/site-source').styleSource();
 const html = read('index.html');
 const activeClasses = new Set();
 const classes = {
@@ -26,8 +26,8 @@ const app = { className: '', innerHTML: '' };
 const nav = { innerHTML: '' };
 const location = { hash: '#home' };
 const context = vm.createContext({
-    console,
-    document: { body: { classList: classes } },
+    console, URL,
+    document: { baseURI: 'https://example.test/career/index.html', body: { classList: classes } },
     window: { scrollTo() {} },
     characterSelect, app, nav, location,
     replaceFlagEmoji() {},
@@ -46,7 +46,7 @@ for (const name of ['base', 'definitions', 'rens', 'jordan', 'vasi', 'gallery'])
 }
 
 const changeStart = script.indexOf('if (characterSelect)\n    characterSelect.addEventListener(');
-const changeEnd = script.indexOf('const esc =', changeStart);
+const changeEnd = script.indexOf('// Rendering enhancements.', changeStart);
 assert(changeStart >= 0 && changeEnd > changeStart, 'Could not find dropdown handler');
 vm.runInContext(script.slice(changeStart, changeEnd), context);
 
@@ -65,6 +65,14 @@ assert.match(app.innerHTML, /Jordan Vale/);
 assert.match(app.innerHTML, /Vasiliki Dimitriou/);
 assert.match(app.innerHTML, /assets\/character-select\/vasi-home-smile-20261024\.jpg/,
     'Vasi home tile must use the newest uploaded screenshot');
+assert.match(app.innerHTML, /--character-background: url\('https:\/\/example\.test\/career\/assets\/character-select\/rens\.png'\)/,
+    'Tile images must resolve from the page, including sites hosted in a subfolder');
+assert.equal(vm.runInContext("homeImageUrl('https://example.test/crest.svg')", context),
+    'https://example.test/crest.svg', 'External crest URLs should keep their original location');
+context.document.baseURI = 'file:///D:/career/index.html';
+assert.equal(vm.runInContext("homeImageUrl('assets/character-select/jordan.jpg')", context),
+    'file:///D:/career/assets/character-select/jordan.jpg', 'Direct-file browsing must resolve images too');
+context.document.baseURI = 'https://example.test/career/index.html';
 assert.match(app.innerHTML, /class="home-gallery-link" href="#gallery"/);
 assert(!app.innerHTML.includes('class="gallery-carousel"'), 'Carousel must not occupy a fourth home tile');
 assert(!app.innerHTML.includes('gallery-slide'), 'Gallery photos belong on separate page');
@@ -111,6 +119,6 @@ assert(activeClasses.has('is-home'));
 assert.equal(characterSelect.value, '');
 
 assert.match(html, /data\/gallery\.js\?v=20261024-seventeen-gallery-photos/);
-assert.match(html, /app\.js\?v=20261024-gallery-page/);
-assert.match(html, /styles\.css\?v=20261024-css-refactor/);
+assert.match(html, /app\.js\?v=20261025-refactor/);
+assert.match(html, /styles\.css\?v=20261025-refactor/);
 console.log('Home page: three character tiles, small gallery link, separate gallery route, dropdown return — PASS');

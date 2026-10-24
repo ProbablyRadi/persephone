@@ -7,9 +7,9 @@ const vm = require('node:vm');
 
 const root = path.resolve(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
-const appCode = read('app.js');
+const appCode = require('./helpers/site-source').clientSource();
 const galleryData = read('data/gallery.js');
-const css = read('styles.css');
+const css = require('./helpers/site-source').styleSource();
 const index = read('index.html');
 assert.match(index, /data\/gallery\.js.*?<\/script>\s*<script src="app\.js/s,
     'Gallery data must load before the app');

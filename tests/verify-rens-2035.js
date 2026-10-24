@@ -44,7 +44,7 @@ assert.equal(previous.standings[17][1], 'Mönchengladbach');
 assert.equal(vm.runInContext('DATA.rens.seasons["2035–36"].inProgress', context), true);
 assert.equal(vm.runInContext('TEAM_FLAGS["Hannover 96"]', context), '🇩🇪');
 
-const source = read('app.js');
+const source = require('./helpers/site-source').clientSource();
 function excerpt(begin, end) {
     const from = source.indexOf(begin);
     const to = source.indexOf(end, from);

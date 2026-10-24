@@ -1,3 +1,24 @@
+## 2026-10-25 — Restore home-page tile images
+- Fixed home-page background URLs resolving relative to the relocated stylesheet instead of the HTML page. Tile image and crest URLs now resolve from the page before being passed to CSS variables.
+- Updated the gallery script cache version and added regression checks for subfolder hosting and direct-file paths.
+- Verified actual image decoding for all three tiles in all themes at phone and desktop widths, through root hosting, subfolder hosting and direct-file browsing.
+
+## 2026-10-25 — Interface file structure refactor
+- Reduced `app.js` from 1,694 to 123 lines by moving reusable helpers and renderers into eight focused `js/` files. Kept ordinary scripts and direct `index.html` support.
+- Split the 2,684-line stylesheet into a 967-line base plus appearance, page and mobile files, preserving the original cascade. Corrected relative asset URLs in the new folders.
+- Shared competition standings rows/headers, season fixture panels and chart metric extraction; removed 10 CSS declarations superseded by identical selectors in the same conditions.
+- Expanded dense season/statistics markup for readability. Total source size remains similar; the primary improvement is clearer responsibilities rather than compressed code.
+- Updated regression tests to read the loaded source files from `index.html` through one shared helper. Results remain 12 passing tests and the same three pre-existing failures.
+- Compared all 36 routes at 390px and 1280px in all three themes: 216 matching before/after DOM and computed-style snapshots with no JavaScript exceptions.
+- Documented the loading order, file responsibilities and deployment requirements. Character data stays in the existing numbered character files.
+
+## 2026-10-25 — Mobile browsing improvements
+- Added a collapsible career menu on phones, restoring access to Overview, Timeline, Stats, Head to Head and all seasons.
+- Reworked the phone header, spacing and touch targets; stacked home tiles and season panels; made the timeline vertical and gallery captions readable below photos.
+- Fixed the broad mobile aside rule that hid competition standings. Wide data tables and charts now scroll within their own regions.
+- Verified 11 routes in Wiki, Dracula and Glass at 320, 390, 430, 760 and 1280px, with no page-wide overflow or runtime errors. Confirmed mobile menu navigation and reviewed rendered phone screenshots.
+- Updated CSS/JS cache versions and the home-page test. Three unrelated regression tests also fail against the original code: Competition Performance, international tournament grouping and Jordan's older England caps assertion.
+
 ## 2026-10-24 — Stylesheet consolidation
 - Refactored the existing `styles.css` from 4,640 to 2,516 lines (~46% fewer), and from 94,769 to 75,903 bytes (~20% smaller), while retaining readable rules and the original cascade order.
 - Removed 119 superseded CSS declarations, unused non-Dracula Terminal-only rules and malformed escaped-newline selector fragments while retaining their valid selectors.

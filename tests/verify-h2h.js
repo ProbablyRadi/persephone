@@ -32,7 +32,7 @@ for (const fileName of [
 
 // app.js also sets up the browser interface, so execute only the actual
 // H2H-related functions here. The live website uses the whole script normally.
-const appScript = read('app.js');
+const appScript = require('./helpers/site-source').clientSource();
 
 function excerpt(start, end) {
     const startIndex = appScript.indexOf(start);

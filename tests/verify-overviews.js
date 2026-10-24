@@ -12,7 +12,7 @@ const context = vm.createContext({ console });
 for (const file of ['data/base.js', 'data/definitions.js', 'data/rens.js', 'data/jordan.js', 'data/vasi.js']) {
     vm.runInContext(read(file), context, { filename: file });
 }
-const source = read('app.js');
+const source = require('./helpers/site-source').clientSource();
 const excerpt = (begin, end) => {
     const from = source.indexOf(begin);
     const to = source.indexOf(end, from);

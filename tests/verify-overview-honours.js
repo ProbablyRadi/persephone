@@ -7,7 +7,7 @@ const vm = require('node:vm');
 
 const root = path.resolve(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
-const source = read('app.js');
+const source = require('./helpers/site-source').clientSource();
 const from = source.indexOf('function player(id) {');
 const to = source.indexOf('function teamFlag(', from);
 assert(from >= 0 && to > from, 'Player overview renderer not found');
@@ -61,7 +61,7 @@ for (const id of ['rens', 'jordan', 'vasi']) {
     assert.equal((html.match(/<section>/g) || []).length, groupCount,
         `${id}: an honours group was dropped`);
 }
-const css = read('styles.css');
+const css = require('./helpers/site-source').styleSource();
 assert(/\.profile-page \.profile-honours \.honours\s*\{[^}]*display:\s*grid;[^}]*grid-template-columns:\s*repeat\(2,\s*minmax\(0,\s*1fr\)\);/m.test(css),
     'Overview honours must use a left-first two-column grid');
 assert(/\.profile-page \.profile-honours \.honours\s*\{[^}]*columns:\s*unset;/m.test(css),

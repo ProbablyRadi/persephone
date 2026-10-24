@@ -14,7 +14,7 @@ vm.runInContext(
     context
 );
 
-const appSource = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+const appSource = require('./helpers/site-source').clientSource();
 const start = appSource.indexOf('function flagSortName(');
 const end = appSource.indexOf('function enhanceTable(', start);
 assert(start >= 0 && end > start, 'Flag sort helpers are missing');

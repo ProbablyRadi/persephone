@@ -15,7 +15,7 @@ const read = name => fs.readFileSync(path.join(root, name), 'utf8');
 for (const file of ['base', 'definitions', 'rens', 'jordan', 'vasi']) {
   vm.runInContext(read(`data/${file}.js`), ctx);
 }
-const appScript = read('app.js');
+const appScript = require('./helpers/site-source').clientSource();
 const excerpt = (start, end) => {
   const i = appScript.indexOf(start);
   const j = appScript.indexOf(end, i);
