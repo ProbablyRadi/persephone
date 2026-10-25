@@ -23,6 +23,7 @@ persephone/
 ├── data/
 │   ├── base.js
 │   ├── definitions.js
+│   ├── team-colours.js
 │   ├── rens.js
 │   ├── jordan.js
 │   ├── vasi.js
@@ -33,6 +34,7 @@ persephone/
 │   ├── matches.js
 │   ├── timeline.js
 │   ├── stats.js
+│   ├── comparisons.js
 │   ├── season.js
 │   ├── tables.js
 │   └── gallery.js
@@ -73,6 +75,7 @@ These files hold the football records and image references. The files in
 | --- | --- |
 | `base.js` | Creates the shared objects that the character files fill with data. Loads before the other data files. |
 | `definitions.js` | Shared definitions: flag image paths, team flags, alternative team names and league relegation-place counts. |
+| `team-colours.js` | Main/accent club palettes for the comparison graphs and table swatches, plus display-name aliases. Colours represent club identity rather than historical kits; unmapped clubs use a stable fallback. |
 | `rens.js` | Rens's profile, career history, honours, statistics, season summaries, fixtures, squads and competition tables. |
 | `jordan.js` | Jordan's records, using the same structure as Rens's file. |
 | `vasi.js` | Vasi's records, using the same structure as the other character files. |
@@ -109,6 +112,7 @@ page. These files contain the renderers and their supporting functions.
 | `matches.js` | Reads recorded score strings, identifies teams and outcomes, builds fixture/standings/squad tables and calculates Head to Head records. |
 | `timeline.js` | Builds season timeline cards, including league finishes, cup podiums, squad changes and movement between leagues. |
 | `stats.js` | Prepares career statistics and draws charts as SVG markup. Also builds the Stats page and its season totals table. |
+| `comparisons.js` | Builds focused, club-coloured league graphs with multi-team selection, character-club defaults, an optional all-teams view and shaded exact-position tables. Outside-league points mark entry/exit without long lines across absent seasons; unreported records remain gaps. Only completed seasons are included. |
 | `season.js` | Assembles a season page: summary, headline statistics, section links, squad, standings and competition panels. Uses table builders from `matches.js`. |
 | `tables.js` | Adds sorting controls to eligible tables, works out country names for flag sorting and creates scrollable table regions. |
 | `gallery.js` | Builds the home character-selection tiles and photo gallery. Handles gallery arrows, dots, keyboard navigation and touch swipes. |
@@ -168,7 +172,7 @@ markup. They are development tools; the browser does not load them.
 | `verify-rens-2035.js` | Rens's 2035–36 league participants, squad and timeline. |
 | `verify-vasi-2028.js` | Vasi's completed 2028–29 season, honours, standings and related views. |
 | `verify-vasi-2029.js` | Vasi's in-progress 2029–30 season and related views. |
-| `verify-competition-performance.js` | Expectations for a Competition Performance feature that is not currently implemented in the site. |
+| `verify-season-comparisons.js` | Checks plotted ranks, colour palettes/aliases, relegation and return to the league, navigation, completed-season filtering, unexplained gaps and single-season/empty states. |
 
 For example, `node tests/verify-h2h.js` runs the Head to Head checks.
 
@@ -192,6 +196,7 @@ The URL selects a view inside the same HTML file:
 | `#rens/timeline` | Rens's career timeline. |
 | `#rens/stats` | Rens's statistics and charts. |
 | `#rens/analysis` | Rens's Head to Head records. |
+| `#rens/comparisons` | League finishing-position comparisons across Rens's completed seasons. |
 | `#rens/2025–26` | Rens's 2025–26 season page. |
 
 Replace `rens` with `jordan` or `vasi` to open the equivalent character view.

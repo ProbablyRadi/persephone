@@ -119,6 +119,6 @@ assert(activeClasses.has('is-home'));
 assert.equal(characterSelect.value, '');
 
 assert.match(html, /data\/gallery\.js\?v=20261024-seventeen-gallery-photos/);
-assert.match(html, /app\.js\?v=20261025-refactor/);
+assert.match(html, /app\.js\?v=20261025-comparisons/);
 assert.match(html, /styles\.css\?v=20261025-refactor/);
 console.log('Home page: three character tiles, small gallery link, separate gallery route, dropdown return — PASS');

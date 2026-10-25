@@ -1,3 +1,31 @@
+## 2026-10-25 — More readable season comparisons
+- Defaulted each graph to the character's clubs, with other teams reduced to faint background lines and their dots/labels hidden.
+- Replaced the single-team dropdown with accessible checkboxes for multi-team selection, selected-team chips, Show all teams and Character's clubs reset controls. Selected paths are painted above the background.
+- Renamed the bottom row Outside league and retained only entry/exit connections, removing horizontal lines spanning absent seasons. Added subtle green-to-amber table shading with numeric finishes retained and sticky team names.
+- Verified default focus, multi-selection, all/reset controls, table shading, SVG geometry and no page-wide overflow at desktop/phone widths in all themes. Added regression coverage for disconnected outside-league segments.
+
+## 2026-10-25 — Promotion entry points on comparison graphs
+- New entrants rise from the Relegated/outside-league row in the immediately preceding recorded season, instead of appearing as isolated points. This includes Burnley entering Jordan's Premier League table in 2029–30.
+- Kept the underlying finishing-position records unchanged and avoided connecting across unrecorded seasons. Added checks for Burnley's two connected points, their vertical direction and its single real finishing position.
+
+## 2026-10-25 — Solid club lines and secondary-colour points
+- Changed comparison lines to solid primary club colours and data-point circles to secondary colours with primary-colour borders.
+- Updated table swatches to show the same solid-line/circle combination. Retained line outlines for contrast and refreshed CSS/script cache versions.
+
+## 2026-10-25 — Club colours and relegation on comparison graphs
+- Added an editable `data/team-colours.js` palette catalog. Graph lines, points and table swatches use representative main/accent club colours; unmapped clubs keep a name-based fallback across graphs.
+- Added accent strokes and theme-aware outlines so white/dark club colours remain visible in Wiki, Dracula and Glass. Kept the existing team-highlighting selector.
+- Added a Relegated row below the league positions when departures are supported by the preceding season's relegation-place finish and next season's complete table. Teams remain on that row while absent and return to their recorded finish when promoted back.
+- Kept unexplained absences and unrecorded-season gaps separate from confirmed relegations. Original positions and football data remain unchanged.
+- Extended tests for palette aliases, relegation, promotion back, missing-season handling and unchanged ranks; refreshed the comparison asset cache versions.
+
+## 2026-10-25 — Season comparison pages
+- Added Season comparisons below Head to Head for each character, with separate domestic league graphs showing all recorded teams' final positions over completed seasons.
+- Added team/character-club highlighting, bold career-club lines, position labels and expandable exact-position tables. First place is at the top; missing-team seasons break the lines rather than inventing a rank.
+- Excluded live seasons, including Vasi's provisional ranked table. Rens has three Eredivisie, five Premier League and two Bundesliga seasons; Jordan has one Championship and four Premier League seasons; Vasi has four Liga F seasons.
+- Added `js/comparisons.js`, route/navigation wiring, responsive styling and cache-version updates. Replaced the old absent-feature Competition Performance test with tests for the requested domestic season comparisons.
+- Verified all plotted ranks against source tables and checked the three pages at desktop/phone widths in all three themes, including highlighting, SVG geometry and page overflow. Existing regression results are 13 passes and two pre-existing failures concerning international tournament grouping and Jordan's historical England caps.
+
 ## 2026-10-25 — Restore home-page tile images
 - Fixed home-page background URLs resolving relative to the relocated stylesheet instead of the HTML page. Tile image and crest URLs now resolve from the page before being passed to CSS variables.
 - Updated the gallery script cache version and added regression checks for subfolder hosting and direct-file paths.

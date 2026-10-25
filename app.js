@@ -18,6 +18,8 @@ function route() {
         careerTimeline(id);
     else if (DATA[id] && pageName === 'stats')
         careerStats(id);
+    else if (DATA[id] && pageName === 'comparisons')
+        careerComparisons(id);
     else if (DATA[id] && pageName && DATA[id].seasons[pageName])
         season(id, pageName);
     else if (DATA[id])

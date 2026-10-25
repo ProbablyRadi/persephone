@@ -829,3 +829,67 @@ body.is-gallery .layout > aside { display: none; }
 @media (max-width: 900px) {
   body.is-home .home-page .home-actions, .gallery-page-header { width: min(100%, 960px); }
 }
+
+/* Season comparisons: all domestic teams, with missing seasons left as gaps. */
+.comparisons-wrap { display: grid; gap: 16px; }
+.comparisons-wrap > p, .comparisons-wrap > h1 { margin-top: 0; margin-bottom: 0; }
+.comparison-card { min-width: 0; padding: 22px; }
+.comparison-card-header { display: flex; justify-content: space-between; align-items: start; gap: 18px; flex-wrap: wrap; }
+.comparison-card h2 { margin-top: 4px; }
+.comparison-controls { display: flex; align-items: start; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.comparison-team-menu { flex: 1 1 260px; min-width: 0; border: 1px solid var(--border); border-radius: 6px; background: var(--head); }
+.comparison-team-menu summary { cursor: pointer; padding: 10px 12px; min-height: 44px; }
+.comparison-selection-count { margin-left: 8px; opacity: .7; }
+.comparison-team-menu fieldset { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px 8px; border: 0; border-top: 1px solid var(--border); margin: 0; padding: 10px; max-height: 300px; overflow-y: auto; }
+.comparison-team-menu legend { padding: 8px 0; font-weight: 600; }
+.comparison-team-choice { display: flex; align-items: center; gap: 8px; min-height: 44px; cursor: pointer; padding: 5px; }
+.comparison-team-choice input { width: 18px; height: 18px; flex-shrink: 0; accent-color: var(--blue); }
+.comparison-team-choice .comparison-swatch { flex-shrink: 0; margin-right: 0; }
+.comparison-controls button { font: inherit; cursor: pointer; min-height: 44px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--head); color: var(--text); }
+.comparison-controls button:hover { border-color: var(--blue); }
+.comparison-selected-teams { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.comparison-team-chip { display: inline-flex; align-items: center; padding: 5px 10px; border: 1px solid var(--border); border-radius: 20px; background: var(--head); }
+.comparison-scroll { width: 100%; max-width: 100%; overflow-x: auto; overscroll-behavior-x: contain; border: 1px solid var(--border); border-radius: 6px; }
+.comparison-svg { width: 100%; min-width: 820px; height: auto; display: block; }
+.comparisons-page .comparison-svg text { font-size: 13px !important; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.comparison-grid-row line { stroke: var(--border); stroke-width: 1; opacity: .3; }
+.comparison-grid-row text, .comparison-season-label, .comparison-team-label { fill: var(--text); }
+.comparison-relegation-row text { fill: var(--text); font-weight: 600; }
+.comparison-relegation-row rect { fill: var(--text); opacity: .06; }
+.comparison-relegation-row line { stroke: var(--border); stroke-dasharray: 5 5; }
+.comparison-series { color: var(--team-colour); --comparison-line-width: 2.6px; }
+.comparison-series path { fill: none; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.comparison-series .comparison-line-outline { stroke: var(--text); stroke-width: calc(var(--comparison-line-width) + 2px); opacity: .3; }
+.comparison-series .comparison-line { stroke: var(--team-colour); stroke-width: var(--comparison-line-width); }
+.comparison-series circle { fill: var(--team-accent); stroke: var(--team-colour); stroke-width: 1.5; }
+.comparison-career { --comparison-line-width: 4px; }
+.comparison-career .comparison-team-label { font-weight: 700; }
+.comparison-series-dimmed { opacity: .12; }
+.comparison-series-dimmed .comparison-line { stroke: var(--text); stroke-width: 1px; }
+.comparison-series-dimmed :is(circle, text, .comparison-line-outline) { display: none; }
+.comparison-series-selected { --comparison-line-width: 3.2px; }
+.comparison-series-selected.comparison-career { --comparison-line-width: 4px; }
+.comparison-series-selected circle { r: 4.5; }
+.comparison-key { margin: 12px 0; opacity: .8; }
+.comparison-mobile-hint { display: none; }
+.comparison-data summary { cursor: pointer; padding: 12px 0; min-height: 44px; color: var(--blue); }
+.comparison-table caption { text-align: left; padding: 10px 0; color: var(--text); }
+.comparison-table :is(th, td) { white-space: nowrap; }
+.comparison-table td { text-align: center; }
+.comparison-table td.comparison-ranked { background: color-mix(in srgb, hsl(var(--finish-hue) 65% 45%) 22%, var(--head)) !important; color: var(--text); font-weight: 600; }
+.comparison-table td.comparison-unranked { opacity: .65; }
+.comparison-table tbody th { text-align: left; font-weight: 400; }
+.comparison-table tbody th { position: sticky; left: 0; z-index: 1; background: var(--head); }
+.comparison-table .comparison-career-row th { font-weight: 700; }
+.comparison-swatch { position: relative; display: inline-block; width: 24px; height: 3px; background: var(--team-colour); box-shadow: 0 0 0 1px var(--border); margin-right: 8px; vertical-align: middle; }
+.comparison-swatch::after { content: ""; position: absolute; left: 8px; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background: var(--team-accent); border: 1px solid var(--team-colour); box-shadow: 0 0 0 1px var(--border); }
+.comparison-status { margin: 0; }
+.comparison-status:empty { display: none; }
+@media (max-width: 760px) {
+  .comparison-card { padding: 14px; }
+  .comparison-team-menu { flex-basis: 100%; }
+  .comparison-team-menu fieldset { grid-template-columns: minmax(0, 1fr); }
+  .comparison-controls button { flex: 1; }
+  .comparison-card-header { gap: 8px; }
+  .comparison-mobile-hint { display: block; margin: 0 0 10px; opacity: .8; }
+}
