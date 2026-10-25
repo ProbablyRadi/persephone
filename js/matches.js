@@ -232,7 +232,7 @@ function h2hFixtureWeights(id, season, comp, items, focal) {
 }
 
 function careerOpponentRows(id) {
-    const seasons = FULL_FIXTURES[id] || {}, rec = new Map(), seenTournament = new Set();
+    const seasons = FULL_FIXTURES[id] || {}, rec = new Map();
     Object.entries(seasons).forEach(([season, competitions]) => Object.entries(competitions || {}).forEach(([comp, items]) => {
         const focal = focalFor(id, season, comp);
         if (!focal)
@@ -248,13 +248,6 @@ function careerOpponentRows(id) {
             const focalHome = sameTeam(fixture.home, focal), focalAway = sameTeam(fixture.away, focal);
             if (!focalHome && !focalAway)
                 return;
-            // World Cups/Euros in the supplied sheets can straddle two season pages; do not count copied-over matches twice.
-            if (/World Cup|Euros(?:$|\s)/i.test(comp)) {
-                const dedupe = `${comp}|${raw.replace(/^.*? — /, '')}`;
-                if (seenTournament.has(dedupe))
-                    return;
-                seenTournament.add(dedupe);
-            }
             const opponent = canonicalTeam(focalHome ? fixture.away : fixture.home), key = opponent.toLowerCase();
             if (!rec.has(key))
                 rec.set(key, {
@@ -346,7 +339,7 @@ function careerAnalysis(id) {
             <div><b>${totals.losses}</b><span>Losses</span></div>
             <div><b>${winRate}</b><span>Win rate</span></div>
         </div>
-        <div class="note analysis-note"><b>How aggregate ties are counted:</b> A two-legged UEFA knockout tie recorded with only its aggregate score counts as <b>2 played (P)</b>, but just <b>1 win, draw or loss</b> based on the overall result (including penalties where recorded). If both individual legs are listed, their actual results are counted instead. Therefore, <b>P may be higher than W + D + L</b>. Aggregate goals are included only once in GF/GA; Win % is recorded wins divided by matches played. Finals count as one match. Duplicate aggregate summaries and repeated World Cup/Euros results are excluded.</div>
+        <div class="note analysis-note"><b>How aggregate ties are counted:</b> A two-legged UEFA knockout tie recorded with only its aggregate score counts as <b>2 played (P)</b>, but just <b>1 win, draw or loss</b> based on the overall result (including penalties where recorded). If both individual legs are listed, their actual results are counted instead. Therefore, <b>P may be higher than W + D + L</b>. Aggregate goals are included only once in GF/GA; Win % is recorded wins divided by matches played. Finals count as one match. Duplicate aggregate summaries are excluded.</div>
         <div class="table-scroll"><table class="wikitable analysis-table">
             <thead><tr><th>#</th><th></th><th>Opponent</th><th>Represented</th><th>Type</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Win %</th></tr></thead>
             <tbody>${body}</tbody>

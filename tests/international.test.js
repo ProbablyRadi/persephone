@@ -85,6 +85,12 @@ test("Tournament editions stay together without treating different World Cups as
     assert(!actualRounds[35]);
     assert.equal(actualRounds[0], 'Group stage');
 
+    // The 2030 edition also belongs only to its finishing-year season.
+    assert(!FULL_FIXTURES.jordan['2029–30']['World Cup']);
+    assert(!COMPETITION_TABLES.jordan['2029–30']?.['World Cup']);
+    assert(!DATA.jordan.seasons['2029–30'].competitions['World Cup']);
+    assert.equal(FULL_FIXTURES.jordan['2030–31']['World Cup'].length, 35);
+
     // Euro 2028's group stage, knockout rounds and single standings table live in 2028–29.
     assert(!FULL_FIXTURES.jordan['2027–28'].Euros);
     assert(!COMPETITION_TABLES.jordan['2027–28'].Euros);

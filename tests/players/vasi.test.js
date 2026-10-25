@@ -163,7 +163,7 @@ test("Vasi 2029–30: exact supplied sheet and all dependent views", () => {
     assert(honours[1].includes('2029–30'));
     assert(honours[2].includes('2028–29, 2029–30'));
     assert(honours[3].includes('2026–27, 2027–28, 2028–29'));
-    assert.equal(player.squadFlags['Tonje Knutsen'], undefined, 'Do not infer an unsupplied nationality');
+    assert.equal(player.squadFlags['Tonje Knutsen'], '🇳🇴', 'Tonje’s nationality is confirmed as Norwegian');
     assert.deepEqual(plain(meta.squad.find(row => row[2] === 'Vasiliki Dimitriou')), ['ST', '9', 'Vasiliki Dimitriou', '38', '38', '2', '14']);
 
     const weights = evaluate(`h2hFixtureWeights('vasi', '2029–30', "UEFA Women's Champions League", FULL_FIXTURES.vasi['2029–30']["UEFA Women's Champions League"], 'FC Barcelona')`);

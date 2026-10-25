@@ -40,6 +40,7 @@ DATA.vasi = {
     "Patri Guijarro": "🇪🇸",
     "Giulia Dragoni": "🇮🇹",
     "Guro Reiten": "🇳🇴",
+    "Tonje Knutsen": "🇳🇴",
     "Rosalía Domínguez": "🇪🇸",
     "Martine Trollsas Fenger": "🇳🇴",
     "Anna Affolter": "🇨🇭",

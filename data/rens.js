@@ -1234,7 +1234,7 @@ FULL_FIXTURES.rens = {
       "Crystal Palace 3 - 1 Brighton & Hove",
       "Brighton & Hove 1 - 2 Arsenal",
       "Millwall 2 - 1 Brighton & Hove",
-      "Fulham 1 - 2 Brighton & Hove",
+      "Fulham 2 - 1 Brighton & Hove",
       "Manchester City 0 - 1 Brighton & Hove",
       "AFC Bournemouth 1 - 2 Brighton & Hove",
       "Brighton & Hove 5 - 0 Nottingham Forest",

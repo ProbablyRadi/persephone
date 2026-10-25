@@ -2,27 +2,42 @@
 // Page renderers and reusable helpers are loaded first from js/.
 
 function route() {
-    let routePath = decodeURIComponent(location.hash.slice(1) || 'home'), [id, pageName] = routePath.split('/');
+    let routePath = 'home';
+    try {
+        routePath = decodeURIComponent(location.hash.slice(1) || 'home');
+    }
+    catch (error) {
+        // An incomplete percent-encoded URL should still open a usable page.
+    }
+    let [id, pageName, ...extraSegments] = routePath.split('/');
+    const isCharacter = Object.hasOwn(DATA, id);
+    const validPage = !pageName || (isCharacter && (
+        ['analysis', 'timeline', 'stats', 'comparisons'].includes(pageName)
+        || Object.hasOwn(DATA[id].seasons, pageName)
+    ));
+    if (extraSegments.length || !validPage || (!isCharacter && id !== 'home' && id !== 'gallery'))
+        id = 'home';
+    const playerData = Object.hasOwn(DATA, id) ? DATA[id] : null;
     // Use a wide, sidebar-free canvas on the home and photo-gallery pages.
-    document.body.classList.toggle('is-home', id === 'home' || (!DATA[id] && id !== 'gallery'));
+    document.body.classList.toggle('is-home', id === 'home');
     document.body.classList.toggle('is-gallery', id === 'gallery');
     if (characterSelect)
-        characterSelect.value = DATA[id] ? id : '';
+        characterSelect.value = playerData ? id : '';
     if (id === 'home')
         home();
     else if (id === 'gallery')
         galleryPage();
-    else if (DATA[id] && pageName === 'analysis')
+    else if (playerData && pageName === 'analysis')
         careerAnalysis(id);
-    else if (DATA[id] && pageName === 'timeline')
+    else if (playerData && pageName === 'timeline')
         careerTimeline(id);
-    else if (DATA[id] && pageName === 'stats')
+    else if (playerData && pageName === 'stats')
         careerStats(id);
-    else if (DATA[id] && pageName === 'comparisons')
+    else if (playerData && pageName === 'comparisons')
         careerComparisons(id);
-    else if (DATA[id] && pageName && DATA[id].seasons[pageName])
+    else if (playerData && pageName && Object.hasOwn(playerData.seasons, pageName))
         season(id, pageName);
-    else if (DATA[id])
+    else if (playerData)
         player(id);
     else
         home();

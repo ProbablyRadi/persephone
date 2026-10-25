@@ -8,7 +8,7 @@ test("All career H2H totals, represented teams, aggregate legs and penalty outco
     const site = createSite();
     const { context } = site;
     const expected = {
-        rens: { opponents: 152, played: 554, wins: 349, draws: 88, losses: 101, aggregateOnlyTies: 16 },
+        rens: { opponents: 152, played: 554, wins: 348, draws: 88, losses: 102, aggregateOnlyTies: 16 },
         jordan: { opponents: 112, played: 319, wins: 164, draws: 66, losses: 87, aggregateOnlyTies: 2 },
         vasi: { opponents: 41, played: 221, wins: 159, draws: 29, losses: 22, aggregateOnlyTies: 11 },
     };
@@ -133,7 +133,7 @@ test("All career H2H totals, represented teams, aggregate legs and penalty outco
 
             unflaggedOpponents = rows.filter(row => !teamFlag(row.opponent)).map(row => row.opponent);
 
-            // Each Represented entry uses the same weighted, deduplicated fixtures
+            // Each Represented entry uses the same weighted fixtures
             // as the Played total (including both legs of aggregate-only ties).
             const representedCountMismatches = rows.filter(row =>
                 [...row.represented.values()].reduce((total, count) => total + count, 0)
@@ -277,4 +277,20 @@ test("All career H2H totals, represented teams, aggregate legs and penalty outco
         assert(legResults.every(result => ['win', 'draw', 'loss'].includes(result.result)),
             `${opponent}: every leg has its own recorded result`);
     }
+});
+
+test("Identical scores in separate World Cup editions both count", () => {
+    const site = createSite();
+    const record = site.evaluate(`(() => {
+        FULL_FIXTURES.jordan = {
+            '2026–27': { 'World Cup': ['England 2 - 0 Panama'] },
+            '2030–31': { 'World Cup': ['England 2 - 0 Panama'] }
+        };
+        return careerOpponentRows('jordan')[0];
+    })()`);
+    assert.equal(record.opponent, 'Panama');
+    assert.equal(record.played, 2);
+    assert.equal(record.wins, 2);
+    assert.equal(record.gf, 4);
+    assert.deepEqual([...record.seasons], ['2026–27', '2030–31']);
 });

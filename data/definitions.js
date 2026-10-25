@@ -196,6 +196,7 @@ const TEAM_FLAGS = {
     "Holstein Kiel": "🇩🇪",
     "FC St. Pauli": "🇩🇪",
     "Schalke 04": "🇩🇪",
+    "FC Schalke 04": "🇩🇪",
     "Real Madrid": "🇪🇸",
     "FC Barcelona": "🇪🇸",
     "Atlético de Madrid": "🇪🇸",

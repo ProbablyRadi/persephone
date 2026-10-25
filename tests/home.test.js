@@ -49,6 +49,33 @@ test('Home images resolve from the page; real routes and character controls sele
     assert.equal(app.className, 'home-page');
 });
 
+test('Invalid URL hashes fall back to home on startup and navigation; valid links still work', () => {
+    const site = createSite();
+    site.context.location.hash = '#rens/50%';
+    assert.doesNotThrow(() => site.startApp());
+    assert.equal(site.app.className, 'home-page');
+
+    for (const hash of [
+        '#%', '#rens/%E0%A4%A', '#constructor', '#toString', '#__proto__/stats',
+        '#rens/constructor', '#rens/toString', '#rens/__proto__',
+        '#unknown/stats', '#rens/unknown-season', '#rens/stats/extra', '#gallery/extra'
+    ]) {
+        site.navigate('#jordan/analysis');
+        assert.doesNotThrow(() => site.navigate(hash), hash);
+        assert.equal(site.app.className, 'home-page', hash);
+        assert(site.activeClasses.has('is-home'), hash);
+        assert(!site.activeClasses.has('is-gallery'), hash);
+        assert.equal(site.characterSelect.value, '', hash);
+        assert.equal(site.nav.innerHTML, '', hash);
+    }
+
+    site.navigate('#rens/' + encodeURIComponent('2031–32'));
+    assert.equal(site.app.className, 'season-view');
+    assert.equal(site.characterSelect.value, 'rens');
+    assert(!site.activeClasses.has('is-home'));
+    assert(site.app.innerHTML.includes('2031–32'));
+});
+
 test('All declared script/style assets exist, are versioned and load in the required order', () => {
     const html = read('index.html');
     const assets = [...html.matchAll(/<(?:script|link)[^>]+(?:src|href)="([^"#]+)"/g)]
