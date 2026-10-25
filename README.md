@@ -49,9 +49,20 @@ persephone/
 │   ├── portraits/
 │   └── stadium-glass-bg.jpg
 └── tests/
+    ├── fixtures/
+    │   └── vasi-2029-final.json
     ├── helpers/
-    │   └── site-source.js
-    └── verify-*.js
+    │   └── site.js
+    ├── players/
+    │   ├── jordan.test.js
+    │   ├── rens.test.js
+    │   └── vasi.test.js
+    ├── head-to-head.test.js
+    ├── home.test.js
+    ├── international.test.js
+    ├── profiles.test.js
+    ├── season-comparisons.test.js
+    └── table-sorting.test.js
 ```
 
 ## Files in the main folder
@@ -152,29 +163,50 @@ appears on the site when a data entry or CSS rule points to it.
 
 ## `tests/` — checks for the data and interface
 
-The tests are Node.js scripts that check recorded data and generated page
-markup. They are development tools; the browser does not load them.
+These are development files. The website does not load them, and you do not
+need to upload this folder to hosting. They use Node.js's built-in test runner
+and require no npm packages. The suite was checked with Node.js 22.
+
+Run every test from the project folder:
+
+```powershell
+node --test
+```
+
+Run just one feature or character:
+
+```powershell
+node --test tests/head-to-head.test.js
+node --test tests/players/vasi.test.js
+```
 
 | File | What it checks |
 | --- | --- |
-| `helpers/site-source.js` | Reads the script and stylesheet lists from `index.html`, allowing tests to inspect the same source files in the same order as the browser. |
-| `verify-home-page.js` | Home character tiles, the separate gallery route and character selection. |
-| `verify-home-gallery.js` | Gallery image files, captions, empty state and navigation behaviour. |
-| `verify-overviews.js` | Career overview tables, statistics, awards and profile details. |
-| `verify-overview-honours.js` | The placement of honours relative to the infobox and career statistics. |
-| `verify-h2h.js` | Head to Head calculations, including aggregate ties and represented-team counts. |
-| `verify-flag-sorting.js` | Alphabetical country sorting for both flag images and emoji. |
-| `verify-international-tournaments.js` | How international tournament records are grouped into season pages. |
-| `verify-world-cup-timeline.js` | World Cup winners, runners-up and third-place teams shown on the timeline. |
-| `verify-jordan-2028.js` | Jordan's 2028–29 records and their use in career, season and timeline views. |
-| `verify-jordan-2029.js` | Jordan's 2029–30 results, squad, career totals and timeline. |
-| `verify-jordan-2030.js` | Jordan's 2030–31 Brighton season and 2030 World Cup records. |
-| `verify-rens-2035.js` | Rens's 2035–36 league participants, squad and timeline. |
-| `verify-vasi-2028.js` | Vasi's completed 2028–29 season, honours, standings and related views. |
-| `verify-vasi-2029.js` | Vasi's in-progress 2029–30 season and related views. |
-| `verify-season-comparisons.js` | Checks plotted ranks, colour palettes/aliases, relegation and return to the league, navigation, completed-season filtering, unexplained gaps and single-season/empty states. |
+| `home.test.js` | Real app routing, character selection, absolute home-image URLs, versioned asset files, gallery image order and click/keyboard/swipe behaviour. |
+| `profiles.test.js` | Profile content, career/award totals, future placeholders, live-season exclusions and the order of infobox, honours and career statistics. |
+| `head-to-head.test.js` | All three characters' opponent totals, represented-club counts, penalty outcomes, two-legged ties and duplicate aggregate summaries. |
+| `table-sorting.test.js` | Country-name sorting for PNG/emoji flags, actual numeric sorting clicks and chronological tables that must not be sortable. |
+| `international.test.js` | Tournament editions staying within one season, matching fixtures/tables/summaries and World Cup podiums. Distinguishes World Cup 2026 from World Cup 2030 even when both use the name World Cup. |
+| `season-comparisons.test.js` | League finishes, team colours, completed-season filtering, promotions/relegations, missing records and entry/exit line geometry. |
+| `players/jordan.test.js` | Jordan's 2028–29 and 2029–30 completed seasons, the live 2030–31 Brighton season, squads, nationalities and related timeline/results views. |
+| `players/rens.test.js` | Rens's 2035–36 league entrants, Dortmund roster, confirmed flags and unreported figures remaining blank. |
+| `players/vasi.test.js` | Vasi's 2028–29 and 2029–30 seasons, corrected scores, final standings/squads, aggregate accounting and dependent charts/pages. |
+| `helpers/site.js` | Loads the real data and renderer scripts listed in `index.html` into a fresh isolated JavaScript context for each check. Supplies minimal browser doubles for routing tests. |
+| `fixtures/vasi-2029-final.json` | A reference copy of the supplied final season sheet, used to verify every imported score, table and squad row independently of the current data file. |
 
-For example, `node tests/verify-h2h.js` runs the Head to Head checks.
+The nine test files contain named checks, so a failure identifies the feature
+or season that needs investigation. Character-specific checks stay grouped
+by character rather than creating a new file for every season.
+
+The reference-data checks are worth keeping: general tests might still pass
+if a specific score, squad member or confirmed zero were accidentally changed.
+When new data is supplied, confirm it against the source before updating the
+relevant expectations. A historical-season test should not depend on a later
+international-cap total; current profile totals belong in profile checks.
+
+These Node tests check calculations, generated markup and selected control
+behaviour. They do not render a browser layout. Changes to appearance still
+need a visual check on desktop and phone widths and in the supported themes.
 
 ## How a page is displayed
 
