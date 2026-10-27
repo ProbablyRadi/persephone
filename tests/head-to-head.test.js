@@ -8,7 +8,7 @@ test("All career H2H totals, represented teams, aggregate legs and penalty outco
     const site = createSite();
     const { context } = site;
     const expected = {
-        rens: { opponents: 152, played: 554, wins: 348, draws: 88, losses: 102, aggregateOnlyTies: 16 },
+        rens: { opponents: 155, played: 571, wins: 360, draws: 91, losses: 104, aggregateOnlyTies: 16 },
         jordan: { opponents: 112, played: 319, wins: 164, draws: 66, losses: 87, aggregateOnlyTies: 2 },
         vasi: { opponents: 41, played: 221, wins: 159, draws: 29, losses: 22, aggregateOnlyTies: 11 },
     };
@@ -190,7 +190,7 @@ test("All career H2H totals, represented teams, aggregate legs and penalty outco
         }
         if (id === 'rens') {
             assert.equal(actual.representedExamples.Arsenal,
-                'Brighton & Hove (14), FC Bayern München (1), Borussia Dortmund (1)',
+                'Brighton & Hove (14), FC Bayern München (1), Borussia Dortmund (2)',
                 'Rens: the Arsenal record should split correctly by club');
         }
         assert(actual.html.includes('analysis-summary'), `${id}: H2H page did not render`);

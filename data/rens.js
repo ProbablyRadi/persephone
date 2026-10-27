@@ -765,7 +765,7 @@ DATA.rens = {
     // 2035–36
     "2035–36": {
       "inProgress": true,
-      "summary": "First Borussia Dortmund season — currently in progress.",
+      "summary": "Rens Adisea's first Borussia Dortmund season is in progress. Dortmund have seven wins, two draws and one defeat from ten recorded Bundesliga matches (25 goals for, eight against; 23 points). They won the F. Beckenbauer Supercup 4–1 against Bayern, beat Stuttgart 3–0 in the DFB-Pokal and have three wins and one defeat from four recorded Champions League matches. The Netherlands lost 2–1 to Ukraine in Euros qualifying, drew 2–2 with England and beat Iceland 2–1 and France 6–0 in friendlies. Individual player statistics and current league rankings have not been supplied.",
       "competitions": {
         "Pre-season friendlies": [
           "Dortmund 5–0 Inter Milan",
@@ -775,11 +775,25 @@ DATA.rens = {
         "F. Beckenbauer Supercup": [
           "Bayern 1–4 Dortmund 🏆"
         ],
+        "Bundesliga": [
+          "10 recorded matches: 7 wins, 2 draws, 1 loss; 25 GF, 8 GA; 23 pts"
+        ],
+        "DFB-Pokal": [
+          "VfB Stuttgart 0–3 Borussia Dortmund"
+        ],
         "UEFA Champions League": [
-          "League phase currently recorded with Dortmund in 6th after eight matches"
+          "Four league-phase matches recorded: 3 wins, 1 loss; 7 GF, 5 GA"
+        ],
+        "Euros Qualifiers": [
+          "Ukraine 2–1 Netherlands"
+        ],
+        "International Friendlies": [
+          "England 2–2 Netherlands",
+          "Netherlands 2–1 Iceland",
+          "France 0–6 Netherlands"
         ]
       },
-      "table": "1st — 73 pts"
+      "table": "In progress — 23 pts from 10 recorded matches; position not reported"
     }
   }
 };
@@ -1666,10 +1680,35 @@ FULL_FIXTURES.rens = {
     ],
     "Bundesliga": [
       "Leverkusen 0 - 2 Borussia Dortmund",
-      "VfB Stuttgart 3 - 2 Borussia Dortmund"
+      "VfB Stuttgart 3 - 2 Borussia Dortmund",
+      "Borussia Dortmund 4 - 1 SC Freiburg",
+      "1. FC Köln 1 - 2 Borussia Dortmund",
+      "Borussia Dortmund 2 - 0 SV Werder Bremen",
+      "1. FC Nürnberg 2 - 2 Borussia Dortmund",
+      "Borussia Dortmund 6 - 0 FC Augsburg",
+      "Hamburger SV 0 - 1 Borussia Dortmund",
+      "Borussia Dortmund 1 - 1 1. FSV Mainz 05",
+      "FC Bayern München 0 - 3 Borussia Dortmund"
     ],
     "F. Beckenbauer Supercup": [
       "FC Bayern München 1 - 4 Borussia Dortmund"
+    ],
+    "DFB-Pokal": [
+      "VfB Stuttgart 0 - 3 Borussia Dortmund"
+    ],
+    "UEFA Champions League": [
+      "Borussia Dortmund 2 - 0 Arsenal",
+      "Stade Rennais FC 1 - 2 Borussia Dortmund",
+      "Borussia Dortmund 2 - 0 Rangers",
+      "Borussia Dortmund 1 - 4 OM"
+    ],
+    "Euros Qualifiers": [
+      "Ukraine 2 - 1 Netherlands"
+    ],
+    "International Friendlies": [
+      "England 2 - 2 Netherlands",
+      "Netherlands 2 - 1 Iceland",
+      "France 0 - 6 Netherlands"
     ]
   }
 };
@@ -11768,445 +11807,6 @@ COMPETITION_TABLES.rens = {
       ]
     }
   },
-  // 2035–36
-  "2035–36": {
-    "UEFA Champions League": {
-      "type": "league",
-      "rows": [
-        [
-          "1",
-          "Brighton & Hove",
-          "8",
-          "6",
-          "1",
-          "1",
-          "15",
-          "9",
-          "6",
-          "19"
-        ],
-        [
-          "2",
-          "Paris SG",
-          "8",
-          "5",
-          "3",
-          "0",
-          "16",
-          "10",
-          "6",
-          "18"
-        ],
-        [
-          "3",
-          "FC Bayern München",
-          "8",
-          "5",
-          "2",
-          "1",
-          "21",
-          "7",
-          "14",
-          "17"
-        ],
-        [
-          "4",
-          "Inter Milan",
-          "8",
-          "5",
-          "1",
-          "2",
-          "12",
-          "7",
-          "5",
-          "16"
-        ],
-        [
-          "5",
-          "AC Milan",
-          "8",
-          "4",
-          "3",
-          "1",
-          "12",
-          "6",
-          "6",
-          "15"
-        ],
-        [
-          "6",
-          "Borussia Dortmund",
-          "8",
-          "5",
-          "0",
-          "3",
-          "11",
-          "7",
-          "4",
-          "15"
-        ],
-        [
-          "7",
-          "Liverpool",
-          "8",
-          "4",
-          "3",
-          "1",
-          "12",
-          "9",
-          "3",
-          "15"
-        ],
-        [
-          "8",
-          "Leverkusen",
-          "8",
-          "4",
-          "2",
-          "2",
-          "12",
-          "7",
-          "5",
-          "14"
-        ],
-        [
-          "9",
-          "Sevilla FC",
-          "8",
-          "3",
-          "5",
-          "0",
-          "11",
-          "6",
-          "5",
-          "14"
-        ],
-        [
-          "10",
-          "Real Madrid",
-          "8",
-          "4",
-          "2",
-          "2",
-          "14",
-          "10",
-          "4",
-          "14"
-        ],
-        [
-          "11",
-          "FC Barcelona",
-          "8",
-          "4",
-          "2",
-          "2",
-          "11",
-          "8",
-          "5",
-          "14"
-        ],
-        [
-          "12",
-          "RSC Anderlecht",
-          "8",
-          "4",
-          "2",
-          "2",
-          "13",
-          "11",
-          "2",
-          "14"
-        ],
-        [
-          "13",
-          "SSC Napoli",
-          "8",
-          "4",
-          "2",
-          "2",
-          "13",
-          "12",
-          "1",
-          "14"
-        ],
-        [
-          "14",
-          "Club Brugge",
-          "8",
-          "3",
-          "4",
-          "1",
-          "10",
-          "7",
-          "3",
-          "13"
-        ],
-        [
-          "15",
-          "Sporting CP",
-          "8",
-          "4",
-          "1",
-          "3",
-          "9",
-          "9",
-          "0",
-          "13"
-        ],
-        [
-          "16",
-          "Lech Poznań",
-          "8",
-          "3",
-          "3",
-          "2",
-          "10",
-          "10",
-          "0",
-          "12"
-        ],
-        [
-          "17",
-          "Ferencvárosi TC",
-          "8",
-          "3",
-          "3",
-          "2",
-          "11",
-          "12",
-          "-1",
-          "12"
-        ],
-        [
-          "18",
-          "RB Leipzig",
-          "8",
-          "2",
-          "5",
-          "1",
-          "9",
-          "7",
-          "2",
-          "11"
-        ],
-        [
-          "19",
-          "Strasbourg",
-          "8",
-          "2",
-          "5",
-          "1",
-          "8",
-          "6",
-          "2",
-          "11"
-        ],
-        [
-          "20",
-          "Manchester City",
-          "8",
-          "3",
-          "2",
-          "3",
-          "12",
-          "11",
-          "1",
-          "11"
-        ],
-        [
-          "21",
-          "Chelsea",
-          "8",
-          "3",
-          "2",
-          "3",
-          "9",
-          "8",
-          "1",
-          "11"
-        ],
-        [
-          "22",
-          "Atlético de Madrid",
-          "8",
-          "3",
-          "2",
-          "3",
-          "8",
-          "7",
-          "1",
-          "11"
-        ],
-        [
-          "23",
-          "Celtic",
-          "8",
-          "3",
-          "1",
-          "4",
-          "7",
-          "8",
-          "-1",
-          "10"
-        ],
-        [
-          "24",
-          "RC Lens",
-          "8",
-          "3",
-          "1",
-          "4",
-          "9",
-          "11",
-          "-2",
-          "10"
-        ],
-        [
-          "25",
-          "Feyenoord",
-          "8",
-          "3",
-          "0",
-          "5",
-          "10",
-          "15",
-          "-5",
-          "9"
-        ],
-        [
-          "26",
-          "AS Monaco",
-          "8",
-          "1",
-          "5",
-          "2",
-          "9",
-          "10",
-          "-1",
-          "8"
-        ],
-        [
-          "27",
-          "FC Midtjylland",
-          "8",
-          "2",
-          "2",
-          "4",
-          "8",
-          "10",
-          "-2",
-          "8"
-        ],
-        [
-          "28",
-          "RB Salzburg",
-          "8",
-          "1",
-          "4",
-          "3",
-          "7",
-          "10",
-          "-3",
-          "7"
-        ],
-        [
-          "29",
-          "FC Basel 1893",
-          "8",
-          "2",
-          "1",
-          "5",
-          "10",
-          "15",
-          "-5",
-          "7"
-        ],
-        [
-          "30",
-          "Dynamo Kyiv",
-          "8",
-          "1",
-          "3",
-          "4",
-          "8",
-          "13",
-          "-5",
-          "6"
-        ],
-        [
-          "31",
-          "Ajax",
-          "8",
-          "1",
-          "2",
-          "5",
-          "10",
-          "16",
-          "-6",
-          "5"
-        ],
-        [
-          "32",
-          "SK Rapid",
-          "8",
-          "1",
-          "2",
-          "5",
-          "7",
-          "14",
-          "-7",
-          "5"
-        ],
-        [
-          "33",
-          "Galatasaray",
-          "8",
-          "1",
-          "1",
-          "6",
-          "5",
-          "15",
-          "-10",
-          "4"
-        ],
-        [
-          "34",
-          "Slavia Praha",
-          "8",
-          "1",
-          "1",
-          "6",
-          "7",
-          "20",
-          "-13",
-          "4"
-        ],
-        [
-          "35",
-          "SS Lazio",
-          "8",
-          "0",
-          "3",
-          "5",
-          "6",
-          "11",
-          "-5",
-          "3"
-        ],
-        [
-          "36",
-          "AEK Athens",
-          "8",
-          "0",
-          "1",
-          "7",
-          "7",
-          "15",
-          "-8",
-          "1"
-        ]
-      ]
-    }
-  }
+  // 2035–36: no current European standings supplied; blank template rows are omitted.
+  "2035–36": {}
 };
-
