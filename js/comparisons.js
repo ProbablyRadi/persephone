@@ -248,7 +248,9 @@ function enableComparisonPickers() {
 
 function careerComparisons(id) {
     const player = DATA[id];
-    const leagues = comparisonLeagueData(id);
+    // Jordan's single Championship season has no year-to-year comparison.
+    const leagues = comparisonLeagueData(id)
+        .filter(league => id !== 'jordan' || league.name !== 'EFL Championship');
     app.className = 'comparisons-page';
     nav.innerHTML = careerNavigator(id, '', 'comparisons');
     app.innerHTML = `<div class="comparisons-wrap">

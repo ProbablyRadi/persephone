@@ -235,6 +235,7 @@ Replace `rens` with `jordan` or `vasi` to open the equivalent character view.
 Changing the hash triggers the router without downloading a separate HTML
 page. On phones, the same content uses the layouts in `styles/mobile.css`.
 
-The `?v=...` values attached to script and stylesheet paths in `index.html`
-are cache-version labels. Changing a label tells the browser to request the
-updated file; it does not change the underlying filename.
+The `?v=100` values attached to script and stylesheet paths in `index.html`
+are cache-version numbers. When a file changes, increase its number (for
+example, to `?v=101`) so browsers request the updated file. Each file can
+have its own version number; the underlying filename stays the same.
