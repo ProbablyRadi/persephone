@@ -22,7 +22,7 @@ test("Comparison ranks, club palettes, live exclusions and entry/exit geometry",
     }`, context);
     const rens = data('rens');
     assert.deepEqual(Array.from(rens.map(league => [league.name, league.years.length]), row => Array.from(row)), [
-        ['Eredivisie', 3], ['Premier League', 5], ['Bundesliga', 2]
+        ['Eredivisie', 3], ['Premier League', 5], ['Bundesliga', 3]
     ]);
     const premier = rens.find(league => league.name === 'Premier League');
     context.premier = premier;

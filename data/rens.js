@@ -154,6 +154,7 @@ DATA.rens = {
     "Tariq Benzai": "🇹🇳",
     "Pedro Villalba": "🇵🇾",
     "Jonathan Friedrich": "🇩🇪",
+    "Jonathan Barcelos": "🇧🇷",
     "Petr Vávra": "🇸🇮",
     "João Paulo Soares": "🇧🇷",
     "Andon Mihov": "🇲🇰",
@@ -217,6 +218,14 @@ DATA.rens = {
       "28": "Semi-finals (agg)",
       "29": "Final"
     },
+    "2035–36|UEFA Champions League": {
+      "0": "League phase",
+      "8": "Knockout phase play-off (agg)",
+      "16": "Round of 16 (agg)",
+      "24": "Quarter-finals (agg)",
+      "28": "Semi-finals (agg)",
+      "30": "Final"
+    },
     "2032–33|Euros 2032": {
       "0": "Group stage",
       "3": "Round of 16",
@@ -250,8 +259,8 @@ DATA.rens = {
   // Biography, club history, national-team record, season statistics and awards.
   "intro": [
     "Rens Wilhelm Adisea is a Dutch professional footballer who plays as an attacking midfielder for Bundesliga club Borussia Dortmund and the Netherlands national team. Born in Zandvoort, Adisea began his senior career with PEC Zwolle in 2025 and established himself as a prolific attacking midfielder during three seasons in the Eredivisie. He chose 46 as his personal squad number early in his career and has consistently refused to wear the traditional number 10; over time, the number 46 became closely associated with him.",
-    "In 2028, Adisea joined Brighton & Hove Albion, where he spent five seasons and helped the club win the Premier League in 2030–31. His time in England also brought UEFA Conference League and UEFA Europa League titles, as well as the FA Cup, Carabao Cup and two FA Community Shields. He moved to Bayern Munich in 2033 and won consecutive Bundesliga, DFB-Pokal and UEFA Champions League titles. Despite that sustained success, Adisea chose to leave Bayern in 2035, saying he wanted a greater challenge rather than continuing with a side expected to win every season, and joined Borussia Dortmund.",
-    "Adisea's first senior Netherlands call-up did not arrive until 2031, with the national side having considerable depth in midfield and selectors viewing him for several years as a gifted but still raw player. Once called up, he impressed immediately and established himself in the national-team picture. He was part of the Dutch side that reached the semi-finals of UEFA Euro 2032 and later won the 2034 FIFA World Cup. In the recorded career to date, he has made 42 appearances and scored 31 goals for the Netherlands."
+    "In 2028, Adisea joined Brighton & Hove Albion, where he spent five seasons and helped the club win the Premier League in 2030–31. His time in England also brought UEFA Conference League and UEFA Europa League titles, as well as the FA Cup, Carabao Cup and two FA Community Shields. He moved to Bayern Munich in 2033 and won consecutive Bundesliga, DFB-Pokal and UEFA Champions League titles. Despite that sustained success, Adisea chose to leave Bayern in 2035, saying he wanted a greater challenge rather than continuing with a side expected to win every season, and joined Borussia Dortmund. In his first Dortmund season, he won the Bundesliga on goal difference, the DFB-Pokal and the F. Beckenbauer Supercup, scoring 48 goals in 53 appearances and earning the club’s Player of the Season award.",
+    "Adisea's first senior Netherlands call-up did not arrive until 2031, with the national side having considerable depth in midfield and selectors viewing him for several years as a gifted but still raw player. Once called up, he impressed immediately and established himself in the national-team picture. He was part of the Dutch side that reached the semi-finals of UEFA Euro 2032 and later won the 2034 FIFA World Cup. In the recorded career to date, he has made 48 appearances and scored 34 goals for the Netherlands."
   ],
   "career": [
     [
@@ -275,8 +284,8 @@ DATA.rens = {
     [
       "2035–2040",
       "🇩🇪 Borussia Dortmund",
-      "—",
-      "—"
+      53,
+      48
     ],
     [
       "2040–2043",
@@ -288,8 +297,8 @@ DATA.rens = {
   "intl": [
     "2031–",
     "🇳🇱 Netherlands",
-    42,
-    31
+    48,
+    34
   ],
   // Row order: season, club, role, league, league position,
   // average rating, appearances, goals, assists, clean sheets.
@@ -419,12 +428,12 @@ DATA.rens = {
       "🇩🇪 Borussia Dortmund",
       "RAM",
       "Bundesliga",
-      "—",
-      "—",
-      "—",
-      "—",
-      "—",
-      "—"
+      "1st",
+      "6.8",
+      53,
+      48,
+      8,
+      18
     ]
   ],
   // Overview-only POTM/MOTM awards, keyed by season.
@@ -469,6 +478,10 @@ DATA.rens = {
     "2034–35": {
       "playerOfTheMonth": 1,
       "playerOfTheMatch": 11
+    },
+    "2035–36": {
+      "playerOfTheMonth": 3,
+      "playerOfTheMatch": 15
     }
   },
   // Future overview placeholders only: not playable seasons or fixtures.
@@ -546,7 +559,10 @@ DATA.rens = {
       "Player of the Season: 2033–34 🏆"
     ],
     "🇩🇪 Borussia Dortmund": [
-      "F. Beckenbauer Supercup: 2035 🏆"
+      "Bundesliga: 2035–36 🏆",
+      "F. Beckenbauer Supercup: 2035 🏆",
+      "DFB-Pokal: 2035–36 🏆",
+      "Player of the Season: 2035–36 🏆"
     ],
     "🇳🇱 Netherlands": [
       "FIFA World Cup: 2034 🏆",
@@ -764,36 +780,53 @@ DATA.rens = {
     },
     // 2035–36
     "2035–36": {
-      "inProgress": true,
-      "summary": "Rens Adisea's first Borussia Dortmund season is in progress. Dortmund have seven wins, two draws and one defeat from ten recorded Bundesliga matches (25 goals for, eight against; 23 points). They won the F. Beckenbauer Supercup 4–1 against Bayern, beat Stuttgart 3–0 in the DFB-Pokal and have three wins and one defeat from four recorded Champions League matches. The Netherlands lost 2–1 to Ukraine in Euros qualifying, drew 2–2 with England and beat Iceland 2–1 and France 6–0 in friendlies. Individual player statistics and current league rankings have not been supplied.",
+      "summary": "Rens Adisea led Borussia Dortmund to the Bundesliga title in his first season, finishing level with RB Leipzig on 68 points and winning on goal difference (67 goals for, 37 against; 20 wins, eight draws and six defeats). Dortmund also won the DFB-Pokal, beating Leipzig 1–0 in the final, and the F. Beckenbauer Supercup with a 4–1 victory over Bayern. They finished second in the Champions League league phase before beating Salzburg 4–1 on aggregate and losing 1–0 on aggregate to Stade Rennais in the quarter-finals. Rens finished with 53 appearances, 48 goals, eight assists, 18 clean sheets and a 6.8 average rating, earning three Player of the Month awards, 15 Player of the Match awards and Dortmund Player of the Season. His Netherlands career record is 48 appearances and 34 goals.",
       "competitions": {
         "Pre-season friendlies": [
           "Dortmund 5–0 Inter Milan",
           "AS Roma 0–1 Dortmund",
           "Dortmund 2–3 Arsenal"
         ],
-        "F. Beckenbauer Supercup": [
-          "Bayern 1–4 Dortmund 🏆"
-        ],
         "Bundesliga": [
-          "10 recorded matches: 7 wins, 2 draws, 1 loss; 25 GF, 8 GA; 23 pts"
+          "Champions 🏆 — 68 points; 20 wins, 8 draws, 6 losses; 67 GF, 37 GA"
+        ],
+        "UEFA Super Cup": [
+          "FC Bayern München 3–2 Arsenal — Final"
+        ],
+        "F. Beckenbauer Supercup": [
+          "FC Bayern München 1–4 Borussia Dortmund — Final 🏆"
         ],
         "DFB-Pokal": [
-          "VfB Stuttgart 0–3 Borussia Dortmund"
+          "Borussia Dortmund 4–2 1. FC Köln — Semi-final",
+          "RB Leipzig 0–1 Borussia Dortmund — Final 🏆"
         ],
         "UEFA Champions League": [
-          "Four league-phase matches recorded: 3 wins, 1 loss; 7 GF, 5 GA"
+          "League phase: 2nd, 21 pts",
+          "Round of 16: Borussia Dortmund 4–1 RB Salzburg (aggregate)",
+          "Quarter-final: Borussia Dortmund 0–1 Stade Rennais FC (aggregate)"
         ],
-        "Euros Qualifiers": [
-          "Ukraine 2–1 Netherlands"
+        "UEFA Europa League": [
+          "AS Roma 2–1 Aston Villa — Final"
+        ],
+        "UEFA Conference League": [
+          "Paris SG 1–2 F.C. København — Final"
         ],
         "International Friendlies": [
-          "England 2–2 Netherlands",
-          "Netherlands 2–1 Iceland",
-          "France 0–6 Netherlands"
+          "Switzerland 0–3 Netherlands",
+          "Netherlands 1–1 Portugal"
+        ],
+        "Euros Qualifiers": [
+          "Wales 2–4 Netherlands",
+          "Netherlands 2–0 Ukraine",
+          "Czechia 1–2 Netherlands",
+          "Netherlands 3–0 Denmark",
+          "Netherlands 3–0 Wales",
+          "Denmark 1–2 Netherlands",
+          "Netherlands 1–1 Czechia",
+          "Ukraine 2–1 Netherlands"
         ]
       },
-      "table": "In progress — 23 pts from 10 recorded matches; position not reported"
+      "table": "1st 🏆 — 68 pts (won on goal difference)"
     }
   }
 };
@@ -1688,27 +1721,101 @@ FULL_FIXTURES.rens = {
       "Borussia Dortmund 6 - 0 FC Augsburg",
       "Hamburger SV 0 - 1 Borussia Dortmund",
       "Borussia Dortmund 1 - 1 1. FSV Mainz 05",
-      "FC Bayern München 0 - 3 Borussia Dortmund"
+      "FC Bayern München 0 - 3 Borussia Dortmund",
+      "Borussia Dortmund 2 - 0 VfL Wolfsburg",
+      "Hertha BSC 3 - 1 Borussia Dortmund",
+      "Borussia Dortmund 2 - 1 Union Berlin",
+      "RB Leipzig 0 - 1 Borussia Dortmund",
+      "Borussia Dortmund 1 - 1 Hannover 96",
+      "TSG Hoffenheim 2 - 1 Borussia Dortmund",
+      "Borussia Dortmund 1 - 0 Frankfurt",
+      "Borussia Dortmund 2 - 1 Hamburger SV",
+      "FC Augsburg 2 - 2 Borussia Dortmund",
+      "Borussia Dortmund 2 - 1 1. FC Nürnberg",
+      "SV Werder Bremen 1 - 2 Borussia Dortmund",
+      "Borussia Dortmund 1 - 1 1. FC Köln",
+      "SC Freiburg 2 - 1 Borussia Dortmund",
+      "Borussia Dortmund 6 - 0 FC Bayern München",
+      "1. FSV Mainz 05 2 - 2 Borussia Dortmund",
+      "Borussia Dortmund 1 - 2 RB Leipzig",
+      "Union Berlin 1 - 1 Borussia Dortmund",
+      "Frankfurt 0 - 1 Borussia Dortmund",
+      "Borussia Dortmund 2 - 1 VfB Stuttgart",
+      "Borussia Dortmund 3 - 2 Leverkusen",
+      "Borussia Dortmund 0 - 1 TSG Hoffenheim",
+      "Hannover 96 1 - 2 Borussia Dortmund",
+      "Borussia Dortmund 3 - 2 Hertha BSC",
+      "VfL Wolfsburg 2 - 2 Borussia Dortmund"
+    ],
+    "UEFA Super Cup": [
+      "F — FC Bayern München 3 - 2 Arsenal"
     ],
     "F. Beckenbauer Supercup": [
-      "FC Bayern München 1 - 4 Borussia Dortmund"
+      "F — FC Bayern München 1 - 4 Borussia Dortmund"
     ],
     "DFB-Pokal": [
-      "VfB Stuttgart 0 - 3 Borussia Dortmund"
+      "VfB Stuttgart 0 - 3 Borussia Dortmund",
+      "R16 — Hannover 96 1 - 2 Borussia Dortmund",
+      "QF — Borussia Dortmund 2 - 1 Kaiserslautern",
+      "SF — Borussia Dortmund 4 - 2 1. FC Köln",
+      "F — RB Leipzig 0 - 1 Borussia Dortmund"
     ],
     "UEFA Champions League": [
       "Borussia Dortmund 2 - 0 Arsenal",
       "Stade Rennais FC 1 - 2 Borussia Dortmund",
       "Borussia Dortmund 2 - 0 Rangers",
-      "Borussia Dortmund 1 - 4 OM"
+      "Borussia Dortmund 1 - 4 OM",
+      "Manchester City 1 - 2 Borussia Dortmund",
+      "Borussia Dortmund 1 - 0 Villarreal CF",
+      "Dynamo Kyiv 0 - 3 Borussia Dortmund",
+      "AEK Athens 0 - 3 Borussia Dortmund",
+      "Manchester City 4 - 3 Ajax",
+      "Stade Rennais FC 5 - 3 Trabzonspor",
+      "Arsenal 5 - 2 Real Sociedad",
+      "Club Brugge 3 - 1 SL Benfica",
+      "RB Salzburg 3 - 2 Rangers",
+      "FC Bayern München 5 - 1 FC Famalicão",
+      "Celtic 0 - 7 Inter Milan",
+      "Strasbourg 2 - 7 Chelsea",
+      "FC Barcelona 4 - 2 Inter Milan",
+      "OM 2 - 4 Chelsea",
+      "Borussia Dortmund 4 - 1 RB Salzburg",
+      "Real Madrid 1 - 2 Stade Rennais FC",
+      "Nottingham Forest 3 - 4 Manchester City",
+      "Frankfurt 2 - 4 FC Bayern München",
+      "OL (3) 2 - 2 (4) Arsenal",
+      "RB Leipzig 1 - 5 Club Brugge",
+      "Borussia Dortmund 0 - 1 Stade Rennais FC",
+      "Club Brugge 3 - 2 Arsenal",
+      "FC Bayern München 1 - 2 Manchester City",
+      "FC Barcelona 3 - 2 Chelsea",
+      "Stade Rennais FC 1 - 0 Club Brugge",
+      "Manchester City 4 - 3 FC Barcelona",
+      "Manchester City 2 - 0 Stade Rennais FC"
     ],
-    "Euros Qualifiers": [
-      "Ukraine 2 - 1 Netherlands"
+    "UEFA Europa League": [
+      "F — AS Roma 2 - 1 Aston Villa"
+    ],
+    "UEFA Conference League": [
+      "F — Paris SG 1 - 2 F.C. København"
     ],
     "International Friendlies": [
       "England 2 - 2 Netherlands",
       "Netherlands 2 - 1 Iceland",
-      "France 0 - 6 Netherlands"
+      "France 0 - 6 Netherlands",
+      "Uzbekistan 1 - 2 Netherlands",
+      "Switzerland 0 - 3 Netherlands",
+      "Netherlands 1 - 1 Portugal"
+    ],
+    "Euros Qualifiers": [
+      "Wales 2 - 4 Netherlands",
+      "Netherlands 2 - 0 Ukraine",
+      "Czechia 1 - 2 Netherlands",
+      "Netherlands 3 - 0 Denmark",
+      "Netherlands 3 - 0 Wales",
+      "Denmark 1 - 2 Netherlands",
+      "Netherlands 1 - 1 Czechia",
+      "Ukraine 2 - 1 Netherlands"
     ]
   }
 };
@@ -6294,436 +6401,444 @@ SEASON_TABLES.rens = {
       ]
     ]
   },
-  // 2035–36: confirmed Bundesliga participants; positions and standings are not yet known.
+  // 2035–36: final table, including the confirmed Bayern/Stuttgart loss corrections.
   "2035–36": {
     "league": "Bundesliga",
     "standings": [
       [
-        "",
-        "RB Leipzig",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ],
-      [
-        "",
+        "1",
         "Borussia Dortmund",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
+        "34",
+        "20",
+        "8",
+        "6",
+        "67",
+        "37",
+        "30",
+        "68"
       ],
       [
-        "",
-        "TSG Hoffenheim",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
+        "2",
+        "RB Leipzig",
+        "34",
+        "20",
+        "8",
+        "6",
+        "62",
+        "42",
+        "20",
+        "68"
       ],
       [
-        "",
-        "Union Berlin",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ],
-      [
-        "",
-        "Frankfurt",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ],
-      [
-        "",
+        "3",
         "Leverkusen",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
+        "34",
+        "18",
+        "9",
+        "7",
+        "67",
+        "39",
+        "28",
+        "63"
       ],
       [
-        "",
+        "4",
+        "Frankfurt",
+        "34",
+        "18",
+        "8",
+        "8",
+        "62",
+        "37",
+        "25",
+        "62"
+      ],
+      [
+        "5",
         "FC Bayern München",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
+        "34",
+        "17",
+        "6",
+        "11",
+        "57",
+        "50",
+        "7",
+        "57"
       ],
       [
-        "",
+        "6",
         "VfB Stuttgart",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
+        "34",
+        "15",
+        "11",
+        "8",
+        "49",
+        "37",
+        "12",
+        "56"
       ],
       [
-        "",
-        "Hannover 96",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ],
-      [
-        "",
-        "VfL Wolfsburg",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ],
-      [
-        "",
-        "Hertha BSC",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ],
-      [
-        "",
-        "1. FSV Mainz 05",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ],
-      [
-        "",
-        "Hamburger SV",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ],
-      [
-        "",
-        "SV Werder Bremen",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ],
-      [
-        "",
+        "7",
         "SC Freiburg",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
+        "34",
+        "16",
+        "8",
+        "10",
+        "55",
+        "46",
+        "9",
+        "56"
       ],
       [
-        "",
-        "1. FC Nürnberg",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
+        "8",
+        "TSG Hoffenheim",
+        "34",
+        "15",
+        "10",
+        "9",
+        "44",
+        "42",
+        "2",
+        "55"
       ],
       [
-        "",
-        "FC Augsburg",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
+        "9",
+        "VfL Wolfsburg",
+        "34",
+        "12",
+        "10",
+        "12",
+        "44",
+        "49",
+        "-5",
+        "46"
       ],
       [
-        "",
+        "10",
+        "1. FSV Mainz 05",
+        "34",
+        "11",
+        "11",
+        "12",
+        "45",
+        "46",
+        "-1",
+        "44"
+      ],
+      [
+        "11",
         "1. FC Köln",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
+        "34",
+        "10",
+        "12",
+        "12",
+        "41",
+        "44",
+        "-3",
+        "42"
+      ],
+      [
+        "12",
+        "Hertha BSC",
+        "34",
+        "8",
+        "13",
+        "13",
+        "40",
+        "51",
+        "-11",
+        "37"
+      ],
+      [
+        "13",
+        "Union Berlin",
+        "34",
+        "8",
+        "12",
+        "14",
+        "42",
+        "49",
+        "-7",
+        "36"
+      ],
+      [
+        "14",
+        "Hamburger SV",
+        "34",
+        "7",
+        "12",
+        "15",
+        "35",
+        "46",
+        "-11",
+        "33"
+      ],
+      [
+        "15",
+        "SV Werder Bremen",
+        "34",
+        "8",
+        "8",
+        "18",
+        "36",
+        "55",
+        "-19",
+        "32"
+      ],
+      [
+        "16",
+        "FC Augsburg",
+        "34",
+        "7",
+        "10",
+        "17",
+        "36",
+        "58",
+        "-22",
+        "31"
+      ],
+      [
+        "17",
+        "1. FC Nürnberg",
+        "34",
+        "6",
+        "9",
+        "19",
+        "45",
+        "66",
+        "-21",
+        "27"
+      ],
+      [
+        "18",
+        "Hannover 96",
+        "34",
+        "3",
+        "9",
+        "22",
+        "32",
+        "65",
+        "-33",
+        "18"
       ]
     ],
     "club": "Borussia Dortmund",
-    // Current squad; individual player statistics have not been supplied yet.
     "squad": [
       [
         "GK",
         "1",
         "Gregor Kobel",
-        "",
-        "",
-        "",
-        ""
+        "6",
+        "0",
+        "0",
+        "3"
       ],
       [
         "GK",
         "12",
         "Everton Teixeira",
-        "",
-        "",
-        "",
-        ""
+        "49",
+        "0",
+        "0",
+        "18"
       ],
       [
         "CB",
         "39",
         "Filippo Mane",
-        "",
-        "",
-        "",
-        ""
+        "44",
+        "0",
+        "1",
+        "17"
       ],
       [
         "CB",
         "47",
         "Elias Benkara",
-        "",
-        "",
-        "",
-        ""
+        "50",
+        "0",
+        "1",
+        "16"
       ],
       [
         "CB",
         "4",
         "Nico Schlotterbeck",
-        "",
-        "",
-        "",
-        ""
+        "55",
+        "4",
+        "0",
+        "22"
       ],
       [
         "CB",
         "2",
         "Kai Riedel",
-        "",
-        "",
-        "",
-        ""
+        "6",
+        "0",
+        "0",
+        "0"
       ],
       [
         "CB",
         "3",
         "Giulio Valentini",
-        "",
-        "",
-        "",
-        ""
+        "3",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "CB",
+        "13",
+        "Jonathan Barcelos",
+        "34",
+        "3",
+        "1",
+        "11"
       ],
       [
         "RB",
         "5",
         "Brooke Norton-Cuffy",
-        "",
-        "",
-        "",
-        ""
+        "26",
+        "0",
+        "2",
+        "0"
       ],
       [
         "RB",
         "6",
         "Samuel Flament",
-        "",
-        "",
-        "",
-        ""
+        "53",
+        "2",
+        "4",
+        "19"
       ],
       [
         "CDM",
         "23",
         "Tariq Benzai",
-        "",
-        "",
-        "",
-        ""
+        "0",
+        "0",
+        "0",
+        "0"
       ],
       [
         "LM",
         "24",
         "Pedro Villalba",
-        "",
-        "",
-        "",
-        ""
+        "20",
+        "0",
+        "1",
+        "3"
       ],
       [
         "LM",
         "8",
         "Ryan Cordier",
-        "",
-        "",
-        "",
-        ""
+        "52",
+        "9",
+        "2",
+        "17"
       ],
       [
         "CM",
         "7",
         "Kjell Wätjen",
-        "",
-        "",
-        "",
-        ""
+        "34",
+        "1",
+        "1",
+        "8"
       ],
       [
         "CAM",
         "45",
         "Danylo Krevsun",
-        "",
-        "",
-        "",
-        ""
+        "1",
+        "0",
+        "0",
+        "0"
       ],
       [
         "CAM",
         "40",
         "Samuele Inacio",
-        "",
-        "",
-        "",
-        ""
+        "43",
+        "4",
+        "4",
+        "10"
       ],
       [
         "CAM",
         "17",
         "Carney Chukwuemeka",
-        "",
-        "",
-        "",
-        ""
+        "48",
+        "7",
+        "9",
+        "17"
       ],
       [
         "CAM",
         "15",
         "Jonathan Friedrich",
-        "",
-        "",
-        "",
-        ""
+        "55",
+        "10",
+        "13",
+        "21"
       ],
       [
         "CAM",
         "20",
         "Petr Vávra",
-        "",
-        "",
-        "",
-        ""
+        "0",
+        "0",
+        "0",
+        "0"
       ],
       [
         "CAM",
         "25",
         "João Paulo Soares",
-        "",
-        "",
-        "",
-        ""
+        "32",
+        "0",
+        "2",
+        "5"
       ],
       [
         "CAM",
         "19",
         "Andon Mihov",
-        "",
-        "",
-        "",
-        ""
+        "1",
+        "0",
+        "0",
+        "0"
       ],
       [
         "RAM",
         "46",
         "Rens Adisea",
-        "",
-        "",
-        "",
-        ""
+        "53",
+        "48",
+        "8",
+        "18"
       ],
       [
         "ST",
         "11",
         "Endrick",
-        "",
-        "",
-        "",
-        ""
+        "54",
+        "25",
+        "28",
+        "22"
       ],
       [
         "ST",
         "22",
         "Patrik Novotný",
-        "",
-        "",
-        "",
-        ""
+        "8",
+        "0",
+        "0",
+        "1"
       ]
     ]
   }
@@ -11807,6 +11922,444 @@ COMPETITION_TABLES.rens = {
       ]
     }
   },
-  // 2035–36: no current European standings supplied; blank template rows are omitted.
-  "2035–36": {}
+  // 2035–36: completed league phase; Arsenal's goal difference was confirmed as 0.
+  "2035–36": {
+    "UEFA Champions League": {
+      "type": "league",
+      "rows": [
+        [
+          "1",
+          "Nottingham Forest",
+          "8",
+          "7",
+          "1",
+          "0",
+          "17",
+          "7",
+          "10",
+          "22"
+        ],
+        [
+          "2",
+          "Borussia Dortmund",
+          "8",
+          "7",
+          "0",
+          "1",
+          "16",
+          "6",
+          "10",
+          "21"
+        ],
+        [
+          "3",
+          "RB Leipzig",
+          "8",
+          "6",
+          "2",
+          "0",
+          "18",
+          "9",
+          "9",
+          "20"
+        ],
+        [
+          "4",
+          "OM",
+          "8",
+          "6",
+          "1",
+          "1",
+          "19",
+          "8",
+          "11",
+          "19"
+        ],
+        [
+          "5",
+          "FC Barcelona",
+          "8",
+          "6",
+          "1",
+          "1",
+          "17",
+          "7",
+          "10",
+          "19"
+        ],
+        [
+          "6",
+          "OL",
+          "8",
+          "6",
+          "0",
+          "2",
+          "16",
+          "11",
+          "5",
+          "18"
+        ],
+        [
+          "7",
+          "Real Madrid",
+          "8",
+          "5",
+          "1",
+          "2",
+          "16",
+          "7",
+          "9",
+          "16"
+        ],
+        [
+          "8",
+          "Frankfurt",
+          "8",
+          "5",
+          "1",
+          "2",
+          "12",
+          "6",
+          "6",
+          "16"
+        ],
+        [
+          "9",
+          "FC Bayern München",
+          "8",
+          "4",
+          "2",
+          "2",
+          "11",
+          "6",
+          "5",
+          "14"
+        ],
+        [
+          "10",
+          "Stade Rennais FC",
+          "8",
+          "4",
+          "2",
+          "2",
+          "13",
+          "10",
+          "3",
+          "14"
+        ],
+        [
+          "11",
+          "Arsenal",
+          "8",
+          "4",
+          "2",
+          "2",
+          "12",
+          "12",
+          "0",
+          "14"
+        ],
+        [
+          "12",
+          "Celtic",
+          "8",
+          "4",
+          "1",
+          "3",
+          "12",
+          "11",
+          "1",
+          "13"
+        ],
+        [
+          "13",
+          "Strasbourg",
+          "8",
+          "2",
+          "5",
+          "1",
+          "12",
+          "9",
+          "3",
+          "11"
+        ],
+        [
+          "14",
+          "Club Brugge",
+          "8",
+          "2",
+          "5",
+          "1",
+          "13",
+          "12",
+          "1",
+          "11"
+        ],
+        [
+          "15",
+          "RB Salzburg",
+          "8",
+          "3",
+          "2",
+          "3",
+          "12",
+          "12",
+          "0",
+          "11"
+        ],
+        [
+          "16",
+          "Manchester City",
+          "8",
+          "3",
+          "1",
+          "4",
+          "14",
+          "12",
+          "2",
+          "10"
+        ],
+        [
+          "17",
+          "Ajax",
+          "8",
+          "3",
+          "1",
+          "4",
+          "12",
+          "14",
+          "-2",
+          "10"
+        ],
+        [
+          "18",
+          "Rangers",
+          "8",
+          "3",
+          "1",
+          "4",
+          "9",
+          "11",
+          "-2",
+          "10"
+        ],
+        [
+          "19",
+          "SL Benfica",
+          "8",
+          "3",
+          "1",
+          "4",
+          "7",
+          "9",
+          "-2",
+          "10"
+        ],
+        [
+          "20",
+          "Chelsea",
+          "8",
+          "1",
+          "6",
+          "1",
+          "13",
+          "11",
+          "2",
+          "9"
+        ],
+        [
+          "21",
+          "Real Sociedad",
+          "8",
+          "2",
+          "3",
+          "3",
+          "12",
+          "11",
+          "1",
+          "9"
+        ],
+        [
+          "22",
+          "Inter Milan",
+          "8",
+          "2",
+          "3",
+          "3",
+          "10",
+          "9",
+          "1",
+          "9"
+        ],
+        [
+          "23",
+          "Trabzonspor",
+          "8",
+          "2",
+          "3",
+          "3",
+          "12",
+          "12",
+          "0",
+          "9"
+        ],
+        [
+          "24",
+          "FC Famalicão",
+          "8",
+          "2",
+          "3",
+          "3",
+          "12",
+          "14",
+          "-2",
+          "9"
+        ],
+        [
+          "25",
+          "KRC Genk",
+          "8",
+          "3",
+          "0",
+          "5",
+          "10",
+          "14",
+          "-4",
+          "9"
+        ],
+        [
+          "26",
+          "Dynamo Kyiv",
+          "8",
+          "3",
+          "0",
+          "5",
+          "8",
+          "14",
+          "-6",
+          "9"
+        ],
+        [
+          "27",
+          "AC Milan",
+          "8",
+          "1",
+          "5",
+          "2",
+          "10",
+          "10",
+          "0",
+          "8"
+        ],
+        [
+          "28",
+          "Juventus",
+          "8",
+          "1",
+          "5",
+          "2",
+          "10",
+          "11",
+          "-1",
+          "8"
+        ],
+        [
+          "29",
+          "Villarreal CF",
+          "8",
+          "0",
+          "6",
+          "2",
+          "7",
+          "10",
+          "-3",
+          "6"
+        ],
+        [
+          "30",
+          "FK Bodø/Glimt",
+          "8",
+          "1",
+          "3",
+          "4",
+          "7",
+          "13",
+          "-6",
+          "6"
+        ],
+        [
+          "31",
+          "Feyenoord",
+          "8",
+          "1",
+          "2",
+          "5",
+          "8",
+          "15",
+          "-7",
+          "5"
+        ],
+        [
+          "32",
+          "CS Univ. Craiova",
+          "8",
+          "1",
+          "2",
+          "5",
+          "8",
+          "15",
+          "-7",
+          "5"
+        ],
+        [
+          "33",
+          "Ferencvárosi TC",
+          "8",
+          "1",
+          "2",
+          "5",
+          "6",
+          "18",
+          "-12",
+          "5"
+        ],
+        [
+          "34",
+          "FC Midtjylland",
+          "8",
+          "1",
+          "1",
+          "6",
+          "8",
+          "18",
+          "-10",
+          "4"
+        ],
+        [
+          "35",
+          "Slavia Praha",
+          "8",
+          "1",
+          "0",
+          "7",
+          "4",
+          "17",
+          "-13",
+          "3"
+        ],
+        [
+          "36",
+          "AEK Athens",
+          "8",
+          "0",
+          "2",
+          "6",
+          "5",
+          "17",
+          "-12",
+          "2"
+        ]
+      ]
+    }
+  }
 };

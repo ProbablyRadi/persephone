@@ -1,86 +1,35 @@
-// Run this file with: node --test tests/players/rens.test.js
+// Run: node --test tests/players/rens.test.js
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
 const { createSite, plain, root } = require('../helpers/site');
+const finalSheet = require('../fixtures/rens-2035-final.json');
 
-test("Rens 2035–36: unranked league entrants and an unreported-stat Dortmund squad", () => {
+test('Rens 2035–36: completed standings, relegations, squad statistics and flags', () => {
     const site = createSite();
-    const { context } = site;
-    const expectedTeams = [
-        'RB Leipzig', 'Borussia Dortmund', 'TSG Hoffenheim', 'Union Berlin',
-        'Frankfurt', 'Leverkusen', 'FC Bayern München', 'VfB Stuttgart',
-        'Hannover 96', 'VfL Wolfsburg', 'Hertha BSC', '1. FSV Mainz 05',
-        'Hamburger SV', 'SV Werder Bremen', 'SC Freiburg', '1. FC Nürnberg',
-        'FC Augsburg', '1. FC Köln',
-    ];
-    const current = vm.runInContext('SEASON_TABLES.rens["2035–36"]', context);
-    const previous = vm.runInContext('SEASON_TABLES.rens["2034–35"]', context);
+    const { context, evaluate } = site;
+    const current = evaluate('SEASON_TABLES.rens["2035–36"]');
     assert.equal(current.league, 'Bundesliga');
     assert.equal(current.club, 'Borussia Dortmund');
-    assert.equal(current.standings.length, 18);
-    assert.deepEqual(Array.from(current.standings, row => row[1]), expectedTeams);
-    assert(current.standings.every(row => row.length === 10 && row[0] === ''
-        && row.slice(2).every(value => value === '')),
-        'Unknown league positions and stats must remain blank');
-    assert.equal(previous.standings[16][1], 'Holstein Kiel');
-    assert.equal(previous.standings[17][1], 'Mönchengladbach');
-    assert.equal(vm.runInContext('DATA.rens.seasons["2035–36"].inProgress', context), true);
-    assert.equal(vm.runInContext('TEAM_FLAGS["Hannover 96"]', context), '🇩🇪');
-
-    const movement = vm.runInContext('timelineLeagueMovement("rens", "2035–36", "2034–35")', context);
-    assert.deepEqual(Array.from(movement.entered), ['Hannover 96', '1. FC Nürnberg']);
-    assert.equal(movement.inProgress, true);
-    assert.equal(movement.relegated, null, 'Current-season relegation is not known');
-
-    vm.runInContext('careerTimeline("rens")', context);
-    const currentCard = context.app.innerHTML.split('<span>2035–36</span>')[1];
-    assert(currentCard, '2035–36 timeline card not present');
-    assert(currentCard.includes('Entered'));
-    for (const club of ['Hannover 96', '1. FC Nürnberg']) {
-        assert(currentCard.includes(`↑ 🇩🇪 ${club}`), `${club} missing from the entrant list`);
+    assert.deepEqual(plain(current.standings), finalSheet.standings);
+    assert.deepEqual(plain(current.squad), finalSheet.squad);
+    assert.equal(current.squad.length, 24);
+    assert(current.standings.every(row => Number(row[2]) === 34 && Number(row[3]) + Number(row[4]) + Number(row[5]) === 34));
+    assert(!evaluate('DATA.rens.seasons["2035–36"].inProgress'));
+    const movement = evaluate('timelineLeagueMovement("rens", "2035–36", "2034–35")');
+    assert.deepEqual(plain(movement.entered), ['1. FC Nürnberg', 'Hannover 96']);
+    assert.equal(movement.inProgress, false);
+    assert.deepEqual(plain(movement.relegated), ['1. FC Nürnberg', 'Hannover 96']);
+    evaluate('careerTimeline("rens")');
+    const card = context.app.innerHTML.split('<span>2035–36</span>')[1];
+    assert(card.includes('68 pts'));
+    assert(!card.includes('Not final — season in progress.'));
+    for (const club of ['1. FC Nürnberg', 'Hannover 96']) {
+        assert(card.includes('↑ 🇩🇪 ' + club));
+        assert(card.includes('↓ 🇩🇪 ' + club));
     }
-    assert(currentCard.includes('Not final — season in progress.'),
-        'Current relegation should not be declared yet');
-    assert(!currentCard.includes('Unknown — no previous table for this league is supplied.'),
-        'Previous Bundesliga standings are available');
-
-    // The in-progress Dortmund squad must preserve all supplied names, shirt
-    // numbers and positions without inventing appearance or goal statistics.
-    const expectedSquad = [
-        ['GK', '1', 'Gregor Kobel'],
-        ['GK', '12', 'Everton Teixeira'],
-        ['CB', '39', 'Filippo Mane'],
-        ['CB', '47', 'Elias Benkara'],
-        ['CB', '4', 'Nico Schlotterbeck'],
-        ['CB', '2', 'Kai Riedel'],
-        ['CB', '3', 'Giulio Valentini'],
-        ['RB', '5', 'Brooke Norton-Cuffy'],
-        ['RB', '6', 'Samuel Flament'],
-        ['CDM', '23', 'Tariq Benzai'],
-        ['LM', '24', 'Pedro Villalba'],
-        ['LM', '8', 'Ryan Cordier'],
-        ['CM', '7', 'Kjell Wätjen'],
-        ['CAM', '45', 'Danylo Krevsun'],
-        ['CAM', '40', 'Samuele Inacio'],
-        ['CAM', '17', 'Carney Chukwuemeka'],
-        ['CAM', '15', 'Jonathan Friedrich'],
-        ['CAM', '20', 'Petr Vávra'],
-        ['CAM', '25', 'João Paulo Soares'],
-        ['CAM', '19', 'Andon Mihov'],
-        ['RAM', '46', 'Rens Adisea'],
-        ['ST', '11', 'Endrick'],
-        ['ST', '22', 'Patrik Novotný'],
-    ];
-    assert.deepEqual(
-        Array.from(current.squad, row => Array.from(row.slice(0, 3))),
-        expectedSquad,
-        '2035–36 Dortmund roster differs from the supplied player list',
-    );
-    assert(current.squad.every(row => row.length === 7 && row.slice(3).every(value => value === '')),
-        'In-progress individual stats should stay blank');
     const squadFlags = vm.runInContext('DATA.rens.squadFlags', context);
     const knownFlags = {
         'Gregor Kobel': '🇨🇭',
@@ -112,6 +61,7 @@ test("Rens 2035–36: unranked league entrants and an unreported-stat Dortmund s
         'João Paulo Soares': '🇧🇷',
         'Andon Mihov': '🇲🇰',
         'Patrik Novotný': '🇨🇿',
+        'Jonathan Barcelos': '🇧🇷',
     };
     for (const [name, flag] of Object.entries(confirmedFlags)) {
         assert.equal(squadFlags[name], flag, `${name} nationality mapping`);
@@ -119,41 +69,19 @@ test("Rens 2035–36: unranked league entrants and an unreported-stat Dortmund s
         assert(asset && fs.existsSync(path.join(root, asset)), `${name}: local flag asset missing`);
     }
     assert.equal(vm.runInContext('TEAM_FLAGS["North Macedonia"]', context), '🇲🇰');
-    const html = vm.runInContext('squadTable(SEASON_TABLES.rens["2035–36"], "rens", true)', context);
-    assert.equal((html.match(/<tr class=/g) || []).length, 23, 'All squad players should render');
+    const html = vm.runInContext('squadTable(SEASON_TABLES.rens["2035–36"], "rens", false)', context);
+    assert.equal((html.match(/<tr class=/g) || []).length, 24, 'All squad players should render');
     assert(html.includes('class="focus-player"'), 'Rens should be highlighted in squad');
     assert(html.includes('Gregor Kobel') && html.includes('Patrik Novotný'));
     assert(!html.includes('not yet been populated'));
 });
 
-test('Rens 2035–36: latest results, live record and dependent views match the supplied sheet', () => {
+test('Rens 2035–36: final results, career totals, honours, timeline and graphs', () => {
     const site = createSite();
     const { evaluate } = site;
-    const expected = {
-        'Pre-season friendlies': [
-            'Borussia Dortmund 5 - 0 Inter Milan', 'AS Roma 0 - 1 Borussia Dortmund',
-            'Borussia Dortmund 2 - 3 Arsenal'
-        ],
-        'Bundesliga': [
-            'Leverkusen 0 - 2 Borussia Dortmund', 'VfB Stuttgart 3 - 2 Borussia Dortmund',
-            'Borussia Dortmund 4 - 1 SC Freiburg', '1. FC Köln 1 - 2 Borussia Dortmund',
-            'Borussia Dortmund 2 - 0 SV Werder Bremen', '1. FC Nürnberg 2 - 2 Borussia Dortmund',
-            'Borussia Dortmund 6 - 0 FC Augsburg', 'Hamburger SV 0 - 1 Borussia Dortmund',
-            'Borussia Dortmund 1 - 1 1. FSV Mainz 05', 'FC Bayern München 0 - 3 Borussia Dortmund'
-        ],
-        'F. Beckenbauer Supercup': ['FC Bayern München 1 - 4 Borussia Dortmund'],
-        'DFB-Pokal': ['VfB Stuttgart 0 - 3 Borussia Dortmund'],
-        'UEFA Champions League': [
-            'Borussia Dortmund 2 - 0 Arsenal', 'Stade Rennais FC 1 - 2 Borussia Dortmund',
-            'Borussia Dortmund 2 - 0 Rangers', 'Borussia Dortmund 1 - 4 OM'
-        ],
-        'Euros Qualifiers': ['Ukraine 2 - 1 Netherlands'],
-        'International Friendlies': [
-            'England 2 - 2 Netherlands', 'Netherlands 2 - 1 Iceland', 'France 0 - 6 Netherlands'
-        ]
-    };
-    assert.deepEqual(plain(evaluate('FULL_FIXTURES.rens["2035–36"]')), expected);
-    const leagueRecord = evaluate(`(() => {
+    assert.deepEqual(plain(evaluate('FULL_FIXTURES.rens["2035–36"]')), finalSheet.fixtures);
+    assert.deepEqual(plain(evaluate('DATA.rens.uefaRoundBreaks["2035–36|UEFA Champions League"]')), finalSheet.rounds);
+    const record = evaluate(`(() => {
         const totals = { win: 0, draw: 0, loss: 0, gf: 0, ga: 0 };
         for (const raw of FULL_FIXTURES.rens['2035–36'].Bundesliga) {
             const fixture = parseFixture(raw);
@@ -164,31 +92,40 @@ test('Rens 2035–36: latest results, live record and dependent views match the 
         }
         return totals;
     })()`);
-    assert.deepEqual(plain(leagueRecord), { win: 7, draw: 2, loss: 1, gf: 25, ga: 8 });
-    const season = evaluate('DATA.rens.seasons["2035–36"]');
-    assert(season.inProgress);
-    assert.equal(season.table, 'In progress — 23 pts from 10 recorded matches; position not reported');
-    assert(!season.summary.includes('73 pts'));
-    assert(!season.competitions['UEFA Champions League'].join(' ').includes('6th'));
-    assert.deepEqual(plain(evaluate('COMPETITION_TABLES.rens["2035–36"]')), {},
-        'Blank European template rows must not retain a stale completed table');
-    assert.equal(evaluate('PRESEASON_TABLES.rens["2035–36"].rows[1][9]'), '6');
-    assert.deepEqual(plain(evaluate('DATA.rens.stats.at(-1).slice(4)')), ['—', '—', '—', '—', '—', '—'],
-        'Team results do not supply Rens’s individual statistics');
-    assert(evaluate('comparisonLeagueData("rens").every(league => !league.years.includes("2035–36"))'));
-
-    site.navigate('#rens/2035–36');
-    for (const competition of Object.keys(expected)) assert(site.app.innerHTML.includes(competition));
-    assert(site.app.innerHTML.includes('23 pts from 10 recorded matches'));
-    assert(!site.app.innerHTML.includes('League phase table'), 'Unreported European standings stay hidden');
-    assert.equal((site.app.innerHTML.match(/class="fixture-match/g) || []).length, 23);
-    for (const [competition, fixtures] of Object.entries(expected)) {
-        const focal = evaluate(`focalFor('rens', '2035–36', ${JSON.stringify(competition)})`);
-        assert.equal(focal, /Qualifiers|Friendlies/.test(competition) ? 'Netherlands' : 'Borussia Dortmund');
-        for (const raw of fixtures) {
-            const fixture = evaluate(`parseFixture(${JSON.stringify(raw)})`);
-            for (const team of [fixture.home, fixture.away])
-                assert(evaluate(`teamFlag(${JSON.stringify(team)})`), `${team}: missing flag`);
-        }
+    assert.deepEqual(plain(record), { win: 20, draw: 8, loss: 6, gf: 67, ga: 37 });
+    assert.deepEqual(plain(evaluate('DATA.rens.stats.at(-1).slice(4)')), ['1st', '6.8', 53, 48, 8, 18]);
+    assert.deepEqual(plain(evaluate('DATA.rens.career[3].slice(2)')), [53, 48]);
+    assert.deepEqual(plain(evaluate('DATA.rens.intl.slice(2)')), [48, 34]);
+    assert.deepEqual(plain(evaluate('DATA.rens.careerAwards["2035–36"]')), { playerOfTheMonth: 3, playerOfTheMatch: 15 });
+    assert(evaluate('DATA.rens.intro.at(-1).includes("48 appearances and scored 34 goals")'));
+    const honours = evaluate('DATA.rens.honours["🇩🇪 Borussia Dortmund"]');
+    for (const title of ['Bundesliga: 2035–36', 'DFB-Pokal: 2035–36', 'Player of the Season: 2035–36'])
+        assert(honours.some(item => item.includes(title)));
+    const bundesliga = evaluate('comparisonLeagueData("rens").find(league => league.name === "Bundesliga")');
+    assert.deepEqual(plain(bundesliga.years), ['2033–34', '2034–35', '2035–36']);
+    assert.equal(bundesliga.positions.get('Borussia Dortmund').get('2035–36'), 1);
+    const finals = evaluate('timelineCupFinals("rens", "2035–36")');
+    assert.equal(finals.find(f => f.comp === 'DFB-Pokal').winner, 'Borussia Dortmund');
+    assert.equal(finals.find(f => f.comp === 'UEFA Champions League').winner, 'Manchester City');
+    assert.equal(finals.find(f => f.comp === 'UEFA Europa League').winner, 'AS Roma');
+    assert.equal(finals.find(f => f.comp === 'UEFA Conference League').winner, 'F.C. København');
+    const weights = evaluate('h2hFixtureWeights("rens", "2035–36", "UEFA Champions League", FULL_FIXTURES.rens["2035–36"]["UEFA Champions League"], "Borussia Dortmund")');
+    assert.equal(weights[18], 2, 'Round-of-16 aggregate represents both legs');
+    assert.equal(weights[24], 2, 'Quarter-final aggregate represents both legs');
+    const european = evaluate('COMPETITION_TABLES.rens["2035–36"]["UEFA Champions League"]');
+    assert.equal(european.rows.length, 36);
+    assert.deepEqual(plain(european.rows[1]), ['2', 'Borussia Dortmund', '8', '7', '0', '1', '16', '6', '10', '21']);
+    for (const fixtures of Object.values(finalSheet.fixtures)) for (const raw of fixtures) {
+        const match = evaluate('parseFixture(' + JSON.stringify(raw) + ')');
+        for (const team of [match.home, match.away]) assert(evaluate('teamFlag(' + JSON.stringify(team) + ')'), team + ': missing flag');
     }
+    site.navigate('#rens/2035–36');
+    assert(site.app.innerHTML.includes('68 pts'));
+    assert(!site.app.innerHTML.includes('In progress'));
+    assert.equal((site.app.innerHTML.match(/class="fixture-match/g) || []).length, 91);
+    site.navigate('#rens/stats');
+    const stats = evaluate('statHistory(DATA.rens).at(-1)');
+    assert.deepEqual(plain([stats.goals, stats.assists, stats.contributions, stats.cleanSheets]), [48, 8, 56, 18]);
+    site.navigate('#rens/comparisons');
+    assert(site.app.innerHTML.includes('2035–36'));
 });

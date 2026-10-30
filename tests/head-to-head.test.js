@@ -8,7 +8,7 @@ test("All career H2H totals, represented teams, aggregate legs and penalty outco
     const site = createSite();
     const { context } = site;
     const expected = {
-        rens: { opponents: 155, played: 571, wins: 360, draws: 91, losses: 104, aggregateOnlyTies: 16 },
+        rens: { opponents: 164, played: 617, wins: 390, draws: 99, losses: 110, aggregateOnlyTies: 18 },
         jordan: { opponents: 112, played: 319, wins: 164, draws: 66, losses: 87, aggregateOnlyTies: 2 },
         vasi: { opponents: 41, played: 221, wins: 159, draws: 29, losses: 22, aggregateOnlyTies: 11 },
     };

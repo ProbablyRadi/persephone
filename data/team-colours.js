@@ -75,6 +75,7 @@ const TEAM_COLOURS = {
     '1. FSV Mainz 05': ['#c3141e', '#ffffff'],
     'Bayer Leverkusen': ['#e32221', '#191919'],
     'Borussia Dortmund': ['#fde100', '#191919'],
+    'Hannover 96': ['#009a44', '#191919'],
     'Eintracht Frankfurt': ['#e1000f', '#191919'],
     'FC Augsburg': ['#c6282e', '#25834b'],
     'FC Bayern München': ['#dc052d', '#ffffff'],

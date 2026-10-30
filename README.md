@@ -50,6 +50,7 @@ persephone/
 │   └── stadium-glass-bg.jpg
 └── tests/
     ├── fixtures/
+    │   ├── rens-2035-final.json
     │   └── vasi-2029-final.json
     ├── helpers/
     │   └── site.js
@@ -189,10 +190,11 @@ node --test tests/players/vasi.test.js
 | `international.test.js` | Tournament editions staying within one season, matching fixtures/tables/summaries and World Cup podiums. Distinguishes World Cup 2026 from World Cup 2030 even when both use the name World Cup. |
 | `season-comparisons.test.js` | League finishes, team colours, completed-season filtering, promotions/relegations, missing records and entry/exit line geometry. |
 | `players/jordan.test.js` | Jordan's 2028–29 and 2029–30 completed seasons, the live 2030–31 Brighton season, squads, nationalities and related timeline/results views. |
-| `players/rens.test.js` | Rens's 2035–36 league entrants, Dortmund roster, confirmed flags and unreported figures remaining blank. |
+| `players/rens.test.js` | Rens's completed 2035–36 results, final standings, squads, honours, career totals, knockout aggregates, timeline and graphs. |
 | `players/vasi.test.js` | Vasi's 2028–29 and 2029–30 seasons, corrected scores, final standings/squads, aggregate accounting and dependent charts/pages. |
 | `helpers/site.js` | Loads the real data and renderer scripts listed in `index.html` into a fresh isolated JavaScript context for each check. Supplies minimal browser doubles for routing tests. |
 | `fixtures/vasi-2029-final.json` | A reference copy of the supplied final season sheet, used to verify every imported score, table and squad row independently of the current data file. |
+| `fixtures/rens-2035-final.json` | Rens's final 2035–36 scores, squads, standings and European round boundaries, including the supplied corrections and retained Euros qualifiers. |
 
 The nine test files contain named checks, so a failure identifies the feature
 or season that needs investigation. Character-specific checks stay grouped

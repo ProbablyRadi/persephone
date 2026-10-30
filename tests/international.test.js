@@ -106,6 +106,23 @@ test("Tournament editions stay together without treating different World Cups as
     // Existing non-split Rens tournaments are not moved to a different season.
     assert.equal(FULL_FIXTURES.rens['2032–33']['Euros 2032'].length, 18);
     assert.equal(FULL_FIXTURES.rens['2034–35']['World Cup 2034'].length, 35);
+
+    // All eight supplied Rens qualifiers belong to 2035–36, including Ukraine away.
+    assert.deepEqual(plain(FULL_FIXTURES.rens['2035–36']['Euros Qualifiers']), [
+        'Wales 2 - 4 Netherlands', 'Netherlands 2 - 0 Ukraine',
+        'Czechia 1 - 2 Netherlands', 'Netherlands 3 - 0 Denmark',
+        'Netherlands 3 - 0 Wales', 'Denmark 1 - 2 Netherlands',
+        'Netherlands 1 - 1 Czechia', 'Ukraine 2 - 1 Netherlands'
+    ]);
+    assert(!FULL_FIXTURES.rens['2034–35']['Euros Qualifiers']);
+    assert.equal(DATA.rens.seasons['2035–36'].competitions['Euros Qualifiers'].length, 8);
+    assert(!DATA.rens.seasons['2034–35'].competitions['Euros Qualifiers']);
+    assert(!DATA.rens.seasons['2034–35'].summary.includes('qualifiers'));
+    site.navigate('#rens/2034–35');
+    assert(!site.app.innerHTML.includes('section-euros-qualifiers'));
+    site.navigate('#rens/2035–36');
+    assert(site.app.innerHTML.includes('section-euros-qualifiers'));
+    assert(site.app.innerHTML.includes('Wales'));
 });
 
 test("World Cup podiums use final/third-place scores, including penalties and missing-result cases", () => {

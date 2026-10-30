@@ -93,13 +93,16 @@ test("Profiles: chronological histories, awards, totals, live/future exclusions 
     assert.deepEqual(jordanTotal.slice(5), ['6.2', '0', '9', '208', '1', '12', '76'],
         'Jordan career totals should include the completed 2028–29 season');
 
-    // Rens has no Dortmund appearances/goals or league finish reported yet.
+    // Rens's completed Dortmund season enters the overview and club-career totals.
     const rensOverview = snapshot('rens');
     const rensSeason = cellsOf(rensOverview, 'season').find(row => row[1] === '2035–36');
-    assert(rensSeason && rensSeason[4] === '—', 'Rens 2035–36 league finish should be a dash');
+    assert(rensSeason && rensSeason[4] === '1st', 'Rens’s final league position should be first');
+    assert.deepEqual(rensSeason.slice(5), ['6.8', '3', '15', '53', '48', '8', '18']);
     const rensInfobox = vm.runInContext('infobox(DATA.rens)', context);
-    assert.match(rensInfobox, /2035–[\s\S]*?Borussia Dortmund[\s\S]*?<td class="infobox-career-num">—<\/td>\s*<td class="infobox-career-num">—<\/td>/,
-        'Rens Dortmund appearances and goals should be dashes');
+    assert.match(rensInfobox, /2035–[\s\S]*?Borussia Dortmund[\s\S]*?<td class="infobox-career-num">53<\/td>\s*<td class="infobox-career-num">48<\/td>/,
+        'Rens Dortmund career totals should include the completed season');
+    const rensGrand = cellsOf(rensOverview, 'grand-total')[0];
+    assert.deepEqual(rensGrand.slice(8, 10), ['534', '379']);
 
     const jordanInfobox = vm.runInContext('infobox(DATA.jordan)', context);
     assert.match(jordanInfobox, /<td>Boot brand<\/td>\s*<td>New Balance<\/td>/,
@@ -111,7 +114,7 @@ test("Profiles: chronological histories, awards, totals, live/future exclusions 
     const jordanCareer = vm.runInContext('DATA.jordan.career', context);
     const rensInternational = vm.runInContext('DATA.rens.intl', context);
     const jordanInternational = vm.runInContext('DATA.jordan.intl', context);
-    assert.deepEqual(Array.from(rensInternational.slice(2)), [42, 31]);
+    assert.deepEqual(Array.from(rensInternational.slice(2)), [48, 34]);
     assert.deepEqual(Array.from(jordanInternational.slice(2)), [50, 0]);
     assert.deepEqual(Array.from(rensCareer.map(row => row[0])),
         ['2025–2028', '2028–2033', '2033–2035', '2035–2040', '2040–2043']);
